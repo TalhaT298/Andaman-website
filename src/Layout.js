@@ -1,4 +1,4 @@
-import { Content } from "./content.js"
+import  Content  from "./content.js"
 import { Box } from "./Box.js";
 
 export const Layout = ({ children }) => (

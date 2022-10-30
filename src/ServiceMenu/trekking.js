@@ -1,9 +1,9 @@
 import { Grid } from "@nextui-org/react";
 
-import  Card  from './Component/Card';
+import  Card  from '../Component/Card';
 
 
-export default function content() {
+export default function trekking() {
   
   return (
     <Grid.Container gap={2} justify="flex-start">

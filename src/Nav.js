@@ -130,17 +130,17 @@ export default class Navapp extends Component {
             </Navbar.Collapse>
         </Navbar>
 
-        <Button.Group color="gradient" ghost css={{"display":"flex","alignContent":"center","justifyContent":"center"}}>
-            <Button>Flights</Button>
-            <Button>Ship</Button>
-            <Button>Virtual Hotel</Button>
-            <Button>Bus</Button>
-            <Button>Sea Activity</Button>
-            <Button>Paying Guest</Button>
-            <Button>Travel Package</Button>
-            <Button>Rental Cab</Button>
-            <Button>Cruiser Dinning</Button>
-            <Button>Trekking</Button>
+        <Button.Group color="error" variant="shadow" light css={{"display":"flex","alignContent":"center","justifyContent":"center"}}>
+            <NavLink to="/Flight"><Button>Flights</Button></NavLink>
+            <NavLink to="/Ship"><Button>Ship</Button></NavLink>
+            <NavLink to="/hotel"><Button>Virtual Hotel</Button></NavLink>
+            <NavLink to="/bus"><Button>Bus</Button></NavLink>
+            <NavLink to="/activity"><Button>Sea Activity</Button></NavLink>
+            <NavLink to="/pg"><Button>Paying Guest</Button></NavLink>
+            <NavLink to="/travelpg"><Button>Travel Package</Button></NavLink>
+            <NavLink to="/cab"><Button>Rental Cab</Button></NavLink>
+            <NavLink to="/dinning"><Button>Cruiser Dinning</Button></NavLink>
+            <NavLink to="/trekking"><Button>Trekking</Button></NavLink>
         </Button.Group>
                             
         </Layout></>
