@@ -23,7 +23,7 @@ export default function App() {
         <Navbar.Brand
           css={{
             "@xs": {
-              w: "12%",
+              w: "12%"
             },
           }}
         >
