@@ -1,6 +1,6 @@
-import  Content  from "./content.js"
-import { Box } from "./Box.js";
 
+import { Box } from "./Box.js";
+import  TabView from "./Component/TabView.js";
 export const Layout = ({ children }) => (
   <Box
     css={{
@@ -8,6 +8,6 @@ export const Layout = ({ children }) => (
     }}
   >
     {children}
-    <Content />
+    <TabView />
   </Box>
 );

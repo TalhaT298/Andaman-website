@@ -1,8 +1,9 @@
 import React, { Component } from 'react'
 import { Navbar, Link, Text, Avatar, Dropdown } from "@nextui-org/react";
-import { Layout } from "./Layout.js";
+import  {Layout}  from "./Layout.js";
 import { AcmeLogo } from "./AcmeLogo.js";
-import { Button } from "@nextui-org/react";
+
+
 import {
     NavLink 
   } from "react-router-dom";
@@ -21,7 +22,10 @@ import {
   ];
 
 export default class Navapp extends Component {
-  render() {
+
+  render() {  
+    
+
     return (
         <><Layout>
         <Navbar isBordered variant="floating">
@@ -46,13 +50,35 @@ export default class Navapp extends Component {
             >
             <NavLink to="/Explore">
               <Navbar.Link> 
-                    Explore
+                     <Text
+                            h3
+                            size={30}
+                            color="error"
+                            weight="bold"
+                            >
+                        Explore
+                    </Text>
               </Navbar.Link></NavLink>
-              <NavLink to="/Stay"><Navbar.Link isActive >
-                    Stay
+              <NavLink to="/Stay"><Navbar.Link>
+              <Text
+                            h3
+                            size={30}
+                            color="error"
+                            weight="bold"
+                            >
+                        Stay
+                    </Text>
             </Navbar.Link></NavLink>
             <NavLink to="/Fun">
-                <Navbar.Link >Fun</Navbar.Link>
+                <Navbar.Link >
+                    <Text
+                            h3
+                            size={30}
+                            color="error"
+                            weight="bold"
+                            >
+                        Fun
+                    </Text></Navbar.Link>
                 </NavLink>
             </Navbar.Content>
             <Navbar.Content
@@ -129,21 +155,10 @@ export default class Navapp extends Component {
             ))}
             </Navbar.Collapse>
         </Navbar>
-
-        <Button.Group color="error" variant="shadow" light css={{"display":"flex","alignContent":"center","justifyContent":"center"}}>
-            <NavLink to="/Flight"><Button>Flights</Button></NavLink>
-            <NavLink to="/Ship"><Button>Ship</Button></NavLink>
-            <NavLink to="/hotel"><Button>Virtual Hotel</Button></NavLink>
-            <NavLink to="/bus"><Button>Bus</Button></NavLink>
-            <NavLink to="/activity"><Button>Sea Activity</Button></NavLink>
-            <NavLink to="/pg"><Button>Paying Guest</Button></NavLink>
-            <NavLink to="/travelpg"><Button>Travel Package</Button></NavLink>
-            <NavLink to="/cab"><Button>Rental Cab</Button></NavLink>
-            <NavLink to="/dinning"><Button>Cruiser Dinning</Button></NavLink>
-            <NavLink to="/trekking"><Button>Trekking</Button></NavLink>
-        </Button.Group>
-                            
+            
+                
         </Layout></>
     )
   }
+
 }

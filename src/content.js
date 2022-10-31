@@ -3,7 +3,7 @@ import { Grid } from "@nextui-org/react";
 import  Card  from './Component/Card';
 
 
-export default function content() {
+export default function Content() {
   
   return (
     <Grid.Container gap={2} justify="flex-start">
