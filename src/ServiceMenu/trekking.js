@@ -1,4 +1,4 @@
-import  Card  from '@coreui/react';
+import  {Card}  from '@coreui/react';
 
 
 export default function trekking() {
