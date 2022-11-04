@@ -9,14 +9,23 @@ import Bus from "../ServiceMenu/bus";
 import Activity from '../ServiceMenu/activity';
 import Trekking from "../ServiceMenu/trekking.js"
 import { Container } from "@nextui-org/react";
-
-
+import FlightIcon from '@mui/icons-material/Flight';
+import HouseIcon from '@mui/icons-material/House';
+import SailingIcon from '@mui/icons-material/Sailing';
+import DirectionsBusFilledIcon from '@mui/icons-material/DirectionsBusFilled';
+import LocalTaxiIcon from '@mui/icons-material/LocalTaxi';
+import ScubaDivingIcon from '@mui/icons-material/ScubaDiving';
+import BungalowIcon from '@mui/icons-material/Bungalow';
+import BackpackIcon from '@mui/icons-material/Backpack';
+import DinnerDiningIcon from '@mui/icons-material/DinnerDining';
+import HikingIcon from '@mui/icons-material/Hiking';
+import SetMealIcon from '@mui/icons-material/SetMeal';
 export default class TabView extends Component {
-    state={val:0}
+    state={val:0,weight:"",tabcolor:""}
   render() {
     const handleTabs=(e,val)=>{
         console.warn(val)
-        this.setState({value:val})
+        this.setState({val:val,weight:"bolder",tabcolor:"#100E09"})
     }
 
     function TabPanel(props){
@@ -25,31 +34,37 @@ export default class TabView extends Component {
             {value===index && (<h1>{children}</h1>)}
         </div>);
     }
+   
     return (
+     
       <Container fluid>
    
-          <Tabs value={this.state.value} 
+          <Tabs value={this.state.val} 
           onChange={handleTabs}  
           variant="scrollable"
+          textColor='#757574'
+          indicatorColor='#757574'
+          centered={true} 
           scrollButtons="auto"
+          visibleScrollbar='true'
           TabIndicatorProps={{
             style: {
-              backgroundColor: "#D97D54",
-              color:"#D97D54"
+              backgroundColor: "#757574",
             }
           }}
           
           >
-                  <Tab label="Flights" style={{color:"black"}} />
-                  <Tab label="Hotels"/>
-                  <Tab label="Ship"/>
-                  <Tab label="Bus"/>
-                  <Tab label="Cabs"/>
-                  <Tab label="Activity"/>
-                  <Tab label="Paying Guest"/>
-                  <Tab label="Travel Package"/>
-                  <Tab label="Dinning"/>
-                  <Tab label="Trekking"/>
+                  <Tab label="Flights" fontSize='1px' icon={<FlightIcon fontSize='small'/>} style={{color:this.state.val===0?this.state.tabcolor:"#757574",fontWeight:this.state.val===0?this.state.weight:"lighter",fontSize:'11px'}} />
+                  <Tab label="Hotels" icon={<HouseIcon fontSize='small'/>} style={{color:this.state.val===1?this.state.tabcolor:"#757574",fontWeight:this.state.val===1?this.state.weight:"lighter",fontSize:'11px'}} />
+                  <Tab label="Ship" icon={<SailingIcon fontSize='small'/>} style={{color:this.state.val===2?this.state.tabcolor:"#757574",fontWeight:this.state.val===2?this.state.weight:"lighter",fontSize:'11px'}} />
+                  <Tab label="Bus" icon={<DirectionsBusFilledIcon fontSize='small'/>} style={{color:this.state.val===3?this.state.tabcolor:"#757574",fontWeight:this.state.val===3?this.state.weight:"lighter",fontSize:'11px'}} />
+                  <Tab label="Cabs" icon={<LocalTaxiIcon fontSize='small'/>} style={{color:this.state.val===4?this.state.tabcolor:"#757574",fontWeight:this.state.val===4?this.state.weight:"lighter",fontSize:'11px'}} />
+                  <Tab label="Water Sports" icon={<ScubaDivingIcon fontSize='small'/>} style={{color:this.state.val===5?this.state.tabcolor:"#757574",fontWeight:this.state.val===5?this.state.weight:"lighter",fontSize:'11px'}} />
+                  <Tab label="Paying Guest" icon={<BungalowIcon fontSize='small'/>} style={{color:this.state.val===6?this.state.tabcolor:"#757574",fontWeight:this.state.val===6?this.state.weight:"lighter",fontSize:'11px'}} />
+                  <Tab label="Travel Package" icon={<BackpackIcon fontSize='small'/>} style={{color:this.state.val===7?this.state.tabcolor:"#757574",fontWeight:this.state.val===7?this.state.weight:"lighter",fontSize:'11px'}} />
+                  <Tab label="Dinning" icon={<DinnerDiningIcon fontSize='small'/>} style={{color:this.state.val===8?this.state.tabcolor:"#757574",fontWeight:this.state.val===8?this.state.weight:"lighter",fontSize:'11px'}} />
+                  <Tab label="Trekking" icon={<HikingIcon fontSize='small'/>} style={{color:this.state.val===9?this.state.tabcolor:"#757574",fontWeight:this.state.val===9?this.state.weight:"lighter",fontSize:'11px'}} />
+                  <Tab label="Sea Foods" icon={<SetMealIcon fontSize='small'/>} style={{color:this.state.val===9?this.state.tabcolor:"#757574",fontWeight:this.state.val===9?this.state.weight:"lighter",fontSize:'11px'}} />
 
               </Tabs>
          
@@ -63,7 +78,8 @@ export default class TabView extends Component {
               <TabPanel value={this.state.value} index={6}>Paying Guest</TabPanel>
               <TabPanel value={this.state.value} index={7}>Travel Package</TabPanel>
               <TabPanel value={this.state.value} index={8}><Flight /></TabPanel>
-              <TabPanel value={this.state.value} index={9}><Trekking /></TabPanel>        
+              <TabPanel value={this.state.value} index={9}><Trekking /></TabPanel>   
+              <TabPanel value={this.state.value} index={10}><Trekking /></TabPanel>        
         </Container>
     )
   }

@@ -21,6 +21,8 @@ import {
     "Log Out",
   ];
 
+  const HeadColor="#2f4f4f";
+
 export default class Navapp extends Component {
 
   render() {  
@@ -38,7 +40,7 @@ export default class Navapp extends Component {
             }}
             >
             <AcmeLogo />
-            <Text b css={{"color":"#0a1416"}} hideIn="xs">
+            <Text b css={{"color":"#699c78"}} hideIn="xs">
                 Andamane
             </Text>
             </Navbar.Brand>
@@ -53,7 +55,7 @@ export default class Navapp extends Component {
                      <Text
                             h3
                             size={30}
-                            color="error"
+                            color={HeadColor}
                             weight="bold"
                             >
                         Explore
@@ -63,7 +65,7 @@ export default class Navapp extends Component {
               <Text
                             h3
                             size={30}
-                            color="error"
+                            color={HeadColor}
                             weight="bold"
                             >
                         Stay
@@ -74,7 +76,7 @@ export default class Navapp extends Component {
                     <Text
                             h3
                             size={30}
-                            color="error"
+                            color={HeadColor}
                             weight="bold"
                             >
                         Fun
