@@ -48,7 +48,7 @@ export default class TabView extends Component {
                   <Tab label="Activity"/>
                   <Tab label="Paying Guest"/>
                   <Tab label="Travel Package"/>
-                  <Tab label="Dinning"/>
+                  <Tab label="Dining"/>
                   <Tab label="Trekking"/>
 
               </Tabs>
