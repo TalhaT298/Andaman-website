@@ -15,7 +15,7 @@ import Activity from "./ServiceMenu/activity";
 import Pg from "./ServiceMenu/Pg";
 import Travelpg from "./ServiceMenu/travelpackage";
 import Dinning from "./ServiceMenu/dinning";
-import Trekking from "./ServiceMenu/trekking";
+import Trekking from "./ServiceMenu/trekking.js";
 import Nav from "./Nav"
 export default function App() {
 

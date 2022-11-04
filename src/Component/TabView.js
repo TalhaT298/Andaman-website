@@ -6,6 +6,8 @@ import Ship from "../ServiceMenu/Ship";
 import Hotel from "../ServiceMenu/hotel";
 import Cab from "../ServiceMenu/cab";
 import Bus from "../ServiceMenu/bus";
+import Activity from '../ServiceMenu/activity';
+import Trekking from "../ServiceMenu/trekking.js"
 import { Container } from "@nextui-org/react";
 
 
@@ -49,11 +51,11 @@ export default class TabView extends Component {
               <TabPanel value={this.state.value} index={2}><Ship /></TabPanel>
               <TabPanel value={this.state.value} index={3}><Bus /></TabPanel>
               <TabPanel value={this.state.value} index={4}><Cab/></TabPanel>
-              <TabPanel value={this.state.value} index={5}>Activity</TabPanel>
+              <TabPanel value={this.state.value} index={5}><Activity /></TabPanel>
               <TabPanel value={this.state.value} index={6}>Paying Guest</TabPanel>
               <TabPanel value={this.state.value} index={7}>Travel Package</TabPanel>
               <TabPanel value={this.state.value} index={8}><Flight /></TabPanel>
-              <TabPanel value={this.state.value} index={9}><Flight /></TabPanel>        
+              <TabPanel value={this.state.value} index={9}><Trekking /></TabPanel>        
         </Container>
     )
   }

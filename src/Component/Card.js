@@ -1,67 +1,34 @@
-import React, { Component } from 'react'
-import { Card, Col, Row, Button, Text } from "@nextui-org/react";
+import * as React from 'react';
+import Box from '@mui/material/Box';
+import Card from '@mui/material/Card';
+import CardContent from '@mui/material/CardContent';
+import CardMedia from '@mui/material/CardMedia';
+import Typography from '@mui/material/Typography';
 
-export default class CardComponent extends Component {
-  render() {
-    return (
 
-        <Card css={{ w: "100%", h: "400px" }}>
-        <Card.Header css={{ position: "absolute", zIndex: 1, top: 5 }}>
-          <Col>
-            <Text size={12} weight="bold" transform="uppercase" color="#ffffffAA">
-              New
-            </Text>
-            <Text h3 color="black">
-              Acme camera
-            </Text>
-          </Col>
-        </Card.Header>
-        <Card.Body css={{ p: 0 }}>
-          <Card.Image
-            src="https://nextui.org/images/card-example-6.jpeg"
-            width="100%"
-            height="100%"
-            objectFit="cover"
-            alt="Card example background"
+export default function MediaControlCard() {
+  
+  return (
+    <Card sx={{ display: 'flex' }}>
+      <Box sx={{ display: 'flex', flexDirection: 'column' }}>
+          <CardMedia
+            component="img"
+            image="https://i.pinimg.com/736x/2b/b3/d4/2bb3d46f16ee6abf842845949003857f.jpg"
+            alt="Live from space album cover"
+            className="img-responsive card-img-top"
+            style={{ width: "auto", height: 179 }}
           />
-        </Card.Body>
-        <Card.Footer
-          isBlurred
-          css={{
-            position: "absolute",
-            bgBlur: "#ffffff66",
-            borderTop: "$borderWeights$light solid rgba(255, 255, 255, 0.2)",
-            bottom: 0,
-            zIndex: 1,
-          }}
-        >
-          <Row>
-            <Col>
-              <Text color="#000" size={12}>
-                Available soon.
-              </Text>
-              <Text color="#000" size={12}>
-                Get notified.
-              </Text>
-            </Col>
-            <Col>
-              <Row justify="center">
-                <Button flat auto rounded color="secondary">
-                  <Text
-                    css={{ color: "inherit" }}
-                    size={12}
-                    weight="bold"
-                    transform="uppercase"
-                  >
-                    Notify Me
-                  </Text>
-                </Button>
-              </Row>
-            </Col>
-          </Row>
-        </Card.Footer>
-      </Card>
-    
-    )
-  }
+        
+        <CardContent sx={{ flex: '1 0 auto' }}>
+          <Typography component="div" variant="h5">
+            Live From Space
+          </Typography>
+          <Typography variant="subtitle1" color="text.secondary" component="div">
+            Mac Miller
+          </Typography>
+        </CardContent>
+        
+      </Box>
+    </Card>
+  );
 }
