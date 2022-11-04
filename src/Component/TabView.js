@@ -62,7 +62,7 @@ export default class TabView extends Component {
                   <Tab label="Water Sports" icon={<ScubaDivingIcon fontSize='small'/>} style={{color:this.state.val===5?this.state.tabcolor:"#757574",fontWeight:this.state.val===5?this.state.weight:"lighter",fontSize:'11px'}} />
                   <Tab label="Paying Guest" icon={<BungalowIcon fontSize='small'/>} style={{color:this.state.val===6?this.state.tabcolor:"#757574",fontWeight:this.state.val===6?this.state.weight:"lighter",fontSize:'11px'}} />
                   <Tab label="Travel Package" icon={<BackpackIcon fontSize='small'/>} style={{color:this.state.val===7?this.state.tabcolor:"#757574",fontWeight:this.state.val===7?this.state.weight:"lighter",fontSize:'11px'}} />
-                  <Tab label="Dinning" icon={<DinnerDiningIcon fontSize='small'/>} style={{color:this.state.val===8?this.state.tabcolor:"#757574",fontWeight:this.state.val===8?this.state.weight:"lighter",fontSize:'11px'}} />
+                  <Tab label="Dining" icon={<DinnerDiningIcon fontSize='small'/>} style={{color:this.state.val===8?this.state.tabcolor:"#757574",fontWeight:this.state.val===8?this.state.weight:"lighter",fontSize:'11px'}} />
                   <Tab label="Trekking" icon={<HikingIcon fontSize='small'/>} style={{color:this.state.val===9?this.state.tabcolor:"#757574",fontWeight:this.state.val===9?this.state.weight:"lighter",fontSize:'11px'}} />
                   <Tab label="Sea Foods" icon={<SetMealIcon fontSize='small'/>} style={{color:this.state.val===9?this.state.tabcolor:"#757574",fontWeight:this.state.val===9?this.state.weight:"lighter",fontSize:'11px'}} />
 
