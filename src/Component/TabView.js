@@ -27,7 +27,7 @@ export default class TabView extends Component {
     }
     return (
       <Container fluid>
-          
+   
           <Tabs value={this.state.value} 
           onChange={handleTabs}  
           variant="scrollable"
@@ -45,6 +45,7 @@ export default class TabView extends Component {
                   <Tab label="Trekking"/>
 
               </Tabs>
+         
           
               <TabPanel value={this.state.value||0} index={0}><Flight /></TabPanel>
               <TabPanel value={this.state.value} index={1}><Hotel /></TabPanel>
