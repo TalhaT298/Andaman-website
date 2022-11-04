@@ -32,8 +32,15 @@ export default class TabView extends Component {
           onChange={handleTabs}  
           variant="scrollable"
           scrollButtons="auto"
+          TabIndicatorProps={{
+            style: {
+              backgroundColor: "#D97D54",
+              color:"#D97D54"
+            }
+          }}
+          
           >
-                  <Tab label="Flights"/>
+                  <Tab label="Flights" style={{color:"black"}} />
                   <Tab label="Hotels"/>
                   <Tab label="Ship"/>
                   <Tab label="Bus"/>
