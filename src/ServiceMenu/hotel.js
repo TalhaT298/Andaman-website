@@ -1,6 +1,3 @@
-import { Grid } from "@nextui-org/react";
-
-import  Card  from '../Component/Card';
 
 
 export default function hotel() {
