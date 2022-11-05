@@ -21,10 +21,10 @@ export default function trekking() {
         />
       <CardContent sx={{ flex: '1 0 auto' }}>
         <Typography component="div" variant="h5">
-          Live From
+        Mount Manipur
         </Typography>
         <Typography variant="subtitle1" color="text.secondary" component="div">
-          Vinod
+        Hope Town, Port Blair
         </Typography>
       </CardContent>
       
@@ -41,15 +41,78 @@ export default function trekking() {
           />
         <CardContent sx={{ flex: '1 0 auto' }}>
           <Typography component="div" variant="h5">
-            Live From
+          Chidiya-Tapu
           </Typography>
           <Typography variant="subtitle1" color="text.secondary" component="div">
-            Vinod
+          Port Blair
           </Typography>
         </CardContent>
         
       </Box>
-    </Card></Container>
+    </Card>
+    <Card sx={{ display: 'flex' }}>
+      <Box sx={{ display: 'flex', flexDirection: 'column' }}>
+          <CardMedia
+            component="img"
+            image="https://i.pinimg.com/736x/2b/b3/d4/2bb3d46f16ee6abf842845949003857f.jpg"
+            alt="Live from space album cover"
+            className="img-responsive card-img-top"
+            style={{ width: "auto", height: 179 }}
+          />
+        <CardContent sx={{ flex: '1 0 auto' }}>
+          <Typography component="div" variant="h5">
+          Elephant Beach
+          </Typography>
+          <Typography variant="subtitle1" color="text.secondary" component="div">
+          Havelock
+          </Typography>
+        </CardContent>
+        
+      </Box>
+    </Card>
+    <Card sx={{ display: 'flex' }}>
+      <Box sx={{ display: 'flex', flexDirection: 'column' }}>
+          <CardMedia
+            component="img"
+            image="https://i.pinimg.com/736x/2b/b3/d4/2bb3d46f16ee6abf842845949003857f.jpg"
+            alt="Live from space album cover"
+            className="img-responsive card-img-top"
+            style={{ width: "auto", height: 179 }}
+          />
+        <CardContent sx={{ flex: '1 0 auto' }}>
+          <Typography component="div" variant="h5">
+          Limestone Caves
+          </Typography>
+          <Typography variant="subtitle1" color="text.secondary" component="div">
+          Baratang,
+          Middle Andaman
+          </Typography>
+        </CardContent>
+        
+      </Box>
+    </Card>
+    <Card sx={{ display: 'flex' }}>
+      <Box sx={{ display: 'flex', flexDirection: 'column' }}>
+          <CardMedia
+            component="img"
+            image="https://i.pinimg.com/736x/2b/b3/d4/2bb3d46f16ee6abf842845949003857f.jpg"
+            alt="Live from space album cover"
+            className="img-responsive card-img-top"
+            style={{ width: "auto", height: 179 }}
+          />
+        <CardContent sx={{ flex: '1 0 auto' }}>
+          <Typography component="div" variant="h5">
+          Alfred Caves
+          </Typography>
+          <Typography variant="subtitle1" color="text.secondary" component="div">
+          Diglipur,
+          North Andaman
+          </Typography>
+        </CardContent>
+        
+      </Box>
+    </Card>
+    </Container>
     
   );
 }

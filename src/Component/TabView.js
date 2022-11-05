@@ -60,7 +60,7 @@ export default class TabView extends Component {
                   <Tab label="Ship" icon={<SailingIcon fontSize='small'/>} style={{color:this.state.val===2?this.state.tabcolor:"#757574",fontWeight:this.state.val===2?this.state.weight:"lighter",fontSize:'11px'}} />
                   <Tab label="Bus" icon={<DirectionsBusFilledIcon fontSize='small'/>} style={{color:this.state.val===3?this.state.tabcolor:"#757574",fontWeight:this.state.val===3?this.state.weight:"lighter",fontSize:'11px'}} />
                   <Tab label="Cabs" icon={<LocalTaxiIcon fontSize='small'/>} style={{color:this.state.val===4?this.state.tabcolor:"#757574",fontWeight:this.state.val===4?this.state.weight:"lighter",fontSize:'11px'}} />
-                  <Tab label="Water Sports" icon={<ScubaDivingIcon fontSize='small'/>} style={{color:this.state.val===5?this.state.tabcolor:"#757574",fontWeight:this.state.val===5?this.state.weight:"lighter",fontSize:'11px'}} />
+                  <Tab label="Water Sports" icon={<ScubaDivingIcon fontSize='small'/>} style={{color:this.state.value===5?this.state.tabcolor:"#757574",fontWeight:this.state.value===5?this.state.weight:"lighter",fontSize:'11px'}} />
                   <Tab label="Paying Guest" icon={<BungalowIcon fontSize='small'/>} style={{color:this.state.val===6?this.state.tabcolor:"#757574",fontWeight:this.state.val===6?this.state.weight:"lighter",fontSize:'11px'}} />
                   <Tab label="Travel Package" icon={<BackpackIcon fontSize='small'/>} style={{color:this.state.val===7?this.state.tabcolor:"#757574",fontWeight:this.state.val===7?this.state.weight:"lighter",fontSize:'11px'}} />
                   <Tab label="Dinning" icon={<DinnerDiningIcon fontSize='small'/>} style={{color:this.state.val===8?this.state.tabcolor:"#757574",fontWeight:this.state.val===8?this.state.weight:"lighter",fontSize:'11px'}} />
@@ -72,15 +72,15 @@ export default class TabView extends Component {
           
               <TabPanel value={this.state.value||0} index={0}><Flight /></TabPanel>
               <TabPanel value={this.state.value} index={1}><Hotel /></TabPanel>
-              <TabPanel value={this.state.val} index={2}><Ship /></TabPanel>
-              <TabPanel value={this.state.val} index={3}><Bus /></TabPanel>
-              <TabPanel value={this.state.val} index={4}><Cab/></TabPanel>
-              <TabPanel value={this.state.val} index={5}><Activity /></TabPanel>
-              <TabPanel value={this.state.val} index={6}>Paying Guest</TabPanel>
-              <TabPanel value={this.state.val} index={7}>Travel Package</TabPanel>
-              <TabPanel value={this.state.val} index={8}><Dinning /></TabPanel>
+              <TabPanel value={this.state.value} index={2}><Ship /></TabPanel>
+              <TabPanel value={this.state.value} index={3}><Bus /></TabPanel>
+              <TabPanel value={this.state.value} index={4}><Cab/></TabPanel>
+              <TabPanel value={this.state.value} index={5}><Activity /></TabPanel>
+              <TabPanel value={this.state.value} index={6}>Paying Guest</TabPanel>
+              <TabPanel value={this.state.value} index={7}>Travel Package</TabPanel>
+              <TabPanel value={this.state.value} index={8}><Dinning /></TabPanel>
               <TabPanel value={this.state.value} index={9}><Trekking /></TabPanel>   
-              <TabPanel value={this.state.val} index={10}>Sea Foods</TabPanel>        
+              <TabPanel value={this.state.value} index={10}>Sea Foods</TabPanel>        
         </Container>
     )
   }
