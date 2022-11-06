@@ -23,7 +23,7 @@ export default function activity() {
         Seakart Adventure
         </Typography>
         <Typography variant="subtitle1" color="text.secondary" component="div">
-        Corbyn’s Cove Beach, Port Blair
+         
         </Typography>
       </CardContent>
       
@@ -43,7 +43,7 @@ export default function activity() {
           Banana Boat Rides
           </Typography>
           <Typography variant="subtitle1" color="text.secondary" component="div">
-          Havelock Island and Rajiv Gandhi Water sports complex
+           
           </Typography>
         </CardContent>
         
@@ -63,7 +63,7 @@ export default function activity() {
           Snorkeling
           </Typography>
           <Typography variant="subtitle1" color="text.secondary" component="div">
-          Elephant beach, North Bay and JollyBouy
+         
           </Typography>
         </CardContent>
         
@@ -83,8 +83,7 @@ export default function activity() {
           Scuba Diving
           </Typography>
           <Typography variant="subtitle1" color="text.secondary" component="div">
-          Baratang,
-          Middle Andaman
+        
           </Typography>
         </CardContent>
         
@@ -104,7 +103,7 @@ export default function activity() {
           Undersea Walking
           </Typography>
           <Typography variant="subtitle1" color="text.secondary" component="div">
-          Elephant beach
+          
           </Typography>
         </CardContent>
         
@@ -124,7 +123,7 @@ export default function activity() {
           Jet Skiing
           </Typography>
           <Typography variant="subtitle1" color="text.secondary" component="div">
-          Rajiv Gandhi Water Sports Complex
+          
           </Typography>
         </CardContent>
         
@@ -144,7 +143,7 @@ export default function activity() {
           Speed Boating
           </Typography>
           <Typography variant="subtitle1" color="text.secondary" component="div">
-          Rajiv Gandhi Water Sports Complex
+         
           </Typography>
         </CardContent>
         
@@ -164,7 +163,7 @@ export default function activity() {
           Kayaking
           </Typography>
           <Typography variant="subtitle1" color="text.secondary" component="div">
-          Havelock Island
+        
           </Typography>
         </CardContent>
         
@@ -184,7 +183,7 @@ export default function activity() {
           Mangrove Kayaking
           </Typography>
           <Typography variant="subtitle1" color="text.secondary" component="div">
-          Mayabunder
+           
           </Typography>
         </CardContent>
         

@@ -42,7 +42,7 @@ export default function trekking() {
           Chidiya-Tapu
           </Typography>
           <Typography variant="subtitle1" color="text.secondary" component="div">
-          Port Blair
+          
           </Typography>
         </CardContent>
         
@@ -62,7 +62,7 @@ export default function trekking() {
           Elephant Beach
           </Typography>
           <Typography variant="subtitle1" color="text.secondary" component="div">
-          Havelock
+          
           </Typography>
         </CardContent>
         
@@ -82,8 +82,7 @@ export default function trekking() {
           Limestone Caves
           </Typography>
           <Typography variant="subtitle1" color="text.secondary" component="div">
-          Baratang,
-          Middle Andaman
+          
           </Typography>
         </CardContent>
         
@@ -103,8 +102,7 @@ export default function trekking() {
           Alfred Caves
           </Typography>
           <Typography variant="subtitle1" color="text.secondary" component="div">
-          Diglipur,
-          North Andaman
+          
           </Typography>
         </CardContent>
         
