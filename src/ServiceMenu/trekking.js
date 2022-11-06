@@ -23,9 +23,7 @@ export default function trekking() {
         <Typography component="div" variant="h5">
         Mount Manipur
         </Typography>
-        <Typography variant="subtitle1" color="text.secondary" component="div">
-        Hope Town, Port Blair
-        </Typography>
+        
       </CardContent>
       
     </Box>

@@ -2,6 +2,8 @@ import React, { Component } from 'react'
 import { Navbar, Link, Text, Avatar, Dropdown } from "@nextui-org/react";
 import  {Layout}  from "./Layout.js";
 import { AcmeLogo } from "./AcmeLogo.js";
+import Lottie from 'react-lottie';
+import * as Dolphin from './Icons/dolphin.json';
 
 
 import {
@@ -20,6 +22,15 @@ import {
     "Help & Feedback",
     "Log Out",
   ];
+
+  const DolphinIcon = {
+    loop: true,
+    autoplay: true, 
+    animationData: Dolphin,
+    rendererSettings: {
+      preserveAspectRatio: 'xMidYMid slice'
+    }
+  };
 
   const HeadColor="#2f4f4f";
 
@@ -43,6 +54,7 @@ export default class Navapp extends Component {
             <Text b css={{"color":"#699c78"}} hideIn="xs">
                 Andamane
             </Text>
+            <Lottie options={DolphinIcon} height={70} width={100} />
             </Navbar.Brand>
             <Navbar.Content
             enableCursorHighlight
