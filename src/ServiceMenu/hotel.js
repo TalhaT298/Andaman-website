@@ -1,5 +1,5 @@
-import React, { Component } from "react";
-import { Button } from "primereact/button";
+import React from "react";
+
 import { fire } from "../fire";
 
 import Box from '@mui/material/Box';
@@ -8,10 +8,11 @@ import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
 import { Grid ,Container} from "@nextui-org/react";
+import PropTypes from 'prop-types';
 import "react-multi-carousel/lib/styles.css";
 let card = [];
 
-export class CardCarousel extends React.Component {
+export class HotelPage extends React.Component {
 
 
   componentDidMount() {
@@ -43,13 +44,17 @@ export class CardCarousel extends React.Component {
     }
   }
 
-  render() {
 
+  
+
+
+  render() {
+    const { loading = true } = this.props;
     return (
       <div className="carousel-demo">
         <div className="content-section implementation">
         
-          {card? (
+          {loading? (
             <div>
             
                 {card.map(c => {
@@ -92,5 +97,7 @@ export class CardCarousel extends React.Component {
     );
   }
 }
-
-export default CardCarousel;
+HotelPage.propTypes = {
+  loading: PropTypes.bool,
+};
+export default HotelPage;
