@@ -4,7 +4,6 @@ import clsx from "clsx";
 import CardActions from "@material-ui/core/CardActions";
 import Collapse from "@material-ui/core/Collapse";
 import IconButton from "@material-ui/core/IconButton";
-import Typography from "@material-ui/core/Typography";
 import { red } from "@material-ui/core/colors";
 import Stepper from "@material-ui/core/Stepper";
 import Step from "@material-ui/core/Step";
@@ -27,7 +26,12 @@ import Fade from '@material-ui/core/Fade';
 
 import HotelIcon from '@material-ui/icons/Hotel';
 
-
+import Box from '@mui/material/Box';
+import Card from '@mui/material/Card';
+import CardContent from '@mui/material/CardContent';
+import CardMedia from '@mui/material/CardMedia';
+import Typography from '@mui/material/Typography';
+import { Grid ,Container} from "@nextui-org/react";
 
 //import policy
 import Policy from "./Policy";
@@ -205,27 +209,34 @@ export default function TravelPackage(props) {
   };
 
   return (
-    <div>
-      <div className="card mb-3">
-        <img
-          src={props.imageLink}
-          className="img-responsive card-img-top"
-          style={{ width: "auto", height: 300 }}
-          alt="cardimg"
-        />
-        <div className="card-body">
-          <h5 className="card-title">{props.name}</h5>
-          <h4 className="card-text">
-            {" "}
-            <small className="text-muted">
-              Applied Inclusive and Exclusives
-            </small>
-          </h4>
-          <h6 className="card-text">{props.description}</h6>
-          <h6 className="card-text">
-            <small className="text-muted">{props.duration}</small>
-          </h6>
-        </div>
+  <>
+   <Grid.Container gap={2} justify="flex-start">
+    <Grid fluid>
+    <Card sx={{ display: 'flex' }}>
+      <Box sx={{ display: 'flex', flexDirection: 'column' }}>
+          <CardMedia
+            component="img"
+            image={props.imageLink}
+            alt="Live from space album cover"
+            className="img-responsive card-img-top"
+            style={{ width: "auto", height: 179 }}
+          />
+        <CardContent sx={{ flex: '1 0 auto' }}>
+          <Typography component="div" variant="h5">
+            {props.name}
+          </Typography>
+          <Typography variant="subtitle1" color="text.secondary" component="div">
+            {props.description}
+          </Typography>
+          <Typography>{props.duration}</Typography>
+          <Typography>Applied Inclusive and Exclusives</Typography>
+        </CardContent>
+        
+      </Box>
+    </Card>
+    </Grid>
+    </Grid.Container>
+
 
         <Button variant="outlined" color="secondary" onClick={handleOpen}>
           Explore Package
@@ -318,13 +329,14 @@ export default function TravelPackage(props) {
               </React.Fragment>
             }
           >
-            <a className="social-icon">
+            <a className="social-icon" href="#superapp">
               <img
                 className="Avatar"
                 src={Meal}
                 alt="meal"
                 height="50px"
                 width="50px"
+                
               />
             </a>
           </TooltipStyle>
@@ -337,7 +349,7 @@ export default function TravelPackage(props) {
               </React.Fragment>
             }
           >
-            <a className="social-icon">
+            <a className="social-icon" >
               <i>
                 <HotelIcon />
               </i>
@@ -454,7 +466,6 @@ export default function TravelPackage(props) {
             </Paper>
           )}
         </Collapse>
-      </div>
-    </div>
+        </>
   );
 }

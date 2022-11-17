@@ -41,6 +41,7 @@ export default class TabView extends Component {
         </div>);
     }
 
+
     const size=75;
 
   //Icons
@@ -178,7 +179,7 @@ export default class TabView extends Component {
          
           
               <TabPanel value={this.state.value||0} index={0}><Flight /></TabPanel>
-              <TabPanel value={this.state.value} index={1}><Hotel /></TabPanel>
+              <TabPanel value={this.state.value} index={1}><Hotel  /></TabPanel>
               <TabPanel value={this.state.value} index={2}><Ship /></TabPanel>
               <TabPanel value={this.state.value} index={3}><Bus /></TabPanel>
               <TabPanel value={this.state.value} index={4}><Cab/></TabPanel>

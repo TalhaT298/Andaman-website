@@ -2,6 +2,7 @@ import React from "react";
 
 import CardHandler from "./travelpackage";
 import { Grow } from "@material-ui/core";
+import { Container} from "@nextui-org/react";
 import datas from "../Data/CardData";
 
 const cardObject = datas.map(function(data) {
@@ -29,18 +30,10 @@ const cardObject = datas.map(function(data) {
 const Service = () => {
   return (
     <Grow in>
-      <div className="row">
-        <div className="col-10 mx-auto">
-          <div className="row">
-            <div className="col-md-6 pt-5 pt-lg-0 order-2 order-lg-1 d-flex justify-content-center flex-column">
-              <h1 style={{ backgroundColor:"rgba(24, 24, 23, 0.219)",color:"whitesmoke"}}>
-                <center>Explore Our best Packages</center>
-              </h1>
-              <h1>{cardObject}</h1>
-            </div>
-          </div>
-        </div>
-      </div>
+      <Container fluid>
+        <center><h3>Explore Our best tour Packages</h3></center>
+        <p>{cardObject}</p>
+      </Container>
     </Grow>
   );
 };
