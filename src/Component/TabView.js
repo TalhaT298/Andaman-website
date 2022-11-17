@@ -9,6 +9,8 @@ import Bus from "../ServiceMenu/bus";
 import Activity from '../ServiceMenu/activity';
 import Dinning from "../ServiceMenu/dinning";
 import Trekking from "../ServiceMenu/trekking.js"
+import Pg from "../ServiceMenu/Pg.js"
+import TravelPackage from "../ServiceMenu/Service.js"
 import { Container } from "@nextui-org/react";
 import Lottie from 'react-lottie';
 import * as FlightData from '../Icons/flight.json';
@@ -22,6 +24,7 @@ import * as TravelData from '../Icons/travel.json';
 import * as DinningData from '../Icons/dinning.json';
 import * as TrekkingData from '../Icons/trekking.json';
 import * as ShopData from '../Icons/shop.json';
+
 
 export default class TabView extends Component {
     state={value:0,weight:"",tabcolor:""}
@@ -180,8 +183,8 @@ export default class TabView extends Component {
               <TabPanel value={this.state.value} index={3}><Bus /></TabPanel>
               <TabPanel value={this.state.value} index={4}><Cab/></TabPanel>
               <TabPanel value={this.state.value} index={5}><Activity /></TabPanel>
-              <TabPanel value={this.state.value} index={6}>Paying Guest</TabPanel>
-              <TabPanel value={this.state.value} index={7}>Travel Package</TabPanel>
+              <TabPanel value={this.state.value} index={6}><Pg/></TabPanel>
+              <TabPanel value={this.state.value} index={7}><TravelPackage /></TabPanel>
               <TabPanel value={this.state.value} index={8}><Dinning /></TabPanel>
               <TabPanel value={this.state.value} index={9}><Trekking /></TabPanel>   
               <TabPanel value={this.state.value} index={10}>Shop</TabPanel>        

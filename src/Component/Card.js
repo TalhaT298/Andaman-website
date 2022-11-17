@@ -4,16 +4,16 @@ import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
+import Data from "../Data/CardData";
 
 
-export default function MediaControlCard() {
-  
+const cardObject = Data.map(function(data) {
   return (
     <Card sx={{ display: 'flex' }}>
       <Box sx={{ display: 'flex', flexDirection: 'column' }}>
           <CardMedia
             component="img"
-            image="https://i.pinimg.com/736x/2b/b3/d4/2bb3d46f16ee6abf842845949003857f.jpg"
+            image={data.imageLink}
             alt="Live from space album cover"
             className="img-responsive card-img-top"
             style={{ width: "auto", height: 179 }}
@@ -29,5 +29,20 @@ export default function MediaControlCard() {
         
       </Box>
     </Card>
+
+
+  );
+});
+
+
+
+
+export default function MediaControlCard() {
+  
+  return (
+     <div> {cardObject}</div>
+   
   );
 }
+
+
