@@ -23,7 +23,7 @@ const datas = [
       {
         id: 3,
         imageLink:
-          "https://thumbs.dreamstime.com/z/eco-tourism-trekking-evergreen-tropical-rain-forest-elephant-beach-havelock-island-andaman-islands-india-122695122.jpg",
+          "https://res.cloudinary.com/thrillophilia/image/upload/c_fill,f_auto,fl_progressive.strip_profile,g_auto,h_600,q_auto,w_auto/v1/filestore/cuivelcj8jr9ax2mhdjh2sspsksf_1537009421_Elephant_Island_Andaman.jpg",
        
        
         name: "Elephant Beach",
