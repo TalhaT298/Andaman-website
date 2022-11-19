@@ -11,6 +11,7 @@ import Dinning from "../ServiceMenu/dinning";
 import Trekking from "../ServiceMenu/trekking.js"
 import Pg from "../ServiceMenu/Pg.js"
 import TravelPackage from "../ServiceMenu/Service.js"
+import Shop from "../ServiceMenu/Shop.js";
 import { Container } from "@nextui-org/react";
 import Lottie from 'react-lottie';
 import * as FlightData from '../Icons/flight.json';
@@ -161,7 +162,7 @@ function errcpgData(err) {
     }
 
 
-    const size=75;
+    const size=40;
 
   //Icons
     const FlightIcon = {
@@ -291,7 +292,7 @@ function errcpgData(err) {
                   <Tab label="Cabs" icon={<Lottie options={CabIcon} height={size} width={size} />} style={{color:this.state.value===4?this.state.tabcolor:"#757574",fontWeight:this.state.value===4?this.state.weight:"lighter",fontSize:'11px'}} />
                   <Tab label="Water Sports" icon={<Lottie options={DivingIcon} height={size} width={size} />} style={{color:this.state.value===5?this.state.tabcolor:"#757574",fontWeight:this.state.value===5?this.state.weight:"lighter",fontSize:'11px'}} />
                   <Tab label="Paying Guest" icon={<Lottie options={GuestIcon} height={size} width={size} />} style={{color:this.state.value===6?this.state.tabcolor:"#757574",fontWeight:this.state.value===6?this.state.weight:"lighter",fontSize:'11px'}} />
-                  <Tab label="Travel Package" icon={<Lottie options={TravelIcon} height={size} width={size} />} style={{color:this.state.value===7?this.state.tabcolor:"#757574",fontWeight:this.state.value===7?this.state.weight:"lighter",fontSize:'11px'}} />
+                  <Tab label="Package" icon={<Lottie options={TravelIcon} height={size} width={size} />} style={{color:this.state.value===7?this.state.tabcolor:"#757574",fontWeight:this.state.value===7?this.state.weight:"lighter",fontSize:'11px'}} />
                   <Tab label="Dinning" icon={<Lottie options={DinningIcon} height={size} width={size} />} style={{color:this.state.value===8?this.state.tabcolor:"#757574",fontWeight:this.state.value===8?this.state.weight:"lighter",fontSize:'11px'}} />
                   <Tab label="Trekking" icon={<Lottie options={TrekkingIcon} height={size} width={size} />} style={{color:this.state.value===9?this.state.tabcolor:"#757574",fontWeight:this.state.value===9?this.state.weight:"lighter",fontSize:'11px'}} />
                   <Tab label="Shop" icon={<Lottie options={ShopIcon} height={size} width={size} />} style={{color:this.state.value===10?this.state.tabcolor:"#757574",fontWeight:this.state.value===10?this.state.weight:"lighter",fontSize:'11px'}} />
@@ -309,7 +310,7 @@ function errcpgData(err) {
               <TabPanel value={this.state.value} index={7}><TravelPackage /></TabPanel>
               <TabPanel value={this.state.value} index={8}><Dinning /></TabPanel>
               <TabPanel value={this.state.value} index={9}><Trekking /></TabPanel>   
-              <TabPanel value={this.state.value} index={10}>Shop</TabPanel>        
+              <TabPanel value={this.state.value} index={10}><Shop /></TabPanel>        
         </Container>
     )
   }
