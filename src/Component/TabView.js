@@ -24,10 +24,102 @@ import * as TravelData from '../Icons/travel.json';
 import * as DinningData from '../Icons/dinning.json';
 import * as TrekkingData from '../Icons/trekking.json';
 import * as ShopData from '../Icons/shop.json';
-
-
+import { fire } from "../fire";
+let card = [];
+let flightcard = [];
+let cabcard = [];
 export default class TabView extends Component {
     state={value:0,weight:"",tabcolor:""}
+
+
+
+    componentDidMount() {
+      var ref = fire
+        .database()
+        .ref("cards")
+        .orderByValue();
+      ref.on("value", getData, errData);
+      function getData(data) {
+        var carddata = data.val();
+        //console.log(carddata);
+        for (let c in carddata) {
+          card.push({
+            id: c,
+            hotelimg: carddata[c].hotelimg,
+            hotelname: carddata[c].hotelname,
+            hotelsummary: carddata[c].hotelsummary,
+            rating: carddata[c].rating,
+            schedule: carddata[c].schedule,
+            city: carddata[c].city,
+            state: carddata[c].state,
+            zip: carddata[c].zip
+          });
+        }
+        console.log(card);
+      }
+      function errData(err) {
+        console.log("error" + err);
+      }
+ 
+   var flightref= fire
+      .database()
+      .ref("flights")
+      .orderByValue();
+    flightref.on("value", getFlightData, errflightData);
+    function getFlightData(data) {
+      var carddata = data.val();
+      console.log(carddata);
+      for (let c in carddata) {
+        flightcard.push({
+          id: c,
+          from: carddata[c].from,
+          to: carddata[c].to,
+          schedule: carddata[c].schedule,
+          offer: carddata[c].offer,
+          price: carddata[c].price
+        });
+      }
+      console.log(flightcard);
+    }
+    function errflightData(err) {
+      console.log("error" + err);
+    }
+
+    var cabref= fire
+    .database()
+    .ref("cabs")
+    .orderByValue();
+  cabref.on("value", getCabData, errcCabData);
+  function getCabData(data) {
+    var carddata = data.val();
+    console.log(carddata);
+    for (let c in carddata) {
+      cabcard.push({
+        id: c,
+        Pick: carddata[c].Pick,
+        drop: carddata[c].drop,
+        schedule: carddata[c].schedule,
+        contact: carddata[c].contact,
+        price: carddata[c].price,
+        starttime:carddata[c].starttime,
+        endtime:carddata[c].endtime,
+        vehicleno:carddata[c].vehicleno
+
+      });
+    }
+    console.log(cabcard);
+  }
+  function errcCabData(err) {
+    console.log("error" + err);
+  }
+
+
+
+    }
+
+
+
+
   render() {
     const handleTabs=(e,val)=>{
         console.warn(val)
@@ -143,13 +235,14 @@ export default class TabView extends Component {
         preserveAspectRatio: 'xMidYMid slice'
       }
     };
-    
-   
+      
+
+
     return (
      
       <Container fluid>
    
-          <Tabs value={this.state.val} 
+          <Tabs value={this.state.value || 0} 
           onChange={handleTabs}  
           variant="scrollable"
           textColor='#757574'
@@ -163,7 +256,8 @@ export default class TabView extends Component {
           }}
           
           >
-                  <Tab label="Flights"  icon={<Lottie options={FlightIcon} height={size} width={size} />} style={{color:this.state.value===0?this.state.tabcolor:"#757574",fontWeight:this.state.value===0?this.state.weight:"lighter",fontSize:'11px'}}/>
+                  <Tab  label="Flights"  icon={<Lottie options={FlightIcon} height={size} width={size} />}  style={{color:this.state.value===0?this.state.tabcolor:"#757574",fontWeight:this.state.value===0?this.state.weight:"lighter",fontSize:'11px'}}
+                  />
                   <Tab label="Hotels" icon={<Lottie options={HotelIcon} height={size} width={size} />} style={{color:this.state.value===1?this.state.tabcolor:"#757574",fontWeight:this.state.value===1?this.state.weight:"lighter",fontSize:'11px'}} />
                   <Tab label="Ship" icon={<Lottie options={ShipIcon} height={size} width={size} />} style={{color:this.state.value===2?this.state.tabcolor:"#757574",fontWeight:this.state.value===2?this.state.weight:"lighter",fontSize:'11px'}} />
                   <Tab label="Bus" icon={<Lottie options={BusIcon} height={size} width={size} />} style={{color:this.state.value===3?this.state.tabcolor:"#757574",fontWeight:this.state.value===3?this.state.weight:"lighter",fontSize:'11px'}} />
@@ -178,11 +272,11 @@ export default class TabView extends Component {
               </Tabs>
          
           
-              <TabPanel value={this.state.value||0} index={0}><Flight /></TabPanel>
-              <TabPanel value={this.state.value} index={1}><Hotel  /></TabPanel>
-              <TabPanel value={this.state.value} index={2}><Ship /></TabPanel>
+              <TabPanel value={this.state.value || 0} index={0}><Flight flightdata={flightcard} /></TabPanel>
+              <TabPanel value={this.state.value} index={1}><Hotel carddata={card} /></TabPanel>
+              <TabPanel value={this.state.value} index={2}><Ship/></TabPanel>
               <TabPanel value={this.state.value} index={3}><Bus /></TabPanel>
-              <TabPanel value={this.state.value} index={4}><Cab/></TabPanel>
+              <TabPanel value={this.state.value} index={4}><Cab cabdata={cabcard} /></TabPanel>
               <TabPanel value={this.state.value} index={5}><Activity /></TabPanel>
               <TabPanel value={this.state.value} index={6}><Pg/></TabPanel>
               <TabPanel value={this.state.value} index={7}><TravelPackage /></TabPanel>

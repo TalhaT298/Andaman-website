@@ -1,7 +1,4 @@
 import React from "react";
-
-import { fire } from "../fire";
-
 import Box from '@mui/material/Box';
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
@@ -10,58 +7,20 @@ import Typography from '@mui/material/Typography';
 import { Grid ,Container} from "@nextui-org/react";
 import PropTypes from 'prop-types';
 import "react-multi-carousel/lib/styles.css";
-let card = [];
-
 export class HotelPage extends React.Component {
 
 
-  componentDidMount() {
-    var ref = fire
-      .database()
-      .ref("cards")
-      .orderByValue();
-    ref.on("value", getData, errData);
-    function getData(data) {
-      var carddata = data.val();
-      //console.log(carddata);
-      for (let c in carddata) {
-        card.push({
-          id: c,
-          hotelimg: carddata[c].hotelimg,
-          hotelname: carddata[c].hotelname,
-          hotelsummary: carddata[c].hotelsummary,
-          rating: carddata[c].rating,
-          schedule: carddata[c].schedule,
-          city: carddata[c].city,
-          state: carddata[c].state,
-          zip: carddata[c].zip
-        });
-      }
-      console.log(card);
-    }
-    function errData(err) {
-      console.log("error" + err);
-    }
-  }
-
-
-  
-
-
   render() {
-    const { loading = true } = this.props;
+
     return (
-      <div className="carousel-demo">
-        <div className="content-section implementation">
-        
-          {loading? (
-            <div>
+
+        <Container fluid>
             
-                {card.map(c => {
+                {this.props.carddata.map(c => {
                   return (
                     <Grid.Container gap={2} justify="flex-start">
                     <Grid fluid>
-                    <Card sx={{ display: 'flex' }}>
+                    <Card sx={{ display: 'flex' }} id={c.id}>
                       <Box sx={{ display: 'flex', flexDirection: 'column' }}>
                           <CardMedia
                             component="img"
@@ -86,14 +45,7 @@ export class HotelPage extends React.Component {
                     </Grid.Container>
                   );
                 })}
-            
-
-            </div>
-          ) : (
-            <div>{"nothing"}</div>
-          )}
-        </div>
-      </div>
+     </Container>  
     );
   }
 }
