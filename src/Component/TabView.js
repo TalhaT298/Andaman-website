@@ -28,6 +28,7 @@ import { fire } from "../fire";
 let card = [];
 let flightcard = [];
 let cabcard = [];
+let pgcard = [];
 export default class TabView extends Component {
     state={value:0,weight:"",tabcolor:""}
 
@@ -112,6 +113,32 @@ export default class TabView extends Component {
   function errcCabData(err) {
     console.log("error" + err);
   }
+
+  var pgref= fire
+  .database()
+  .ref("pgs")
+  .orderByValue();
+pgref.on("value", getpgData, errcpgData);
+function getpgData(data) {
+  var carddata = data.val();
+  console.log(carddata);
+  for (let c in carddata) {
+    pgcard.push({
+      id: c,
+      pgname: carddata[c].pgname,
+      pgadd: carddata[c].pgadd,
+      pgprice: carddata[c].pgprice,
+      contact: carddata[c].contact,
+      rating: carddata[c].rating,
+      hotelimg:carddata[c].hotelimg
+
+    });
+  }
+  console.log(pgcard);
+}
+function errcpgData(err) {
+  console.log("error" + err);
+}
 
 
 
@@ -278,7 +305,7 @@ export default class TabView extends Component {
               <TabPanel value={this.state.value} index={3}><Bus /></TabPanel>
               <TabPanel value={this.state.value} index={4}><Cab cabdata={cabcard} /></TabPanel>
               <TabPanel value={this.state.value} index={5}><Activity /></TabPanel>
-              <TabPanel value={this.state.value} index={6}><Pg/></TabPanel>
+              <TabPanel value={this.state.value} index={6}><Pg pgdata={pgcard} /></TabPanel>
               <TabPanel value={this.state.value} index={7}><TravelPackage /></TabPanel>
               <TabPanel value={this.state.value} index={8}><Dinning /></TabPanel>
               <TabPanel value={this.state.value} index={9}><Trekking /></TabPanel>   
