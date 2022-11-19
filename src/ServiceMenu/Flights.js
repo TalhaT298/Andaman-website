@@ -1,13 +1,8 @@
 import React from "react";
-import Box from '@mui/material/Box';
-import Card from '@mui/material/Card';
-import CardContent from '@mui/material/CardContent';
-import CardMedia from '@mui/material/CardMedia';
-import Typography from '@mui/material/Typography';
-import { Grid ,Container} from "@nextui-org/react";
+import { Container} from "@nextui-org/react";
 import PropTypes from 'prop-types';
 import "react-multi-carousel/lib/styles.css";
-
+import LeftCard from "../Component/LeftCard";
 export default class FlightPage extends React.Component {
   
 
@@ -16,7 +11,7 @@ export default class FlightPage extends React.Component {
     return (
      
         <Container fluid>
-                {this.props.flightdata.map(c => {
+                {/* {this.props.flightdata.map(c => {
                   return (
                     <Grid.Container gap={2} justify="flex-start">
                     <Grid fluid>
@@ -49,7 +44,8 @@ export default class FlightPage extends React.Component {
                     </Grid>
                     </Grid.Container>
                   );
-                })}
+                })} */}
+                <LeftCard flightimg={"https://img.etimg.com/thumb/msid-90117169,width-300,imgsize-511935,,resizemode-4,quality-100/india-to-resume-regular-international-flights-from-march-27.jpg"} data={this.props.flightdata}/>
          </Container>  
        
     );

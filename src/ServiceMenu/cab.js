@@ -1,12 +1,8 @@
 import React from "react";
-import Box from '@mui/material/Box';
-import Card from '@mui/material/Card';
-import CardContent from '@mui/material/CardContent';
-import CardMedia from '@mui/material/CardMedia';
-import Typography from '@mui/material/Typography';
-import { Grid ,Container} from "@nextui-org/react";
+import { Container} from "@nextui-org/react";
 import PropTypes from 'prop-types';
 import "react-multi-carousel/lib/styles.css";
+import LeftCard from "../Component/LeftCard";
 
 export default class CabPage extends React.Component {
   
@@ -16,7 +12,7 @@ export default class CabPage extends React.Component {
     return (
      
         <Container fluid>
-                {this.props.cabdata.map(c => {
+                {/* {this.props.cabdata.map(c => {
                   return (
                     <Grid.Container gap={2} justify="flex-start">
                     <Grid fluid>
@@ -61,7 +57,8 @@ export default class CabPage extends React.Component {
                     </Grid>
                     </Grid.Container>
                   );
-                })}
+                })} */}
+                <LeftCard cabimg={"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSK73-oOQC9syK05uahONMm8yuGOIETdJBB7Z5JwK04fmNLLRqM_lsjmXfHaAwq-btK_Ns&usqp=CAU"} data={this.props.cabdata}/>
          </Container>  
        
     );

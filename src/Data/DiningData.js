@@ -26,7 +26,7 @@ const datas = [
           "https://res.cloudinary.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_508,h_320,c_fill/hlwnslijtgyvurubf66i",
        
        
-        name: "Tillai's Bakery and Sweets",
+        name: "Tillai's",
         duration: "Bakery, Sweets",
         description: "Port Blair – 3 Nights , Havelock – 2 Nights ",
       },
@@ -36,7 +36,7 @@ const datas = [
           "https://res.cloudinary.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_508,h_320,c_fill/yryms99kxhdlgjbmxxvm",
        
        
-        name: "ICY SPICY VEG BAKERY & SWEETS",
+        name: "ICY SPICY",
         duration: "Bakery, Desserts",
         description: "Port Blair – 3 Nights , Havelock – 2 Nights ",
       },

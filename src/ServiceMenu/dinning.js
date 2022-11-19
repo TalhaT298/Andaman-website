@@ -8,11 +8,12 @@ import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
 
+
 const cardObject = DiningData.map(function(data) {
   return (
-    <Grid.Container gap={2} justify="flex-start">
+    <Grid.Container gap={2} justify="space-evenly">
     <Grid fluid>
-    <Card sx={{ display: 'flex' }}>
+    <Card sx={{ justify:"start-flex" }}>
       <Box sx={{ display: 'flex', flexDirection: 'column' }}>
           <CardMedia
             component="img"
