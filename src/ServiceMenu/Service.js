@@ -1,11 +1,11 @@
-import React from "react";
+import React from 'react';
 
-import CardHandler from "./travelpackage";
-import { Grow } from "@material-ui/core";
-import { Container} from "@nextui-org/react";
-import datas from "../Data/CardData";
+import CardHandler from './Travelpackage.js';
+import { Grow } from '@material-ui/core';
+import { Container } from '@nextui-org/react';
+import datas from '../Data/CardData';
 
-const cardObject = datas.map(function(data) {
+const cardObject = datas.map(function (data) {
   return (
     <CardHandler
       key={data.id}
@@ -31,7 +31,9 @@ const Service = () => {
   return (
     <Grow in>
       <Container fluid>
-        <center><h3>Explore Our best tour Packages</h3></center>
+        <center>
+          <h3>Explore Our best tour Packages</h3>
+        </center>
         <p>{cardObject}</p>
       </Container>
     </Grow>

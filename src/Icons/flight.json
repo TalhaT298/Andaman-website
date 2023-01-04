@@ -7,9 +7,7 @@
 	"h": 1000,
 	"nm": "Comp 1",
 	"ddd": 0,
-	"assets": [
-		
-	],
+	"assets": [],
 	"layers": [
 		{
 			"ddd": 0,
@@ -6728,7 +6726,5 @@
 			"bm": 0
 		}
 	],
-	"markers": [
-		
-	]
+	"markers": []
 }
