@@ -6,14 +6,25 @@ import React, { useState } from 'react';
 import { useQuery } from '@tanstack/react-query';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faCalendarDays } from '@fortawesome/free-regular-svg-icons';
 import { faBed, faPerson } from '@fortawesome/free-solid-svg-icons';
 import 'react-date-range/dist/styles.css';
 import 'react-date-range/dist/theme/default.css';
+import { DateRange } from 'react-date-range';
+import { format } from 'date-fns';
 import axios from 'axios';
 import { APIKEY, APIURL } from './ApiInfo';
 
 const Header = () => {
-  const [destination, setDestination] = useState('');
+  const [openDate, setOpenDate] = useState(false);
+  const [date, setDate] = useState([
+    {
+      startDate: new Date(),
+      endDate: new Date(),
+      key: 'selection',
+    },
+  ]);
+
   const [openOptions, setOpenOptions] = useState(false);
   const [options, setOptions] = useState({
     adult: 1,
@@ -30,6 +41,7 @@ const Header = () => {
     });
   };
 
+  const [destination, setDestination] = useState('');
   const [toggleSearchBar, setToggleSearchBar] = useState(false);
 
   const [checkinDate, setCheckinDate] = useState('');
@@ -50,7 +62,7 @@ const Header = () => {
       {toggleSearchBar && (
         <form onSubmit={handleSearch}>
           <div className='pt-4 pb-10 bg-inherit w-auto h-96 items-center mx-auto'>
-            <div className='drop-shadow-md shadow-pink-500 shadow-sm h-auto bg-white border-4 rounded-md border-solid border-black flex flex-wrap sm: lexs:flex-col xs:flex-col sm:flex-nowrap md:flex-nowrap ml:flex-nowrap flex-row gap-2 md:gap-y-4 items-center justify-between mx-auto ml:w-auto md:w-auto sm:w-auto xs:w-88 lexs:max-w-xs w-auto'>
+            <div className='drop-shadow-md shadow-pink-500 shadow-sm h-auto bg-white border-4 rounded-md border-solid border-black flex flex-wrap sm: lexs:flex-col xs:flex-col sm:flex-nowrap md:flex-nowrap ml:flex-nowrap flex-row md:gap-y-4 items-center justify-between mx-auto ml:w-auto md:w-auto sm:w-auto xs:w-88 lexs:max-w-xs w-auto'>
               <div className='flex items-center justify-center gap-2 xs:pl-20'>
                 <FontAwesomeIcon icon={faBed} className='text-black' />
                 <span className='text-black font-extralight cursor-pointer w-auto'>
@@ -66,20 +78,25 @@ const Header = () => {
                 </span>
               </div>
               <div className='flex items-center gap-2 text-black'>
-                <input
-                  type='date'
-                  id='checkin-date'
-                  value={checkinDate}
-                  onChange={(event) => setCheckinDate(event.target.value)}
-                />
-              </div>
-              <div className='flex items-center gap-2 text-black'>
-                <input
-                  type='date'
-                  id='checkout-date'
-                  value={checkoutDate}
-                  onChange={(event) => setCheckoutDate(event.target.value)}
-                />
+                <FontAwesomeIcon icon={faCalendarDays} className='text-black' />
+                <span
+                  onClick={() => setOpenDate(!openDate)}
+                  className='text-black font-extralight cursor-pointer w-auto'
+                >
+                  {`${format(date[0].startDate, 'dd/MM/yyyy')} to ${format(
+                    date[0].endDate,
+                    'dd/MM/yyyy'
+                  )}`}
+                </span>
+                {openDate && (
+                  <DateRange
+                    editableDateInputs={true}
+                    onChange={(item) => setDate([item.selection])}
+                    moveRangeOnFirstSelection={false}
+                    ranges={date}
+                    className='absolute top-12 ml:top-14 md:top-14 sm:top-20 xs:top-16 -mx-14 overflow-y-auto z-auto overflow-visible h-fit'
+                  />
+                )}
               </div>
 
               <div className='flex items-center gap-2'>
