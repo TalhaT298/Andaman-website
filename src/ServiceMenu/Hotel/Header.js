@@ -13,6 +13,7 @@ import axios from 'axios';
 import { APIKEY, APIURL } from './ApiInfo';
 
 const Header = () => {
+  const [destination, setDestination] = useState('');
   const [openOptions, setOpenOptions] = useState(false);
   const [options, setOptions] = useState({
     adult: 1,
@@ -30,10 +31,6 @@ const Header = () => {
   };
 
   const [toggleSearchBar, setToggleSearchBar] = useState(false);
-
-  const { isLoading, isError, data } = useQuery(
-    
-  );
 
   const [checkinDate, setCheckinDate] = useState('');
   const [checkoutDate, setCheckoutDate] = useState('');
@@ -60,10 +57,10 @@ const Header = () => {
                   <input
                     type='text'
                     placeholder='Destination 😄'
-                    value={}
+                    value={destination}
                     className='border-none outline-none w-auto'
                     onChange={(event) => {
-                      set(event.target.value);
+                      setDestination(event.target.value);
                     }}
                   />
                 </span>
@@ -173,7 +170,6 @@ const Header = () => {
           </div>
         </form>
       )}
-
     </div>
   );
 };
