@@ -19,7 +19,7 @@ const Nav = lazy(() => import('./Nav'));
 
 export default function App() {
   return (
-    <div className='bg-gradient-to-br from-indigo-900 via-pink-800 to-blue-800 text-white font-mono h-full m-0 p-0'>
+    <div className='bg-gradient-to-br from-white text-slate-800 font-mono h-full m-0 p-0'>
       <Router>
         <Suspense fallback={<h1> Loading.. .. ..... .</h1>}>
           <Routes>
