@@ -6,6 +6,7 @@ import Ship from '../ServiceMenu/Ship';
 import Hotel from '../ServiceMenu/Hotel';
 import Cab from '../ServiceMenu/Cab';
 import Bus from '../ServiceMenu/Bus';
+import Ferry from '../ServiceMenu/Ferry.js';
 import Activity from '../ServiceMenu/Activity';
 import Dinning from '../ServiceMenu/Dinning';
 import Trekking from '../ServiceMenu/Trekking.js';
@@ -19,6 +20,7 @@ import * as HotelData from '../Icons/hotel.json';
 import * as ShipData from '../Icons/ship.json';
 import * as BusData from '../Icons/Bus.json';
 import * as CabData from '../Icons/Cab.json';
+import * as FerryData from '../Icons/ferry.json';
 import * as DivingData from '../Icons/diving.json';
 import * as GuestData from '../Icons/guest.json';
 import * as TravelData from '../Icons/travel.json';
@@ -185,6 +187,15 @@ export default class TabView extends Component {
       },
     };
 
+    const FerryIcon = {
+      loop: true,
+      autoplay: true,
+      animationData: FerryData,
+      rendererSettings: {
+        preserveAspectRatio: 'xMidYMid slice',
+      },
+    };
+
     const DivingIcon = {
       loop: true,
       autoplay: true,
@@ -306,8 +317,8 @@ export default class TabView extends Component {
             }}
           />
           <Tab
-            label='Water Sports'
-            icon={<Lottie options={DivingIcon} height={size} width={size} />}
+            label='Ferry'
+            icon={<Lottie options={FerryIcon} height={size} width={size} />}
             style={{
               color: this.state.value === 5 ? this.state.tabcolor : '#757574',
               fontWeight:
@@ -316,8 +327,8 @@ export default class TabView extends Component {
             }}
           />
           <Tab
-            label='Paying Guest'
-            icon={<Lottie options={GuestIcon} height={size} width={size} />}
+            label='Water Sports'
+            icon={<Lottie options={DivingIcon} height={size} width={size} />}
             style={{
               color: this.state.value === 6 ? this.state.tabcolor : '#757574',
               fontWeight:
@@ -326,8 +337,8 @@ export default class TabView extends Component {
             }}
           />
           <Tab
-            label='Package'
-            icon={<Lottie options={TravelIcon} height={size} width={size} />}
+            label='Paying Guest'
+            icon={<Lottie options={GuestIcon} height={size} width={size} />}
             style={{
               color: this.state.value === 7 ? this.state.tabcolor : '#757574',
               fontWeight:
@@ -336,8 +347,8 @@ export default class TabView extends Component {
             }}
           />
           <Tab
-            label='Dinning'
-            icon={<Lottie options={DinningIcon} height={size} width={size} />}
+            label='Package'
+            icon={<Lottie options={TravelIcon} height={size} width={size} />}
             style={{
               color: this.state.value === 8 ? this.state.tabcolor : '#757574',
               fontWeight:
@@ -346,8 +357,8 @@ export default class TabView extends Component {
             }}
           />
           <Tab
-            label='Trekking'
-            icon={<Lottie options={TrekkingIcon} height={size} width={size} />}
+            label='Dinning'
+            icon={<Lottie options={DinningIcon} height={size} width={size} />}
             style={{
               color: this.state.value === 9 ? this.state.tabcolor : '#757574',
               fontWeight:
@@ -356,12 +367,22 @@ export default class TabView extends Component {
             }}
           />
           <Tab
-            label='Shop'
-            icon={<Lottie options={ShopIcon} height={size} width={size} />}
+            label='Trekking'
+            icon={<Lottie options={TrekkingIcon} height={size} width={size} />}
             style={{
               color: this.state.value === 10 ? this.state.tabcolor : '#757574',
               fontWeight:
                 this.state.value === 10 ? this.state.weight : 'lighter',
+              fontSize: '11px',
+            }}
+          />
+          <Tab
+            label='Shop'
+            icon={<Lottie options={ShopIcon} height={size} width={size} />}
+            style={{
+              color: this.state.value === 11 ? this.state.tabcolor : '#757574',
+              fontWeight:
+                this.state.value === 11 ? this.state.weight : 'lighter',
               fontSize: '11px',
             }}
           />
@@ -383,21 +404,24 @@ export default class TabView extends Component {
           <Cab cabdata={cabcard} />
         </TabPanel>
         <TabPanel value={this.state.value} index={5}>
-          <Activity />
+          <Ferry />
         </TabPanel>
         <TabPanel value={this.state.value} index={6}>
-          <Pg pgdata={pgcard} />
+          <Activity />
         </TabPanel>
         <TabPanel value={this.state.value} index={7}>
-          <Travelpackage />
+          <Pg pgdata={pgcard} />
         </TabPanel>
         <TabPanel value={this.state.value} index={8}>
-          <Dinning />
+          <Travelpackage />
         </TabPanel>
         <TabPanel value={this.state.value} index={9}>
-          <Trekking />
+          <Dinning />
         </TabPanel>
         <TabPanel value={this.state.value} index={10}>
+          <Trekking />
+        </TabPanel>
+        <TabPanel value={this.state.value} index={11}>
           <Shop />
         </TabPanel>
       </Container>
