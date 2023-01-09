@@ -1,30 +1,3 @@
-// import { Grid } from '@nextui-org/react';
-
-// // import Card from '../Component/Card';
-
-// export default function bus() {
-//   return (
-//     <Grid.Container gap={2} justify='flex-start'>
-//       Bus
-//       {/* <Grid xs={7} sm={3}>
-//         <Card />
-//       </Grid>
-//       <Grid xs={7} sm={3}>
-//         <Card />
-//       </Grid>
-//       <Grid xs={7} sm={3}>
-//         <Card />
-//       </Grid>
-//       <Grid xs={7} sm={3}>
-//         <Card />
-//       </Grid>
-//       <Grid xs={7} sm={3}>
-//         <Card />
-//       </Grid> */}
-//     </Grid.Container>
-//   );
-// }
-
 import React from 'react';
 
 import BusSearch from './Bus/BusSearch';
@@ -40,7 +13,7 @@ const Buss = () => {
     <div className='pt-10 h-full w-auto cursor-pointer'>
       <div className='flex'>
         <div className='flex mx-auto mt-10 mb-10'>
-          <span className='text-3xl font-Nunito_Sans font-semibold text-white'>
+          <span className='text-3xl font-Nunito_Sans font-semibold text-slate-800'>
             😋 Experience the Fun On-Road Travel ✌🏻 🚌
           </span>
         </div>

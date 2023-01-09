@@ -13,7 +13,7 @@ const Flights = () => {
     <div className='pt-10 h-full w-auto cursor-pointer'>
       <div className='flex'>
         <div className='flex mx-auto mt-10 mb-10'>
-          <span className='text-3xl font-Nunito_Sans font-semibold text-white'>
+          <span className='text-3xl font-Nunito_Sans font-semibold text-slate-800'>
             🤫 Lowest Price's Here 😉 🚀
           </span>
         </div>
