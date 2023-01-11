@@ -16,7 +16,9 @@ const mapStyles = {
 //   }
 // }, [])
 
+
 const MyMapComponent = (props) => (
+
   // useEffect(() => {
   //   if (navigator.geolocation) {
   //     navigator.geolocation.watchPosition(function (position) {

@@ -10,6 +10,7 @@ const Ship = lazy(() => import('./ServiceMenu/Ship'));
 const Hotel = lazy(() => import('./ServiceMenu/Hotel'));
 const Cab = lazy(() => import('./ServiceMenu/Cab'));
 const Bus = lazy(() => import('./ServiceMenu/Bus'));
+const Ferry = lazy(() => import('./ServiceMenu/Ferry'));
 const Activity = lazy(() => import('./ServiceMenu/Activity'));
 const Pg = lazy(() => import('./ServiceMenu/Pg'));
 const Travelpackage = lazy(() => import('./ServiceMenu/Travelpackage'));
@@ -29,14 +30,15 @@ export default function App() {
             <Route path='/Fun' element={<Fun />} />
             <Route path='/Flight' element={<Flights />} />
             <Route path='/Ship' element={<Ship />} />
-            <Route path='/hotel' element={<Hotel />} />
-            <Route path='/bus' element={<Bus />} />
-            <Route path='/activity' element={<Activity />} />
-            <Route path='/pg' element={<Pg />} />
-            <Route path='/travelpg' element={<Travelpackage />} />
-            <Route path='/cab' element={<Cab />} />
-            <Route path='/dinning' element={<Dinning />} />
-            <Route path='/trekking' element={<Trekking />} />
+            <Route path='/Hotel' element={<Hotel />} />
+            <Route path='/Bus' element={<Bus />} />
+            <Route path='/Ferry' element={<Ferry />} />
+            <Route path='/Activity' element={<Activity />} />
+            <Route path='/Pg' element={<Pg />} />
+            <Route path='/Travelpackage' element={<Travelpackage />} />
+            <Route path='/Cab' element={<Cab />} />
+            <Route path='/Dinning' element={<Dinning />} />
+            <Route path='/Trekking' element={<Trekking />} />
           </Routes>
         </Suspense>
       </Router>
