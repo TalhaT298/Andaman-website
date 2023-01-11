@@ -404,7 +404,7 @@ export default class TabView extends Component {
           <Cab cabdata={cabcard} />
         </TabPanel>
         <TabPanel value={this.state.value} index={5}>
-          <Ferry />
+          <Ferry maploc={card} />
         </TabPanel>
         <TabPanel value={this.state.value} index={6}>
           <Activity />

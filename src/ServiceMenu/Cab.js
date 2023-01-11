@@ -6,8 +6,8 @@ import cab from '../Data/Cab-Section/cab';
 import CabCover from './Cab/CabCover';
 
 const Cabs = () => {
-  const cabData = cab.map((airplane, index) => {
-    return <CabCover key={index} {...airplane} />;
+  const cabData = cab.map((cab, index) => {
+    return <CabCover key={index} {...cab} />;
   });
   return (
     <div className='pt-10 h-full w-auto cursor-pointer'>

@@ -20,7 +20,7 @@ const Buss = () => {
       </div>
       <BusSearch />
       <span className='text-2xl font-normal mb-3 mx-2'>Featured Buss</span>
-      <div className='pt-2'>{busData}</div>
+      <div className='pt-2 text-white'>{busData}</div>
     </div>
   );
 };

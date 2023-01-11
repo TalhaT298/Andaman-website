@@ -24,7 +24,7 @@ const ActivityCover = (props) => {
         }}
         className='flex-row rounded-lg bg-slate-900 w-auto py-8 h-auto drop-shadow-2xl shadow-black shadow-lg transition:origin-center hover:ease-in-out hover:scale-110 transition:duration-1000 transition-transform'
       >
-        <div className='flex items-center justify-between mx-auto py-auto px-4 text-center px-auto w-auto xs:flex-col xs:py-2 xs:gap-y-3'>
+        <div className='text-slate-200 flex items-center justify-between mx-auto py-auto px-4 text-center px-auto w-auto xs:flex-col xs:py-2 xs:gap-y-3'>
           <span className='uppercase'>{props.flightName}</span>
           <span>{props.travelRoute}</span>
           <span>{`${format(date[0].startDate, 'dd/MM/yyyy')}`}</span>
@@ -93,7 +93,9 @@ const ActivityCover = (props) => {
                 </div>
               </div>
               <div className='flex flex-col mx-auto py-2 w-32'>
-                <button className='h-10 bg-gradient-to-br to-amber-400 from-pink-500 hover:bg-gradient-to-br hover:to-amber-600 hover:from-pink-600'>Book Now</button>
+                <button className='h-10 bg-gradient-to-br to-amber-400 from-pink-500 hover:bg-gradient-to-br hover:to-amber-600 hover:from-pink-600'>
+                  Book Now
+                </button>
               </div>
             </div>
           </div>

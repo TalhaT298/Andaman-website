@@ -20,7 +20,7 @@ const Flights = () => {
       </div>
       <FlightSearch />
       <span className='text-2xl font-normal mb-3 mx-2'>Featured Flights</span>
-      <div className='pt-2'>{flightData}</div>
+      <div className='pt-2 '>{flightData}</div>
     </div>
   );
 };

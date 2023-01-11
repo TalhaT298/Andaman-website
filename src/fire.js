@@ -1,3 +1,5 @@
+// firebase version - 7.6.1
+
 import firebase from 'firebase';
 var firebaseConfig = {
   apiKey: 'AIzaSyBE7gWVjeJ30sLkPTiCERmn615UyrttZvY',
