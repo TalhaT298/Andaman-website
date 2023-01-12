@@ -19,14 +19,14 @@ const mapStyles = {
 const location = [
   {
     latitude: 11.687612,
-    longitude: 92.715910,
+    longitude: 92.71591,
   },
   {
-    latitude: 11.687600,
+    latitude: 11.6876,
     longitude: 92.715921,
   },
   {
-    latitude: 11.687620,
+    latitude: 11.68762,
     longitude: 92.715908,
   },
 ];
@@ -40,14 +40,14 @@ const MyMapComponent = (props) => (
     zoom={14}
     style={mapStyles}
     initialCenter={{
-      lat: location.latitude,
-      lng: location.longitude,
+      lat: latitude,
+      lng: longitude,
     }}
   >
     <Marker
       position={{
-        lat: location.latitude,
-        lng: location.longitude,
+        lat: latitude,
+        lng: longitude,
       }}
     />
   </Map>
