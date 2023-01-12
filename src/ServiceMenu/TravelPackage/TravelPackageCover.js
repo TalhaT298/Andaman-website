@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import TravelPackagePage from './TravelPackagePage';
+// import TravelPackagePage from './TravelPackagePage';
 import Modal from 'react-modal';
 
 const TravelPackageCover = (props) => {
