@@ -24,7 +24,7 @@ const Dates = () => {
           onClick={() => setOpenDate(!openDate)}
           className='text-black font-extralight cursor-pointer w-auto'
         >
-          {`${format(date[0].startDate, 'dd/MM/yyyy')} to ${format(
+          {`${format(date[0].startDate, 'dd/MM/yyyy')} - ${format(
             date[0].endDate,
             'dd/MM/yyyy'
           )}`}
