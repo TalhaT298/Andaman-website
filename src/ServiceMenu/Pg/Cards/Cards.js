@@ -6,6 +6,7 @@ import 'swiper/css';
 import 'swiper/css/pagination';
 import 'swiper/css/navigation';
 import { Pagination, Navigation } from 'swiper';
+import { LazyLoadImage } from 'react-lazy-load-image-component';
 // import { Link } from 'react-router-dom';
 
 function Card({ card }) {
@@ -24,15 +25,17 @@ function Card({ card }) {
         {card.imgSrc.map((src, i) => (
           <SwiperSlide key={i}>
             <a href={card.link} target='_blank' rel='noreferrer'>
-              <img src={src} className='card-img bg-inherit' alt='hotel/room' />
+              <LazyLoadImage
+                src={src}
+                className='card-img bg-inherit'
+                alt='hotel/room'
+              />
             </a>
           </SwiperSlide>
         ))}
       </Swiper>
       <div className='card-info-flex pt-2'>
-        <h3 className='card-title pt-1 font-bold text-black'>
-          {card.title}
-        </h3>
+        <h3 className='card-title pt-1 font-bold text-black'>{card.title}</h3>
         <div className='card-rating font-semibold text-black'>
           <StarRateRoundedIcon />
           <p>{card.rating}</p>

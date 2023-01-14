@@ -1,4 +1,5 @@
 import React from 'react';
+import { LazyLoadImage } from 'react-lazy-load-image-component';
 
 const ActivityCover = (props) => {
   return (
@@ -9,7 +10,7 @@ const ActivityCover = (props) => {
           target='_blank'
           rel='noreferrer'
         >
-          <img
+          <LazyLoadImage
             src={props.imageLink}
             alt={props.name}
             className='flex rounded-md w-88 h-64 drop-shadow-2xl shadow-black shadow-lg transition:origin-center hover:ease-in-out hover:scale-110 transition:duration-1000 transition-transform'

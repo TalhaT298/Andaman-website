@@ -1,4 +1,5 @@
-import { lazy, Suspense } from 'react';
+import { lazy, Suspense} from 'react';
+import {RingLoader, ScaleLoader} from 'react-spinners';
 
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
@@ -19,10 +20,26 @@ const Trekking = lazy(() => import('./ServiceMenu/Trekking.js'));
 const Nav = lazy(() => import('./Nav'));
 
 export default function App() {
+
   return (
     <div className='bg-gradient-to-br from-white text-slate-800 font-mono h-full m-0 p-0'>
       <Router>
-        <Suspense fallback={<h1> Loading.. .. ..... .</h1>}>
+        <Suspense
+          fallback={
+            <div className='h-screen w-full flex flex-col bg-black'>
+              <RingLoader
+                size={100}
+                color='yellow'
+                className='mx-auto my-60 w-screen h-full items-center justify-center border-transparent'
+              />
+              <ScaleLoader
+                size={150}
+                color='yellow'
+                className='mx-auto w-screen h-full items-center justify-center border-transparent'
+              />
+            </div>
+          }
+        >
           <Routes>
             <Route path='/' element={<Nav />} />
             <Route path='/Explore' element={<Explore />} />
