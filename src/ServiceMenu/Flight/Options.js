@@ -45,71 +45,73 @@ const Options = () => {
       <Modal
         isOpen={openTravellerInfo}
         overlayClassName='modal-overlay bg-black opacity'
-        className='modal-content w-auto h-auto ml-96'
+        className='modal-content w-auto h-auto'
       >
-        <div className='flex flex-col absolute bg-slate-100 bottom-16 right-96 airbnbml:-bottom-10 sm:right-44 sm:-bottom-10 w-auto h-auto py-3 mx-auto px-auto space-x-4'>
-          <div className='flex flex-row mx-auto px-auto items-center gap-x-4'>
-            <span className='optionText'>Adult</span>
-            <div className='mx-auto px-auto space-x-6'>
-              <button
-                disabled={travellerInfo.adult <= 1}
-                onClick={() => handleTravellerInfo('adult', 'd')}
-                className='disabled:cursor-not-allowed'
-              >
-                -
-              </button>
-              <span className='optionCounterNumber'>{travellerInfo.adult}</span>
-              <button
-                onClick={() => handleTravellerInfo('adult', 'i')}
-                className=''
-              >
-                +
-              </button>
+        <div className='flex flex-col absolute bg-white -bottom-2 right-96 airbnbml:right-20 airbnbml:-bottom-10 md:right-40 sm:right-32 sm:-bottom-16 xs:-bottom-16 lexs:right-20 lexs:-bottom-24 w-auto h-auto py-3 mx-auto px-auto space-x-4 border-solid border-2 border-black rounded-md shadow-md shadow-black drop-shadow-md'>
+          <div className='flex flex-row gap-6 px-6'>
+            <div className='flex flex-col gap-y-5 py-2'>
+              <span className='optionText'>Adult</span>
+              <span className='optionText'>Children</span>
+              <span className='optionText'>Infant</span>
+            </div>
+            <div className='text-center'>
+              <div className='mx-auto px-auto space-x-6'>
+                <button
+                  disabled={travellerInfo.adult <= 1}
+                  onClick={() => handleTravellerInfo('adult', 'd')}
+                  className='disabled:cursor-not-allowed bg-amber-500 border-black border-solid border-2 text-xl w-6 h-8 my-1.5'
+                >
+                  <span className=''>-</span>
+                </button>
+                <span className='optionCounterNumber'>
+                  {travellerInfo.adult}
+                </span>
+                <button
+                  onClick={() => handleTravellerInfo('adult', 'i')}
+                  className=' bg-amber-500 border-black border-solid border-2 text-xl w-6 h-8 my-1.5'
+                >
+                  <span className=''>+</span>
+                </button>
+              </div>
+              <div className='mx-auto px-auto space-x-6'>
+                <button
+                  disabled={travellerInfo.children <= 0}
+                  onClick={() => handleTravellerInfo('children', 'd')}
+                  className='disabled:cursor-not-allowed bg-amber-500 border-black border-solid border-2 text-xl w-6 h-8 my-1.5'
+                >
+                  <span className=''>-</span>
+                </button>
+                <span className='optionCounterNumber'>
+                  {travellerInfo.children}
+                </span>
+                <button
+                  onClick={() => handleTravellerInfo('children', 'i')}
+                  className=' bg-amber-500 border-black border-solid border-2 text-xl w-6 h-8 my-1.5'
+                >
+                  <span className=''>+</span>
+                </button>
+              </div>
+              <div className='mx-auto px-auto space-x-6'>
+                <button
+                  disabled={travellerInfo.infant <= 0}
+                  onClick={() => handleTravellerInfo('infant', 'd')}
+                  className='disabled:cursor-not-allowed bg-amber-500 border-black border-solid border-2 text-xl w-6 h-8 my-1.5'
+                >
+                  <span className=''>-</span>
+                </button>
+                <span className='optionCounterNumber'>
+                  {travellerInfo.infant}
+                </span>
+                <button
+                  onClick={() => handleTravellerInfo('infant', 'i')}
+                  className=' bg-amber-500 border-black border-solid border-2 text-xl w-6 h-8 my-1.5'
+                >
+                  <span className=''>+</span>
+                </button>
+              </div>
             </div>
           </div>
-          <div className='flex flex-row mx-auto px-auto items-center gap-x-4 '>
-            <span className='optionText'>Children</span>
-            <div className='mx-auto px-auto space-x-6'>
-              <button
-                disabled={travellerInfo.children <= 1}
-                onClick={() => handleTravellerInfo('children', 'd')}
-                className='disabled:cursor-not-allowed'
-              >
-                -
-              </button>
-              <span className='optionCounterNumber'>
-                {travellerInfo.children}
-              </span>
-              <button
-                onClick={() => handleTravellerInfo('children', 'i')}
-                className=''
-              >
-                +
-              </button>
-            </div>
-          </div>
-          <div className='flex flex-row mx-auto px-auto items-center gap-x-4'>
-            <span className='optionText'>Infant</span>
-            <div className='mx-auto px-auto space-x-6'>
-              <button
-                disabled={travellerInfo.infant <= 1}
-                onClick={() => handleTravellerInfo('infant', 'd')}
-                className='disabled:cursor-not-allowed'
-              >
-                -
-              </button>
-              <span className='optionCounterNumber'>
-                {travellerInfo.infant}
-              </span>
-              <button
-                onClick={() => handleTravellerInfo('infant', 'i')}
-                className=''
-              >
-                +
-              </button>
-            </div>
-          </div>
-          <div className='flex flex-col pt-3'>
+          <div className='flex flex-col gap-3 px-2'>
             <span onClick={() => setPassengerClass('ECONOMY')} className=''>
               Economy
             </span>
