@@ -26,15 +26,10 @@ export default function App() {
       <Router>
         <Suspense
           fallback={
-            <div className='h-screen w-full flex flex-col bg-black'>
-              <RingLoader
-                size={100}
-                color='yellow'
-                className='mx-auto my-60 w-screen h-full items-center justify-center border-transparent'
-              />
+            <div className='h-screen w-full flex flex-col bg-white'>
               <ScaleLoader
-                size={150}
-                color='yellow'
+                size={500}
+                color='green'
                 className='mx-auto w-screen h-full items-center justify-center border-transparent'
               />
             </div>
