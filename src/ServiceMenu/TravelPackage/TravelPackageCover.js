@@ -39,22 +39,21 @@ const TravelPackageCover = (props) => {
               Package Details
             </span>
           </div>
-          <div className='py-3'>
+          <div className='flex flex-row justify-between py-3 mx-4'>
             <span className='text-xl text- font-semibold text-black'>
               {props.name}
             </span>
+            <button className='px-2 h-10 font-semibold font-Nunito_Sans text-white bg-gradient-to-br rounded-md to-amber-400 from-pink-500 hover:bg-gradient-to-br hover:to-amber-600 hover:from-pink-600 hover:text-white'>
+              Book Now
+            </button>
           </div>
           <div className='py-2'>
             <span className='text-slate-700 text-base'>
               {props.fullDescription1}
             </span>
             <LazyLoadImage
-              className='h-80 w-1/3 lg:w-5/12 airbnbml:w-2/3 airbnbml:mx-auto'
-              src={
-                props.imageLink1
-                  ? props.imageLink1
-                  : 'https://images.indianexpress.com/2021/07/Nothing-logo.jpg'
-              }
+              className='h-80 w-1/3 lg:w-5/12 airbnbml:w-2/3 airbnbml:mx-auto sm:h-52 sm:w-auto'
+              src={props.imageLink1 ? props.imageLink1 : '-'}
               alt='.'
             />
           </div>
@@ -63,12 +62,8 @@ const TravelPackageCover = (props) => {
               {props.fullDescription2}
             </span>
             <LazyLoadImage
-              className='h-80 w-1/3 lg:w-5/12 airbnbml:w-2/3 airbnbml:mx-auto'
-              src={
-                props.imageLink2
-                  ? props.imageLink2
-                  : 'https://images.indianexpress.com/2021/07/Nothing-logo.jpg'
-              }
+              className='h-80 w-1/3 lg:w-5/12 airbnbml:w-2/3 airbnbml:mx-auto sm:h-40'
+              src={props.imageLink2 ? props.imageLink2 : '-'}
               alt='.'
             />
           </div>
@@ -77,12 +72,8 @@ const TravelPackageCover = (props) => {
               {props.fullDescription3}
             </span>
             <LazyLoadImage
-              className='h-80 w-1/3 lg:w-5/12 airbnbml:w-2/3 airbnbml:mx-auto'
-              src={
-                props.imageLink3
-                  ? props.imageLink3
-                  : 'https://images.indianexpress.com/2021/07/Nothing-logo.jpg'
-              }
+              className='h-80 w-1/3 lg:w-5/12 airbnbml:w-2/3 airbnbml:mx-auto sm:h-40'
+              src={props.imageLink3 ? props.imageLink3 : '-'}
               alt='.'
             />
           </div>
@@ -91,99 +82,109 @@ const TravelPackageCover = (props) => {
               {props.fullDescription4}
             </span>
             <LazyLoadImage
-              className='h-80 w-1/3 lg:w-5/12 airbnbml:w-2/3 airbnbml:mx-auto'
-              src={
-                props.imageLink4
-                  ? props.imageLink4
-                  : 'https://images.indianexpress.com/2021/07/Nothing-logo.jpg'
-              }
+              className='h-80 w-1/3 lg:w-5/12 airbnbml:w-2/3 airbnbml:mx-auto sm:h-40'
+              src={props.imageLink4 ? props.imageLink4 : '-'}
               alt='.'
             />
           </div>
-          <div className='py-3'>
-            <span className='text-slate-700 text-base'>
-              {props.fullDescription5}
-            </span>
-            <LazyLoadImage
-              className='h-80 w-1/3 lg:w-5/12 airbnbml:w-2/3 airbnbml:mx-auto'
-              src={
-                props.imageLink5
-                  ? props.imageLink5
-                  : 'https://images.indianexpress.com/2021/07/Nothing-logo.jpg'
-              }
-              alt='.'
-            />
-          </div>
-          <div className='py-3'>
-            <span className='text-slate-700 text-base'>
-              {props.fullDescription6}
-            </span>
-            <LazyLoadImage
-              className='h-80 w-1/3 lg:w-5/12 airbnbml:w-2/3 airbnbml:mx-auto'
-              src={
-                props.imageLink6
-                  ? props.imageLink6
-                  : 'https://images.indianexpress.com/2021/07/Nothing-logo.jpg'
-              }
-              alt='.'
-            />
-          </div>
-          <div className='py-3'>
-            <span className='text-slate-700 text-base'>
-              {props.fullDescription7}
-            </span>
-            <LazyLoadImage
-              className='h-80 w-1/3 lg:w-5/12 airbnbml:w-2/3 airbnbml:mx-auto'
-              src={
-                props.imageLink7
-                  ? props.imageLink7
-                  : 'https://images.indianexpress.com/2021/07/Nothing-logo.jpg'
-              }
-              alt='.'
-            />
-          </div>
-          <div className='py-3'>
-            <span className='text-slate-700 text-base'>
-              {props.fullDescription8}
-            </span>
-            <LazyLoadImage
-              className='h-80 w-1/3 lg:w-5/12 airbnbml:w-2/3 airbnbml:mx-auto'
-              src={
-                props.imageLink8
-                  ? props.imageLink8
-                  : 'https://images.indianexpress.com/2021/07/Nothing-logo.jpg'
-              }
-              alt='.'
-            />
-          </div>
-          <div className='py-3'>
-            <span className='text-slate-700 text-base'>
-              {props.fullDescription9}
-            </span>
-            <LazyLoadImage
-              className='h-80 w-1/3 lg:w-5/12 airbnbml:w-2/3 airbnbml:mx-auto'
-              src={
-                props.imageLink9
-                  ? props.imageLink9
-                  : 'https://images.indianexpress.com/2021/07/Nothing-logo.jpg'
-              }
-              alt='.'
-            />
-          </div>
-          <div className='py-3'>
-            <span className='text-slate-700 text-base'>
-              {props.fullDescription10}
-            </span>
-            <LazyLoadImage
-              className='h-80 w-1/3 lg:w-5/12 airbnbml:w-2/3 airbnbml:mx-auto'
-              src={
-                props.imageLink10
-                  ? props.imageLink10
-                  : 'https://images.indianexpress.com/2021/07/Nothing-logo.jpg'
-              }
-              alt='.'
-            />
-          </div>
+          {props.fullDescription5 ? (
+            <div className='py-3'>
+              <span className='text-slate-700 text-base'>
+                {props.fullDescription5}
+              </span>
+              <LazyLoadImage
+                className='h-80 w-1/3 lg:w-5/12 airbnbml:w-2/3 airbnbml:mx-auto sm:h-40'
+                src={props.imageLink5 ? props.imageLink5 : '-'}
+                alt='.'
+              />
+            </div>
+          ) : (
+            <div></div>
+          )}
+          {props.fullDescription6 ? (
+            <div className='py-3'>
+              <span className='text-slate-700 text-base'>
+                {props.fullDescription6}
+              </span>
+              <LazyLoadImage
+                className='h-80 w-1/3 lg:w-5/12 airbnbml:w-2/3 airbnbml:mx-auto sm:h-40'
+                src={props.imageLink6 ? props.imageLink6 : '-'}
+                alt='.'
+              />
+            </div>
+          ) : (
+            <div></div>
+          )}
+          {props.fullDescription7 ? (
+            <div className='py-3'>
+              <span className='text-slate-700 text-base'>
+                {props.fullDescription7}
+              </span>
+              <LazyLoadImage
+                className='h-80 w-1/3 lg:w-5/12 airbnbml:w-2/3 airbnbml:mx-auto sm:h-40'
+                src={props.imageLink7 ? props.imageLink7 : '-'}
+                alt='.'
+              />
+            </div>
+          ) : (
+            <div></div>
+          )}
+          {props.fullDescription8 ? (
+            <div className='py-3'>
+              <span className='text-slate-700 text-base'>
+                {props.fullDescription8}
+              </span>
+              <LazyLoadImage
+                className='h-80 w-1/3 lg:w-5/12 airbnbml:w-2/3 airbnbml:mx-auto sm:h-40'
+                src={props.imageLink8 ? props.imageLink8 : '-'}
+                alt='.'
+              />
+            </div>
+          ) : (
+            <div></div>
+          )}
+          {props.fullDescription9 ? (
+            <div className='py-3'>
+              <span className='text-slate-700 text-base'>
+                {props.fullDescription9}
+              </span>
+              <LazyLoadImage
+                className='h-80 w-1/3 lg:w-5/12 airbnbml:w-2/3 airbnbml:mx-auto sm:h-40'
+                src={props.imageLink9 ? props.imageLink9 : '-'}
+                alt='.'
+              />
+            </div>
+          ) : (
+            <div></div>
+          )}
+          {props.fullDescription10 ? (
+            <div className='py-3'>
+              <span className='text-slate-700 text-base'>
+                {props.fullDescription10}
+              </span>
+              <LazyLoadImage
+                className='h-80 w-1/3 lg:w-5/12 airbnbml:w-2/3 airbnbml:mx-auto sm:h-40'
+                src={props.imageLink10 ? props.imageLink10 : '-'}
+                alt='.'
+              />
+            </div>
+          ) : (
+            <div></div>
+          )}
+          {props.fullDescription11 ? (
+            <div className='py-3'>
+              <span className='text-slate-700 text-base'>
+                {props.fullDescription11}
+              </span>
+              <LazyLoadImage
+                className='h-80 w-1/3 lg:w-5/12 airbnbml:w-2/3 airbnbml:mx-auto sm:h-40'
+                src={props.imageLink11 ? props.imageLink11 : '-'}
+                alt='.'
+              />
+            </div>
+          ) : (
+            <div></div>
+          )}
           <div className='mx-auto pt-10 pb-7'>
             <button
               className='h-10 w-20 rounded-lg font-Nunito_Sans uppercase mx-auto border-2 bg-rose-600 text-slate-100 hover:bg-gradient-to-br hover:from-red-600 hover:via-red-500 hover:to-yellow-400'

@@ -38,30 +38,3 @@ const MyMapComponent = (props) => {
 export default GoogleApiWrapper({
   apiKey: 'AIzaSyBE7gWVjeJ30sLkPTiCERmn615UyrttZvY',
 })(MyMapComponent);
-
-// useEffect(() => {
-//   if (navigator.geolocation) {
-//     navigator.geolocation.watchPosition(function (position) {
-//       console.log('Latitude is :', position.coords.latitude);
-//       console.log('Longitude is :', position.coords.longitude);
-//       return () => {
-//         <Map
-//           google={props.google}
-//           zoom={14}
-//           style={mapStyles}
-//           initialCenter={{
-//             lat: position.coords.latitude,
-//             lng: position.coords.longitude,
-//           }}
-//         >
-//           <Marker
-//             position={{
-//               lat: position.coords.latitude,
-//               lng: position.coords.longitude,
-//             }}
-//           />
-//         </Map>;
-//       };
-//     });
-//   }
-// }, [props.google]);

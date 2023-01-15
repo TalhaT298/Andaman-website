@@ -26,11 +26,8 @@ const travelpackage = [
     fullDescription3:
       'DAY 3 :  Day trip to Havelock Island - Today we visit Radhanagar beach in Havelock. Evening back to Port Blair.',
     fullDescription4: 'DAY 4 :  Depart From Port Blair',
-    fullDescription5: "",
-    fullDescription6: "",
-    fullDescription7: "",
-    fullDescription8: "",
-    ifImageNotAvailable: "https://www.symbols.com/images/symbol/1/5528_dash.png",
+    ifImageNotAvailable:
+      'https://www.symbols.com/images/symbol/1/5528_dash.png',
   },
   {
     id: 2,
@@ -64,9 +61,6 @@ const travelpackage = [
     fullDescription4:
       'DAY 4:  Ross Island & North Bay: Today We visit Ross Island (Erstwhile Capital of British Regime) & North Bay where we can induldge in Water Sport Activities.',
     fullDescription5: 'DAY 5:  Depart From Port Blair',
-    fullDescription6: "",
-    fullDescription7: "",
-    fullDescription8: "",
   },
   {
     id: 3,
@@ -102,9 +96,6 @@ const travelpackage = [
     fullDescription4:
       'DAY 4:  Havelock to Port Blair by Speed Boat:After breakfast proceed to Port Blair by Private ferry. Evening visit City Market for shopping and collection of Souvenirs.',
     fullDescription5: 'DAY 5:  Depart From Port Blair',
-    fullDescription6: "",
-    fullDescription7: "",
-    fullDescription8: "",
   },
   {
     id: 6,
@@ -144,8 +135,6 @@ const travelpackage = [
     fullDescription5:
       'DAY 5:  Ross Island & North Bay: Today We visit Ross Island (Erstwhile Capital of British Regime) & North Bay where we can indulge in Water Sport Activities. ',
     fullDescription6: 'DAY 6:  Depart for Port Blair Airport.',
-    fullDescription7: "",
-    fullDescription8: "",
   },
   {
     id: 7,
@@ -190,7 +179,6 @@ const travelpackage = [
     fullDescription6:
       'DAY 6:  Ross Island & North Bay: Today We visit Ross Island (Erstwhile Capital of British Regime) & North Bay where we can induldge in Water Sport Activities.',
     fullDescription7: 'DAY 7:  Depart From Port Blair',
-    fullDescription8: "",
   },
   {
     id: 8,
@@ -252,7 +240,8 @@ const travelpackage = [
       'https://firebasestorage.googleapis.com/v0/b/fir-starter-3d346.appspot.com/o/splendid%20andaman%2F1511268378_beach.jpg.webp?alt=media&token=43cc2ab5-be7c-43d9-ad7a-bd7654e80b93',
     imageLink4:
       'https://firebasestorage.googleapis.com/v0/b/fir-starter-3d346.appspot.com/o/splendid%20andaman%2FKala_Pathar_Beach_Havelock_Island_Andaman_India1.jpg?alt=media&token=e6ed05d0-7c20-4d95-9d69-ca7b1f990ba5',
-
+    imageLink5:
+      'https://firebasestorage.googleapis.com/v0/b/fir-starter-3d346.appspot.com/o/port-blair.jpeg?alt=media&token=a801cb9b-4ac8-4885-b128-956c05e8ffd7',
     name: 'Havelock Lite',
     duration: '3 Nights / 4 Days',
     description: 'Port Blair – 2 Nights , Havelock – 1 Nights',
@@ -266,9 +255,6 @@ const travelpackage = [
     fullDescription4:
       'DAY 4:  Havelock island, the Kalapathar beach offers stunning views of the sunrise and sunset and then moving back.',
     fullDescription5: 'DAY 5: Depart from Port Blair',
-    fullDescription6: '',
-    fullDescription7: '',
-    fullDescription8: '',
   },
   {
     id: 10,
@@ -392,9 +378,6 @@ const travelpackage = [
     fullDescription4:
       'DAY 4:  Neil to Port Blair by Speed Boat: After breakfast proceed to Port Blair by Speed Boat. Evening visit City market for shopping and collection of Souvenirs.',
     fullDescription5: 'DAY 5:  Depart From Port Blair',
-    fullDescription6: "",
-    fullDescription7: "",
-    fullDescription8: "",
   },
 
   {
@@ -435,8 +418,6 @@ const travelpackage = [
     fullDescription5:
       'DAY 5:  Neil to Port Blair by Speed Boat: After breakfast proceed to Port Blair by Speed Boat. Evening visit City market for shopping and collection of Souvenirs.',
     fullDescription6: 'DAY 6:  Depart From Port Blair',
-    fullDescription7: "",
-    fullDescription8: "",
   },
 ];
 export default travelpackage;
