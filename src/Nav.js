@@ -48,7 +48,7 @@ export default class Navapp extends Component {
             >
               <AcmeLogo />
               <Text b css={{ color: '#699c78' }} hideIn='xs'>
-                Sumlime Andaman
+                Sublime Andaman
               </Text>
               <Lottie options={DolphinIcon} height={70} width={100} />
             </Navbar.Brand>
