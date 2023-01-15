@@ -40,10 +40,18 @@ const TravelPackageCover = (props) => {
             </span>
           </div>
           <div className='flex flex-row justify-between py-3 mx-4'>
-            <span className='text-xl text- font-semibold text-black'>
+            <span className='text-2xl text- font-semibold text-black'>
               {props.name}
             </span>
-            <button className='px-2 h-10 font-semibold font-Nunito_Sans text-white bg-gradient-to-br rounded-md to-amber-400 from-pink-500 hover:bg-gradient-to-br hover:to-amber-600 hover:from-pink-600 hover:text-white'>
+            <button
+              className='px-2 h-10 font-medium font-Nunito_Sans text-slate-400 hover:text-slate-800 text-2xl border-solid border-2'
+              onClick={() => setOpenTripDetails(false)}
+            >
+              X
+            </button>
+          </div>
+          <div className='flex flex-row pb-2'>
+            <button className='mx-auto px-2 h-10 font-semibold font-Nunito_Sans text-white bg-gradient-to-br rounded-md to-amber-400 from-pink-500 hover:bg-gradient-to-br hover:to-amber-600 hover:from-pink-600 hover:text-white'>
               Book Now
             </button>
           </div>
