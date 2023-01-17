@@ -76,7 +76,13 @@ const datas = [
     duration: 'South Point, Port Blair',
     description: 'Port Blair – 3 Nights , Havelock – 2 Nights ',
     videoLink: 'https://www.youtube.com/watch?v=pkVU6auKEpU',
-    fullDescription: ``,
+    fullDescription: `Parasailing at South Point in Port Blair, Andaman and Nicobar Islands, India is an exciting and thrilling experience for visitors. The activity offers visitors the opportunity to soar high above the beautiful Bay of Bengal while being pulled by a speedboat.
+
+    The parasailing experience at South Point in Port Blair starts at the beach, where visitors are provided with all the necessary safety equipment and a brief training session. Once ready, visitors are strapped into a harness and attached to a parasail, which is then pulled by a speedboat. The experience typically lasts for around 15-20 minutes, during which time visitors can enjoy the beautiful views of the surrounding islands, the beach, and the Bay of Bengal.
+    
+    Parasailing at South Point is suitable for people of all ages and is a great way to experience the thrill of flying while enjoying the beautiful views of the sea and surrounding islands. The activity offers a great opportunity to take in the picturesque views and take some breathtaking photos from above.
+    
+    In conclusion, parasailing at South Point in Port Blair, Andaman and Nicobar Islands is a must-do activity for anyone visiting the islands. It offers an exciting and thrilling experience, while providing beautiful views of the sea, beach and surrounding islands. The activity is suitable for people of all ages and is a great way to experience the thrill of flying while enjoying the natural beauty of the islands.`,
   },
   {
     id: 6,
