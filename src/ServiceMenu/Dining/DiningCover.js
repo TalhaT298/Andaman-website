@@ -7,9 +7,9 @@ const TrekkingCover = (props) => {
   const [openreserveInfo, setOpenReserveInfo] = useState(false);
 
   return (
-    <div className='m-2 py-3 p-2 flex flex-col w-88'>
+    <div className='m-2 py-3 p-2 flex flex-col w-88 xs:w-auto'>
       <div
-        className='max-w-80 items:center'
+        className='max-w-80 items-center'
         onClick={() => {
           setOpenReserveInfo(!openreserveInfo);
         }}
@@ -17,7 +17,7 @@ const TrekkingCover = (props) => {
         <LazyLoadImage
           src={props.imageLink}
           alt={props.name}
-          className='flex rounded-md w-88 h-64 drop-shadow-2xl shadow-black shadow-lg transition:origin-center hover:ease-in-out hover:scale-110 transition:duration-1000 transition-transform'
+          className='flex rounded-md h-64 w-88 xs:w-auto drop-shadow-2xl shadow-black shadow-lg transition:origin-center hover:ease-in-out hover:scale-110 transition:duration-1000 transition-transform'
         />
       </div>
       <div className='flex flex-col justify-between m-auto py-3 p-1 text-center'>
@@ -48,9 +48,9 @@ const TrekkingCover = (props) => {
             </button>
           </div>
 
-          <div className='py-2 flex flex-wrap justify-evenly px-10'>
+          <div className='py-2 flex flex-wrap justify-evenly px-10 xs:flex-col'>
             <LazyLoadImage
-              className='h-64 w-88 lg:w-5/12 airbnbml:w-2/3 airbnbml:mx-auto sm:h-52 sm:w-auto lexs:h-40 rounded-sm pb-3'
+              className='h-64 w-auto lg:w-5/12 airbnbml:w-2/3 airbnbml:mx-auto sm:h-52 sm:w-auto lexs:h-40 lexs:w-auto rounded-sm pb-3'
               src={props.imageLink ? props.imageLink : '-'}
               alt='.'
             />
