@@ -4,8 +4,8 @@ import { useState } from 'react';
 const Locations = () => {
   const [openOrigin, setOpenOrigin] = useState(false);
   const [openDestination, setOpenDestination] = useState(false);
-  const [origin, setOrigin] = useState('Port Blair');
-  const [destination, setDestination] = useState('Chennai');
+  const [origin, setOrigin] = useState('Aberdeen Bazzar');
+  const [destination, setDestination] = useState('Rangat');
 
   return (
     <>
@@ -19,7 +19,7 @@ const Locations = () => {
         >
           {origin}
         </span>
-        <span className='text-slate-800  text-xs'>[IXZ]</span>
+        <span className='text-slate-800  text-xs'>[PB]</span>
         {openOrigin && (
           <input
             type='text'
@@ -39,7 +39,7 @@ const Locations = () => {
         >
           {destination}
         </span>
-        <span className='text-slate-800  text-xs'>[MAA]</span>{' '}
+        <span className='text-slate-800  text-xs'>[RNT]</span>{' '}
         {/* w-full whitespace-nowrap overflow-hidden text-ellipsis */}
         {openDestination && (
           <input
