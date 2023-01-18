@@ -92,8 +92,8 @@ const ActivityCover = (props) => {
                   </span>
                 </div>
               </div>
-              <div className='flex flex-col mx-auto py-2 w-32'>
-                <button className='h-10 bg-gradient-to-br to-amber-400 from-pink-500 hover:bg-gradient-to-br hover:to-amber-600 hover:from-pink-600'>
+              <div className='flex flex-col mx-auto py-1 w-32'>
+                <button className='pb-1 rounded-md h-10 bg-gradient-to-br to-amber-400 from-pink-500 hover:bg-gradient-to-br hover:to-amber-600 hover:from-pink-600'>
                   Book Now
                 </button>
               </div>
