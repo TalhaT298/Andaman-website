@@ -8,7 +8,7 @@ const ActivityCover = (props) => {
   return (
     <div className='m-2 py-3 p-2 flex flex-col w-88'>
       <div
-        className='max-w-80 items:center'
+        className='max-w-80 items-center'
         onClick={() => {
           setTrekInfo(!trekInfo);
         }}
