@@ -36,5 +36,5 @@ const MyMapComponent = (props) => {
 };
 
 export default GoogleApiWrapper({
-  apiKey: 'AIzaSyBE7gWVjeJ30sLkPTiCERmn615UyrttZvY',
+  apiKey: 'AIzaSyATyrJWZVXed10msibEhg2KPAKzKjA3ykY',
 })(MyMapComponent);
