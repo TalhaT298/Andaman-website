@@ -11,16 +11,21 @@ const mapStyles = {
 };
 
 const MyMapComponent = (props) => {
-  const [location, setLocation] = useState({
-    lat: 11.687574,
+  const [lat, setlat] = useState({
+    lat: 11.687574
+  });
+  const [lng, setlng] = useState({
     lng: 92.715889,
   });
-
   useEffect(() => {
     const locationRef = firebase.database().ref('locations');
     locationRef.on('value', (snapshot) => {
-      console.log(snapshot.val());
-      setLocation(snapshot.val());
+      snapshot.forEach(location => {
+        console.log(location.val().latitude);
+        setlat(location.val().latitude)
+        console.log(location.val().longitude);
+        setlng(location.val().longitude);
+      });
     });
     return () => {
       locationRef.off();
@@ -28,15 +33,12 @@ const MyMapComponent = (props) => {
   }, []);
 
   return (
-    <Map google={props.google} zoom={14} style={mapStyles} center={{
-      lat: location.latitude,
-      lng: location.longitude
-    }}>
-      <Marker position={location} />
+    <Map google={props.google} zoom={14} style={mapStyles} center={{lat: lat, lng: lng}}>
+      <Marker position={{lat: lat, lng: lng}} />
     </Map>
   );
 };
 
 export default GoogleApiWrapper({
-  apiKey: 'AIzaSyBE7gWVjeJ30sLkPTiCERmn615UyrttZvY',
+  apiKey: 'AIzaSyATyrJWZVXed10msibEhg2KPAKzKjA3ykY',
 })(MyMapComponent);
