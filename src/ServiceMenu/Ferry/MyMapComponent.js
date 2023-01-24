@@ -1,6 +1,5 @@
 import React from 'react';
 import { useEffect, useState } from 'react';
-// import { fire } from '../../fire';
 import firebase from 'firebase/app';
 import 'firebase/database';
 
@@ -29,7 +28,10 @@ const MyMapComponent = (props) => {
   }, []);
 
   return (
-    <Map google={props.google} zoom={14} style={mapStyles} center={location}>
+    <Map google={props.google} zoom={14} style={mapStyles} center={{
+      lat: location.latitude,
+      lng: location.longitude
+    }}>
       <Marker position={location} />
     </Map>
   );
