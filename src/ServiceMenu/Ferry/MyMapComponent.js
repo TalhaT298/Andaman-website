@@ -33,7 +33,7 @@ const MyMapComponent = (props) => {
   }, []);
 
   return (
-    <Map google={props.google} zoom={14} style={mapStyles} center={{lat: lat, lng: lng}}>
+    <Map google={props.google} zoom={27} style={mapStyles} center={{lat: lat, lng: lng}}>
       <Marker position={{lat: lat, lng: lng}} />
     </Map>
   );
