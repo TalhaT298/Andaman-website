@@ -1,11 +1,14 @@
 import React from 'react';
 import { useState } from 'react';
 
-const Locations = () => {
+const Locations = ( {setSearchOriginTerm, setSearchDestTerm, origin, setOrigin, destination, setDestination} ) => {
+
   const [openOrigin, setOpenOrigin] = useState(false);
   const [openDestination, setOpenDestination] = useState(false);
-  const [origin, setOrigin] = useState('Port Blair');
-  const [destination, setDestination] = useState('Chennai');
+
+  //search feature
+  setSearchOriginTerm(origin)
+  setSearchDestTerm(destination)
 
   return (
     <>
@@ -24,7 +27,9 @@ const Locations = () => {
           <input
             type='text'
             value={origin}
-            onChange={(event) => setOrigin(event.target.value)}
+            onChange={(event) => {
+              setOrigin(event.target.value)              
+            }}
             className='absolute'
           />
         )}
@@ -45,7 +50,9 @@ const Locations = () => {
           <input
             type='text'
             value={destination}
-            onChange={(event) => setDestination(event.target.value)}
+            onChange={(event) => {
+                setDestination(event.target.value)                
+            }}
             className='absolute'
           />
         )}

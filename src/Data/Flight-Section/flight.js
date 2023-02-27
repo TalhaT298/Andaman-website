@@ -149,9 +149,9 @@ const flight = [
     flightLogo: 'https://flight.easemytrip.com/Content/AirlineLogon/G8.png',
     flightName: 'Indigo',
     travelRoute: 'MAA-IXZ',
-    currentDestination: 'Chennai',
+    currentDestination: 'Port Blair',
     flightInterval: 'non-stop', // 1 stoppages // 2 stoppages
-    nextDestination: 'Port Blair',
+    nextDestination: 'Chennai',
     departureTime: '12:30',
     arrivalTime: '14:30',
     flightDuration: '02h 00m',
@@ -165,9 +165,9 @@ const flight = [
     flightLogo: 'https://flight.easemytrip.com/Content/AirlineLogon/G8.png',
     flightName: 'Indigo',
     travelRoute: 'MAA-IXZ',
-    currentDestination: 'Chennai',
+    currentDestination: 'Port Blair',
     flightInterval: 'non-stop', // 1 stoppages // 2 stoppages
-    nextDestination: 'Port Blair',
+    nextDestination: 'Chennai',
     departureTime: '12:30',
     arrivalTime: '14:30',
     flightDuration: '02h 00m',
@@ -181,9 +181,9 @@ const flight = [
     flightLogo: 'https://flight.easemytrip.com/Content/AirlineLogon/G8.png',
     flightName: 'Indigo',
     travelRoute: 'MAA-IXZ',
-    currentDestination: 'Chennai',
+    currentDestination: 'Port Blair',
     flightInterval: 'non-stop', // 1 stoppages // 2 stoppages
-    nextDestination: 'Port Blair',
+    nextDestination: 'Chennai',
     departureTime: '12:30',
     arrivalTime: '14:30',
     flightDuration: '02h 00m',
@@ -245,9 +245,41 @@ const flight = [
     flightLogo: 'https://flight.easemytrip.com/Content/AirlineLogon/G8.png',
     flightName: 'Indigo',
     travelRoute: 'MAA-IXZ',
-    currentDestination: 'Chennai',
+    currentDestination: 'Mumbai',
     flightInterval: 'non-stop', // 1 stoppages // 2 stoppages
-    nextDestination: 'Port Blair',
+    nextDestination: 'Delhi',
+    departureTime: '12:30',
+    arrivalTime: '14:30',
+    flightDuration: '02h 00m',
+    adultPrice: 6700,
+    childrenPrice: 3000, // this is just dummy price
+    infantPrice: 2000, // this is just dummy price
+  },
+  {
+    flightID: 17,
+    flightGateway: 'Terminal 1',
+    flightLogo: 'https://flight.easemytrip.com/Content/AirlineLogon/G8.png',
+    flightName: 'Indigo',
+    travelRoute: 'MAA-IXZ',
+    currentDestination: 'Mumbai',
+    flightInterval: 'non-stop', // 1 stoppages // 2 stoppages
+    nextDestination: 'Delhi',
+    departureTime: '12:30',
+    arrivalTime: '14:30',
+    flightDuration: '02h 00m',
+    adultPrice: 6700,
+    childrenPrice: 3000, // this is just dummy price
+    infantPrice: 2000, // this is just dummy price
+  },
+  {
+    flightID: 18,
+    flightGateway: 'Terminal 1',
+    flightLogo: 'https://flight.easemytrip.com/Content/AirlineLogon/G8.png',
+    flightName: 'Indigo',
+    travelRoute: 'MAA-IXZ',
+    currentDestination: 'Mumbai',
+    flightInterval: 'non-stop', // 1 stoppages // 2 stoppages
+    nextDestination: 'Delhi',
     departureTime: '12:30',
     arrivalTime: '14:30',
     flightDuration: '02h 00m',
