@@ -2,7 +2,8 @@ import React from 'react';
 import { useState } from 'react';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCalendarDays } from '@fortawesome/free-regular-svg-icons';
+// import { faCalendarDays } from '@fortawesome/free-regular-svg-icons';
+import { faCalendar } from '@fortawesome/free-solid-svg-icons';
 import { DateRange } from 'react-date-range';
 import { format } from 'date-fns';
 import 'react-date-range/dist/styles.css';
@@ -20,8 +21,8 @@ const Dates = () => {
     ]);
 
     return (
-      <div className='flex items-center gap-2 text-black'>
-        <FontAwesomeIcon icon={faCalendarDays} className='text-black' />
+      <div className='flex items-center gap-2 text-black' >
+        <FontAwesomeIcon icon={faCalendar} className='text-black' />
         <span
           onClick={() => setOpenDate(!openDate)}
           className='text-black font-extralight cursor-pointer w-auto'

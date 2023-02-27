@@ -37,7 +37,7 @@ function Card({ card }) {
       <div className='card-info-flex pt-2'>
         <h3 className='card-title pt-1 font-bold text-black'>{card.title}</h3>
         <div className='card-rating font-semibold text-black'>
-          <StarRateRoundedIcon />
+          <StarRateRoundedIcon style={{ color: "#FFD700" }}/>
           <p>{card.rating}</p>
         </div>
       </div>
