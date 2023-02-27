@@ -5,7 +5,6 @@
 import React, { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
-
 import Options from "./Options";
 import Dates from "./Dates";
 import SearchInput from "./SearchInput";
@@ -25,22 +24,29 @@ const Header = () => {
       >
         <span className="text-white text-md">
           Search Your Destination{" "}
-          <FontAwesomeIcon icon={faMagnifyingGlass}  style={{paddingLeft:'4px'}}/>
+          <FontAwesomeIcon
+            icon={faMagnifyingGlass}
+            style={{ paddingLeft: "4px" }}
+          />
         </span>{" "}
         {/* 😁✨ */}
       </button>
       {toggleSearchBar && (
         <form onSubmit={handleSearch}>
-          <div className="pt-4 pb-10 bg-inherit w-auto h-96 items-center mx-auto">
-            <div className="drop-shadow-md shadow-pink-500 shadow-sm h-auto bg-white border-4 rounded-md border-solid border-black flex flex-wrap sm: lexs:flex-col xs:flex-col sm:flex-nowrap md:flex-nowrap ml:flex-nowrap flex-row md:gap-y-4 items-center justify-between mx-auto ml:w-auto md:w-auto sm:w-auto xs:w-88 lexs:max-w-xs w-auto">
+          <div className="pt-10 pb-10 bg-inherit w-auto h-96 items-center mx-auto">
+            <div className="drop-shadow-md shadow-sm h-auto bg-white border-2 rounded-md border-solid border-black flex flex-wrap sm:lexs:flex-col xs:flex-col sm:flex-nowrap md:flex-nowrap ml:flex-nowrap  flex-row md:gap-y-4 items-center justify-between mx-auto ml:w-auto md:w-auto sm:w-auto xs:w-88 lexs:max-w-xs w-auto py-5 pl-3">
               <SearchInput />
               <Dates />
               <Options />
-              <div className="flex items-center gap-2">
-                <button
-                  type="submit"
-                  className="bg-rose-600 w-20 rounded-sm h-10 font-bold text-white hover:bg-gradient-to-br hover:to-red-500 hover:bg-red-600 hover:from-amber-500"
-                >
+              <div className="flex items-center gap-2 px-2">
+                {/* <button className="bg-blue-600 w-20 rounded-sm h-10 font-bold text-white ">
+                  Search
+                </button> */}
+                <button class="inline-flex items-center px-4 py-2 bg-indigo-500 hover:bg-indigo-600 text-white text-md font-medium rounded-md">
+                  <FontAwesomeIcon
+                    icon={faMagnifyingGlass}
+                    style={{ paddingRight: "8px" }}
+                  />
                   Search
                 </button>
               </div>
