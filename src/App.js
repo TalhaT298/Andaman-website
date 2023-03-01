@@ -1,5 +1,6 @@
 import { lazy, Suspense } from 'react';
-import { RingLoader, ScaleLoader } from 'react-spinners';
+import { ScaleLoader } from 'react-spinners';
+// import { RingLoader } from 'react-spinners';
 
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 

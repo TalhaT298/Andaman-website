@@ -1,28 +1,3 @@
-import { lazy, Suspense } from 'react';
-import { RingLoader, ScaleLoader } from 'react-spinners';
-
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-
-
-
-<Router>
-  <Suspense
-    fallback={
-      <div className="h-screen w-full flex flex-col bg-white">
-        <ScaleLoader
-          size={500}
-          color="green"
-          className="mx-auto w-screen h-full items-center justify-center border-transparent"
-        />
-      </div>
-    }
-  >
-    <Routes>
-      
-    </Routes>
-  </Suspense>
-</Router>;
-
 const dining = [
   {
     id: 1,
