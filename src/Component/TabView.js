@@ -35,98 +35,98 @@ let pgcard = [];
 export default class TabView extends Component {
   state = { value: 0, weight: '', tabcolor: '' };
 
-  componentDidMount() {
-    var ref = fire.database().ref('cards').orderByValue();
-    ref.on('value', getData, errData);
-    function getData(data) {
-      var carddata = data.val();
-      //console.log(carddata);
-      for (let c in carddata) {
-        card.push({
-          id: c,
-          hotelimg: carddata[c].hotelimg,
-          hotelname: carddata[c].hotelname,
-          hotelsummary: carddata[c].hotelsummary,
-          rating: carddata[c].rating,
-          schedule: carddata[c].schedule,
-          city: carddata[c].city,
-          state: carddata[c].state,
-          zip: carddata[c].zip,
-        });
-      }
-      console.log(card);
-    }
-    function errData(err) {
-      console.log('error' + err);
-    }
+  // componentDidMount() {
+  //   var ref = fire.database().ref('cards').orderByValue();
+  //   ref.on('value', getData, errData);
+  //   function getData(data) {
+  //     var carddata = data.val();
+  //     //console.log(carddata);
+  //     for (let c in carddata) {
+  //       card.push({
+  //         id: c,
+  //         hotelimg: carddata[c].hotelimg,
+  //         hotelname: carddata[c].hotelname,
+  //         hotelsummary: carddata[c].hotelsummary,
+  //         rating: carddata[c].rating,
+  //         schedule: carddata[c].schedule,
+  //         city: carddata[c].city,
+  //         state: carddata[c].state,
+  //         zip: carddata[c].zip,
+  //       });
+  //     }
+  //     console.log(card);
+  //   }
+  //   function errData(err) {
+  //     console.log('error' + err);
+  //   }
 
-    var flightref = fire.database().ref('flights').orderByValue();
-    flightref.on('value', getFlightData, errflightData);
-    function getFlightData(data) {
-      var carddata = data.val();
-      console.log(carddata);
-      for (let c in carddata) {
-        flightcard.push({
-          id: c,
-          from: carddata[c].from,
-          to: carddata[c].to,
-          schedule: carddata[c].schedule,
-          offer: carddata[c].offer,
-          price: carddata[c].price,
-        });
-      }
-      console.log(flightcard);
-    }
-    function errflightData(err) {
-      console.log('error' + err);
-    }
+  //   var flightref = fire.database().ref('flights').orderByValue();
+  //   flightref.on('value', getFlightData, errflightData);
+  //   function getFlightData(data) {
+  //     var carddata = data.val();
+  //     console.log(carddata);
+  //     for (let c in carddata) {
+  //       flightcard.push({
+  //         id: c,
+  //         from: carddata[c].from,
+  //         to: carddata[c].to,
+  //         schedule: carddata[c].schedule,
+  //         offer: carddata[c].offer,
+  //         price: carddata[c].price,
+  //       });
+  //     }
+  //     console.log(flightcard);
+  //   }
+  //   function errflightData(err) {
+  //     console.log('error' + err);
+  //   }
 
-    var cabref = fire.database().ref('cabs').orderByValue();
-    cabref.on('value', getCabData, errcCabData);
-    function getCabData(data) {
-      var carddata = data.val();
-      console.log(carddata);
-      for (let c in carddata) {
-        cabcard.push({
-          id: c,
-          Pick: carddata[c].Pick,
-          drop: carddata[c].drop,
-          schedule: carddata[c].schedule,
-          contact: carddata[c].contact,
-          price: carddata[c].price,
-          starttime: carddata[c].starttime,
-          endtime: carddata[c].endtime,
-          vehicleno: carddata[c].vehicleno,
-        });
-      }
-      console.log(cabcard);
-    }
-    function errcCabData(err) {
-      console.log('error' + err);
-    }
+  //   var cabref = fire.database().ref('cabs').orderByValue();
+  //   cabref.on('value', getCabData, errcCabData);
+  //   function getCabData(data) {
+  //     var carddata = data.val();
+  //     console.log(carddata);
+  //     for (let c in carddata) {
+  //       cabcard.push({
+  //         id: c,
+  //         Pick: carddata[c].Pick,
+  //         drop: carddata[c].drop,
+  //         schedule: carddata[c].schedule,
+  //         contact: carddata[c].contact,
+  //         price: carddata[c].price,
+  //         starttime: carddata[c].starttime,
+  //         endtime: carddata[c].endtime,
+  //         vehicleno: carddata[c].vehicleno,
+  //       });
+  //     }
+  //     console.log(cabcard);
+  //   }
+  //   function errcCabData(err) {
+  //     console.log('error' + err);
+  //   }
 
-    var pgref = fire.database().ref('pgs').orderByValue();
-    pgref.on('value', getpgData, errcpgData);
-    function getpgData(data) {
-      var carddata = data.val();
-      console.log(carddata);
-      for (let c in carddata) {
-        pgcard.push({
-          id: c,
-          pgname: carddata[c].pgname,
-          pgadd: carddata[c].pgadd,
-          pgprice: carddata[c].pgprice,
-          contact: carddata[c].contact,
-          rating: carddata[c].rating,
-          hotelimg: carddata[c].hotelimg,
-        });
-      }
-      console.log(pgcard);
-    }
-    function errcpgData(err) {
-      console.log('error' + err);
-    }
-  }
+  //   var pgref = fire.database().ref('pgs').orderByValue();
+  //   pgref.on('value', getpgData, errcpgData);
+  //   function getpgData(data) {
+  //     var carddata = data.val();
+  //     console.log(carddata);
+  //     for (let c in carddata) {
+  //       pgcard.push({
+  //         id: c,
+  //         pgname: carddata[c].pgname,
+  //         pgadd: carddata[c].pgadd,
+  //         pgprice: carddata[c].pgprice,
+  //         contact: carddata[c].contact,
+  //         rating: carddata[c].rating,
+  //         hotelimg: carddata[c].hotelimg,
+  //       });
+  //     }
+  //     console.log(pgcard);
+  //   }
+  //   function errcpgData(err) {
+  //     console.log('error' + err);
+  //   }
+  // }
 
   render() {
     const handleTabs = (e, val) => {
