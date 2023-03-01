@@ -41,7 +41,7 @@
   width: 330px;
   transition: 7s ease-in ease-out 4s; */
   transform-origin: 50% 45%;
-  transition: transform 5s, filter 3s ease-in-out;
+  transition: transform 5s, filter 3s ease-out;
   filter: brightness(150%);
   filter: brightness(100%);
   transform: scale(1.1);
