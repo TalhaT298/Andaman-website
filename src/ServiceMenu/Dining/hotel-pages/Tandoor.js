@@ -1,9 +1,11 @@
-import React from 'react'
+import { lazy, Suspense } from 'react';
+const Navforwithout = lazy(() => import('../../../Navforwithout'));
 
-const Tandoor = () => {
+export default function Tandoor() {
   return (
-    <div>Tandoor</div>
-  )
+    <div className="bg-gradient-to-br from-white text-slate-800 font-mono h-full m-0 p-0">
+      <Navforwithout />
+      <h2>hi</h2>
+    </div>
+  );
 }
-
-export default Tandoor
