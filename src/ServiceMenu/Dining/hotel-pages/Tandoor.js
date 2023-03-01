@@ -1,4 +1,4 @@
-import { lazy, Suspense } from 'react';
+import { lazy } from 'react';
 const Navforwithout = lazy(() => import('../../../Navforwithout'));
 
 export default function Tandoor() {
@@ -9,3 +9,6 @@ export default function Tandoor() {
     </div>
   );
 }
+
+
+// import { Suspense } from 'react';

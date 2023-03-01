@@ -1,22 +1,22 @@
-import { Navbar, Link, Text, Avatar, Dropdown } from '@nextui-org/react';
+import { Navbar, Text, Avatar, Dropdown } from '@nextui-org/react';
 // import { AcmeLogo } from './AcmeLogo.js';
 // import Lottie from 'react-lottie';
 // import * as Dolphin from './Icons/dolphin.json';
 
 import { NavLink } from 'react-router-dom';
 
-const collapseItems = [
-  'Profile',
-  'Dashboard',
-  'Activity',
-  'Analytics',
-  'System',
-  'Deployments',
-  'My Settings',
-  'Team Settings',
-  'Help & Feedback',
-  'Log Out',
-];
+// const collapseItems = [
+//   'Profile',
+//   'Dashboard',
+//   'Activity',
+//   'Analytics',
+//   'System',
+//   'Deployments',
+//   'My Settings',
+//   'Team Settings',
+//   'Help & Feedback',
+//   'Log Out',
+// ];
 
 // const DolphinIcon = {
 //   loop: true,
