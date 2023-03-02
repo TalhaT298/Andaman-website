@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 import FlightSearch from './Flight/FlightSearch';
 
@@ -6,9 +6,21 @@ import flight from '../Data/Flight-Section/flight';
 import FlightCover from './Flight/FlightCover';
 
 const Flights = () => {
-  const flightData = flight.map((airplane, index) => {
-    return <FlightCover key={index} {...airplane} />;
-  });
+  //search feature
+  const [searchOriginTerm, setSearchOriginTerm] = useState("")
+  const [searchDestTerm, setSearchDestTerm] = useState("")
+
+  const flightData = flight
+        .filter((airplane) => 
+          airplane.currentDestination.toLowerCase().includes(searchOriginTerm.toLowerCase())
+        )
+        .filter((airplane) => 
+          airplane.nextDestination.toLowerCase().includes(searchDestTerm.toLowerCase())
+        )
+        .map((airplane, index) => {
+        return <FlightCover key={airplane.flightID} {...airplane} />;
+      });
+      
   return (
     <div className='pt-10 h-full w-auto cursor-pointer'>
       <div className='flex'>
@@ -18,9 +30,16 @@ const Flights = () => {
           </span>
         </div>
       </div>
-      <FlightSearch />
+      <FlightSearch setSearchOriginTerm={setSearchOriginTerm} setSearchDestTerm={setSearchDestTerm} />
       <span className='text-2xl font-normal mb-3 mx-2'>Featured Flights</span>
-      <div className='pt-2 '>{flightData}</div>
+      <div className='pt-2 '>
+        {
+          flightData.length === 0 ? 
+          <center><h1>No results found...</h1></center> 
+          : 
+          flightData
+        }
+      </div>
     </div>
   );
 };

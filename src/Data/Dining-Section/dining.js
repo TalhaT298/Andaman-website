@@ -5,7 +5,9 @@ const dining = [
       'https://media.istockphoto.com/id/1150376593/photo/bread-tandoori-indian-cuisine.jpg?s=612x612&w=0&k=20&c=GGT5LN7G4zLhJTEnP_KcyvYuayi8f1nJcvQwvmj0rCM=',
 
     name: 'Tandoor',
-    cuisine: 'Tandoor, Indian',
+    genre: 'Restaurant',
+    link: 'Tandoor',
+    speciality: 'Tandoor, Indian',
     location: 'Port Blair, Lamba Line',
   },
   {
@@ -14,7 +16,9 @@ const dining = [
       'https://st4.depositphotos.com/1884173/24675/i/600/depositphotos_246751852-stock-photo-spicy-garlic-chilli-prawns-shrimps.jpg',
 
     name: 'Trio',
-    cuisine: 'Indian, Chinese',
+    genre: 'Restaurant',
+    link: 'Trio',
+    speciality: 'Indian, Chinese',
     location: 'Port Blair, Bhatu Bhasti',
   },
   {
@@ -23,7 +27,9 @@ const dining = [
       'https://images.unsplash.com/photo-1605807646983-377bc5a76493?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTJ8fGNha2VzfGVufDB8fDB8fA%3D%3D&w=1000&q=80',
 
     name: "Tillai's",
-    cuisine: 'Bakery, Sweets',
+    genre: 'Bakery',
+    link: 'Tillai',
+    speciality: 'Bakery, Sweets',
     location: 'Port Blair, Ghanta Ghar',
   },
   {
@@ -32,16 +38,22 @@ const dining = [
       'https://media.istockphoto.com/id/159248709/photo/the-quinoa-burger.jpg?s=612x612&w=0&k=20&c=O7d3XqSlP9yQA4x0aFvwodiFzLFOxKS4eoWeiLpET5Y=',
 
     name: 'ICY SPICY',
-    cuisine: 'Bakery, Desserts',
+    genre: 'Fully Vegetarian Bakery',
+    link: 'Icyspicy',
+    speciality: 'Bakery, Desserts',
     location: 'Port Blair, Junglighat',
   },
+
+  // https://thumbs.dreamstime.com/b/chicken-dum-biryani-white-bowl-traditional-indian-one-pot-dish-background-high-angle-view-156498926.jpg
   {
     id: 5,
     imageLink:
-      'https://thumbs.dreamstime.com/b/chicken-dum-biryani-white-bowl-traditional-indian-one-pot-dish-background-high-angle-view-156498926.jpg',
+      'https://www.dwarakaorganic.com/wp-content/uploads/2012/06/Veg-Biryani-Recipe.jpg',
 
-    name: 'Desi Lounge',
-    cuisine: 'Snacks, Chinese',
+    name: 'Annapurna Cafeteria',
+    genre: 'Fully Veg Restaurant & Cafe',
+    link: 'Annapurna',
+    speciality: 'Snacks, South Indian',
     location: 'Port Blair, DollyGunj',
   },
   {
@@ -50,7 +62,9 @@ const dining = [
       'https://media.istockphoto.com/id/503636498/photo/ladys-hands-holding-cup-with-sth-heart-shaped.jpg?s=612x612&w=0&k=20&c=3lpXk7jl2CRPfMiq37aXNIgdfcFfN-BIDNMDqr6f8qE=',
 
     name: 'Brewbeans Cafe',
-    cuisine: 'Beverages, Pizzas',
+    genre: 'Cafe',
+    link: 'Brewbeans',
+    speciality: 'Beverages, Pizzas, Snacks',
     location: 'Port Blair, School Line',
   },
   {
@@ -59,16 +73,19 @@ const dining = [
       'https://media-cdn.tripadvisor.com/media/photo-s/09/2e/a0/75/camellia-tea-coffee.jpg',
 
     name: 'Chai Sutta Bar',
-    cuisine: 'Beverages, Fast Food',
+    genre: 'Cafe',
+    link: 'Chaisuttabar',
+    speciality: 'Beverages, Fast Food, Snacks',
     location: 'Port Blair, Junglighat',
   },
   {
     id: 8,
-    imageLink:
-      'https://foodsguy.com/wp-content/uploads/2022/02/Milkshake.jpg',
+    imageLink: 'https://foodsguy.com/wp-content/uploads/2022/02/Milkshake.jpg',
 
     name: 'Rooftop Cafe',
-    cuisine: 'Cafe, Beverages',
+    genre: 'Cafe',
+    link: 'Rooftop',
+    speciality: 'Cafe, Beverages',
     location: 'Port Blair, School Line',
   },
   {
@@ -77,7 +94,9 @@ const dining = [
       'https://thumbs.dreamstime.com/b/traditional-kerala-fish-curry-coconut-milk-fresh-mangoes-82241970.jpg',
 
     name: 'CARDAMOM',
-    cuisine: 'North Indian, Indian',
+    genre: 'Restaurant',
+    link: 'Cardamom',
+    speciality: 'North Indian, Indian',
     location: 'Port Blair, Garacharma',
   },
 ];

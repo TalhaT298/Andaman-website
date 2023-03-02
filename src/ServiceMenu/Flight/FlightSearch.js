@@ -49,9 +49,15 @@ import Options from './Options';
 //   });
 // }
 
-const FlightSearch = () => {
+const FlightSearch = ( props ) => {
+  const {setSearchOriginTerm, setSearchDestTerm} = props
+  const [origin, setOrigin] = useState('Port Blair');
+  const [destination, setDestination] = useState('Chennai');
+
   const handleSubmit = (event) => {
     event.preventDefault();
+    setSearchOriginTerm(origin)
+    setSearchDestTerm(destination)
   };
 
   const [twoWay, setTwoWay] = useState(false);
@@ -81,7 +87,11 @@ const FlightSearch = () => {
       </div>
       <form onSubmit={handleSubmit}>
         <div className='font-medium text-slate-800 flex h-auto w-full my-4 mx-auto flex-row airbnbml:flex-col ml:w-auto airbnbml:w-96  xs:w-64'>
-          <Locations />
+          <Locations 
+            {...props} 
+            origin={origin} setOrigin={setOrigin} 
+            destination={destination} setDestination={setDestination}
+          />
           <DepartDate />
           {twoWay && <ReturnDate />}
 
