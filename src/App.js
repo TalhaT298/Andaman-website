@@ -9,7 +9,6 @@ const Fun = lazy(() => import('./NavMenu/Fun.js'));
 const Stay = lazy(() => import('./NavMenu/Stay.js'));
 const Flights = lazy(() => import('./ServiceMenu/Flights'));
 const Ship = lazy(() => import('./ServiceMenu/Ship'));
-const Shop = lazy(() => import('./ServiceMenu/Shop'));
 const Hotel = lazy(() => import('./ServiceMenu/Hotel'));
 const Cab = lazy(() => import('./ServiceMenu/Cab'));
 const Bus = lazy(() => import('./ServiceMenu/Bus'));
@@ -19,6 +18,7 @@ const Pg = lazy(() => import('./ServiceMenu/Pg'));
 const Travelpackage = lazy(() => import('./ServiceMenu/Travelpackage'));
 const Dinning = lazy(() => import('./ServiceMenu/Dinning'));
 const Trekking = lazy(() => import('./ServiceMenu/Trekking.js'));
+const Shop = lazy(() => import('./ServiceMenu/Shop'));
 const Nav = lazy(() => import('./Nav'));
 const Tandoor = lazy(() =>
   import('./ServiceMenu/Dining/hotel-pages/Tandoor')
