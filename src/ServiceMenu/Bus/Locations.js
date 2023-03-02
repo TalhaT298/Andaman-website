@@ -1,11 +1,15 @@
 import React from 'react';
 import { useState } from 'react';
 
-const Locations = () => {
+const Locations = ( {setSearchOriginTerm, setSearchDestTerm} ) => {
   const [openOrigin, setOpenOrigin] = useState(false);
   const [openDestination, setOpenDestination] = useState(false);
   const [origin, setOrigin] = useState('Aberdeen Bazzar');
   const [destination, setDestination] = useState('Rangat');
+
+  //search feature
+  setSearchOriginTerm(origin)
+  setSearchDestTerm(destination)
 
   return (
     <>
