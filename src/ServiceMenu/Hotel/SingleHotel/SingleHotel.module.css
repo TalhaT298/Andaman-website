@@ -1,0 +1,21 @@
+.share_icon {
+  color: rgb(0, 12, 18);
+}
+.heart_icon{
+    color: #f00;
+
+}
+@media screen and (max-width:1028px) and (min-width:518px)
+{
+  .pricing{
+    margin-left:7%;
+    
+  }
+}
+@media screen and (max-width:485px)
+{
+  .pricing{
+    margin-left:13%;
+    
+  }
+}

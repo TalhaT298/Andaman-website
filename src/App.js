@@ -3,7 +3,7 @@ import { ScaleLoader } from 'react-spinners';
 // import { RingLoader } from 'react-spinners';
 
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-
+const SingleHotel = lazy(() => import("./ServiceMenu/Hotel/SingleHotel/SingleHotel.js"));
 const Explore = lazy(() => import('./NavMenu/Explore.js'));
 const Fun = lazy(() => import('./NavMenu/Fun.js'));
 const Stay = lazy(() => import('./NavMenu/Stay.js'));
@@ -87,6 +87,7 @@ export default function App() {
             <Route path="/Chaisuttabar" element={<Chaisuttabar />} />
             <Route path="/Rooftop" element={<Rooftop />} />
             <Route path="/Cardamom" element={<Cardamom />} />
+            <Route path="/SingleHotel" element={<SingleHotel />} />
           </Routes>
         </Suspense>
       </Router>
