@@ -24,7 +24,7 @@ function Card({ card }) {
       >
         {card.imgSrc.map((src, i) => (
           <SwiperSlide key={i}>
-            <a href={card.link} target="_blank" rel="noreferrer">
+            <a href="/SingleHotel" target="_blank" rel="noreferrer">
               <LazyLoadImage
                 src={src}
                 className="card-img bg-inherit"

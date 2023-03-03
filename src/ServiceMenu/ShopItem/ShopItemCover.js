@@ -9,7 +9,7 @@ const ShopItemCover = (props) => {
           <LazyLoadImage
             src={props.imageLink}
             alt={props.name}
-            className='flex rounded-md w-88 h-64 drop-shadow-2xl shadow-black shadow-lg transition:origin-center hover:ease-in-out hover:scale-110 transition:duration-1000 transition-transform'
+            className='flex rounded-md w-88 h-64 transition:origin-center hover:ease-in-out hover:scale-110 transition:duration-1000 transition-transform'
           />
         </a>
       </div>

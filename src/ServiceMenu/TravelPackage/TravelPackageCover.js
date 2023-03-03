@@ -36,51 +36,55 @@ const TravelPackageCover = (props) => {
   }
 
   return (
-    <div className='m-2 py-3 p-2 flex flex-col w-88'>
+    <div className="m-2 py-3 p-2 flex flex-col w-88">
       <div
         onClick={() => {
           setOpenTripDetails(!openTripDetails);
         }}
-        className='max-w-80 items:center'
+        className="max-w-80 items:center"
       >
         <LazyLoadImage
           src={props.imageLink}
           alt={props.name}
-          className='flex rounded-md w-88 h-64 drop-shadow-2xl shadow-black shadow-lg transition:origin-center hover:ease-in-out hover:scale-110 transition:duration-1000 transition-transform'
+          className="flex rounded-md w-88 h-64 transition:origin-center hover:ease-in-out hover:scale-110 transition:duration-1000 transition-transform"
         />
       </div>
-      <div className='flex flex-col justify-between m-auto py-3 p-1 text-center'>
-        <p className=''>{props.name}</p>
-        <p>{props.duration}</p>
-        <p>{props.description}</p>
+      <div className="flex flex-col py-3 p-1 gap-1">
+        <div className='flex justify-between'>
+          <p className="text-sm font-bold text-start text-slate-900">{props.name}</p>
+          <p className='text-sm font-semibold text-end'>{props.duration}</p>
+        </div>
+        <div className='flex justify-between mx-auto'>
+          <p className='text-sm font-semibold text-center'>{props.description}</p>
+        </div>
       </div>
       {/* <TravelPackagePage2 /> */}
 
       <Modal
         isOpen={openTripDetails}
         onRequestClose={() => setOpenTripDetails(false)}
-        overlayClassName='' // modal-overlay bg-black opacity
-        className='' // modal-content w-auto h-auto
+        overlayClassName="" // modal-overlay bg-black opacity
+        className="" // modal-content w-auto h-auto
       >
-        <div className='flex flex-col w-auto h-auto font-Nunito_Sans bg-slate-50 shadow-2xl shadow-slate-200 my-10'>
-          <div className='mx-auto'>
-            <span className='text-3xl font-semibold text-slate-900'>
+        <div className="flex flex-col w-auto h-auto font-Nunito_Sans bg-slate-50 shadow-2xl shadow-slate-200 my-10">
+          <div className="mx-auto">
+            <span className="text-3xl font-semibold text-slate-900">
               Package Details
             </span>
           </div>
-          <div className='flex flex-row justify-between py-3 mx-4'>
-            <span className='text-2xl text- font-semibold text-black'>
+          <div className="flex flex-row justify-between py-3 mx-4">
+            <span className="text-2xl text- font-semibold text-black">
               {props.name}
             </span>
             <button
-              className='px-2 h-10 font-medium font-Nunito_Sans text-slate-400 hover:text-slate-800 text-2xl border-solid border-2'
+              className="px-2 h-10 font-medium font-Nunito_Sans text-slate-400 hover:text-slate-800 text-2xl border-solid border-2"
               onClick={() => setOpenTripDetails(false)}
             >
               X
             </button>
           </div>
-          <div className='flex flex-row pb-2'>
-            <button className='mx-auto px-2 h-10 font-semibold font-Nunito_Sans text-white bg-gradient-to-br rounded-md to-amber-400 from-pink-500 hover:bg-gradient-to-br hover:to-amber-600 hover:from-pink-600 hover:text-white'>
+          <div className="flex flex-row pb-2">
+            <button className="mx-auto px-2 h-10 font-semibold font-Nunito_Sans text-white bg-gradient-to-br rounded-md to-amber-400 from-pink-500 hover:bg-gradient-to-br hover:to-amber-600 hover:from-pink-600 hover:text-white">
               Book Now
             </button>
           </div>
@@ -365,7 +369,7 @@ const TravelPackageCover = (props) => {
 
           <div className='mx-auto pt-10 pb-7'>
             <button
-              className='h-10 w-20 rounded-lg font-Nunito_Sans uppercase mx-auto border-2 bg-rose-600 text-slate-100 hover:bg-gradient-to-br hover:from-red-600 hover:via-red-500 hover:to-yellow-400'
+              className="h-10 w-20 rounded-lg font-Nunito_Sans uppercase mx-auto border-2 bg-rose-600 text-slate-100 hover:bg-gradient-to-br hover:from-red-600 hover:via-red-500 hover:to-yellow-400"
               onClick={() => setOpenTripDetails(false)}
             >
               Back
