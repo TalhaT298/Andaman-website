@@ -20,9 +20,9 @@ const ActivityCover = (props) => {
         />
       </div>
       <div className='flex flex-col justify-between m-auto py-3 p-1 text-center'>
-        <p className=''>{props.name}</p>
-        <p>{props.duration}</p>
-        <p>{props.description}</p>
+        <p className='text-sm font-bold font-mono text-slate-800'>{props.name}</p>
+        <p className='text-sm font-semibold '>{props.duration}</p>
+        {/* <p className='text-sm font-semibold '>{props.description}</p> */}
       </div>
       <Modal
         isOpen={trekInfo}
