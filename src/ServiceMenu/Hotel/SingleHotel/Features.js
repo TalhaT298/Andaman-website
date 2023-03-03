@@ -1,9 +1,9 @@
-import KeyFeatues from "./KeyFeatues";
+import KeyFeatues from "./KeyFeatues"
 import { faBed } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faPerson } from "@fortawesome/free-solid-svg-icons";
-import { faShower } from "@fortawesome/free-solid-svg-icons";
-import classes from "./SingleHotel.module.css";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import { faPerson } from "@fortawesome/free-solid-svg-icons"
+import { faShower } from "@fortawesome/free-solid-svg-icons"
+import classes from "./SingleHotel.module.css"
 const Features = () => {
   const ReserveHandler=()=>{
     console.log("Reserve")
