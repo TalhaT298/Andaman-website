@@ -24,9 +24,7 @@ function Card({ card }) {
       >
         {card.imgSrc.map((src, i) => (
           <SwiperSlide key={i}>
-            <a href="SingleHotel" target="_blank" rel="noreferrer">
-              {" "}
-              {/* Right now it is hard coded to open the just a single Hotel page for just UI/UX designing */}
+            <a href="/SingleHotel" target="_blank" rel="noreferrer">
               <LazyLoadImage
                 src={src}
                 className="card-img bg-inherit"

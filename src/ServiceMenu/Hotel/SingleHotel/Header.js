@@ -11,9 +11,9 @@ const SingleHotelHeader = () => {
   return (
     <>
       {/* <Nav/> */}
-      <div >
+      <div>
         <h1 className="font-bold text-[25px] tracking-wide  ">
-          Vihang Farmhouse: Florican Room
+          Vihang Lakehouse: Florican Room
         </h1>
         <div className="flex justify-between ">
           <h3 className="mt-3 ">
@@ -32,7 +32,7 @@ const SingleHotelHeader = () => {
             </span>
           </h3>
           <div>
-            <div className="pt-2 lg:pt-6 xs:pt-3 cursor-pointer  sm:relative bottom-[5.35rem] ">
+            <div className="pt-2 lg:pt-6  xs:pt-2 cursor-pointer  ">
               <Tooltip
                 title="Save"
                 TransitionComponent={Fade}
@@ -44,7 +44,7 @@ const SingleHotelHeader = () => {
                     size="lg"
                     className={`${classes.heart_icon} lg:mt-3 lg:pr-1 pr-1.5 `}
                   />
-                  <span className="  sm:hidden font-semibold md:pr-4">Save</span>
+                  <span className="  sm:hidden font-bold md:pr-4">Save</span>
                 </div>
               </Tooltip>
               <Tooltip
@@ -58,7 +58,7 @@ const SingleHotelHeader = () => {
                     size="lg"
                     className={`${classes.share_icon} lg:mt-3 lg:pr-1 pr-1.5`}
                   />
-                  <span className="sm:hidden  font-semibold">Share</span>
+                  <span className="sm:hidden  font-bold">Share</span>
                 </div>
               </Tooltip>
             </div>
