@@ -1,14 +1,31 @@
 import React from 'react';
+import { useState } from 'react';
 
 import BusSearch from './Bus/BusSearch';
-
 import bus from '../Data/Bus-Section/bus';
 import BusCover from './Bus/BusCover';
 
 const Buss = () => {
-  const busData = bus.map((airplane, index) => {
-    return <BusCover key={index} {...airplane} />;
-  });
+
+  //search feature
+  const [searchOriginTerm, setSearchOriginTerm] = useState("")
+  const [searchDestTerm, setSearchDestTerm] = useState("")
+
+  const busData = bus
+        .filter((bus) => 
+          bus.currentDestination.toLowerCase().includes(searchOriginTerm.toLowerCase())
+        )
+        .filter((bus) => 
+          bus.nextDestination.toLowerCase().includes(searchDestTerm.toLowerCase())
+        )
+        .map((bus, index) => {
+          return <BusCover key={index} {...bus} />;
+      });
+
+  // const busData = bus.map((airplane, index) => {
+  //   return <BusCover key={index} {...airplane} />;
+  // });
+
   return (
     <div className='pt-10 h-full w-auto cursor-pointer'>
       <div className='flex'>
@@ -18,9 +35,15 @@ const Buss = () => {
           </span>
         </div>
       </div>
-      <BusSearch />
+      <BusSearch setSearchOriginTerm={setSearchOriginTerm} setSearchDestTerm={setSearchDestTerm} />
       <span className='text-2xl font-normal mb-3 mx-2'>Featured Bus</span>
-      <div className='pt-2 text-white'>{busData}</div>
+      <div className='pt-2'>{
+          busData.length === 0 ? 
+          <center><h1>No results found...</h1></center> 
+          : 
+          busData
+        }
+      </div>
     </div>
   );
 };

@@ -65,9 +65,9 @@ const bus = [
     busLogo: 'https://bus.easemytrip.com/Content/AirlineLogon/G8.png',
     busName: 'Express D2',
     travelRoute: 'PB-KT',
-    currentDestination: 'Aberdeen Bazzar',
+    currentDestination: 'Kadamtala Bazzar',
     busInterval: 'Middle Strait, Gandhi Jetty, Uttara Jetty', // 1 stoppages // 2 stoppages
-    nextDestination: 'Kadamtala Bazzar',
+    nextDestination: 'Aberdeen Bazzar',
     departureTime: '12:15',
     arrivalTime: '05:30',
     busDuration: '05h 15m',
@@ -75,6 +75,54 @@ const bus = [
     childrenPrice: 100, // this is just dummy price
     infantPrice: 'free', // this is just dummy price
   },
+  {
+    busID: 6,
+    busGateway: 'STS Head Station',
+    busLogo: 'https://bus.easemytrip.com/Content/AirlineLogon/G8.png',
+    busName: 'Express D2',
+    travelRoute: 'PB-KT',
+    currentDestination: 'Kadamtala Bazzar',
+    busInterval: 'Middle Strait, Gandhi Jetty, Uttara Jetty', // 1 stoppages // 2 stoppages
+    nextDestination: 'Aberdeen Bazzar',
+    departureTime: '12:15',
+    arrivalTime: '05:30',
+    busDuration: '05h 15m',
+    adultPrice: 180,
+    childrenPrice: 100, // this is just dummy price
+    infantPrice: 'free', // this is just dummy price
+  },
+  {
+    busID: 7,
+    busGateway: 'STS Head Station',
+    busLogo: 'https://bus.easemytrip.com/Content/AirlineLogon/G8.png',
+    busName: 'Express D2',
+    travelRoute: 'PB-KT',
+    currentDestination: 'Paris Bazzar',
+    busInterval: 'Middle Strait, Gandhi Jetty, Uttara Jetty', // 1 stoppages // 2 stoppages
+    nextDestination: 'Berlin Bazzar',
+    departureTime: '12:15',
+    arrivalTime: '05:30',
+    busDuration: '05h 15m',
+    adultPrice: 180,
+    childrenPrice: 100, // this is just dummy price
+    infantPrice: 'free', // this is just dummy price
+  },
+  {
+    busID: 8,
+    busGateway: 'STS Head Station',
+    busLogo: 'https://bus.easemytrip.com/Content/AirlineLogon/G8.png',
+    busName: 'Express D2',
+    travelRoute: 'PB-KT',
+    currentDestination: 'Paris Bazzar',
+    busInterval: 'Middle Strait, Gandhi Jetty, Uttara Jetty', // 1 stoppages // 2 stoppages
+    nextDestination: 'Berlin Bazzar',
+    departureTime: '12:15',
+    arrivalTime: '05:30',
+    busDuration: '05h 15m',
+    adultPrice: 180,
+    childrenPrice: 100, // this is just dummy price
+    infantPrice: 'free', // this is just dummy price
+  }
 ];
 
 export default bus;

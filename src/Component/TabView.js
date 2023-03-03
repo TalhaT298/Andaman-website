@@ -1,7 +1,7 @@
-import React, { Component } from 'react';
+import React, { Component, lazy } from 'react';
 import { Tab, Tabs } from '@mui/material';
 // import {Text} from "@nextui-org/react";
-import Flight from '../ServiceMenu/Flights';
+// import Flights from '../ServiceMenu/Flights';
 import Ship from '../ServiceMenu/Ship';
 import Hotel from '../ServiceMenu/Hotel';
 import Cab from '../ServiceMenu/Cab';
@@ -27,11 +27,12 @@ import * as TravelData from '../Icons/travel.json';
 import * as DinningData from '../Icons/dinning.json';
 import * as TrekkingData from '../Icons/trekking.json';
 import * as ShopData from '../Icons/shop.json';
-import { fire } from '../fire';
-let card = [];
-let flightcard = [];
-let cabcard = [];
-let pgcard = [];
+const Flights = lazy(() => import('../ServiceMenu/Flights'));
+// import { fire } from '../fire';
+// let card = [];
+// let flightcard = [];
+// let cabcard = [];
+// let pgcard = [];
 export default class TabView extends Component {
   state = { value: 0, weight: '', tabcolor: '' };
 
@@ -389,10 +390,12 @@ export default class TabView extends Component {
         </Tabs>
 
         <TabPanel value={this.state.value || 0} index={0}>
-          <Flight flightdata={flightcard} />
+          {/* <Flights flightdata={flightcard} /> */}
+          <Flights />
         </TabPanel>
         <TabPanel value={this.state.value} index={1}>
-          <Hotel carddata={card} />
+          {/* <Hotel carddata={card} /> */}
+          <Hotel />
         </TabPanel>
         <TabPanel value={this.state.value} index={2}>
           <Ship />
@@ -401,16 +404,19 @@ export default class TabView extends Component {
           <Bus />
         </TabPanel>
         <TabPanel value={this.state.value} index={4}>
-          <Cab cabdata={cabcard} />
+          {/* <Cab cabdata={cabcard} /> */}
+          <Cab />
         </TabPanel>
         <TabPanel value={this.state.value} index={5}>
-          <Ferry maploc={card} />
+          {/* <Ferry maploc={card} /> */}
+          <Ferry />
         </TabPanel>
         <TabPanel value={this.state.value} index={6}>
           <Activity />
         </TabPanel>
         <TabPanel value={this.state.value} index={7}>
-          <Pg pgdata={pgcard} />
+          {/* <Pg pgdata={pgcard} /> */}
+          <Pg />
         </TabPanel>
         <TabPanel value={this.state.value} index={8}>
           <Travelpackage />

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 import ShipSearch from './Ship/ShipSearch';
 
@@ -6,9 +6,26 @@ import ship from '../Data/Ship-Section/ship';
 import ShipCover from './Ship/ShipCover';
 
 const Ship = () => {
-  const shipData = ship.map((airplane, index) => {
-    return <ShipCover key={index} {...airplane} />;
-  });
+
+  //search feature
+  const [searchOriginTerm, setSearchOriginTerm] = useState("")
+  const [searchDestTerm, setSearchDestTerm] = useState("")
+
+  const shipData = ship
+        .filter((ship) => 
+          ship.currentDestination.toLowerCase().includes(searchOriginTerm.toLowerCase())
+        )
+        .filter((ship) => 
+          ship.nextDestination.toLowerCase().includes(searchDestTerm.toLowerCase())
+        )
+        .map((ship, index) => {
+          return <ShipCover key={index} {...ship} />;
+      });
+
+  // const shipData = ship.map((airplane, index) => {
+  //   return <ShipCover key={index} {...airplane} />;
+  // });
+
   return (
     <div className='pt-10 h-full w-auto cursor-pointer'>
       <div className='flex'>
@@ -18,9 +35,14 @@ const Ship = () => {
           </span>
         </div>
       </div>
-      <ShipSearch />
+      <ShipSearch setSearchOriginTerm={setSearchOriginTerm} setSearchDestTerm={setSearchDestTerm} />
       <span className='text-2xl font-normal mb-3 mx-2'>Featured Ships</span>
-      <div className='pt-2'>{shipData}</div>
+      <div className='pt-2'>{
+          shipData.length === 0 ? 
+          <center><h1>No results found...</h1></center> 
+          : 
+          shipData
+        }</div>
     </div>
   );
 };

@@ -16,13 +16,13 @@ const ActivityCover = (props) => {
         <LazyLoadImage
           src={props.imageLink}
           alt={props.name}
-          className='flex rounded-md w-88 h-64 drop-shadow-2xl shadow-black shadow-lg transition:origin-center hover:ease-in-out hover:scale-110 transition:duration-1000 transition-transform'
+          className='flex rounded-md w-88 h-64 transition:origin-center hover:ease-in-out hover:scale-110 transition:duration-1000 transition-transform'
         />
       </div>
       <div className='flex flex-col justify-between m-auto py-3 p-1 text-center'>
-        <p className=''>{props.name}</p>
-        <p>{props.duration}</p>
-        <p>{props.description}</p>
+        <p className='text-sm font-bold font-mono text-slate-800'>{props.name}</p>
+        <p className='text-sm font-semibold '>{props.duration}</p>
+        {/* <p className='text-sm font-semibold '>{props.description}</p> */}
       </div>
       <Modal
         isOpen={trekInfo}
