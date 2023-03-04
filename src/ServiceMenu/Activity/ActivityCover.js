@@ -36,10 +36,7 @@ const ActivityCover = (props) => {
               Trek Details
             </span>
           </div>
-          <div className='flex flex-row justify-between pt-6 pb-5 mx-4'>
-            <span className='text-xl text- font-semibold text-black'>
-              {props.name}
-            </span>
+          <div className='flex flex-row justify-between pt-6 pb-5 mr-4 ml-auto'>            
             <button
               className='px-2 h-10 font-medium font-Nunito_Sans text-slate-400 hover:text-slate-800 text-2xl border-solid border-2'
               onClick={() => setTrekInfo(false)}
@@ -52,26 +49,47 @@ const ActivityCover = (props) => {
               Book Now
             </button>
           </div>
-          <div className='py-2 flex flex-wrap justify-between gap-x-60'>
-            <LazyLoadImage
-              className='h-64 w-88 lg:w-5/12 airbnbml:w-2/3 airbnbml:mx-auto sm:h-52 sm:w-auto rounded-sm pb-3'
-              src={props.imageLink ? props.imageLink : '-'}
-              alt='.'
-            />
-            <p className='text-slate-700 text-base'>{props.fullDescription}</p>
-          </div>
 
-          <div className='mx-auto pt-6 pb-7'>
+          <div className='py-2 px-3 flex flex-col flex-wrap justify-between gap-x-10 mt-5'>
+              <span className='text-xl text- font-bold text-black'>
+                  {props.name}
+              </span>
+
+              <p className='py-2 mt-3 block md:flex md:flex-col'>
+              <LazyLoadImage
+                  className='h-72 w-98 lg:w-5/12 airbnbml:w-2/3 airbnbml:mx-5 sm:h-46 sm:w-auto rounded-sm pb-3 mt-1 mr-8 float-left'
+                  src={props.imageLink ? props.imageLink : '-'}
+                  alt='.'
+                />
+                <div>                 
+                <span className='text-slate-700 text-lg'>{props.fullDescription}</span>
+                </div>     
+              </p>
+
+              {/* <div className='py-2 flex flex-row justify-between gap-x-10 mt-3 lg:flex-col lg:gap-y-8'>
+              <LazyLoadImage
+                  className='h-72 w-98 lg:w-5/12 airbnbml:w-2/3 airbnbml:mx-auto sm:h-52 sm:w-auto rounded-sm pb-3 mt-1 '
+                  src={props.imageLink ? props.imageLink : '-'}
+                  alt='.'
+                />  
+                <div>
+                <span className='text-slate-700 text-lg'>{props.fullDescription}</span>
+                </div>      
+              </div> */}
+
+          </div>
+          
+          <div className='mx-auto pt-6 pb-7 mt-10'>
             <button
               className='h-10 w-20 rounded-lg font-Nunito_Sans uppercase mx-auto border-2 bg-rose-600 text-slate-100 hover:bg-gradient-to-br hover:from-red-600 hover:via-red-500 hover:to-yellow-400'
               onClick={() => setTrekInfo(false)}
             >
               Back
             </button>
+            </div>
           </div>
-        </div>
-      </Modal>
-    </div>
+        </Modal>
+      </div>
   );
 };
 
