@@ -6,6 +6,7 @@ const dining = [
 
     name: 'Tandoor',
     cuisine: 'Tandoor, Indian',
+    link: 'Tandoor1',
     location: 'Port Blair, Lamba Line',
   },
   {
@@ -15,6 +16,7 @@ const dining = [
 
     name: 'Trio',
     cuisine: 'Indian, Chinese',
+    link: 'Trio1',
     location: 'Port Blair, Bhatu Bhasti',
   },
   {
@@ -24,6 +26,7 @@ const dining = [
 
     name: "Tillai's",
     cuisine: 'Bakery, Sweets',
+    link: 'Tillai1',
     location: 'Port Blair, Ghanta Ghar',
   },
   {
@@ -33,6 +36,7 @@ const dining = [
 
     name: 'ICY SPICY',
     cuisine: 'Bakery, Desserts',
+    link: 'Icyspicy1',
     location: 'Port Blair, Junglighat',
   },
   {
@@ -42,6 +46,7 @@ const dining = [
 
     name: 'Desi Lounge',
     cuisine: 'Snacks, Chinese',
+    link: 'Annapurna1',
     location: 'Port Blair, DollyGunj',
   },
   {
@@ -51,6 +56,7 @@ const dining = [
 
     name: 'Brewbeans Cafe',
     cuisine: 'Beverages, Pizzas',
+    link: 'Brewbeans1',
     location: 'Port Blair, School Line',
   },
   {
@@ -60,6 +66,7 @@ const dining = [
 
     name: 'Chai Sutta Bar',
     cuisine: 'Beverages, Fast Food',
+    link: 'Chaisuttabar1',
     location: 'Port Blair, Junglighat',
   },
   {
@@ -69,6 +76,7 @@ const dining = [
 
     name: 'Rooftop Cafe',
     cuisine: 'Cafe, Beverages',
+    link: 'Rooftop1',
     location: 'Port Blair, Bhul Giya',
   },
   {
@@ -78,6 +86,7 @@ const dining = [
 
     name: 'CARDAMOM',
     cuisine: 'North Indian, Indian',
+    link: 'Cardamom1',
     location: 'Port Blair, Bhul Giya',
   },
 ];

@@ -45,7 +45,31 @@ const Rooftop = lazy(() =>
 const Cardamom = lazy(() =>
   import('./ServiceMenu/Dining/hotel-pages/Cardamom')
 );
-
+const Tandoor1 = lazy(() =>
+  import('./ServiceMenu/ShopItem/shop-pages/Tandoor')
+);
+const Trio1 = lazy(() => import('./ServiceMenu/ShopItem/shop-pages/Trio'));
+const Tillai1 = lazy(() =>
+  import('./ServiceMenu/ShopItem/shop-pages/Tillai')
+);
+const Icyspicy1 = lazy(() =>
+  import('./ServiceMenu/ShopItem/shop-pages/Icyspicy')
+);
+const Annapurna1 = lazy(() =>
+  import('./ServiceMenu/ShopItem/shop-pages/Annapurna')
+);
+const Brewbeans1 = lazy(() =>
+  import('./ServiceMenu/ShopItem/shop-pages/Brewbeans')
+);
+const Chaisuttabar1 = lazy(() =>
+  import('./ServiceMenu/ShopItem/shop-pages/Chaisuttabar')
+);
+const Rooftop1 = lazy(() =>
+  import('./ServiceMenu/ShopItem/shop-pages/Rooftop')
+);
+const Cardamom1 = lazy(() =>
+  import('./ServiceMenu/ShopItem/shop-pages/Cardamom')
+);
 export default function App() {
   return (
     <div className="bg-gradient-to-br from-white text-slate-800 font-mono h-full m-0 p-0">
@@ -87,6 +111,15 @@ export default function App() {
             <Route path="/Chaisuttabar" element={<Chaisuttabar />} />
             <Route path="/Rooftop" element={<Rooftop />} />
             <Route path="/Cardamom" element={<Cardamom />} />
+            <Route path="/Tandoor1" element={<Tandoor1 />} />
+            <Route path="/Trio1" element={<Trio1 />} />
+            <Route path="/Tillai1" element={<Tillai1 />} />
+            <Route path="/Icyspicy1" element={<Icyspicy1 />} />
+            <Route path="/Annapurna1" element={<Annapurna1 />} />
+            <Route path="/Brewbeans1" element={<Brewbeans1 />} />
+            <Route path="/Chaisuttabar1" element={<Chaisuttabar1 />} />
+            <Route path="/Rooftop1" element={<Rooftop1 />} />
+            <Route path="/Cardamom1" element={<Cardamom1 />} />
             <Route path="/SingleHotel" element={<SingleHotel />} />
           </Routes>
         </Suspense>
