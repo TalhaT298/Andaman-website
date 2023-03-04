@@ -313,7 +313,7 @@ const TravelPackageCover = (props) => {
             </StepContent>
             </Step>            
           ) : (
-            <div></div>
+            <div></div> 
           )}
           </Stepper>
 
@@ -364,7 +364,7 @@ const TravelPackageCover = (props) => {
               <li>No refund for the bookings made for 15 December to 15 January</li>
             </StepContent>
             </Step>
-          </Stepper>
+          </Stepper> 
 
 
           <div className='mx-auto pt-10 pb-7'>
