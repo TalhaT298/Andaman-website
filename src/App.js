@@ -1,49 +1,47 @@
-import { lazy, Suspense } from 'react';
-import { ScaleLoader } from 'react-spinners';
+import { lazy, Suspense } from "react";
+import { ScaleLoader } from "react-spinners";
 // import { RingLoader } from 'react-spinners';
 
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-const SingleHotel = lazy(() => import("./ServiceMenu/Hotel/SingleHotel/SingleHotel.js"));
-const Explore = lazy(() => import('./NavMenu/Explore.js'));
-const Fun = lazy(() => import('./NavMenu/Fun.js'));
-const Stay = lazy(() => import('./NavMenu/Stay.js'));
-const Flights = lazy(() => import('./ServiceMenu/Flights'));
-const Ship = lazy(() => import('./ServiceMenu/Ship'));
-const Hotel = lazy(() => import('./ServiceMenu/Hotel'));
-const Cab = lazy(() => import('./ServiceMenu/Cab'));
-const Bus = lazy(() => import('./ServiceMenu/Bus'));
-const Ferry = lazy(() => import('./ServiceMenu/Ferry'));
-const Activity = lazy(() => import('./ServiceMenu/Activity'));
-const Pg = lazy(() => import('./ServiceMenu/Pg'));
-const Travelpackage = lazy(() => import('./ServiceMenu/Travelpackage'));
-const Dinning = lazy(() => import('./ServiceMenu/Dinning'));
-const Trekking = lazy(() => import('./ServiceMenu/Trekking.js'));
-const Shop = lazy(() => import('./ServiceMenu/Shop'));
-const Nav = lazy(() => import('./Nav'));
-const Tandoor = lazy(() =>
-  import('./ServiceMenu/Dining/hotel-pages/Tandoor')
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+const SingleHotel = lazy(() =>
+  import("./ServiceMenu/Hotel/SingleHotel/SingleHotel.js")
 );
-const Trio = lazy(() => import('./ServiceMenu/Dining/hotel-pages/Trio'));
-const Tillai = lazy(() =>
-  import('./ServiceMenu/Dining/hotel-pages/Tillai')
-);
+const PgHotel = lazy(() => import("./ServiceMenu/Pg/SingleHotel/SinglePgHotel"));
+const Explore = lazy(() => import("./NavMenu/Explore.js"));
+const Fun = lazy(() => import("./NavMenu/Fun.js"));
+const Stay = lazy(() => import("./NavMenu/Stay.js"));
+const Flights = lazy(() => import("./ServiceMenu/Flights"));
+const Ship = lazy(() => import("./ServiceMenu/Ship"));
+const Hotel = lazy(() => import("./ServiceMenu/Hotel"));
+const Cab = lazy(() => import("./ServiceMenu/Cab"));
+const Bus = lazy(() => import("./ServiceMenu/Bus"));
+const Ferry = lazy(() => import("./ServiceMenu/Ferry"));
+const Activity = lazy(() => import("./ServiceMenu/Activity"));
+const Pg = lazy(() => import("./ServiceMenu/Pg"));
+const Travelpackage = lazy(() => import("./ServiceMenu/Travelpackage"));
+const Dinning = lazy(() => import("./ServiceMenu/Dinning"));
+const Trekking = lazy(() => import("./ServiceMenu/Trekking.js"));
+const Shop = lazy(() => import("./ServiceMenu/Shop"));
+const Nav = lazy(() => import("./Nav"));
+
+const Tandoor = lazy(() => import("./ServiceMenu/Dining/hotel-pages/Tandoor"));
+const Trio = lazy(() => import("./ServiceMenu/Dining/hotel-pages/Trio"));
+const Tillai = lazy(() => import("./ServiceMenu/Dining/hotel-pages/Tillai"));
 const Icyspicy = lazy(() =>
-  import('./ServiceMenu/Dining/hotel-pages/Icyspicy')
+  import("./ServiceMenu/Dining/hotel-pages/Icyspicy")
 );
 const Annapurna = lazy(() =>
-  import('./ServiceMenu/Dining/hotel-pages/Annapurna')
+  import("./ServiceMenu/Dining/hotel-pages/Annapurna")
 );
 const Brewbeans = lazy(() =>
-  import('./ServiceMenu/Dining/hotel-pages/Brewbeans')
+  import("./ServiceMenu/Dining/hotel-pages/Brewbeans")
 );
 const Chaisuttabar = lazy(() =>
-  import('./ServiceMenu/Dining/hotel-pages/Chaisuttabar')
+  import("./ServiceMenu/Dining/hotel-pages/Chaisuttabar")
 );
-const Rooftop = lazy(() =>
-  import('./ServiceMenu/Dining/hotel-pages/Rooftop')
-);
+const Rooftop = lazy(() => import("./ServiceMenu/Dining/hotel-pages/Rooftop"));
 const Cardamom = lazy(() =>
-  import('./ServiceMenu/Dining/hotel-pages/Cardamom')
+  import("./ServiceMenu/Dining/hotel-pages/Cardamom")
 );
 
 export default function App() {
@@ -88,6 +86,7 @@ export default function App() {
             <Route path="/Rooftop" element={<Rooftop />} />
             <Route path="/Cardamom" element={<Cardamom />} />
             <Route path="/SingleHotel" element={<SingleHotel />} />
+            <Route path="/PgSingleHotel" element={<PgHotel />} />
           </Routes>
         </Suspense>
       </Router>
