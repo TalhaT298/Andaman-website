@@ -36,11 +36,10 @@ const ShopItem = () => {
   });
 
   return (
-    <div className='flex flex-wrap font-Nunito_Sans pt-6'>
-      {/* <iframe src='https://ramolon.in/' width={1100} height={600}></iframe> */}
-      {
-        shopItemData
-      }
+    <div className='flex flex-col items-center h-full w-full p-auto m-auto font-Nunito_Sans'>
+      <div className='flex flex-wrap items-center m-auto p-auto pt-4 font-normal text-lg font-Nunito_Sans'>
+        {shopItemData}
+      </div>
     </div>
   );
 };

@@ -112,13 +112,25 @@ const Options = () => {
             </div>
           </div>
           <div className='flex flex-col gap-3 px-2'>
-            <span onClick={() => setPassengerClass('ECONOMY')} className=''>
+            <span onClick={() => { 
+              setPassengerClass('ECONOMY')
+              setOpenTravellerInfo(false)
+              }}
+              className='hover:cursor-pointer'>
               Economy
             </span>
-            <span onClick={() => setPassengerClass('BUSINESS')} className=''>
+            <span onClick={() => {
+              setPassengerClass('BUSINESS')
+              setOpenTravellerInfo(false)
+              }} 
+              className='hover:cursor-pointer'>
               Business
             </span>
-            <span onClick={() => setPassengerClass('FIRST')} className=''>
+            <span onClick={() => { 
+              setPassengerClass('FIRST')
+              setOpenTravellerInfo(false)
+              }} 
+              className='hover:cursor-pointer'>
               First
             </span>
           </div>
