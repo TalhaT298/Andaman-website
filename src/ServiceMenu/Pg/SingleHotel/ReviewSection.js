@@ -1,7 +1,9 @@
-import React from "react";
-import StarRateRoundedIcon from "@mui/icons-material/StarRateRounded";
+import React from 'react';
+import StarRateRoundedIcon from '@mui/icons-material/StarRateRounded';
+import { LazyLoadImage } from 'react-lazy-load-image-component';
 
-import classes from "./ReviewSection.module.css";
+import classes from './ReviewSection.module.css';
+
 const ReviewSection = () => {
   return (
     <>
@@ -13,20 +15,20 @@ const ReviewSection = () => {
           <div className={`${classes.div1} ${classes.eachdiv}`}>
             <div className={classes.userdetails}>
               <div className={classes.imgbox}>
-                <img
+                <LazyLoadImage
                   src="https://dumbosdiary.com/wp-content/uploads/2017/04/The-minecraft_digital_gaming_avatar.jpg"
                   alt="img-1"
                 />
               </div>
               <div className={classes.detbox}>
                 <p clasName={classes.name}>
-                  Daniel Clifford{" "}
+                  Daniel Clifford{' '}
                   <span className="md:block">
-                    <StarRateRoundedIcon style={{ color: "#FFD700" }} />
-                    <StarRateRoundedIcon style={{ color: "#FFD700" }} />
-                    <StarRateRoundedIcon style={{ color: "#FFD700" }} />
-                    <StarRateRoundedIcon style={{ color: "#FFD700" }} />
-                    <StarRateRoundedIcon style={{ color: "#FFD700" }} />
+                    <StarRateRoundedIcon style={{ color: '#FFD700' }} />
+                    <StarRateRoundedIcon style={{ color: '#FFD700' }} />
+                    <StarRateRoundedIcon style={{ color: '#FFD700' }} />
+                    <StarRateRoundedIcon style={{ color: '#FFD700' }} />
+                    <StarRateRoundedIcon style={{ color: '#FFD700' }} />
                   </span>
                 </p>
                 <p clasName={classes.designation}>Verified Guest</p>
@@ -46,7 +48,7 @@ const ReviewSection = () => {
           <div className={`${classes.div2} ${classes.eachdiv}`}>
             <div className={classes.userdetails}>
               <div className={classes.imgbox}>
-                <img
+                <LazyLoadImage
                   src="https://dumbosdiary.com/wp-content/uploads/2017/04/gaming-art-avatar.jpg"
                   alt=""
                 />
@@ -55,9 +57,9 @@ const ReviewSection = () => {
                 <p clasName={classes.name}>
                   Jonathan Walters
                   <span className="md:block">
-                    <StarRateRoundedIcon style={{ color: "#FFD700" }} />
-                    <StarRateRoundedIcon style={{ color: "#FFD700" }} />
-                    <StarRateRoundedIcon style={{ color: "#FFD700" }} />
+                    <StarRateRoundedIcon style={{ color: '#FFD700' }} />
+                    <StarRateRoundedIcon style={{ color: '#FFD700' }} />
+                    <StarRateRoundedIcon style={{ color: '#FFD700' }} />
                   </span>
                 </p>
                 <p clasName={classes.designation}>Verified Guest</p>
@@ -77,7 +79,7 @@ const ReviewSection = () => {
           <div className={`${classes.div3} ${classes.eachdiv}`}>
             <div className={classes.userdetails}>
               <div className={classes.imgbox}>
-                <img
+                <LazyLoadImage
                   src="https://dumbosdiary.com/wp-content/uploads/2017/04/avatar_minecraft_digitalart.jpg"
                   alt=""
                 />
@@ -86,8 +88,7 @@ const ReviewSection = () => {
                 <p className={`${classes.name} ${classes.dark}`}>
                   Kira Whittle
                   <span className="md:block">
-                    <StarRateRoundedIcon style={{ color: "#FFD700" }} />
-                   
+                    <StarRateRoundedIcon style={{ color: '#FFD700' }} />
                   </span>
                 </p>
                 <p className={`${classes.designation} ${classes.dark}`}>
@@ -109,7 +110,7 @@ const ReviewSection = () => {
           <div className={`${classes.div4} ${classes.eachdiv}`}>
             <div clasName={classes.userdetails}>
               <div className={classes.imgbox}>
-                <img
+                <LazyLoadImage
                   src="https://dumbosdiary.com/wp-content/uploads/2017/04/avatar_minecraft_artwork.jpg"
                   alt=""
                 />
@@ -118,11 +119,11 @@ const ReviewSection = () => {
                 <p className={`${classes.name} ${classes.dark}`}>
                   Jeanette Harmon
                   <span className="md:block">
-                    <StarRateRoundedIcon style={{ color: "#FFD700" }} />
-                    <StarRateRoundedIcon style={{ color: "#FFD700" }} />
-                    <StarRateRoundedIcon style={{ color: "#FFD700" }} />
-                    <StarRateRoundedIcon style={{ color: "#FFD700" }} />
-                    <StarRateRoundedIcon style={{ color: "#FFD700" }} />
+                    <StarRateRoundedIcon style={{ color: '#FFD700' }} />
+                    <StarRateRoundedIcon style={{ color: '#FFD700' }} />
+                    <StarRateRoundedIcon style={{ color: '#FFD700' }} />
+                    <StarRateRoundedIcon style={{ color: '#FFD700' }} />
+                    <StarRateRoundedIcon style={{ color: '#FFD700' }} />
                   </span>
                 </p>
                 <p className={`${classes.designation} ${classes.dark}`}>
@@ -143,20 +144,20 @@ const ReviewSection = () => {
           <div className={`${classes.div5} ${classes.eachdiv}`}>
             <div clasName={classes.userdetails}>
               <div className={classes.imgbox}>
-                <img
+                <LazyLoadImage
                   src="https://dumbosdiary.com/wp-content/uploads/2017/04/digital-painting-profile-pic.jpg"
                   alt=""
                 />
               </div>
               <div clasName={classes.detbox}>
                 <p clasName={classes.name}>
-                  Patrick Abrams{" "}
+                  Patrick Abrams{' '}
                   <span className="md:block">
-                    <StarRateRoundedIcon style={{ color: "#FFD700" }} />
-                    <StarRateRoundedIcon style={{ color: "#FFD700" }} />
-                    <StarRateRoundedIcon style={{ color: "#FFD700" }} />
-                    <StarRateRoundedIcon style={{ color: "#FFD700" }} />
-                    <StarRateRoundedIcon style={{ color: "#FFD700" }} />
+                    <StarRateRoundedIcon style={{ color: '#FFD700' }} />
+                    <StarRateRoundedIcon style={{ color: '#FFD700' }} />
+                    <StarRateRoundedIcon style={{ color: '#FFD700' }} />
+                    <StarRateRoundedIcon style={{ color: '#FFD700' }} />
+                    <StarRateRoundedIcon style={{ color: '#FFD700' }} />
                   </span>
                 </p>
                 <p clasName={classes.designation}>Verified Guest</p>
