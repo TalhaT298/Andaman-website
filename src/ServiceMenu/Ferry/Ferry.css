@@ -1,0 +1,11 @@
+.map-container {
+    height: 70%;
+    width: 70%;
+    position: relative;
+  }
+  
+  .map-container > div:first-child {
+    position: unset !important;
+    width: unset !important;
+    height: unset !important;
+  }
