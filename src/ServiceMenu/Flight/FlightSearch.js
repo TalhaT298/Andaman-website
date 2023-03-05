@@ -1,12 +1,12 @@
-import React, { useState } from 'react';
+import React, { useState, lazy } from 'react';
 
 import 'react-date-range/dist/styles.css';
 import 'react-date-range/dist/theme/default.css';
 
-import Locations from './Locations';
-import DepartDate from './DepartDate';
-import ReturnDate from './ReturnDate';
-import Options from './Options';
+const Locations = lazy(() => import('./Locations'))
+const DepartDate = lazy(() => import('./DepartDate'))
+const ReturnDate = lazy(() => import('./ReturnDate'))
+const Options = lazy(() => import('./Options'))
 
 // This below code is for fetching data from local storage for json file
 // function searchFlights(origin, destination, departureDate) {

@@ -1,9 +1,13 @@
-import KeyFeatues from "./KeyFeatues"
+import { lazy } from "react";
+
 import { faBed } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faPerson } from "@fortawesome/free-solid-svg-icons"
 import { faShower } from "@fortawesome/free-solid-svg-icons"
 import classes from "./SingleHotel.module.css"
+
+const KeyFeatues = lazy(() => import('./KeyFeatues'))
+
 const Features = () => {
   const ReserveHandler=()=>{
     console.log("Reserve")

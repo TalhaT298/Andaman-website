@@ -61,8 +61,8 @@ const ActivityCover = (props) => {
                   src={props.imageLink ? props.imageLink : '-'}
                   alt='.'
                 />
-                <div>                 
-                <span className='text-slate-700 text-lg'>{props.fullDescription}</span>
+                <div className='mt-2'>                 
+                <span className='text-slate-700 text-sm font-semibold'>{props.fullDescription}</span>
                 </div>     
               </p>
 

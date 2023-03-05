@@ -1,7 +1,7 @@
 import React from 'react';
 
-import { useState, useEffect } from 'react';
-import { fire } from '../../fire';
+import { useState } from 'react';
+
 
 import 'react-date-range/dist/styles.css';
 import 'react-date-range/dist/theme/default.css';
