@@ -6,8 +6,8 @@ import 'firebase/database';
 import { Map, GoogleApiWrapper, Marker } from 'google-maps-react';
 
 const mapStyles = {
-  height: '70%',
-  width: '70%',
+  height: '50%',
+  width: '81%',
 };
 
 const MyMapComponent = (props) => {
@@ -33,7 +33,7 @@ const MyMapComponent = (props) => {
   }, []);
 
   return (
-    <Map google={props.google} zoom={27} style={mapStyles} center={{lat: lat, lng: lng}}>
+    <Map google={props.google} zoom={14} style={mapStyles} center={{lat: lat, lng: lng}}>
       <Marker position={{lat: lat, lng: lng}} />
     </Map>
   );
