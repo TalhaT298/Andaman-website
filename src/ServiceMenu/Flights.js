@@ -2,8 +2,9 @@ import React, { useState, lazy } from 'react';
 
 import flight from '../Data/Flight-Section/flight';
 
+const BestPrices = lazy(() => import('./Flight/BestPrices'));
 const FlightSearch = lazy(() => import('./Flight/FlightSearch'));
-const FlightCover = lazy(() => import('./Flight/FlightCover'))
+const FlightCover = lazy(() => import('./Flight/FlightCover'));
 
 const Flights = () => {
   //search feature
@@ -38,8 +39,10 @@ const Flights = () => {
         setSearchOriginTerm={setSearchOriginTerm}
         setSearchDestTerm={setSearchDestTerm}
       />
-      <span className="text-2xl font-normal mb-3 mx-2">Featured Flights</span>
-      <div className="pt-2 ">
+      <div className="pt-2 w-full text-center">
+        <span className="text-black text-3xl font-semibold mb-6 mx-auto w-full">
+          Search Results
+        </span>
         {flightData.length === 0 ? (
           <center>
             <h1>No results found...</h1>
@@ -48,6 +51,7 @@ const Flights = () => {
           flightData
         )}
       </div>
+      <BestPrices />
     </div>
   );
 };

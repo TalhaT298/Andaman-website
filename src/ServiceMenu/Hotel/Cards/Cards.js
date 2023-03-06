@@ -9,7 +9,7 @@ import { Pagination, Navigation } from 'swiper';
 import { LazyLoadImage } from 'react-lazy-load-image-component';
 // import { Link } from 'react-router-dom';
 
-function Card({ card }) {
+function Cards({ card }) {
   return (
     <div className="card-box">
       <Swiper
@@ -75,4 +75,4 @@ function Card({ card }) {
   );
 }
 
-export default Card;
+export default Cards;

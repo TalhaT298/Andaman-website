@@ -3,10 +3,7 @@ import { ScaleLoader } from "react-spinners";
 // import { RingLoader } from 'react-spinners';
 
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-const SingleHotel = lazy(() =>
-  import("./ServiceMenu/Hotel/SingleHotel/SingleHotel.js")
-);
-const PgHotel = lazy(() => import("./ServiceMenu/Pg/SingleHotel/SinglePgHotel"));
+
 const Explore = lazy(() => import("./NavMenu/Explore.js"));
 const Fun = lazy(() => import("./NavMenu/Fun.js"));
 const Stay = lazy(() => import("./NavMenu/Stay.js"));
@@ -23,6 +20,12 @@ const Dinning = lazy(() => import("./ServiceMenu/Dinning"));
 const Trekking = lazy(() => import("./ServiceMenu/Trekking.js"));
 const Shop = lazy(() => import("./ServiceMenu/Shop"));
 const Nav = lazy(() => import("./Nav"));
+
+const SingleHotel = lazy(() =>
+  import("./ServiceMenu/Hotel/SingleHotel/SingleHotel.js")
+);
+
+const PgHotel = lazy(() => import("./ServiceMenu/Pg/SingleHotel/SinglePgHotel"));
 
 const Tandoor = lazy(() => import("./ServiceMenu/Dining/hotel-pages/Tandoor"));
 const Trio = lazy(() => import("./ServiceMenu/Dining/hotel-pages/Trio"));
@@ -68,6 +71,7 @@ const Rooftop1 = lazy(() =>
 const Cardamom1 = lazy(() =>
   import('./ServiceMenu/ShopItem/shop-pages/Cardamom')
 );
+
 export default function App() {
   return (
     <div className="bg-gradient-to-br from-white text-slate-800 font-mono h-full m-0 p-0">
