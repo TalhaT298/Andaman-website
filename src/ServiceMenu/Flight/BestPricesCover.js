@@ -5,19 +5,19 @@ import { useState } from 'react';
 
 import 'react-date-range/dist/styles.css';
 import 'react-date-range/dist/theme/default.css';
-import { format } from 'date-fns';
+// import { format } from 'date-fns';
 
 // Always remember, the data we fetch from firebase is in objects, so, we will have to convert it into an array of objects that's why we have used
 // here Object.values in flightsData
 
 const FlightCover = (props) => {
-  const [date, setDate] = useState([
-    {
-      startDate: new Date(),
-      endDate: new Date(),
-      key: 'selection',
-    },
-  ]);
+//   const [date, setDate] = useState([
+//     {
+//       startDate: new Date(),
+//       endDate: new Date(),
+//       key: 'selection',
+//     },
+//   ]);
 
   const [showFlightInfo, setShowFlightInfo] = useState(false);
 
@@ -55,7 +55,7 @@ const FlightCover = (props) => {
           <div className="text-slate-200 flex items-center justify-between mx-auto py-auto px-4 text-center px-auto w-auto xs:flex-col xs:py-2 xs:gap-y-3">
             <span className="uppercase">{props.flightName}</span>
             <span>{props.travelRoute}</span>
-            <span>{`${format(date[0].startDate, 'dd/MM/yyyy')}`}</span>
+            <span>{props.travelDate}</span>
 
             <div className="flex gap-2">
               <div>
@@ -71,7 +71,7 @@ const FlightCover = (props) => {
         </div>
 
         {showFlightInfo && (
-          <div className="mx-auto h-60 w-auto bg-slate-900 my-6 text-white px-auto rounded-lg">
+          <div className="mx-auto h-64 w-auto bg-slate-900 my-6 text-white px-auto rounded-lg">
             <div className="h-60 w-auto bg-slate-900 mx-auto px-auto rounded-lg">
               <div className="flex flex-col h-60 w-full justify-between mx-auto py-3 p-1 text-center px-auto">
                 <div className="flex flex-row px-auto">
@@ -80,19 +80,24 @@ const FlightCover = (props) => {
                       {props.flightName}
                     </span>
                     <span className="text-sm uppercase font-thin py-1 my-auto">
-                      {props.flightGateway}
+                      {props.flightIDNo}
                     </span>
                   </div>
-                  <div className="flex flex-col mx-auto py-2 w-36">
+                  <div className="flex flex-col mx-auto py-2 w-36 px-auto">
                     <span className="text-base uppercase font-thin my-auto">
                       {props.travelRoute}
                     </span>
+                    <span className="text-sm uppercase font-thin py-1 my-auto">
+                      {props.flightBaggage}
+                    </span>
                   </div>
-                  <div className="flex flex-col mx-auto py-2 w-36">
+                  <div className="flex flex-col mx-auto py-2 w-36 px-auto">
                     <span className="text-xl uppercase font-bold my-auto">
                       ₹ {props.adultPrice}
                     </span>
-                    {/* <span>₹ {props.childrenPrice}</span> */}
+                    <span className="text-sm uppercase font-thin py-1 my-auto">
+                      {props.flightFreebie}
+                    </span>
                   </div>
                 </div>
                 <div className="flex flex-row px-auto">

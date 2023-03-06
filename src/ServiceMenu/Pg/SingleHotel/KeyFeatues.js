@@ -12,7 +12,7 @@ const KeyFeatures = () => {
     <div className="pt-8 pt:lg-12">
       <h2
         // style={{ fontFamily: "Glook" }}
-        className=" text-5xl lg:text-3xl font-extrabold  lg:mb-12 text-center"
+        className=" text-5xl lg:text-3xl font-extrabold lg:mb-12 text-center"
       >
         Key Features
       </h2>

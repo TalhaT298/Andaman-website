@@ -2,6 +2,8 @@ import { Navigation, Pagination, Scrollbar, A11y } from "swiper";
 
 import { Swiper, SwiperSlide } from "swiper/react";
 
+import { LazyLoadImage } from "react-lazy-load-image-component";
+
 // Import Swiper styles
 import "swiper/css";
 import "swiper/css/navigation";
@@ -33,7 +35,7 @@ const HotelImages = () => {
       >
         {images.map((imageUrl, index) => (
           <SwiperSlide key={index}>
-            <img
+            <LazyLoadImage
               src={imageUrl}
               alt={`Slide ${index}`}
               className="lg:w-full lg:h-full w-[1200px] h-[700px] cursor-pointer"

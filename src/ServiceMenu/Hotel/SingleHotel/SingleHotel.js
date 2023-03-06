@@ -1,10 +1,12 @@
-import React from "react";
-import SingleHotelHeader from "./Header";
-import HotelImages from "./Images";
-import Navforwithout from "../../../Navforwithout";
-import Features from "./Features.js";
-import ReviewSection from "./ReviewSection";
-import HotelMap from "./HotelMap";
+import { lazy } from 'react';
+
+const ReviewSection = lazy(() => import('./ReviewSection'))
+const HotelMap = lazy(() => import('./HotelMap'))
+const Features = lazy(() => import('./Features'))
+const Navforwithout = lazy(() => import('../../../Navforwithout'))
+const HotelImages = lazy(() => import('./Images'));
+const SingleHotelHeader = lazy(() => import('./Header'));
+
 const SingleHotel = () => {
   return (
     <>

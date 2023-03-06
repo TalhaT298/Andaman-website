@@ -4,6 +4,7 @@ import CabSearch from './Cab/CabSearch';
 
 import cab from '../Data/Cab-Section/cab';
 import CabCover from './Cab/CabCover';
+import CabserviceLocation from './Cab/CabserviceLocation';
 
 const Cabs = () => {
 
@@ -27,7 +28,7 @@ const Cabs = () => {
   // });
 
   return (
-    <div className='pt-10 h-full w-auto cursor-pointer'>
+    <div className='pt-10 h-full w-auto'>
       <div className='flex'>
         <div className='flex mx-auto mt-10 mb-10'>
           <span className='text-3xl font-Nunito_Sans font-semibold text-slate-800'>
@@ -37,13 +38,14 @@ const Cabs = () => {
       </div>
       <CabSearch setSearchOriginTerm={setSearchOriginTerm} setSearchDestTerm={setSearchDestTerm} />
       <span className='text-2xl font-normal mb-3 mx-2'>Featured Cabs</span>
-      <div className='pt-2'>{
+      {/* <div className='pt-2'>{
           cabData.length === 0 ? 
           <center><h1>No results found...</h1></center> 
           : 
           cabData
         }
-      </div>
+      </div> */}
+      <CabserviceLocation></CabserviceLocation>
     </div>
   );
 };

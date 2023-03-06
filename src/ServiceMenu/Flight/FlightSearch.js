@@ -2,11 +2,10 @@ import React, { useState } from "react";
 
 import "react-date-range/dist/styles.css";
 import "react-date-range/dist/theme/default.css";
-
-import Locations from "./Locations";
-import DepartDate from "./DepartDate";
-import ReturnDate from "./ReturnDate";
-import Options from "./Options";
+const Locations = lazy(() => import("./Locations"));
+const DepartDate = lazy(() => import("./DepartDate"));
+const ReturnDate = lazy(() => import("./ReturnDate"));
+const Options = lazy(() => import("./Options"));
 
 // This below code is for fetching data from local storage for json file
 // function searchFlights(origin, destination, departureDate) {
@@ -85,7 +84,7 @@ const FlightSearch = (props) => {
           Multi-City
         </span> */}
       </div>
-      <div >
+      <div>
         <form onSubmit={handleSubmit}>
           <div className="font-medium text-slate-800 flex h-auto w-full my-4 mx-auto flex-row airbnbml:flex-col ml:w-auto airbnbml:w-96  xs:w-64">
             <Locations
