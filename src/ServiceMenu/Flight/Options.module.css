@@ -1,0 +1,54 @@
+@media screen and (max-width: 1423px) and (min-width: 1190px) {
+  .responsive {
+    position: absolute;
+    right: 17rem;
+  }
+}
+@media screen and (max-width: 1189px) and (min-width: 1023px) {
+  .responsive {
+    position: absolute;
+    right: 12rem;
+  }
+}
+@media screen and (max-width: 952px) and (min-width: 800px) {
+  .responsive {
+    position: absolute;
+    bottom: -3rem;
+    right: 9rem;
+  }
+}
+@media screen and (max-width: 800px) {
+  .responsive {
+    position: absolute;
+    bottom: -21rem;
+    right: 14.6rem;
+  }
+}
+@media screen and (max-width: 700px) {
+  .responsive {
+    position: absolute;
+    bottom: -21rem;
+    right: 13.6rem;
+  }
+}
+@media screen and (max-width: 600px) {
+  .responsive {
+    position: absolute;
+    bottom: -21rem;
+    right: 10.6rem;
+  }
+}
+@media screen and (max-width: 528px) {
+  .responsive {
+    position: absolute;
+    bottom: -22.7rem;
+    right: 7.68rem;
+  }
+}
+@media screen and (max-width: 428px) {
+  .responsive {
+    position: absolute;
+    bottom: -12rem;
+    right: 5.4rem;
+  }
+}

@@ -1,6 +1,6 @@
 import React from 'react';
 import { useState } from 'react';
-
+import classes from './Options.module.css'; 
 import Modal from 'react-modal';
 
 const Options = () => {
@@ -47,7 +47,8 @@ const Options = () => {
         overlayClassName='modal-overlay bg-black opacity'
         className='modal-content w-auto h-auto'
       >
-        <div className='flex flex-col absolute bg-white -bottom-2 right-96 airbnbml:right-20 airbnbml:-bottom-10 md:right-40 sm:right-32 sm:-bottom-16 xs:-bottom-16 lexs:right-20 lexs:-bottom-24 w-auto h-auto py-3 mx-auto px-auto space-x-4 border-solid border-2 border-black rounded-md shadow-md shadow-black drop-shadow-md'>
+        <div className={`${classes.responsive} flex flex-col absolute bg-white -bottom-[1.3rem]  right-[22rem] lg:right-[8rem] md:bottom-[27rem] sm:bottom-[20rem] 
+         lexs:right-20  lexs:-bottom-24 w-auto h-auto py-3 mx-auto px-auto space-x-4 border-solid border-2 border-black rounded-md shadow-md shadow-black drop-shadow-md`}>
           <div className='flex flex-row gap-6 px-6'>
             <div className='flex flex-col gap-y-5 py-2'>
               <span className='optionText'>Adult</span>
