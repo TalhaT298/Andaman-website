@@ -14,9 +14,6 @@ const HotelImages = () => {
     "https://a0.muscache.com/im/pictures/36be513b-519d-4f1b-9aa7-913f39c91de0.jpg?im_w=1440",
     "https://a0.muscache.com/im/pictures/b2235535-e382-4b88-af98-cb71bdfd3867.jpg?im_w=1200",
     "https://a0.muscache.com/im/pictures/36be513b-519d-4f1b-9aa7-913f39c91de0.jpg?im_w=1440",
-    "https://a0.muscache.com/im/pictures/1d256735-800a-4a9e-9c01-34056a4b2ca1.jpg?im_w=1200",
-    "https://a0.muscache.com/im/pictures/36959f0f-eed6-4aff-b233-2ea8b90135a8.jpg?im_w=1200",
-    "https://w0.peakpx.com/wallpaper/90/109/HD-wallpaper-atlantis-hotel-dubai-uae-summer-sea-luxury-hotels.jpg"
   ];
 
   return (
