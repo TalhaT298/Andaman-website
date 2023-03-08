@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { LazyLoadImage } from 'react-lazy-load-image-component';
-import { Link } from 'react-router-dom';
+// import { Link } from 'react-router-dom';
 // import Modal from 'react-modal';
 // import Options from './Options';
 
@@ -15,13 +15,13 @@ const TrekkingCover = (props) => {
         //   setOpenReserveInfo(!openreserveInfo);
         // }}
       >
-        <Link to={props.link}>
+        <a href={props.link} target='_blank' rel='noreferrer'>
           <LazyLoadImage
             src={props.imageLink}
             alt={props.name}
             className="flex rounded-md h-60 w-88 xs:w-auto transition:origin-center hover:ease-in-out hover:scale-110 transition:duration-1000 transition-transform"
           />
-        </Link>
+        </a>
       </div>
       <div className="flex-col justify-between py-3 p-1 text-start">
         <div className="flex justify-between">
