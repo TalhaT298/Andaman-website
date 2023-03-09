@@ -6,7 +6,7 @@ const dining = [
 
     name: 'Tandoor',
     genre: 'Restaurant',
-    link: 'Tandoor',
+    link: 'https://tandoor.nxtunicorns.com/',
     speciality: 'Tandoor, Indian',
     location: 'Port Blair, Lamba Line',
   },
@@ -15,34 +15,34 @@ const dining = [
     imageLink:
       'https://st4.depositphotos.com/1884173/24675/i/600/depositphotos_246751852-stock-photo-spicy-garlic-chilli-prawns-shrimps.jpg',
 
-    name: 'Trio',
+    name: 'Zafran',
     genre: 'Restaurant',
-    link: 'Trio',
+    link: 'https://zafran.nxtunicorns.com/',
     speciality: 'Indian, Chinese',
-    location: 'Port Blair, Bhatu Bhasti',
+    location: 'Port Blair, Delanipur',
   },
-  {
-    id: 3,
-    imageLink:
-      'https://images.unsplash.com/photo-1605807646983-377bc5a76493?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTJ8fGNha2VzfGVufDB8fDB8fA%3D%3D&w=1000&q=80',
+  // {
+  //   id: 3,
+  //   imageLink:
+  //     'https://images.unsplash.com/photo-1605807646983-377bc5a76493?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTJ8fGNha2VzfGVufDB8fDB8fA%3D%3D&w=1000&q=80',
 
-    name: "Tillai's",
-    genre: 'Bakery',
-    link: 'Tillai',
-    speciality: 'Bakery, Sweets',
-    location: 'Port Blair, Ghanta Ghar',
-  },
-  {
-    id: 4,
-    imageLink:
-      'https://media.istockphoto.com/id/159248709/photo/the-quinoa-burger.jpg?s=612x612&w=0&k=20&c=O7d3XqSlP9yQA4x0aFvwodiFzLFOxKS4eoWeiLpET5Y=',
+  //   name: "Tillai's",
+  //   genre: 'Bakery',
+  //   link: 'Tillai',
+  //   speciality: 'Bakery, Sweets',
+  //   location: 'Port Blair, Ghanta Ghar',
+  // },
+  // {
+  //   id: 4,
+  //   imageLink:
+  //     'https://media.istockphoto.com/id/159248709/photo/the-quinoa-burger.jpg?s=612x612&w=0&k=20&c=O7d3XqSlP9yQA4x0aFvwodiFzLFOxKS4eoWeiLpET5Y=',
 
-    name: 'ICY SPICY',
-    genre: 'Fully Vegetarian Bakery',
-    link: 'Icyspicy',
-    speciality: 'Bakery, Desserts',
-    location: 'Port Blair, Junglighat',
-  },
+  //   name: 'ICY SPICY',
+  //   genre: 'Fully Vegetarian Bakery',
+  //   link: 'Icyspicy',
+  //   speciality: 'Bakery, Desserts',
+  //   location: 'Port Blair, Junglighat',
+  // },
 
   // https://thumbs.dreamstime.com/b/chicken-dum-biryani-white-bowl-traditional-indian-one-pot-dish-background-high-angle-view-156498926.jpg
   {
@@ -52,52 +52,53 @@ const dining = [
 
     name: 'Annapurna Cafeteria',
     genre: 'Fully Veg Restaurant & Cafe',
-    link: 'Annapurna',
+    link: 'https://annapurna.nxtunicorns.com/',
     speciality: 'Snacks, South Indian',
-    location: 'Port Blair, DollyGunj',
+    location: 'Port Blair, Ghantaghar',
   },
   {
     id: 6,
     imageLink:
       'https://media.istockphoto.com/id/503636498/photo/ladys-hands-holding-cup-with-sth-heart-shaped.jpg?s=612x612&w=0&k=20&c=3lpXk7jl2CRPfMiq37aXNIgdfcFfN-BIDNMDqr6f8qE=',
 
-    name: 'Brewbeans Cafe',
-    genre: 'Cafe',
-    link: 'Brewbeans',
-    speciality: 'Beverages, Pizzas, Snacks',
-    location: 'Port Blair, School Line',
+    name: 'Gagan',
+    genre: 'Restaurant',
+    link: 'https://gagan.nxtunicorns.com/',
+    speciality: 'North Indian, Starters, Biryani',
+    location: 'Port Blair, Ghantaghar',
   },
   {
     id: 7,
     imageLink:
       'https://media-cdn.tripadvisor.com/media/photo-s/09/2e/a0/75/camellia-tea-coffee.jpg',
 
-    name: 'Chai Sutta Bar',
-    genre: 'Cafe',
-    link: 'Chaisuttabar',
-    speciality: 'Beverages, Fast Food, Snacks',
-    location: 'Port Blair, Junglighat',
+    name: 'Wild Heart',
+    genre: 'Restaurant',
+    link: 'https://wildheart.nxtunicorns.com/',
+    speciality: 'North Indian, Starters, Chinese',
+    location: 'Port Blair, Sippighat',
   },
-  {
-    id: 8,
-    imageLink: 'https://foodsguy.com/wp-content/uploads/2022/02/Milkshake.jpg',
+  // {
+  //   id: 8,
+  //   imageLink: 'https://foodsguy.com/wp-content/uploads/2022/02/Milkshake.jpg',
 
-    name: 'Rooftop Cafe',
-    genre: 'Cafe',
-    link: 'Rooftop',
-    speciality: 'Cafe, Beverages',
-    location: 'Port Blair, School Line',
-  },
+  //   name: 'Rooftop Cafe',
+  //   genre: 'Cafe',
+  //   link: 'Rooftop',
+  //   speciality: 'Cafe, Beverages',
+  //   location: 'Port Blair, School Line',
+  // },
   {
     id: 9,
     imageLink:
       'https://thumbs.dreamstime.com/b/traditional-kerala-fish-curry-coconut-milk-fresh-mangoes-82241970.jpg',
 
-    name: 'CARDAMOM',
+    name: 'Khaana Khazana',
     genre: 'Restaurant',
-    link: 'Cardamom',
-    speciality: 'North Indian, Indian',
-    location: 'Port Blair, Garacharma',
+    link: 'https://khanakhazana.nxtunicorn.com/',
+    speciality: 'North Indian, Bengali Food',
+    location: 'Port Blair, DollyGunj',
   },
 ];
+
 export default dining;
