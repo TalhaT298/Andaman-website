@@ -1,6 +1,6 @@
 import React from 'react';
 import { useState } from 'react';
-
+import classes from './Ship.module.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { DateRange } from 'react-date-range';
 import { format } from 'date-fns';
@@ -41,7 +41,7 @@ const DepartDate = () => {
             onChange={(item) => setStartingDate([item.selection])}
             moveRangeOnFirstSelection={false}
             ranges={startingDate}
-            className='absolute -bottom-24 -mx- left-1/3 airbnbml:left-56 airbnbml:-bottom-10 sm:bottom-4 sm:left-2'
+            className={`${classes.responsivee} absolute -bottom-[6.8rem] -mx- left-[39%]  lg:-bottom-[8.45rem] lg:left-[30%]  md:-bottom-[20rem] md:left-[12.5rem] sm:bottom-4 sm:left-2 responsivee`}
           />
         </Modal>
         <FontAwesomeIcon icon={faCalendarDays} className='text-slate-400' />
