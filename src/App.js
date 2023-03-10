@@ -25,7 +25,9 @@ const SingleHotel = lazy(() =>
   import("./ServiceMenu/Hotel/SingleHotel/SingleHotel.js")
 );
 
-const PgHotel = lazy(() => import("./ServiceMenu/Pg/SingleHotel/SinglePgHotel"));
+const PgHotel = lazy(() =>
+  import("./ServiceMenu/Pg/SingleHotel/SinglePgHotel")
+);
 
 const Tandoor = lazy(() => import("./ServiceMenu/Dining/hotel-pages/Tandoor"));
 const Trio = lazy(() => import("./ServiceMenu/Dining/hotel-pages/Trio"));
@@ -47,29 +49,27 @@ const Cardamom = lazy(() =>
   import("./ServiceMenu/Dining/hotel-pages/Cardamom")
 );
 const Tandoor1 = lazy(() =>
-  import('./ServiceMenu/ShopItem/shop-pages/Tandoor')
+  import("./ServiceMenu/ShopItem/shop-pages/Tandoor")
 );
-const Trio1 = lazy(() => import('./ServiceMenu/ShopItem/shop-pages/Trio'));
-const Tillai1 = lazy(() =>
-  import('./ServiceMenu/ShopItem/shop-pages/Tillai')
-);
+const Trio1 = lazy(() => import("./ServiceMenu/ShopItem/shop-pages/Trio"));
+const Tillai1 = lazy(() => import("./ServiceMenu/ShopItem/shop-pages/Tillai"));
 const Icyspicy1 = lazy(() =>
-  import('./ServiceMenu/ShopItem/shop-pages/Icyspicy')
+  import("./ServiceMenu/ShopItem/shop-pages/Icyspicy")
 );
 const Annapurna1 = lazy(() =>
-  import('./ServiceMenu/ShopItem/shop-pages/Annapurna')
+  import("./ServiceMenu/ShopItem/shop-pages/Annapurna")
 );
 const Brewbeans1 = lazy(() =>
-  import('./ServiceMenu/ShopItem/shop-pages/Brewbeans')
+  import("./ServiceMenu/ShopItem/shop-pages/Brewbeans")
 );
 const Chaisuttabar1 = lazy(() =>
-  import('./ServiceMenu/ShopItem/shop-pages/Chaisuttabar')
+  import("./ServiceMenu/ShopItem/shop-pages/Chaisuttabar")
 );
 const Rooftop1 = lazy(() =>
-  import('./ServiceMenu/ShopItem/shop-pages/Rooftop')
+  import("./ServiceMenu/ShopItem/shop-pages/Rooftop")
 );
 const Cardamom1 = lazy(() =>
-  import('./ServiceMenu/ShopItem/shop-pages/Cardamom')
+  import("./ServiceMenu/ShopItem/shop-pages/Cardamom")
 );
 
 export default function App() {
@@ -122,7 +122,9 @@ export default function App() {
             <Route path="/Chaisuttabar1" element={<Chaisuttabar1 />} />
             <Route path="/Rooftop1" element={<Rooftop1 />} />
             <Route path="/Cardamom1" element={<Cardamom1 />} />
-            <Route path="/SingleHotel" element={<SingleHotel />} />
+            {/* <Route path="/SingleHotel" element={<SingleHotel />} /> */}
+            <Route path="/SingleHotel/:id" element={<SingleHotel />} />
+
             <Route path="/PgSingleHotel" element={<PgHotel />} />
           </Routes>
         </Suspense>
