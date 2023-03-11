@@ -32,7 +32,7 @@ const HotelImages = () => {
         >
           {images.map((image, index) => (
             <SwiperSlide key={index}>
-              <img src={image} alt={`Slide ${index}`} />
+              <img src={image} alt={`Slide ${index}`} class="object-cover w-full h-full md:w-full md:h-full" />
             </SwiperSlide>
           ))}
         </Swiper>

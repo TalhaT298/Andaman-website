@@ -21,7 +21,7 @@ const HotelMap = () => {
       </div>
 
       <iframe
-        src="https://www.google.com/maps/embed?pb=!1m10!1m8!1m3!1d31730.749391464073!2d80.0566!3d6.21833!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sin!4v1677772502338!5m2!1sen!2sin"
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15608.970846717191!2d92.99377098395905!3d12.026804664356003!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3088d36c0203f8ff%3A0x3144749d5e158dc1!2sGreen%20Imperial%20Resort!5e0!3m2!1sen!2sin!4v1678537420174!5m2!1sen!2sin" 
         className="w-full h-96"
         title="Map"
         style={{ border: 0 }}
