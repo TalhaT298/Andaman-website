@@ -1,7 +1,14 @@
 import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMapMarkerAlt } from "@fortawesome/free-solid-svg-icons";
+import { datas } from "../../../Data/Hotel-Section/HotelsData/hotelsData";
+import { useParams } from "react-router-dom";
 const HotelMap = () => {
+  const {id}=useParams();
+  const data =datas.find(hotel=>hotel.id === parseInt(id))
+  const {HotelLocation} =data
+  console.log(HotelLocation)
+
   return (
     <div className="mt-16 ">
       <div className="text-center ">
@@ -21,7 +28,7 @@ const HotelMap = () => {
       </div>
 
       <iframe
-        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15608.970846717191!2d92.99377098395905!3d12.026804664356003!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3088d36c0203f8ff%3A0x3144749d5e158dc1!2sGreen%20Imperial%20Resort!5e0!3m2!1sen!2sin!4v1678537420174!5m2!1sen!2sin" 
+        src={HotelLocation} 
         className="w-full h-96"
         title="Map"
         style={{ border: 0 }}
