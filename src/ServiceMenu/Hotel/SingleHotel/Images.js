@@ -16,9 +16,24 @@ const HotelImages = () => {
   const images = data ? data.Images : []; 
   // extract the "Images" property from the data object or use an empty array if the data is not found
   console.log(images)
+  const breakpoints = {
+    640: {
+      slidesPerView: 2,
+      spaceBetween: 10,
+    },
+    768: {
+      slidesPerView: 3,
+      spaceBetween: 20,
+    },
+    1024: {
+      slidesPerView: 4,
+      spaceBetween: 30,
+    },
+  };
+
 
   return (
-    <div className="card-box pt-12">
+    <div className=" pt-12">
       {images.length > 0 ? (
         <Swiper
           modules={[Navigation, Pagination, Scrollbar, A11y]}
@@ -27,12 +42,13 @@ const HotelImages = () => {
           loop={true}
           cssMode={true}
           mousewheel={true}
+          // breakpoints={breakpoints}
           pagination={{ clickable: true }}
           className="swiper-container drop-shadow-2xl shadow-lg shadow-black rounded-xl"
         >
           {images.map((image, index) => (
             <SwiperSlide key={index}>
-              <img src={image} alt={`Slide ${index}`} class="object-cover w-full h-full md:w-full md:h-full" />
+              <img src={image} alt={`Slide ${index}`} class="object-cover w-[1500px] h-[610px] md:w-full md:h-full" />
             </SwiperSlide>
           ))}
         </Swiper>

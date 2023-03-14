@@ -63,7 +63,8 @@ export const list = [
     desc: "Beach and Sunset Views",
     imgSrc: [
       "https://a0.muscache.com/im/pictures/miso/Hosting-820975665024129072/original/0dcac1e0-607c-4584-828b-21561640d84e.jpeg?im_w=1200",
-      "https://a0.muscache.com/im/pictures/miso/Hosting-820975665024129072/original/4139aa9d-9622-486b-a8b8-2dd2ea8fb88a.jpeg?im_w=720",
+      "https://a0.muscache.com/im/pictures/miso/Hosting-820975665024129072/original/0dcac1e0-607c-4584-828b-21561640d84e.jpeg?im_w=1200",
+      // "https://a0.muscache.com/im/pictures/miso/Hosting-820975665024129072/original/4139aa9d-9622-486b-a8b8-2dd2ea8fb88a.jpeg?im_w=720",
       "https://a0.muscache.com/im/pictures/miso/Hosting-820975665024129072/original/cf3d41a5-6588-4185-89e3-313506f2b449.jpeg?im_w=720",
       "https://a0.muscache.com/im/pictures/miso/Hosting-820975665024129072/original/d963b915-f743-4424-bce9-36b8f4f1d95c.jpeg?im_w=720",
     ],
@@ -133,9 +134,9 @@ export const list = [
     desc: "Beach and Sunset Views",
     imgSrc: [
       "https://cf.bstatic.com/xdata/images/hotel/max1024x768/196380104.jpg?k=9b3b67bf317f4bb99ed86f81707932343b46cb5a0592fae5f7e4f297431b68ff&o=&hp=1",
-      "https://cf.bstatic.com/xdata/images/hotel/max1024x768/196379978.jpg?k=069d587b888cf90816c035f448d2ee945fdacd29277dafac96619aa9dcaef58d&o=&hp=1",
+      // "https://cf.bstatic.com/xdata/images/hotel/max1024x768/196379978.jpg?k=069d587b888cf90816c035f448d2ee945fdacd29277dafac96619aa9dcaef58d&o=&hp=1",
       "https://cf.bstatic.com/xdata/images/hotel/max1024x768/196380104.jpg?k=9b3b67bf317f4bb99ed86f81707932343b46cb5a0592fae5f7e4f297431b68ff&o=&hp=1",
-      "https://cf.bstatic.com/xdata/images/hotel/max1024x768/196379978.jpg?k=069d587b888cf90816c035f448d2ee945fdacd29277dafac96619aa9dcaef58d&o=&hp=1",
+      // "https://cf.bstatic.com/xdata/images/hotel/max1024x768/196379978.jpg?k=069d587b888cf90816c035f448d2ee945fdacd29277dafac96619aa9dcaef58d&o=&hp=1",
     ],
     link: "/SingleHotel/6",
     price: "20000",

@@ -296,8 +296,8 @@ export const datas = [
     Reviews: "167 Reviews",
     Location: "Gunawata, Rajasthan, Tamil Nadu",
     Images: [
-      "https://cf.bstatic.com/xdata/images/hotel/max1024x768/196380104.jpg?k=9b3b67bf317f4bb99ed86f81707932343b46cb5a0592fae5f7e4f297431b68ff&o=&hp=1",
-      "https://cf.bstatic.com/xdata/images/hotel/max1024x768/196379978.jpg?k=069d587b888cf90816c035f448d2ee945fdacd29277dafac96619aa9dcaef58d&o=&hp=1",
+      // "https://cf.bstatic.com/xdata/images/hotel/max1024x768/196380104.jpg?k=9b3b67bf317f4bb99ed86f81707932343b46cb5a0592fae5f7e4f297431b68ff&o=&hp=1",
+      "https://r1imghtlak.mmtcdn.com/26b1aec242fd11edb25d0a58a9feac02.jpg?&output-quality=75&downsize=910:612&crop=910:612;0,35&output-format=jpg",
       "https://cf.bstatic.com/xdata/images/hotel/max1024x768/196380104.jpg?k=9b3b67bf317f4bb99ed86f81707932343b46cb5a0592fae5f7e4f297431b68ff&o=&hp=1",
       "https://cf.bstatic.com/xdata/images/hotel/max1024x768/196379978.jpg?k=069d587b888cf90816c035f448d2ee945fdacd29277dafac96619aa9dcaef58d&o=&hp=1",
     ],
@@ -413,7 +413,7 @@ export const datas = [
     title: "The Kingdom, Havelock",
     Rating: " 4.5/5",
     Reviews: "167 Reviews",
-    Location: "The Govind Nagar,Andaman Andman & Nicobar Islands",
+    Location: "The Govind Nagar, Andaman & Nicobar Islands",
     Images: [
       "https://cf.bstatic.com/xdata/images/hotel/max1024x768/287191326.jpg?k=aacb33709134bb00dbbff97e43906956a65edc883770e01ae799225098f57924&o=&hp=1",
       "https://cf.bstatic.com/xdata/images/hotel/max1024x768/313659721.jpg?k=aa7502c25c834eadc4233d71dcaeddb8d2ae5987e35773114bab81495fbac46a&o=&hp=1",
