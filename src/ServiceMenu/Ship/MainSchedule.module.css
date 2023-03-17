@@ -1,0 +1,9 @@
+@media screen and (max-width: 412px)   {
+    .main{
+       margin-right: 0rem;
+      
+    }
+    .text{
+        margin-right: 0.5rem;
+    }
+}

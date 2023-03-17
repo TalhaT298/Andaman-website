@@ -1,0 +1,21 @@
+/* @media screen and (max-width: 942px) and (min-width: 768px) {
+    .sindhu{
+       margin-right: 25rem;
+       font-size: 20px;
+    }
+}
+@media screen and (max-width: 413px)   {
+    .sindhu{
+       position:relative;
+       right:2rem;
+    }
+} */
+@media screen and (max-width: 412px)   {
+    /* .main{
+       margin-right: 0rem;
+      
+    } */
+    .text{
+        margin-right: 0.5rem;
+    }
+}
