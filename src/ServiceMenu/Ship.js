@@ -67,7 +67,7 @@ const Ship = () => {
         <Mainland ref={mainlandRef} />
         <SecondSchedule />
         <MainlandDetails />
-        {/* <Inland ref={inlandRef} /> */}
+        <Inland ref={inlandRef} />
       </div>
     </>
   );
