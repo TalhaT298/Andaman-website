@@ -50,7 +50,7 @@ const ShopItemCover = (props) => {
               {props.name}
             </span>
             <button
-              className="px-2 h-10 font-medium font-Nunito_Sans text-slate-400 hover:text-slate-800 text-2xl border-solid border-2"
+              className="px-2 h-9 font-medium font-Nunito_Sans text-slate-400 hover:text-slate-800 text-2xl border-solid border-2"
               onClick={() => setShopInfo(false)}
             >
               X
