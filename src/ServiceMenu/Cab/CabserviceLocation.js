@@ -7,7 +7,7 @@ import { Map, GoogleApiWrapper, Marker } from 'google-maps-react';
 
 const mapStyles = {
   height: '50%',
-  width: '81%',
+  width: '70%',
 };
 
 const CabserviceLocation  = (props) => {
@@ -33,7 +33,7 @@ const CabserviceLocation  = (props) => {
     }, []);
   
     return (
-      <Map google={props.google} zoom={27} style={mapStyles} center={{lat: lat, lng: lng}}>
+      <Map google={props.google} zoom={14} style={mapStyles} center={{lat: lat, lng: lng}}>
         <Marker position={{lat: lat, lng: lng}} />
       </Map>
     );

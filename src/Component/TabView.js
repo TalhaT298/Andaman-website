@@ -86,29 +86,29 @@ export default class TabView extends Component {
       console.log('error' + err);
     }
 
-    var cabref = fire.database().ref('cabs').orderByValue();
-    cabref.on('value', getCabData, errcCabData);
-    function getCabData(data) {
-      var carddata = data.val();
-      console.log(carddata);
-      for (let c in carddata) {
-        cabcard.push({
-          id: c,
-          Pick: carddata[c].Pick,
-          drop: carddata[c].drop,
-          schedule: carddata[c].schedule,
-          contact: carddata[c].contact,
-          price: carddata[c].price,
-          starttime: carddata[c].starttime,
-          endtime: carddata[c].endtime,
-          vehicleno: carddata[c].vehicleno,
-        });
-      }
-      console.log(cabcard);
-    }
-    function errcCabData(err) {
-      console.log('error' + err);
-    }
+    // var cabref = fire.database().ref('cabs').orderByValue();
+    // cabref.on('value', getCabData, errcCabData);
+    // function getCabData(data) {
+    //   var carddata = data.val();
+    //   console.log(carddata);
+    //   for (let c in carddata) {
+    //     cabcard.push({
+    //       id: c,
+    //       Pick: carddata[c].Pick,
+    //       drop: carddata[c].drop,
+    //       schedule: carddata[c].schedule,
+    //       contact: carddata[c].contact,
+    //       price: carddata[c].price,
+    //       starttime: carddata[c].starttime,
+    //       endtime: carddata[c].endtime,
+    //       vehicleno: carddata[c].vehicleno,
+    //     });
+    //   }
+    //   console.log(cabcard);
+    // }
+    // function errcCabData(err) {
+    //   console.log('error' + err);
+    // }
 
     var pgref = fire.database().ref('pgs').orderByValue();
     pgref.on('value', getpgData, errcpgData);

@@ -7,10 +7,10 @@ import { Map, GoogleApiWrapper, Marker } from 'google-maps-react';
 
 const mapStyles = {
   height: '50%',
-  width: '81%',
+  width: '70%',
 };
 
-const MyMapComponent = (props) => {
+const Overview = (props) => {
   const [lat, setlat] = useState({
     lat: 11.687574,
   });
@@ -33,17 +33,19 @@ const MyMapComponent = (props) => {
   }, []);
 
   return (
-    <Map
-      google={props.google}
-      zoom={14}
-      style={mapStyles}
-      center={{ lat: lat, lng: lng }}
-    >
-      <Marker position={{ lat: lat, lng: lng }} />
-    </Map>
+    <div className='mx-auto items-center justify-start w-full'>
+      <Map
+        google={props.google}
+        zoom={14}
+        style={mapStyles}
+        center={{ lat: lat, lng: lng }}
+      >
+        <Marker position={{ lat: lat, lng: lng }} />
+      </Map>
+    </div>
   );
 };
 
 export default GoogleApiWrapper({
-  apiKey: 'AIzaSyATyrJWZVXed10msibEhg2KPAKzKjA3ykY',
-})(MyMapComponent);
+  apiKey: 'AIzaSyAvzhppT3C5ZCX5QtihqcYv8nVFuHyucdc',
+})(Overview);
