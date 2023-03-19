@@ -12,7 +12,7 @@ const mapStyles = {
 
 const MyMapComponent = (props) => {
   const [lat, setlat] = useState({
-    lat: 11.687574
+    lat: 11.687574,
   });
   const [lng, setlng] = useState({
     lng: 92.715889,
@@ -20,9 +20,9 @@ const MyMapComponent = (props) => {
   useEffect(() => {
     const locationRef = firebase.database().ref('locations');
     locationRef.on('value', (snapshot) => {
-      snapshot.forEach(location => {
+      snapshot.forEach((location) => {
         console.log(location.val().latitude);
-        setlat(location.val().latitude)
+        setlat(location.val().latitude);
         console.log(location.val().longitude);
         setlng(location.val().longitude);
       });
@@ -33,8 +33,13 @@ const MyMapComponent = (props) => {
   }, []);
 
   return (
-    <Map google={props.google} zoom={14} style={mapStyles} center={{lat: lat, lng: lng}}>
-      <Marker position={{lat: lat, lng: lng}} />
+    <Map
+      google={props.google}
+      zoom={14}
+      style={mapStyles}
+      center={{ lat: lat, lng: lng }}
+    >
+      <Marker position={{ lat: lat, lng: lng }} />
     </Map>
   );
 };
