@@ -16,21 +16,7 @@ const HotelImages = () => {
   const images = data ? data.Images : []; 
   // extract the "Images" property from the data object or use an empty array if the data is not found
   console.log(images)
-  const breakpoints = {
-    640: {
-      slidesPerView: 2,
-      spaceBetween: 10,
-    },
-    768: {
-      slidesPerView: 3,
-      spaceBetween: 20,
-    },
-    1024: {
-      slidesPerView: 4,
-      spaceBetween: 30,
-    },
-  };
-
+  
 
   return (
     <div className=" pt-12">

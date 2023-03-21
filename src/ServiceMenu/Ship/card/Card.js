@@ -1,8 +1,12 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
-const Card = ({ image, title, description }) => {
+const Card = ({ image, title, description, id }) => {
+  
+
   return (
-    <div className="max-w-md mx-auto bg-white rounded-xl shadow-2xl overflow-hidden md:max-w-2xl m-4">
+    <Link to={`SingleInland/${id}`} target="_blank" rel="noreferrer">
+    <div className="max-w-md mx-auto bg-white rounded-xl shadow-2xl overflow-hidden md:max-w-2xl m-4" >
       <img
         src={image}
         alt={title}
@@ -13,6 +17,7 @@ const Card = ({ image, title, description }) => {
         <p className="text-gray-600 text-base">{description}</p>
       </div>
     </div>
+    </Link>
   );
 };
 export default Card;

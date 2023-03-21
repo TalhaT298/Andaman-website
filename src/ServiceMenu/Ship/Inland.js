@@ -3,7 +3,17 @@ import Card from "./card/Card";
 import { data as InlandShips } from "./Data/InlandFerries";
 
 const Inland = React.forwardRef((props, ref) => {
-  console.log(InlandShips);
+  const InlandShipsRender = InlandShips.map(
+    ({ id, title, image, description }) => (
+      <Card
+        key={id}
+        id={id}
+        image={image}
+        title={title}
+        description={description}
+      />
+    )
+  );
 
   return (
     <div id="inland" className="" ref={ref}>
@@ -14,14 +24,7 @@ const Inland = React.forwardRef((props, ref) => {
         Inland Ferries
       </h1>
       <div className="grid grid-cols-3   lg:grid-cols-2 md:grid-cols-1 gap-4">
-        {InlandShips.map(({ title, image, description }) => (
-          <Card
-            image={image}
-            title={title}
-            description={description}
-            key={title}
-          />
-        ))}
+        {InlandShipsRender}
       </div>
     </div>
   );
