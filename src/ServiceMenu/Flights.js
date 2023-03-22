@@ -45,7 +45,7 @@ const Flights = () => {
         </span>
         {flightData.length === 0 ? (
           <center>
-            <h1>No results found...</h1>
+            <h1 className='my-5'>No results found...</h1>
           </center>
         ) : (
           flightData

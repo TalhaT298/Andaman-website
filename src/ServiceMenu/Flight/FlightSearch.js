@@ -49,14 +49,11 @@ const Options = lazy(() => import("./Options"));
 // }
 
 const FlightSearch = (props) => {
-  const { setSearchOriginTerm, setSearchDestTerm } = props;
   const [origin, setOrigin] = useState("Port Blair");
   const [destination, setDestination] = useState("Chennai");
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    setSearchOriginTerm(origin);
-    setSearchDestTerm(destination);
   };
 
   const [twoWay, setTwoWay] = useState(false);

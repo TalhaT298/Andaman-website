@@ -1,9 +1,11 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import { useState } from 'react';
-
 import BusSearch from './Bus/BusSearch';
 import bus from '../Data/Bus-Section/bus';
 import BusCover from './Bus/BusCover';
+import BusSchedule from './Bus/BusSchedule';
+import BusImageSection from './Bus/BusImageSection';
+import PrivateBuses from './Bus/PrivateBuses';
 
 const Buss = () => {
 
@@ -21,12 +23,26 @@ const Buss = () => {
         .map((bus, index) => {
           return <BusCover key={index} {...bus} />;
       });
+  
+  //refs
+  const govtRef = useRef(null);
+  const privateRef = useRef(null);
+
+  const handleClick = (id) => {
+    if (id === "govt" && govtRef.current) {
+      govtRef.current.scrollIntoView({ behavior: "smooth" });
+    } else if (id === "private" && privateRef.current) {
+      privateRef.current.scrollIntoView({ behavior: "smooth" });
+    }
+  };
 
   // const busData = bus.map((airplane, index) => {
   //   return <BusCover key={index} {...airplane} />;
   // });
 
   return (
+    <>
+    <BusImageSection handleClick={handleClick} />
     <div className='pt-10 h-full w-auto cursor-pointer'>
       <div className='flex'>
         <div className='flex mx-auto mt-10 mb-10'>
@@ -44,7 +60,10 @@ const Buss = () => {
           busData
         }
       </div>
+      <BusSchedule ref={govtRef} />
+      <PrivateBuses ref={privateRef} />
     </div>
+    </>
   );
 };
 
