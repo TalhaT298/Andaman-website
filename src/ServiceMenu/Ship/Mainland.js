@@ -1,47 +1,47 @@
-import React, { useMemo } from "react";
-import { useTable } from "react-table";
-import { data as MainlandShips } from "./Data/MainlandShips";
-import classes from "./MainSchedule.module.css";
+import React, { useMemo } from 'react';
+import { useTable } from 'react-table';
+import { data as MainlandShips } from './Data/MainlandShips';
+import classes from './MainSchedule.module.css';
 
 const Mainland = React.forwardRef((props, ref) => {
   const data = useMemo(() => MainlandShips, []);
   const columns = React.useMemo(
     () => [
       {
-        Header: "ID",
-        accessor: "id",
+        Header: 'ID',
+        accessor: 'id',
       },
       {
-        Header: "Arrival",
-        accessor: "Arrival",
+        Header: 'Arrival',
+        accessor: 'Arrival',
       },
       {
-        Header: "Start_Day",
-        accessor: "Start_Day",
+        Header: 'Start_Day',
+        accessor: 'Start_Day',
       },
       {
-        Header: "Port",
-        accessor: "Port",
+        Header: 'Port',
+        accessor: 'Port',
       },
       {
-        Header: "Departure",
-        accessor: "Departure",
+        Header: 'Departure',
+        accessor: 'Departure',
       },
       {
-        Header: "End_Day",
-        accessor: "End_Day",
+        Header: 'End_Day',
+        accessor: 'End_Day',
       },
       {
-        Header: "VOY_NO",
-        accessor: "VOY_NO",
+        Header: 'VOY_NO',
+        accessor: 'VOY_NO',
       },
       {
-        Header: "Time (in Hrs)",
-        accessor: "Time",
+        Header: 'Time (in Hrs)',
+        accessor: 'Time',
       },
       {
-        Header: "Remarks",
-        accessor: "Remarks",
+        Header: 'Remarks',
+        accessor: 'Remarks',
       },
     ],
     []
@@ -53,8 +53,9 @@ const Mainland = React.forwardRef((props, ref) => {
     <>
       <h1
         className={` text-5xl sm:text-3xl font-bold mt-[5rem] sm:mr-[-1rem] lg:mb-12 text-center ${classes.text} `}
-        style={{ fontFamily: "Glook" }}
+        style={{ fontFamily: 'Glook' }}
         id="mainland"
+        ref={ref}
       >
         Mainland Schedule
       </h1>
@@ -63,7 +64,7 @@ const Mainland = React.forwardRef((props, ref) => {
       >
         Schedule for SWARAJ DWEEP
       </h4>
-      <div className="pb-12  text-center " ref={ref}>
+      <div className="pb-12  text-center ">
         <div className="max-w-5xl  mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col mt-10">
             <div className="overflow-x-auto sm:-mx-6 lg:-mx-8 ">
@@ -82,7 +83,7 @@ const Mainland = React.forwardRef((props, ref) => {
                               scope="col"
                               className="px-6 py-3 text-left text-xs font-medium text-gray-300 uppercase tracking-wider"
                             >
-                              {column.render("Header")}
+                              {column.render('Header')}
                             </th>
                           ))}
                         </tr>
@@ -98,7 +99,7 @@ const Mainland = React.forwardRef((props, ref) => {
                           <tr
                             {...row.getRowProps()}
                             className={`${
-                              rowIndex % 2 === 0 ? "bg-gray-800" : "bg-gray-900"
+                              rowIndex % 2 === 0 ? 'bg-gray-800' : 'bg-gray-900'
                             }`}
                           >
                             {row.cells.map((cell) => (
@@ -106,7 +107,7 @@ const Mainland = React.forwardRef((props, ref) => {
                                 {...cell.getCellProps()}
                                 className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-100 cursor-pointer transition-all duration-200 hover:bg-[#0AF] hover:text-white rounded-lg"
                               >
-                                {cell.render("Cell")}
+                                {cell.render('Cell')}
                               </td>
                             ))}
                           </tr>

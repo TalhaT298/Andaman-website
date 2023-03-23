@@ -35,18 +35,19 @@ function Cards({ card }) {
         ))}
       </Swiper>
       <div className="card-info-flex pt-2">
-      <div className="">
+        <div className="">
           <h3 className="card-title pt-1 font-bold text-black">{card.title}</h3>
           <p
+            className="text-sm text-gray-500"
             style={{
               margin: '0.3rem 0rem',
               color: 'var(--font-grey)',
               font: 'Nunito-Sans, sans-serif',
             }}
           >
-            {card.desc}
+            {card.location}
           </p>
-          <p style={{ margin: 0, color: 'var(--font-grey)' }}>{card.date}</p>
+          {/* <p style={{ margin: 0, color: 'var(--font-grey)' }}>{card.date}</p> */}
         </div>
         <div className="card-rating font-semibold text-black flex-col">
           <div className="flex">
@@ -56,20 +57,19 @@ function Cards({ card }) {
           <div className="flex">
             <p
               style={{
-                margin: '0.2rem',
+                margin: '0rem',
                 fontSize: '1rem',
                 color: 'black',
                 fontWeight: '',
               }}
             >
-              <span style={{ fontWeight: '700' }} className="">
+              <span style={{ fontWeight: '650' }} className="text-sm">
                 ₹{card.price}
               </span>{' '}
               night
             </p>
           </div>
         </div>
-        
       </div>
     </div>
   );

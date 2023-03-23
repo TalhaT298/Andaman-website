@@ -1,23 +1,36 @@
-import KeyFeatues from "./KeyFeatues";
-import { faBed } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faPerson } from "@fortawesome/free-solid-svg-icons";
-import { faShower } from "@fortawesome/free-solid-svg-icons";
-import classes from "./SingleHotel.module.css";
-import { datas } from "../../../Data/Hotel-Section/HotelsData/hotelsData";
-import { useParams } from "react-router-dom";
+import { useNavigate } from 'react-router-dom';
+
+import KeyFeatues from './KeyFeatues';
+import { faBed } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faPerson } from '@fortawesome/free-solid-svg-icons';
+import { faShower } from '@fortawesome/free-solid-svg-icons';
+import classes from './SingleHotel.module.css';
+import { datas } from '../../../Data/Hotel-Section/HotelsData/hotelsData';
+import { useParams } from 'react-router-dom';
 const Features = () => {
+  const navigate = useNavigate();
+
   const { id } = useParams();
   console.log(id);
-  console.log(datas)
+  console.log(datas);
 
   // const {Manager,Beds,Bathrooms,Price,stay,Check_in_Time,Check_out_Time, Guests } = datas[id-1];  // Alternative method for fetching data from  datas section
-  const {Manager,Beds,Bathrooms,Price,stay,Check_in_Time,Check_out_Time, Guests } = datas.find((hotel) => hotel.id === parseInt(id)); 
+  const {
+    Manager,
+    Beds,
+    Bathrooms,
+    Price,
+    stay,
+    Check_in_Time,
+    Check_out_Time,
+    Guests,
+  } = datas.find((hotel) => hotel.id === parseInt(id));
   // find the corresponding data object based on the "id" using find
 
   const ReserveHandler = () => {
-    console.log("Reserve");
-    alert("Reserved");
+    alert('Reserved');
+    navigate('/ContactForm');
   };
   return (
     <>
@@ -26,24 +39,22 @@ const Features = () => {
           <h2 className="font-extrabold text-2xl lg:text-md text-black md:text-[20px]">
             Entire property exclusively managed by
             <span className="font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-blue-600">
-              {" "}
+              {' '}
               {Manager}
             </span>
           </h2>
           <div className="pt-2 font-[600] flex flex-col">
-            <div style={{ paddingBottom: "10px" }}>
+            <div style={{ paddingBottom: '10px' }}>
               <FontAwesomeIcon icon={faPerson} size="lg" />
-              <span style={{ paddingLeft: "17px" }}>{Guests}</span>
+              <span style={{ paddingLeft: '17px' }}>{Guests}</span>
             </div>
-            <div style={{ paddingBottom: "10px" }}>
+            <div style={{ paddingBottom: '10px' }}>
               <FontAwesomeIcon icon={faBed} />
-              <span style={{ paddingLeft: "10px" }}>
-               {Beds}
-              </span>
+              <span style={{ paddingLeft: '10px' }}>{Beds}</span>
             </div>
             <div>
               <FontAwesomeIcon icon={faShower} />
-              <span style={{ paddingLeft: "10px" }}>{Bathrooms}</span>
+              <span style={{ paddingLeft: '10px' }}>{Bathrooms}</span>
             </div>
           </div>
         </div>
@@ -82,12 +93,12 @@ const Features = () => {
                 <button
                   type="button"
                   onClick={ReserveHandler}
-                  style={{ fontFamily: "Glook" }}
+                  style={{ fontFamily: 'Glook' }}
                   className="bg-indigo-600 shadow-2xl hover:bg-indigo-500
                   text-white text-[22px] tracking-wider font-bold rounded-full
                   p-3 w-48"
                 >
-                  {" "}
+                  {' '}
                   Reserve now
                 </button>
               </div>

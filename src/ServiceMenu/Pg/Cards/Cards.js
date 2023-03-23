@@ -52,8 +52,8 @@ function Card({ card }) {
         </div>
         <div className="card-rating font-semibold text-black flex-col">
           <div className="flex">
-              <StarRateRoundedIcon style={{ color: '#FFD700' }} />
-              <p className="pt-0.5">{card.rating}</p>
+            <StarRateRoundedIcon style={{ color: '#FFD700' }} />
+            <p className="pt-0.5">{card.rating}</p>
           </div>
           <div className="flex">
             <p
