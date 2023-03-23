@@ -4,6 +4,7 @@ import Schedule from "./Schedule";
 import ImageSection from "./ImageSection";
 import Features from "./Features";
 import SeatMap from "./SeatMap";
+
 const SingleInland = () => {
   const scheduleRef = useRef(null);
   const handleScrollToSchedule = () => {
@@ -20,6 +21,7 @@ const SingleInland = () => {
         <div >
           <Schedule ref={scheduleRef}/>
         </div>
+        
         <div className="flex justify-center">
           <SeatMap />
         </div>
