@@ -21,6 +21,7 @@ const Trekking = lazy(() => import("./ServiceMenu/Trekking.js"));
 const Shop = lazy(() => import("./ServiceMenu/Shop"));
 const Nav = lazy(() => import("./Nav"));
 const SingleInland = lazy(() => import("./ServiceMenu/Ship/SingleInland/SingleInland.js"));
+const MakkruzGoldDetails = lazy(() => import("./ServiceMenu/Ship/SingleInland/SingleInlandDetailsPage/MakkruzGoldDetails"));
 const ContactForm = lazy(() => import("./Component/ContactForm.js"));
 
 const SingleHotel = lazy(() =>
@@ -126,6 +127,7 @@ export default function App() {
             <Route path="/Cardamom1" element={<Cardamom1 />} />
             <Route path="/SingleHotel/:id" element={<SingleHotel />} />
             <Route path="/SingleInland/:id" element={<SingleInland />} />
+            <Route path="/MakkruzGold" element={<MakkruzGoldDetails />} />
             <Route path="/PgSingleHotel" element={<PgHotel />} />
             <Route path="/ContactForm" element={<ContactForm />} />
           </Routes>
