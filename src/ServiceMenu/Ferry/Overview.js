@@ -47,5 +47,5 @@ const Overview = (props) => {
 };
 
 export default GoogleApiWrapper({
-  apiKey: 'AIzaSyAvzhppT3C5ZCX5QtihqcYv8nVFuHyucdc',
+  apiKey: 'AIzaSyDnSNNGQQ8AhLEmcsXJbmz1_MVrbOz55rM',
 })(Overview);
