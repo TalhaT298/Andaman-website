@@ -2,6 +2,7 @@ import React from 'react';
 import { useEffect, useState } from 'react';
 import firebase from 'firebase/app';
 import 'firebase/database';
+import Boat from '../../images/boat_final_copy.png';
 
 import { Map, GoogleApiWrapper, Marker } from 'google-maps-react';
 
@@ -40,7 +41,7 @@ const Overview = (props) => {
         style={mapStyles}
         center={{ lat: lat, lng: lng }}
       >
-        <Marker position={{ lat: lat, lng: lng }} />
+        <Marker icon={Boat} position={{lat: lat, lng: lng}} />
       </Map>
     </div>
   );

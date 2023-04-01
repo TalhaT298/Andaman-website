@@ -37,7 +37,7 @@ const BambooflatChatham = (props) => {
         style={mapStyles}
         center={{ lat, lng }}
       >
-        <Marker style icon={Boat} position={{lat: lat, lng: lng}} />
+        <Marker icon={Boat} position={{lat: lat, lng: lng}} />
       </Map>
     </div>
   );
