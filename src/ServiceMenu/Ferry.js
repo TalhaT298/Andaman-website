@@ -18,7 +18,7 @@ const Ferry = () => {
           <option value="BambooflatChatham">BambooflatChatham</option>
         </select>
       </div>
-      <div className="mx-auto w-full items-center justify-center">
+      <div className="mx-auto w-full h-screen items-center justify-center">
         {selectedOption === 'Overview' && <Overview />}
         {selectedOption === 'BambooflatChatham' && <BambooflatChatham />}
       </div>
@@ -27,4 +27,3 @@ const Ferry = () => {
 };
 
 export default Ferry;
-

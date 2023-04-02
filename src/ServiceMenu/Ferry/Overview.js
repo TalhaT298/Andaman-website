@@ -34,7 +34,7 @@ const Overview = (props) => {
   }, []);
 
   return (
-    <div className='mx-auto items-center justify-start w-full'>
+    <div>
       <Map
         google={props.google}
         zoom={14}
