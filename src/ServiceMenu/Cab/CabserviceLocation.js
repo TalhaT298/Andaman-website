@@ -12,19 +12,11 @@ const mapStyles = {
 };
 
 const CabserviceLocation  = (props) => {
-    const [lat, setlat] = useState({
-      lat: 11.687574
-    });
-    const [lng, setlng] = useState({
-      lng: 92.715889,
-    });
-    const [latt, setlatt] = useState({
-      lat: 11.687574
-    });
-    const [lngg, setlngg] = useState({
-      lng: 92.715889,
-    });
-    const [address, setAddress] = useState('');
+  const [lat, setlat] = useState(11.687574);
+  const [lng, setlng] = useState(92.715889);
+  const [latt, setlatt] = useState(11.687574);
+  const [lngg, setlngg] = useState(92.715889);
+  // const [address, setAddress] = useState('');
     useEffect(() => {
       const locationRef = firebase.database().ref('locations');
       locationRef.on('value', (snapshot) => {
@@ -42,12 +34,10 @@ const CabserviceLocation  = (props) => {
   
     const handlePlaceSelected = (place) => {
       // console.log('place:', place);
-      setAddress(place.formatted_address);
+      // setAddress(place.formatted_address);
       
-      // extract latitude and longitude from the place object
       const { lat: destinationLat, lng: destinationLng } = place.geometry.location;
     
-      // update the state with the new latitude and longitude values
       setlatt(destinationLat);
       setlngg(destinationLng);
     };
@@ -66,8 +56,8 @@ const CabserviceLocation  = (props) => {
     /> */}
       </ReactGoogleAutocomplete>
       <Map google={props.google} zoom={14} style={mapStyles} center={{ lat: lat, lng: lng }}>
-          <Marker position={{ lat: lat, lng: lng }} />
-          <Marker position={{ lat: latt, lng: lngg }} />
+        <Marker position={{ lat, lng }} />
+        <Marker position={{ lat: latt, lng: lngg }} />
       </Map></>
     );
   };
