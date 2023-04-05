@@ -7,8 +7,8 @@ import { Map, GoogleApiWrapper, Marker } from 'google-maps-react';
 import ReactGoogleAutocomplete from 'react-google-autocomplete';
 
 const mapStyles = {
-  height: '50%',
-  width: '70%',
+  height: '70%',
+  width: '72%',
 };
 
 const CabserviceLocation  = (props) => {
@@ -55,7 +55,7 @@ const CabserviceLocation  = (props) => {
       onChange={(e) => setAddress(e.target.value)}
     /> */}
       </ReactGoogleAutocomplete>
-      <Map google={props.google} zoom={14} style={mapStyles} center={{ lat: lat, lng: lng }}>
+      <Map google={props.google} zoom={13} style={mapStyles} center={{ lat: lat, lng: lng }}>
         <Marker position={{ lat, lng }} />
         <Marker position={{ lat: latt, lng: lngg }} />
       </Map></>

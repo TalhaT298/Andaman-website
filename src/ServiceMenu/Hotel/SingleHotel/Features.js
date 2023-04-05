@@ -29,7 +29,7 @@ const Features = () => {
   // find the corresponding data object based on the "id" using find
 
   const ReserveHandler = () => {
-    alert('Reserved');
+    alert('You are being taken to Contact Page');
     navigate('/ContactForm');
   };
   return (

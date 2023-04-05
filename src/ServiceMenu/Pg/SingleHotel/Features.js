@@ -10,7 +10,7 @@ const KeyFeatues = lazy(() => import('./KeyFeatues'))
 
 const Features = () => {
   const ReserveHandler=()=>{
-    console.log("Reserve")
+    alert('You are being taken to Contact Page');
     alert("Reserved")
   }
   return (

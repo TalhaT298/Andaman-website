@@ -2,8 +2,17 @@ import React, { useState } from 'react';
 import { LazyLoadImage } from 'react-lazy-load-image-component';
 import Modal from 'react-modal';
 
+import { useNavigate } from 'react-router-dom';
+
 const ActivityCover = (props) => {
+  const navigate = useNavigate();
+
   const [trekInfo, setTrekInfo] = useState(false);
+
+  const ReserveHandler = () => {
+    alert('You are being taken to Contact Page');
+    navigate('/ContactForm');
+  };
 
   return (
     <div className="m-2 py-3 p-2 flex flex-col w-88">
@@ -38,8 +47,11 @@ const ActivityCover = (props) => {
               Activity Details
             </span>
           </div>
-          <div className="flex flex-row justify-between pt-10 pb-0 mx-10">
-            <button className="px-2 h-10 font-semibold font-Nunito_Sans text-white bg-gradient-to-br rounded-md to-amber-400 from-pink-500 hover:bg-gradient-to-br hover:to-amber-600 hover:from-pink-600 hover:text-white">
+          <div className="flex flex-row justify-between pt-10 pb-5 mx-10">
+            <button
+              onClick={ReserveHandler}
+              className="px-2 h-10 font-semibold font-Nunito_Sans text-white bg-gradient-to-br rounded-md to-amber-400 from-pink-500 hover:bg-gradient-to-br hover:to-amber-600 hover:from-pink-600 hover:text-white"
+            >
               Book Now
             </button>
             <button
