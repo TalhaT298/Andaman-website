@@ -3,7 +3,7 @@
 // import cab from '../Data/Cab-Section/cab';
 // import CabCover from './Cab/CabCover';
 
-import CabserviceLocation from './Cab/CabserviceLocation';
+// import CabserviceLocation from './Cab/CabserviceLocation';
 
 const Cabs = () => {
   //search feature
@@ -45,7 +45,7 @@ const Cabs = () => {
           cabData
         }
       </div> */}
-      <CabserviceLocation></CabserviceLocation>
+      {/* <CabserviceLocation></CabserviceLocation> */}
     </div>
   );
 };
