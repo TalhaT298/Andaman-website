@@ -1,4 +1,4 @@
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 import KeyFeatues from './KeyFeatues';
 import { faBed } from '@fortawesome/free-solid-svg-icons';
@@ -30,7 +30,7 @@ const Features = () => {
 
   const ReserveHandler = () => {
     alert('You are being taken to Contact Page');
-    navigate('/ContactForm');
+   
   };
   return (
     <>
@@ -90,6 +90,7 @@ const Features = () => {
                 </div>
               </div>
               <div className="pt-3">
+              <Link to='/ContactForm' target='_blank'>
                 <button
                   type="button"
                   onClick={ReserveHandler}
@@ -101,6 +102,8 @@ const Features = () => {
                   {' '}
                   Reserve now
                 </button>
+              </Link>
+                
               </div>
             </div>
           </div>

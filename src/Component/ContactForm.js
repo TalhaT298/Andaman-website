@@ -1,5 +1,9 @@
-import React, { useRef, useState } from "react";
+import React, { lazy, useRef, useState } from "react";
 import emailjs from '@emailjs/browser';
+import CallIcon from '@mui/icons-material/Call';
+import EmailIcon from '@mui/icons-material/Email';
+
+const Navforwithout = lazy(() => import('../Navforwithout'))
 
 const ContactForm = () => {
   const [status, setStatus] = useState("Submit");
@@ -43,51 +47,67 @@ const ContactForm = () => {
   };
 
   return (
-    <div className="h-[100vh] w-full flex justify-center items-center font-Nunito_Sans ">
+    <>
+    <Navforwithout />
+    <div className="font-Nunito_Sans ">
     
+    <div className="w-[62%] flex md:flex-col justify-center items-stretch mx-auto my-6 shadow-xl rounded-lg">
     <form ref={form}
-      className="w-[30%] sm:w-[60%] lg:w-[50%] xl:w-[40%] bg-white rounded-lg overflow-hidden shadow-xl border border-gray-300 p-10 md:p-6 lg:p-8" 
+      className="w-[50%] md:w-full lg:w-[55%] xl:w-[50%] bg-white overflow-hidden border border-gray-300 
+                    p-12 md:p-6 lg:p-8 " 
       onSubmit={handleSubmit}>
-      <h1 className="text-indigo-600 text-[26px] md:text-2xl font-bold mb-6 md:mb-3 tracking-wide">Contact Us</h1>
+      <h1 className="text-[#699c78] text-[26px] md:text-2xl font-bold mb-6 md:mb-3 tracking-wide">Contact Us</h1>
       <div className="flex flex-col gap-1">
         <input type="text" id="name" name="user_name" placeholder="Name"
-          className="h-[40px] outline-none p-4 rounded-md border border-gray-300 focus:border-2 focus:border-[rgba(0, 206, 158, 1)]" 
+          className="h-[40px] outline-none p-4 rounded-md border border-gray-300 focus:border-2 focus:border-slate-400" 
           required 
         />
       </div>
       <div className="flex flex-col gap-1 mt-5">
         <input type="email" id="email" name="user_email" placeholder="Email"
-         className="h-[40px] outline-none p-4 rounded-md border border-gray-300 focus:border-2 focus:border-[rgba(0, 206, 158, 1)]" 
+         className="h-[40px] outline-none p-4 rounded-md border border-gray-300 focus:border-2 focus:border-slate-400" 
          required         
         />
       </div>
       <div className="flex flex-col gap-1 mt-5">
         <input type="number" id="phone" name="user_phone" placeholder="Phone number"
-         className="h-[45px] outline-none p-4 rounded-md border border-gray-300 focus:border-2 focus:border-[rgba(0, 206, 158, 1)]" 
+         className="h-[45px] outline-none p-4 rounded-md border border-gray-300 focus:border-2 focus:border-slate-400" 
          required         
         />
       </div>
       <div className="flex flex-col gap-1 mt-5">
         <input type="datetime-local" id="arrival" name="user_arrival" placeholder="Expected Arrival"
-         className="h-[45px] font-thin outline-none p-4 rounded-md border border-gray-300 focus:border-2 focus:border-[rgba(0, 206, 158, 1)]" 
+         className="h-[45px] font-thin outline-none p-4 rounded-md border border-gray-300 focus:border-2 focus:border-slate-400" 
          required         
         />
       </div>
       <div className="flex flex-col gap-1 mt-5">
         <textarea id="message" name="message" placeholder="Message"
-          className="h-[90px] outline-none p-3 rounded-md resize-none border border-gray-300 focus:border-2 focus:border-[rgba(0, 206, 158, 1)]" 
+          className="h-[90px] outline-none p-3 rounded-md resize-none border border-gray-300 focus:border-2 focus:border-slate-400" 
           required
         />
       </div>
       <button type="submit" 
-              className="bg-indigo-600 shadow-2xl hover:bg-indigo-500
-                  text-white text-[16px] tracking-wider font-bold rounded-full
-                  p-2 w-full mt-5">
+              className="bg-[#408c57] shadow-2xl hover:bg-[#51795d]
+                  text-white text-[18px] md:text-[16px] tracking-wider font-bold rounded-full
+                  p-2 w-full mt-6">
       {status}
       </button>
-
     </form>
+
+    <div className="w-[50%] md:w-full lg:w-[45%] xl:w-[50%] text-center  bg-gradient-to-tl from-[#408c57] to-[#91c4a0] text-white border-l-0 border border-gray-300 ">
+      <h1 className="mt-12 md:mt-8 text-[26px] md:text-2xl font-semibold">Call us</h1>
+      <p className="bg-white text-black w-[80%] mx-auto py-2 rounded-lg mt-4">
+        <CallIcon className="text-white bg-[#699c78] rounded-2xl p-1 mr-1" /> +918787883421 
+      </p>
+      <p className="bg-white text-black w-[80%] mx-auto py-2 rounded-lg mt-4 mb-12">
+        <EmailIcon className="text-white bg-[#699c78] rounded-2xl p-1 mr-1 "/> abcdef@gmail.com 
+      </p>
     </div>
+    </div>
+
+    </div>
+    </>
   );
 };
 
