@@ -136,6 +136,7 @@ export default function App() {
             <Route path="/MakkruzGold" element={<MakkruzGoldDetails />} />
             <Route path="/PgSingleHotel" element={<PgHotel />} />
             <Route path="/ContactForm" element={<ContactForm />} />
+            <Route path="*" element={<Nav />} />
           </Routes>
         </Suspense>
       </Router>
