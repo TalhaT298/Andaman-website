@@ -11,9 +11,9 @@ const Ferry = () => {
 
   return (
     <div className="flex flex-col w-full mx-auto items-center justify-center">
-      <div className="mx-auto w-full items-center justify-center">
-        <label htmlFor="option-select">Select an option:</label>
-        <select id="option-select" value={selectedOption} onChange={handleOptionChange}>
+      <div className="mx-auto w-full items-center justify-center mb-5 mt-2">
+        <label htmlFor="option-select" className='font-bold text-2xl' >Select Route:</label>
+        <select id="option-select" value={selectedOption} onChange={handleOptionChange} className='text-base font-semibold ml-2 font-Nunito_Sans' >
           <option value="Overview">Overview</option>
           <option value="BambooflatChatham">BambooflatChatham</option>
         </select>
