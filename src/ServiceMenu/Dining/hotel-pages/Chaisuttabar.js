@@ -1,16 +1,16 @@
-import React from 'react'
+import React from 'react';
 import { useState } from 'react';
 import { LazyLoadImage } from 'react-lazy-load-image-component';
 import { Link } from 'react-router-dom';
-import dining from '../../../Data/Dining-Section/dining'
+import dining from '../../../Data/Dining-Section/dining';
 import Navforwithout from '../../../Navforwithout';
 import Modal from 'react-modal';
 import Options from '../Options';
 
 const Chaisuttabar = (props) => {
-  const thi = dining.filter(item => item.id === 7);
+  const thi = dining.filter((item) => item.id === 7);
   const singleItem = thi[0];
-  const {imageLink, location, name, speciality} = singleItem;
+  const { imageLink, location, name, speciality } = singleItem;
   const [openreserveInfo, setOpenReserveInfo] = useState(false);
 
   return (
@@ -46,7 +46,7 @@ const Chaisuttabar = (props) => {
       >
         <div className="flex flex-col w-auto h-auto font-Nunito_Sans bg-slate-50 shadow-2xl shadow-slate-200 my-10">
           <div className="mx-auto">
-            <span className="text-3xl font-semibold text-slate-900 font-mono">
+            <span className="text-3xl font-semibold text-slate-900 font-Ubuntu_Mono">
               Reserve Your Table
             </span>
           </div>
@@ -136,7 +136,7 @@ const Chaisuttabar = (props) => {
         </div>
       </div>
     </>
-  )
+  );
 };
 
 export default Chaisuttabar;

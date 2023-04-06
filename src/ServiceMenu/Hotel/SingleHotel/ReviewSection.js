@@ -1,11 +1,11 @@
-import React from "react";
-import StarRateRoundedIcon from "@mui/icons-material/StarRateRounded";
+import React from 'react';
+import StarRateRoundedIcon from '@mui/icons-material/StarRateRounded';
 
-import classes from "./ReviewSection.module.css";
+import classes from './ReviewSection.module.css';
 const ReviewSection = () => {
   return (
     <>
-      <h1 className="text-center text-black text-4xl mt-16 mb-6">
+      <h1 className="text-center text-black font-semibold text-4xl mt-16 mb-6">
         Hotel Reviews
       </h1>
       <div className={classes.outerdiv}>
@@ -20,13 +20,13 @@ const ReviewSection = () => {
               </div>
               <div className={classes.detbox}>
                 <p clasName={classes.name}>
-                  Daniel Clifford{" "}
+                  Daniel Clifford{' '}
                   <span className="md:block">
-                    <StarRateRoundedIcon style={{ color: "#FFD700" }} />
-                    <StarRateRoundedIcon style={{ color: "#FFD700" }} />
-                    <StarRateRoundedIcon style={{ color: "#FFD700" }} />
-                    <StarRateRoundedIcon style={{ color: "#FFD700" }} />
-                    <StarRateRoundedIcon style={{ color: "#FFD700" }} />
+                    <StarRateRoundedIcon style={{ color: '#FFD700' }} />
+                    <StarRateRoundedIcon style={{ color: '#FFD700' }} />
+                    <StarRateRoundedIcon style={{ color: '#FFD700' }} />
+                    <StarRateRoundedIcon style={{ color: '#FFD700' }} />
+                    <StarRateRoundedIcon style={{ color: '#FFD700' }} />
                   </span>
                 </p>
                 <p clasName={classes.designation}>Verified Guest</p>
@@ -55,9 +55,9 @@ const ReviewSection = () => {
                 <p clasName={classes.name}>
                   Jonathan Walters
                   <span className="md:block">
-                    <StarRateRoundedIcon style={{ color: "#FFD700" }} />
-                    <StarRateRoundedIcon style={{ color: "#FFD700" }} />
-                    <StarRateRoundedIcon style={{ color: "#FFD700" }} />
+                    <StarRateRoundedIcon style={{ color: '#FFD700' }} />
+                    <StarRateRoundedIcon style={{ color: '#FFD700' }} />
+                    <StarRateRoundedIcon style={{ color: '#FFD700' }} />
                   </span>
                 </p>
                 <p clasName={classes.designation}>Verified Guest</p>
@@ -86,8 +86,7 @@ const ReviewSection = () => {
                 <p className={`${classes.name} ${classes.dark}`}>
                   Kira Whittle
                   <span className="md:block">
-                    <StarRateRoundedIcon style={{ color: "#FFD700" }} />
-                   
+                    <StarRateRoundedIcon style={{ color: '#FFD700' }} />
                   </span>
                 </p>
                 <p className={`${classes.designation} ${classes.dark}`}>
@@ -118,11 +117,11 @@ const ReviewSection = () => {
                 <p className={`${classes.name} ${classes.dark}`}>
                   Jeanette Harmon
                   <span className="md:block">
-                    <StarRateRoundedIcon style={{ color: "#FFD700" }} />
-                    <StarRateRoundedIcon style={{ color: "#FFD700" }} />
-                    <StarRateRoundedIcon style={{ color: "#FFD700" }} />
-                    <StarRateRoundedIcon style={{ color: "#FFD700" }} />
-                    <StarRateRoundedIcon style={{ color: "#FFD700" }} />
+                    <StarRateRoundedIcon style={{ color: '#FFD700' }} />
+                    <StarRateRoundedIcon style={{ color: '#FFD700' }} />
+                    <StarRateRoundedIcon style={{ color: '#FFD700' }} />
+                    <StarRateRoundedIcon style={{ color: '#FFD700' }} />
+                    <StarRateRoundedIcon style={{ color: '#FFD700' }} />
                   </span>
                 </p>
                 <p className={`${classes.designation} ${classes.dark}`}>
@@ -150,13 +149,13 @@ const ReviewSection = () => {
               </div>
               <div clasName={classes.detbox}>
                 <p clasName={classes.name}>
-                  Patrick Abrams{" "}
+                  Patrick Abrams{' '}
                   <span className="md:block">
-                    <StarRateRoundedIcon style={{ color: "#FFD700" }} />
-                    <StarRateRoundedIcon style={{ color: "#FFD700" }} />
-                    <StarRateRoundedIcon style={{ color: "#FFD700" }} />
-                    <StarRateRoundedIcon style={{ color: "#FFD700" }} />
-                    <StarRateRoundedIcon style={{ color: "#FFD700" }} />
+                    <StarRateRoundedIcon style={{ color: '#FFD700' }} />
+                    <StarRateRoundedIcon style={{ color: '#FFD700' }} />
+                    <StarRateRoundedIcon style={{ color: '#FFD700' }} />
+                    <StarRateRoundedIcon style={{ color: '#FFD700' }} />
+                    <StarRateRoundedIcon style={{ color: '#FFD700' }} />
                   </span>
                 </p>
                 <p clasName={classes.designation}>Verified Guest</p>

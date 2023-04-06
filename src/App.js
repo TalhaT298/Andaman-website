@@ -1,83 +1,89 @@
-import { lazy, Suspense } from "react";
-import { ScaleLoader } from "react-spinners";
+import { lazy, Suspense } from 'react';
+import { ScaleLoader } from 'react-spinners';
 // import { RingLoader } from 'react-spinners';
 
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
-const Explore = lazy(() => import("./NavMenu/Explore.js"));
-const Fun = lazy(() => import("./NavMenu/Fun.js"));
-const Stay = lazy(() => import("./NavMenu/Stay.js"));
-const Flights = lazy(() => import("./ServiceMenu/Flights"));
-const Ship = lazy(() => import("./ServiceMenu/Ship"));
-const Hotel = lazy(() => import("./ServiceMenu/Hotel"));
-const Cab = lazy(() => import("./ServiceMenu/Cab"));
-const Bus = lazy(() => import("./ServiceMenu/Bus"));
-const Ferry = lazy(() => import("./ServiceMenu/Ferry"));
-const Activity = lazy(() => import("./ServiceMenu/Activity"));
-const Pg = lazy(() => import("./ServiceMenu/Pg"));
-const Travelpackage = lazy(() => import("./ServiceMenu/Travelpackage"));
-const Dinning = lazy(() => import("./ServiceMenu/Dinning"));
-const Trekking = lazy(() => import("./ServiceMenu/Trekking.js"));
-const Shop = lazy(() => import("./ServiceMenu/Shop"));
-const Nav = lazy(() => import("./Nav"));
-const SingleInland = lazy(() => import("./ServiceMenu/Ship/SingleInland/SingleInland.js"));
-const MakkruzGoldDetails = lazy(() => import("./ServiceMenu/Ship/SingleInland/SingleInlandDetailsPage/MakkruzGoldDetails"));
-const ContactForm = lazy(() => import("./Component/ContactForm.js"));
+const Explore = lazy(() => import('./NavMenu/Explore.js'));
+const Fun = lazy(() => import('./NavMenu/Fun.js'));
+const Stay = lazy(() => import('./NavMenu/Stay.js'));
+const Flights = lazy(() => import('./ServiceMenu/Flights'));
+const Ship = lazy(() => import('./ServiceMenu/Ship'));
+const Hotel = lazy(() => import('./ServiceMenu/Hotel'));
+const Cab = lazy(() => import('./ServiceMenu/Cab'));
+const Bus = lazy(() => import('./ServiceMenu/Bus'));
+const Ferry = lazy(() => import('./ServiceMenu/Ferry'));
+const Activity = lazy(() => import('./ServiceMenu/Activity'));
+const Pg = lazy(() => import('./ServiceMenu/Pg'));
+const Travelpackage = lazy(() => import('./ServiceMenu/Travelpackage'));
+const Dinning = lazy(() => import('./ServiceMenu/Dinning'));
+const Trekking = lazy(() => import('./ServiceMenu/Trekking.js'));
+const Shop = lazy(() => import('./ServiceMenu/Shop'));
+const Nav = lazy(() => import('./Nav'));
+const SingleInland = lazy(() =>
+  import('./ServiceMenu/Ship/SingleInland/SingleInland.js')
+);
+const MakkruzGoldDetails = lazy(() =>
+  import(
+    './ServiceMenu/Ship/SingleInland/SingleInlandDetailsPage/MakkruzGoldDetails'
+  )
+);
+const ContactForm = lazy(() => import('./Component/ContactForm.js'));
 
 const SingleHotel = lazy(() =>
-  import("./ServiceMenu/Hotel/SingleHotel/SingleHotel.js")
+  import('./ServiceMenu/Hotel/SingleHotel/SingleHotel.js')
 );
 
 const PgHotel = lazy(() =>
-  import("./ServiceMenu/Pg/SingleHotel/SinglePgHotel")
+  import('./ServiceMenu/Pg/SingleHotel/SinglePgHotel')
 );
 
-const Tandoor = lazy(() => import("./ServiceMenu/Dining/hotel-pages/Tandoor"));
-const Trio = lazy(() => import("./ServiceMenu/Dining/hotel-pages/Trio"));
-const Tillai = lazy(() => import("./ServiceMenu/Dining/hotel-pages/Tillai"));
+const Tandoor = lazy(() => import('./ServiceMenu/Dining/hotel-pages/Tandoor'));
+const Trio = lazy(() => import('./ServiceMenu/Dining/hotel-pages/Trio'));
+const Tillai = lazy(() => import('./ServiceMenu/Dining/hotel-pages/Tillai'));
 const Icyspicy = lazy(() =>
-  import("./ServiceMenu/Dining/hotel-pages/Icyspicy")
+  import('./ServiceMenu/Dining/hotel-pages/Icyspicy')
 );
 const Annapurna = lazy(() =>
-  import("./ServiceMenu/Dining/hotel-pages/Annapurna")
+  import('./ServiceMenu/Dining/hotel-pages/Annapurna')
 );
 const Brewbeans = lazy(() =>
-  import("./ServiceMenu/Dining/hotel-pages/Brewbeans")
+  import('./ServiceMenu/Dining/hotel-pages/Brewbeans')
 );
 const Chaisuttabar = lazy(() =>
-  import("./ServiceMenu/Dining/hotel-pages/Chaisuttabar")
+  import('./ServiceMenu/Dining/hotel-pages/Chaisuttabar')
 );
-const Rooftop = lazy(() => import("./ServiceMenu/Dining/hotel-pages/Rooftop"));
+const Rooftop = lazy(() => import('./ServiceMenu/Dining/hotel-pages/Rooftop'));
 const Cardamom = lazy(() =>
-  import("./ServiceMenu/Dining/hotel-pages/Cardamom")
+  import('./ServiceMenu/Dining/hotel-pages/Cardamom')
 );
 const Tandoor1 = lazy(() =>
-  import("./ServiceMenu/ShopItem/shop-pages/Tandoor")
+  import('./ServiceMenu/ShopItem/shop-pages/Tandoor')
 );
-const Trio1 = lazy(() => import("./ServiceMenu/ShopItem/shop-pages/Trio"));
-const Tillai1 = lazy(() => import("./ServiceMenu/ShopItem/shop-pages/Tillai"));
+const Trio1 = lazy(() => import('./ServiceMenu/ShopItem/shop-pages/Trio'));
+const Tillai1 = lazy(() => import('./ServiceMenu/ShopItem/shop-pages/Tillai'));
 const Icyspicy1 = lazy(() =>
-  import("./ServiceMenu/ShopItem/shop-pages/Icyspicy")
+  import('./ServiceMenu/ShopItem/shop-pages/Icyspicy')
 );
 const Annapurna1 = lazy(() =>
-  import("./ServiceMenu/ShopItem/shop-pages/Annapurna")
+  import('./ServiceMenu/ShopItem/shop-pages/Annapurna')
 );
 const Brewbeans1 = lazy(() =>
-  import("./ServiceMenu/ShopItem/shop-pages/Brewbeans")
+  import('./ServiceMenu/ShopItem/shop-pages/Brewbeans')
 );
 const Chaisuttabar1 = lazy(() =>
-  import("./ServiceMenu/ShopItem/shop-pages/Chaisuttabar")
+  import('./ServiceMenu/ShopItem/shop-pages/Chaisuttabar')
 );
 const Rooftop1 = lazy(() =>
-  import("./ServiceMenu/ShopItem/shop-pages/Rooftop")
+  import('./ServiceMenu/ShopItem/shop-pages/Rooftop')
 );
 const Cardamom1 = lazy(() =>
-  import("./ServiceMenu/ShopItem/shop-pages/Cardamom")
+  import('./ServiceMenu/ShopItem/shop-pages/Cardamom')
 );
 
 export default function App() {
   return (
-    <div className="bg-gradient-to-br from-white text-slate-800 font-mono h-full m-0 p-0">
+    <div className="bg-gradient-to-br from-white text-slate-800 font-Ubuntu_Mono h-full m-0 p-0">
       <Router>
         <Suspense
           fallback={

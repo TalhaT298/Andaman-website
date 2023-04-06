@@ -4,6 +4,7 @@ module.exports = {
   theme: {
     fontFamily: {
       Nunito_Sans: ['Nunito Sans', 'sans-serif'],
+      Ubuntu_Mono: ['Ubuntu Mono', 'monospace'],
     },
     screens: {
       xxl: { max: '1535px' },

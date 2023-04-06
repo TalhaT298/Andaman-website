@@ -15,7 +15,7 @@ const TrekkingCover = (props) => {
         //   setOpenReserveInfo(!openreserveInfo);
         // }}
       >
-        <a href={props.link} target='_blank' rel='noreferrer'>
+        <a href={props.link} target="_blank" rel="noreferrer">
           <LazyLoadImage
             src={props.imageLink}
             alt={props.name}
@@ -41,7 +41,7 @@ const TrekkingCover = (props) => {
       >
         <div className="flex flex-col w-auto h-auto font-Nunito_Sans bg-slate-50 shadow-2xl shadow-slate-200 my-10">
           <div className="mx-auto">
-            <span className="text-3xl font-semibold text-slate-900 font-mono">
+            <span className="text-3xl font-semibold text-slate-900 font-Ubuntu_Mono">
               Reserve Your Table
             </span>
           </div>

@@ -67,7 +67,7 @@ const CabContactForm = () => {
                     p-12 md:p-6 lg:p-8 "
             onSubmit={handleSubmit}
           >
-            <h1 className="text-[#699c78] text-[26px] md:text-2xl font-bold mb-6 md:mb-3 tracking-wide">
+            <h1 className="text-[#699c78] text-[26px] md:text-2xl font-Ubuntu_Mono font-bold mb-6 md:mb-3 tracking-wide">
               Book your Cab's
             </h1>
             <div className="flex flex-col gap-1">
@@ -142,7 +142,7 @@ const CabContactForm = () => {
             <button
               type="submit"
               className="bg-[#408c57] shadow-2xl hover:bg-[#51795d]
-                  text-white text-[18px] md:text-[16px] tracking-wider font-bold rounded-full
+                  text-white text-[21px] md:text-[16px] tracking-wider font-Ubuntu_Mono font-semibold rounded-full
                   p-2 w-full mt-6"
             >
               {status}
@@ -150,7 +150,7 @@ const CabContactForm = () => {
           </form>
 
           <div className="w-[50%] md:w-full lg:w-[45%] xl:w-[50%] text-center  bg-gradient-to-tl from-[#408c57] to-[#91c4a0] text-white border-l-0 border border-gray-300 ">
-            <h1 className="mt-12 md:mt-8 text-[26px] md:text-2xl font-semibold">
+            <h1 className="mt-12 md:mt-8 text-[26px] md:text-2xl font-Ubuntu_Mono font-semibold">
               Call us
             </h1>
             <p className="bg-white text-black w-[80%] mx-auto py-2 rounded-lg mt-4">
