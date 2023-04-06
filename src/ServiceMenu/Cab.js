@@ -1,5 +1,7 @@
 // import CabSearch from './Cab/CabSearch';
 
+import CabContactForm from '../Component/CabContactForm';
+
 // import cab from '../Data/Cab-Section/cab';
 // import CabCover from './Cab/CabCover';
 
@@ -28,7 +30,7 @@ const Cabs = () => {
   // });
 
   return (
-    <div className="pt-10 h-full w-auto">
+    <>
       {/* <div className="flex">
         <div className="flex mx-auto mt-10 mb-10">
           <span className="text-3xl font-Nunito_Sans font-semibold text-slate-800">
@@ -46,7 +48,8 @@ const Cabs = () => {
         }
       </div> */}
       {/* <CabserviceLocation></CabserviceLocation> */}
-    </div>
+      <CabContactForm />
+    </>
   );
 };
 

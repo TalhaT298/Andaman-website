@@ -101,7 +101,7 @@ const ContactForm = () => {
         <CallIcon className="text-white bg-[#699c78] rounded-2xl p-1 mr-1" /> +918787883421 
       </p>
       <p className="bg-white text-black w-[80%] mx-auto py-2 rounded-lg mt-4 mb-12">
-        <EmailIcon className="text-white bg-[#699c78] rounded-2xl p-1 mr-1 "/> abcdef@gmail.com 
+        <EmailIcon className="text-white bg-[#699c78] rounded-2xl p-1 mr-1 "/> travel@sublimeislands.com
       </p>
     </div>
     </div>
