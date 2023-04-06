@@ -28,7 +28,7 @@ const collapseItems = [
 //   },
 // };
 
-const HeadColor = '#2f4f4f';
+const HeadColor = '#3f51b5'; //'#2f4f4f';
 
 export default function Navforwithout() {
   return (

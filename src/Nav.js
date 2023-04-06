@@ -29,15 +29,15 @@ const DolphinIcon = {
   },
 };
 
-const HeadColor = '#2f4f4f';
+const HeadColor = '#3f51b5'; //'#2f4f4f';';
 
 export default class Navapp extends Component {
   render() {
     return (
       <Layout>
-        <div className=''>
-          <Navbar isBordered variant='floating'>
-            <Navbar.Toggle showIn='xs' />
+        <div className="">
+          <Navbar isBordered variant="floating">
+            <Navbar.Toggle showIn="xs" />
 
             <Navbar.Brand
               css={{
@@ -47,34 +47,34 @@ export default class Navapp extends Component {
               }}
             >
               <AcmeLogo />
-              <Text b css={{ color: '#699c78' }} hideIn='xs'>
+              <Text b css={{ color: '#3f51b5' }} hideIn="xs">
                 Sublime Andaman
               </Text>
               <Lottie options={DolphinIcon} height={70} width={100} />
             </Navbar.Brand>
             <Navbar.Content
               enableCursorHighlight
-              activeColor='secondary'
-              hideIn='xs'
-              variant='highlight-rounded'
+              activeColor="secondary"
+              hideIn="xs"
+              variant="highlight-rounded"
             >
-              <NavLink to='/Explore'>
+              <NavLink to="/Explore">
                 <Navbar.Link>
-                  <Text h3 size={30} color={HeadColor} weight='bold'>
+                  <Text h3 size={30} color={HeadColor} weight="bold">
                     Explore
                   </Text>
                 </Navbar.Link>
               </NavLink>
-              <NavLink to='/Stay'>
+              <NavLink to="/Stay">
                 <Navbar.Link>
-                  <Text h3 size={30} color={HeadColor} weight='bold'>
+                  <Text h3 size={30} color={HeadColor} weight="bold">
                     Stay
                   </Text>
                 </Navbar.Link>
               </NavLink>
-              <NavLink to='/Fun'>
+              <NavLink to="/Fun">
                 <Navbar.Link>
-                  <Text h3 size={30} color={HeadColor} weight='bold'>
+                  <Text h3 size={30} color={HeadColor} weight="bold">
                     Fun
                   </Text>
                 </Navbar.Link>
@@ -89,48 +89,48 @@ export default class Navapp extends Component {
                 },
               }}
             >
-              <Dropdown placement='bottom-right'>
+              <Dropdown placement="bottom-right">
                 <Navbar.Item>
                   <Dropdown.Trigger>
                     <Avatar
                       bordered
-                      as='button'
-                      color='secondary'
-                      size='md'
-                      src='https://i.pravatar.cc/150?u=a042581f4e29026704d'
+                      as="button"
+                      color="secondary"
+                      size="md"
+                      src="https://i.pravatar.cc/150?u=a042581f4e29026704d"
                     />
                   </Dropdown.Trigger>
                 </Navbar.Item>
                 <Dropdown.Menu
-                  aria-label='User menu actions'
-                  color='secondary'
+                  aria-label="User menu actions"
+                  color="secondary"
                   onAction={(actionKey) => console.log({ actionKey })}
                 >
-                  <Dropdown.Item key='profile' css={{ height: '$18' }}>
-                    <Text b color='inherit' css={{ d: 'flex' }}>
+                  <Dropdown.Item key="profile" css={{ height: '$18' }}>
+                    <Text b color="inherit" css={{ d: 'flex' }}>
                       Signed in as
                     </Text>
-                    <Text b color='inherit' css={{ d: 'flex' }}>
+                    <Text b color="inherit" css={{ d: 'flex' }}>
                       zoey@example.com
                     </Text>
                   </Dropdown.Item>
-                  <Dropdown.Item key='settings' withDivider>
+                  <Dropdown.Item key="settings" withDivider>
                     My Settings
                   </Dropdown.Item>
-                  <Dropdown.Item key='team_settings'>
+                  <Dropdown.Item key="team_settings">
                     Team Settings
                   </Dropdown.Item>
-                  <Dropdown.Item key='analytics' withDivider>
+                  <Dropdown.Item key="analytics" withDivider>
                     Analytics
                   </Dropdown.Item>
-                  <Dropdown.Item key='system'>System</Dropdown.Item>
-                  <Dropdown.Item key='configurations'>
+                  <Dropdown.Item key="system">System</Dropdown.Item>
+                  <Dropdown.Item key="configurations">
                     Configurations
                   </Dropdown.Item>
-                  <Dropdown.Item key='help_and_feedback' withDivider>
+                  <Dropdown.Item key="help_and_feedback" withDivider>
                     Help & Feedback
                   </Dropdown.Item>
-                  <Dropdown.Item key='logout' withDivider color='error'>
+                  <Dropdown.Item key="logout" withDivider color="error">
                     Log Out
                   </Dropdown.Item>
                 </Dropdown.Menu>
@@ -141,18 +141,18 @@ export default class Navapp extends Component {
               {collapseItems.map((item, index) => (
                 <Navbar.CollapseItem
                   key={item}
-                  activeColor='secondary'
+                  activeColor="secondary"
                   css={{
                     color: index === collapseItems.length - 1 ? '$error' : '',
                   }}
                   isActive={index === 2}
                 >
                   <Link
-                    color='inherit'
+                    color="inherit"
                     css={{
                       minWidth: '100%',
                     }}
-                    href='#'
+                    href="#"
                   >
                     {item}
                   </Link>
