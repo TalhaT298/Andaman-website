@@ -1,9 +1,9 @@
 import React, { useRef, useMemo } from "react";
 import NavforWithout from "../../../../Navforwithout";
-import Schedule from "../Schedule";
-import ImageSection from "../ImageSection";
-import Features from "../Features";
-import SeatMap from "../SeatMap";
+// import Schedule from "../Schedule";
+// import ImageSection from "../ImageSection";
+// import Features from "../Features";
+// import SeatMap from "../SeatMap";
 import classes from "../Schedule.module.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { data as Inland } from "../Data/FerriesData";
@@ -198,7 +198,7 @@ const MakkruzGoldDetails = () => {
           </div>
         </div>
         <div className="flex justify-center">
-          <SeatMap />
+          {/* <SeatMap /> */}
         </div>
       </div>
     </>
