@@ -57,10 +57,10 @@ const Mainland = React.forwardRef((props, ref) => {
         id="mainland"
         ref={ref}
       >
-        Mainland Schedule
+        Mainland Ship&apos;s Schedule
       </h1>
       <h4
-        className={`${classes.main} text-xl lg:text-md sm:text-[1.3rem] font-bold mt-12 lg:mb-12 sm:mb-[-1rem]  text-center sm:mr-[-2rem]`}
+        className={`${classes.main} text-2xl lg:text-md sm:text-[1.3rem] font-bold mt-12 lg:mb-12 sm:mb-[-1rem]  text-center sm:mr-[-2rem]`}
       >
         Schedule for SWARAJ DWEEP
       </h4>

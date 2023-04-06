@@ -51,7 +51,7 @@ const SecondSchedule = React.forwardRef((props, ref) => {
 
   return (
     <>
-      <h4 className={`${classes.main} text-xl lg:text-md sm:text-[1.3rem] font-bold  lg:mb-[1rem] sm:mb-[-1rem]  text-center sm:mr-[-2rem] `}>
+      <h4 className={`${classes.main} text-2xl lg:text-md sm:text-[1.3rem] font-bold  lg:mb-[1rem] sm:mb-[-1rem]  text-center sm:mr-[-2rem] `}>
         Schedule for SINDHU
       </h4>
       <div
