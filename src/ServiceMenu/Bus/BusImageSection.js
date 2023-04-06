@@ -1,5 +1,8 @@
 import React from "react";
 
+import GovtBus from "../../images/go2andaman_baratang_8445-1.avif";
+import PvtBus from "../../images/Private Bus.jpg";
+
 const BusImageSection = ({ handleClick }) => {
   return (
     <>
@@ -9,8 +12,8 @@ const BusImageSection = ({ handleClick }) => {
           onClick={() => handleClick("govt")}
         >
           <img
-            className="w-full h-[28rem] lg:h-[25rem] md:h-[20rem] sm:h-[16rem] xs:w-full xs:h-[15.5 rem] rounded-lg"
-            src="https://images7.alphacoders.com/560/560824.jpg"
+            className="w-full h-96 lg:h-[25rem] md:h-[20rem] sm:h-[16rem] xs:w-full xs:h-[15.5 rem] rounded-lg"
+            src={GovtBus}
             // src="https://images8.alphacoders.com/541/541455.jpg"
             alt="Left"
           />
@@ -26,8 +29,8 @@ const BusImageSection = ({ handleClick }) => {
           onClick={() => handleClick("private")}
         >
           <img
-            className="w-full h-[28rem] lg:h-[25rem] md:h-[20rem] sm:h-[16rem] xs:w-full xs:h-full rounded-lg"
-            src="https://wallpaperaccess.com/full/1921731.jpg"
+            className="w-full h-[24rem] lg:h-[25rem] md:h-[20rem] sm:h-[16rem] xs:w-full xs:h-full rounded-lg"
+            src={PvtBus}
             // src="https://c4.wallpaperflare.com/wallpaper/755/228/962/sea-trees-nature-rocks-wallpaper-preview.jpg"
             alt="Right"
           />
