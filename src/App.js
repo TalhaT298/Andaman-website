@@ -29,6 +29,16 @@ const MakkruzGoldDetails = lazy(() =>
   )
 );
 const ContactForm = lazy(() => import('./Component/ContactForm.js'));
+const CabContactForm = lazy(() => import('./Component/CabContactForm.js'));
+const FlightContactForm = lazy(() =>
+  import('./Component/FlightContactForm.js')
+);
+const ActivityContactForm = lazy(() =>
+  import('./Component/ActivityContactForm.js')
+);
+const PgContactForm = lazy(() => import('./Component/PgContactForm.js'));
+const TravelPackageContactForm = lazy(() => import('./Component/TravelPackageContactForm.js'));
+const TrekContactForm = lazy(() => import('./Component/TrekContactForm.js'));
 
 const SingleHotel = lazy(() =>
   import('./ServiceMenu/Hotel/SingleHotel/SingleHotel.js')
@@ -136,6 +146,15 @@ export default function App() {
             <Route path="/MakkruzGold" element={<MakkruzGoldDetails />} />
             <Route path="/PgSingleHotel" element={<PgHotel />} />
             <Route path="/ContactForm" element={<ContactForm />} />
+            <Route path="/CabContactForm" element={<CabContactForm />} />
+            <Route path="/FlightContactForm" element={<FlightContactForm />} />
+            <Route
+              path="/ActivityContactForm"
+              element={<ActivityContactForm />}
+            />
+            <Route path="/PgContactForm" element={<PgContactForm />} />
+            <Route path="/TravelPackageContactForm" element={<TravelPackageContactForm />} />
+            <Route path="/TrekContactForm" element={<TrekContactForm />} />
             <Route path="*" element={<Nav />} />
           </Routes>
         </Suspense>

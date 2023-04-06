@@ -7,7 +7,7 @@ import 'swiper/css/pagination';
 import 'swiper/css/navigation';
 import { Pagination, Navigation } from 'swiper';
 import { LazyLoadImage } from 'react-lazy-load-image-component';
-// import { Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 function Card({ card }) {
   return (
@@ -26,11 +26,13 @@ function Card({ card }) {
           <SwiperSlide key={i}>
             {/* <a href="/PgSingleHotel" target="_blank" rel="noreferrer"> */}
             {/* hard coded single hotel page  need to make it dynamic when backend is done */}
-            <LazyLoadImage
-              src={src}
-              className="card-img bg-inherit"
-              alt="hotel/room"
-            />
+            <Link to='/PgContactForm' target='_blank'>
+              <LazyLoadImage
+                src={src}
+                className="card-img bg-inherit"
+                alt="hotel/room"
+              />
+            </Link>
             {/* </a> */}
           </SwiperSlide>
         ))}

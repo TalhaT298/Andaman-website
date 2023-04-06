@@ -1,4 +1,4 @@
-import { Link, useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 import KeyFeatues from './KeyFeatues';
 import { faBed } from '@fortawesome/free-solid-svg-icons';
@@ -9,7 +9,6 @@ import classes from './SingleHotel.module.css';
 import { datas } from '../../../Data/Hotel-Section/HotelsData/hotelsData';
 import { useParams } from 'react-router-dom';
 const Features = () => {
-  const navigate = useNavigate();
 
   const { id } = useParams();
   console.log(id);
@@ -28,10 +27,6 @@ const Features = () => {
   } = datas.find((hotel) => hotel.id === parseInt(id));
   // find the corresponding data object based on the "id" using find
 
-  const ReserveHandler = () => {
-    alert('You are being taken to Contact Page');
-   
-  };
   return (
     <>
       <div className="flex flex-row  lg:flex-col items-center lg:pt-8">
@@ -90,20 +85,18 @@ const Features = () => {
                 </div>
               </div>
               <div className="pt-3">
-              <Link to='/ContactForm' target='_blank'>
-                <button
-                  type="button"
-                  onClick={ReserveHandler}
-                  style={{ fontFamily: 'Glook' }}
-                  className="bg-indigo-600 shadow-2xl hover:bg-indigo-500
+                <Link to="/ContactForm" target="_blank">
+                  <button
+                    type="button"
+                    style={{ fontFamily: 'Glook' }}
+                    className="bg-indigo-600 shadow-2xl hover:bg-indigo-500
                   text-white text-[22px] tracking-wider font-bold rounded-full
                   p-3 w-48"
-                >
-                  {' '}
-                  Reserve now
-                </button>
-              </Link>
-                
+                  >
+                    {' '}
+                    Reserve now
+                  </button>
+                </Link>
               </div>
             </div>
           </div>

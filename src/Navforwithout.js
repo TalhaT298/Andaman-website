@@ -42,7 +42,7 @@ export default function Navforwithout() {
         }}
       >
         {/* <AcmeLogo /> */}
-        <Text b css={{ color: '#699c78' }} hideIn="xs">
+        <Text b css={{ color: '#3f51b5' }} hideIn="xs">
           <Link to="/">Sublime Andaman</Link>
         </Text>
         {/* <Lottie options={DolphinIcon} height={70} width={100} /> */}

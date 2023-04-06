@@ -1,6 +1,6 @@
 import React, { useState, lazy } from 'react';
 
-import { useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 import flight from '../Data/Flight-Section/flight';
 
@@ -9,8 +9,6 @@ const FlightSearch = lazy(() => import('./Flight/FlightSearch'));
 const FlightCover = lazy(() => import('./Flight/FlightCover'));
 
 const Flights = () => {
-  const navigate = useNavigate();
-
   //search feature
   const [searchOriginTerm, setSearchOriginTerm] = useState('');
   const [searchDestTerm, setSearchDestTerm] = useState('');
@@ -30,11 +28,6 @@ const Flights = () => {
       return <FlightCover key={airplane.flightID} {...airplane} />;
     });
 
-    const ReserveHandler = () => {
-      alert('You are being taken to Contact Page');
-      navigate('/ContactForm');
-    };
-
   return (
     <div className="pt-10 h-full w-auto cursor-pointer">
       <div className="flex">
@@ -42,11 +35,13 @@ const Flights = () => {
           <p className="text-3xl font-Nunito_Sans font-semibold text-slate-800">
             🤫 Lowest Price's Here 😉 🚀
           </p>
-          <p 
-          onClick={ReserveHandler}
-          className="text-base font-Nunito_Sans font-semibold text-slate-800 hover:underline hover:italic">
-            If you don't find the flight you're looking for, then click here
-          </p>
+          <Link to="/FlightContactForm" target="_blank">
+            <div>
+              <p className="text-base font-Nunito_Sans font-semibold text-slate-800 hover:underline hover:italic">
+                If you don't find the flight you're looking for, then click here
+              </p>
+            </div>
+          </Link>
         </div>
       </div>
       <FlightSearch

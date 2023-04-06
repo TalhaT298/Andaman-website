@@ -2,17 +2,10 @@ import React, { useState } from 'react';
 import { LazyLoadImage } from 'react-lazy-load-image-component';
 import Modal from 'react-modal';
 
-import { useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 const ActivityCover = (props) => {
-  const navigate = useNavigate();
-
   const [trekInfo, setTrekInfo] = useState(false);
-
-  const ReserveHandler = () => {
-    alert('You are being taken to Contact Page');
-    navigate('/ContactForm');
-  };
 
   return (
     <div className="m-2 py-3 p-2 flex flex-col w-88">
@@ -29,7 +22,7 @@ const ActivityCover = (props) => {
         />
       </div>
       <div className="flex flex-col justify-between m-auto py-3 p-1 text-center">
-        <p className="text-sm font-bold font-Ubuntu_Mono text-slate-800">
+        <p className="text-base font-bold font-Ubuntu_Mono text-slate-800">
           {props.name}
         </p>
         <p className="text-sm font-semibold ">{props.duration}</p>
@@ -48,12 +41,11 @@ const ActivityCover = (props) => {
             </span>
           </div>
           <div className="flex flex-row justify-between pt-10 pb-5 mx-10">
-            <button
-              onClick={ReserveHandler}
-              className="px-2 h-10 font-semibold font-Nunito_Sans text-white bg-gradient-to-br rounded-md to-amber-400 from-pink-500 hover:bg-gradient-to-br hover:to-amber-600 hover:from-pink-600 hover:text-white"
-            >
-              Book Now
-            </button>
+            <Link to="/ActivityContactForm" target="_blank">
+              <button className="px-2 h-10 font-semibold font-Nunito_Sans text-white bg-gradient-to-br rounded-md to-amber-400 from-pink-500 hover:bg-gradient-to-br hover:to-amber-600 hover:from-pink-600 hover:text-white">
+                Book Now
+              </button>
+            </Link>
             <button
               className="px-2 h-10 font-medium font-Nunito_Sans text-slate-400 hover:text-slate-800 text-2xl border-solid border-2"
               onClick={() => setTrekInfo(false)}
@@ -63,9 +55,7 @@ const ActivityCover = (props) => {
           </div>
 
           <div className="py-0 px-3 flex flex-col flex-wrap justify-between gap-x-10 mt-3">
-            <span className="text-xl text- font-bold text-black">
-              {props.name}
-            </span>
+            <span className="text-xl font-bold text-black">{props.name}</span>
 
             <p className="py-2 mt-3 block md:flex md:flex-col">
               <LazyLoadImage

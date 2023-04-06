@@ -6,7 +6,7 @@ import EmailIcon from '@mui/icons-material/Email';
 import { LazyLoadImage } from 'react-lazy-load-image-component';
 import Navforwithout from '../Navforwithout';
 
-const ContactForm = () => {
+const FlightContactForm = () => {
   const [status, setStatus] = useState('Submit');
   const form = useRef();
 
@@ -71,7 +71,7 @@ const ContactForm = () => {
               onSubmit={handleSubmit}
             >
               <h1 className="text-[#699c78] text-[26px] md:text-2xl font-Ubuntu_Mono font-bold mb-6 md:mb-3 tracking-wide">
-                Book your Hotel's
+                Flight Traveller Details
               </h1>
               <div className="flex flex-col gap-1">
                 <input
@@ -106,9 +106,9 @@ const ContactForm = () => {
               <div className="flex flex-col gap-1 mt-5">
                 <input
                   type="text"
-                  id="hotel"
-                  name="user_hotel_name"
-                  placeholder="Hotel name"
+                  id="current"
+                  name="user_current_location"
+                  placeholder="Current location"
                   className="h-[45px] outline-none p-4 rounded-md border border-gray-300 focus:border-2 focus:border-slate-400"
                   required
                 />
@@ -126,9 +126,9 @@ const ContactForm = () => {
               <div className="flex flex-col gap-1 mt-5">
                 <input
                   type="text"
-                  id="travellers"
-                  name="user_travellers"
-                  placeholder="No. of Travellers"
+                  id="seats"
+                  name="user_seats"
+                  placeholder="No. of Seats"
                   className="h-[45px] outline-none p-4 rounded-md border border-gray-300 focus:border-2 focus:border-slate-400"
                   required
                 />
@@ -175,6 +175,10 @@ const ContactForm = () => {
                 travel@sublimeislands.com
               </p>
               <p className="bg-white text-base font-semibold font-Ubuntu_Mono px-2 text-slate-900 w-[80%] ml:w-[90%] md:w-[80%] mx-auto py-3 rounded-lg mt-10 md:mt-4 mb-12">
+                Fill out this form or Call Us on given details above for flight bookings
+                which is not mentioned in Flights Page
+              </p>
+              <p className="bg-white text-base font-semibold font-Ubuntu_Mono px-2 text-slate-900 w-[80%] ml:w-[90%] md:w-[80%] mx-auto py-3 rounded-lg mt-10 md:mt-4 mb-12">
                 Thank you for submitting your details. Sublime Island will reach
                 out to you in 2-3 hours or as soon as possible 😁✌🏻
               </p>
@@ -187,4 +191,4 @@ const ContactForm = () => {
   );
 };
 
-export default ContactForm;
+export default FlightContactForm;

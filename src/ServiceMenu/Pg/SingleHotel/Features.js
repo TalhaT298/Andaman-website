@@ -1,18 +1,14 @@
-import { lazy } from "react";
+import { lazy } from 'react';
 
-import { faBed } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
-import { faPerson } from "@fortawesome/free-solid-svg-icons"
-import { faShower } from "@fortawesome/free-solid-svg-icons"
-import classes from "./SingleHotel.module.css"
+import { faBed } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faPerson } from '@fortawesome/free-solid-svg-icons';
+import { faShower } from '@fortawesome/free-solid-svg-icons';
+import classes from './SingleHotel.module.css';
 
-const KeyFeatues = lazy(() => import('./KeyFeatues'))
+const KeyFeatues = lazy(() => import('./KeyFeatues'));
 
 const Features = () => {
-  const ReserveHandler=()=>{
-    alert('You are being taken to Contact Page');
-    alert("Reserved")
-  }
   return (
     <>
       <div className="flex flex-row  lg:flex-col items-center lg:pt-8">
@@ -20,24 +16,24 @@ const Features = () => {
           <h2 className="font-extrabold text-2xl lg:text-md text-black md:text-[20px]">
             Entire property exclusively managed by
             <span className="font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-blue-600">
-              {" "}
+              {' '}
               William Broad
             </span>
           </h2>
           <div className="pt-2 font-[600] flex flex-col">
-            <div style={{ paddingBottom: "10px" }}>
+            <div style={{ paddingBottom: '10px' }}>
               <FontAwesomeIcon icon={faPerson} size="lg" />
-              <span style={{ paddingLeft: "17px" }}>12 guests</span>
+              <span style={{ paddingLeft: '17px' }}>12 guests</span>
             </div>
-            <div style={{ paddingBottom: "10px" }}>
+            <div style={{ paddingBottom: '10px' }}>
               <FontAwesomeIcon icon={faBed} />
-              <span style={{ paddingLeft: "10px" }}>
+              <span style={{ paddingLeft: '10px' }}>
                 6 bedrooms and 10 beds
               </span>
             </div>
             <div>
               <FontAwesomeIcon icon={faShower} />
-              <span style={{ paddingLeft: "10px" }}>3 bathrooms</span>
+              <span style={{ paddingLeft: '10px' }}>3 bathrooms</span>
             </div>
           </div>
         </div>
@@ -73,11 +69,15 @@ const Features = () => {
                 </div>
               </div>
               <div className="pt-3">
-                <button type="button" onClick={ReserveHandler}
-                  style={{ fontFamily: "Glook" }}
+                <button
+                  type="button"
+                  style={{ fontFamily: 'Glook' }}
                   className="bg-indigo-600 shadow-2xl hover:bg-indigo-500
                   text-white text-[22px] tracking-wider font-bold rounded-full
-                  p-3 w-48" > Reserve now
+                  p-3 w-48"
+                >
+                  {' '}
+                  Reserve now
                 </button>
               </div>
             </div>

@@ -6,7 +6,7 @@ import EmailIcon from '@mui/icons-material/Email';
 import { LazyLoadImage } from 'react-lazy-load-image-component';
 import Navforwithout from '../Navforwithout';
 
-const ContactForm = () => {
+const TrekContactForm = () => {
   const [status, setStatus] = useState('Submit');
   const form = useRef();
 
@@ -71,7 +71,7 @@ const ContactForm = () => {
               onSubmit={handleSubmit}
             >
               <h1 className="text-[#699c78] text-[26px] md:text-2xl font-Ubuntu_Mono font-bold mb-6 md:mb-3 tracking-wide">
-                Book your Hotel's
+                Book your Trek
               </h1>
               <div className="flex flex-col gap-1">
                 <input
@@ -106,9 +106,9 @@ const ContactForm = () => {
               <div className="flex flex-col gap-1 mt-5">
                 <input
                   type="text"
-                  id="hotel"
-                  name="user_hotel_name"
-                  placeholder="Hotel name"
+                  id="trek"
+                  name="user_trek_name"
+                  placeholder="Trek name"
                   className="h-[45px] outline-none p-4 rounded-md border border-gray-300 focus:border-2 focus:border-slate-400"
                   required
                 />
@@ -116,9 +116,9 @@ const ContactForm = () => {
               <div className="flex flex-col gap-1 mt-5">
                 <input
                   type="text"
-                  id="destination"
-                  name="user_destination_location"
-                  placeholder="Destination location"
+                  id="trek"
+                  name="user_trek_location"
+                  placeholder="Trek location"
                   className="h-[45px] outline-none p-4 rounded-md border border-gray-300 focus:border-2 focus:border-slate-400"
                   required
                 />
@@ -187,4 +187,4 @@ const ContactForm = () => {
   );
 };
 
-export default ContactForm;
+export default TrekContactForm;

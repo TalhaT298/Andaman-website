@@ -1,19 +1,10 @@
 import React, { useState } from 'react';
 import { LazyLoadImage } from 'react-lazy-load-image-component';
 import Modal from 'react-modal';
-
-import { useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 const TrekkingCover = (props) => {
-  const navigate = useNavigate();
-
   const [trekInfo, setTrekInfo] = useState(false);
-
-  const ReserveHandler = () => {
-    alert('You are being taken to Contact Page');
-    navigate('/ContactForm');
-  };
-
   return (
     <div className="m-2 py-3 p-2 flex flex-col w-88">
       <div
@@ -50,12 +41,11 @@ const TrekkingCover = (props) => {
             </span>
           </div>
           <div className="flex flex-row justify-between pt-10 pb-5 mx-4">
-            <button
-              onClick={ReserveHandler}
-              className="px-2 h-10 font-semibold font-Nunito_Sans text-white bg-gradient-to-br rounded-md to-amber-400 from-pink-500 hover:bg-gradient-to-br hover:to-amber-600 hover:from-pink-600 hover:text-white"
-            >
-              Book Now
-            </button>
+            <Link to="/TrekContactForm" target="_blank">
+              <button className="px-2 h-10 font-semibold font-Nunito_Sans text-white bg-gradient-to-br rounded-md to-amber-400 from-pink-500 hover:bg-gradient-to-br hover:to-amber-600 hover:from-pink-600 hover:text-white">
+                Book Now
+              </button>
+            </Link>
             <button
               className="px-2 h-10 font-medium font-Nunito_Sans text-slate-400 hover:text-slate-800 text-2xl border-solid border-2"
               onClick={() => setTrekInfo(false)}

@@ -45,7 +45,7 @@ const CabContactForm = () => {
         (result) => {
           console.log(result.text);
           alert(
-            'Thanks for taking the time. The Sublime Island team will contact you soon.'
+            'Thank you for taking your time. Sublime Island will reach out to you in 2-3 hours or as soon as possible 😁✌🏻'
           );
         },
         (error) => {

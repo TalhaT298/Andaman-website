@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { LazyLoadImage } from 'react-lazy-load-image-component';
 // import TravelPackagePage from './TravelPackagePage';
-import Modal from 'react-modal';
 import {
   Button,
   Paper,
@@ -12,18 +11,13 @@ import {
   Stepper,
   Typography,
 } from '@material-ui/core';
+import Modal from 'react-modal';
 
-import { useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 const TravelPackageCover = (props) => {
-  const navigate = useNavigate();
 
   const [openTripDetails, setOpenTripDetails] = useState(false);
-
-  const ReserveHandler = () => {
-    alert('You are being taken to Contact Page');
-    navigate('/ContactForm');
-  };
 
   //Stepper
   const [activeStep, setActiveStep] = useState(0);
@@ -103,14 +97,13 @@ const TravelPackageCover = (props) => {
               X
             </button>
           </div>
-          <div className="flex flex-row pb-2">
-            <button
-              onClick={ReserveHandler}
-              className="mx-auto px-2 h-10 font-semibold font-Nunito_Sans text-white bg-gradient-to-br rounded-md to-amber-400 from-pink-500 hover:bg-gradient-to-br hover:to-amber-600 hover:from-pink-600 hover:text-white"
-            >
-              Book Now
-            </button>
-          </div>
+          <Link to="/TravelPackageContactForm" target="_blank">
+            <div className="flex flex-row pb-2">
+              <button className="mx-auto px-2 h-10 font-semibold font-Nunito_Sans text-white bg-gradient-to-br rounded-md to-amber-400 from-pink-500 hover:bg-gradient-to-br hover:to-amber-600 hover:from-pink-600 hover:text-white">
+                Book Now
+              </button>
+            </div>
+          </Link>
 
           <Stepper
             orientation="vertical"
