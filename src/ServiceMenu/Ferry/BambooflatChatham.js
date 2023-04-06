@@ -30,10 +30,10 @@ const BambooflatChatham = (props) => {
     };
   }, []);
   const smoothUpdateLat = (newLat) => {
-    const latStep = (newLat - lat) / 10;
+    const latStep = (newLat - lat) / 200;
     let currentLat = lat;
 
-    for (let i = 1; i <= 10; i++) {
+    for (let i = 1; i <= 200; i++) {
       // eslint-disable-next-line no-loop-func
       setTimeout(() => {
         currentLat += latStep;
@@ -43,10 +43,10 @@ const BambooflatChatham = (props) => {
   };
 
   const smoothUpdateLng = (newLng) => {
-    const lngStep = (newLng - lng) / 10;
+    const lngStep = (newLng - lng) / 200;
     let currentLng = lng;
 
-    for (let i = 1; i <= 10; i++) {
+    for (let i = 1; i <= 200; i++) {
       // eslint-disable-next-line no-loop-func
       setTimeout(() => {
         currentLng += lngStep;
