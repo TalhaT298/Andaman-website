@@ -23,6 +23,10 @@ const Nav = lazy(() => import('./Nav'));
 const SingleInland = lazy(() =>
   import('./ServiceMenu/Ship/SingleInland/SingleInland.js')
 );
+
+const ShipBooking = lazy(() => import('./ServiceMenu/Ship/Booking/ShipBooking.js')
+);
+
 const MakkruzGoldDetails = lazy(() =>
   import(
     './ServiceMenu/Ship/SingleInland/SingleInlandDetailsPage/MakkruzGoldDetails'
@@ -146,6 +150,7 @@ export default function App() {
             <Route path="/MakkruzGold" element={<MakkruzGoldDetails />} />
             <Route path="/PgSingleHotel" element={<PgHotel />} />
             <Route path="/ContactForm" element={<ContactForm />} />
+            <Route path="/ShipBooking" element={<ShipBooking />} />
             <Route path="/CabContactForm" element={<CabContactForm />} />
             <Route path="/FlightContactForm" element={<FlightContactForm />} />
             <Route

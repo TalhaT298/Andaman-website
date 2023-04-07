@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const ImageSection = ({ handleClick }) => {
   return (
@@ -21,9 +22,10 @@ const ImageSection = ({ handleClick }) => {
             Mainland Freight
           </p>
         </div>
+        <Link to='/ShipBooking' target="_blank" >
         <div
           className="flex-1 text-center p-4 relative cursor-pointer"
-          onClick={() => handleClick("inland")}
+          // onClick={() => handleClick("inland")}
         >
           <img
             className="w-full h-[28rem] lg:h-[25rem] md:h-[20rem] sm:h-[16rem] xs:w-full xs:h-full rounded-lg"
@@ -38,6 +40,7 @@ const ImageSection = ({ handleClick }) => {
             Inland Freight
           </p>
         </div>
+        </Link>
         <div className="flex flex-col gap-y-3"></div>
       </div>
     </>
