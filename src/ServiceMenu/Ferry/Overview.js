@@ -7,8 +7,8 @@ import Boat from '../../images/boat_final_copy.png';
 import { Map, GoogleApiWrapper, Marker } from 'google-maps-react';
 
 const mapStyles = {
-  height: '50%',
-  width: '70%',
+  height: '66%',
+  width: '82%',
 };
 
 const Overview = (props) => {

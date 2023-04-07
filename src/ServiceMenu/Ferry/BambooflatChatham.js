@@ -6,8 +6,11 @@ import Boat from '../../images/boat_final_copy.png';
 import { Map, GoogleApiWrapper, Marker } from 'google-maps-react';
 
 const mapStyles = {
-  height: '50%',
-  width: '70%',
+  height: '66%',
+  width: '82%',
+  // borderImage: 'linear-gradient(to right, #f7b733, #fc4a1a) 1',
+  // borderStyle: 'solid',
+  // borderWidth: '5px'
 };
 
 const BambooflatChatham = (props) => {
