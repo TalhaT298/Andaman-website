@@ -1,0 +1,35 @@
+@media screen and (max-width: 655px) {
+  .responsivee {
+    position: absolute;
+    bottom: -43%;
+    left: 20.3%;
+  }
+}
+@media screen and (max-width: 510px) {
+  .responsivee {
+    position: absolute;
+    bottom: -48.4%;
+    left: 15.8%;
+  }
+}
+@media screen and (max-width: 415px) {
+  .responsivee {
+    position: absolute;
+    bottom: -19.4%;
+    left: 9.8%;
+  }
+}
+@media screen and (max-width: 1020px) and (min-width: 960px) {
+  .responsivee {
+    position: absolute;
+    bottom: -14.4%;
+    left: 31.8%;
+  }
+}
+@media screen and (max-width: 800px) and (min-width: 656px) {
+  .responsivee {
+    position: absolute;
+    bottom: -43.9%;
+    left: 25.9%;
+  }
+}

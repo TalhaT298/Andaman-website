@@ -1,4 +1,4 @@
-const flight = [
+const ship = [
   {
     flightID: 1,
     flightGateway: 'Terminal 1',
@@ -257,4 +257,4 @@ const flight = [
   },
 ];
 
-export default flight;
+export default ship;

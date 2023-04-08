@@ -22,11 +22,12 @@ const ImageSection = ({ handleClick }) => {
             Mainland Freight
           </p>
         </div>
-        <Link to='/ShipBooking' target="_blank" >
+        
         <div
           className="flex-1 text-center p-4 relative cursor-pointer"
           // onClick={() => handleClick("inland")}
         >
+        <Link to='/ShipBooking' target="_blank" >
           <img
             className="w-full h-[28rem] lg:h-[25rem] md:h-[20rem] sm:h-[16rem] xs:w-full xs:h-full rounded-lg"
             src="https://wallpaperaccess.com/full/1921731.jpg"
@@ -39,8 +40,9 @@ const ImageSection = ({ handleClick }) => {
           >
             Inland Freight
           </p>
+          </Link>
         </div>
-        </Link>
+        
         <div className="flex flex-col gap-y-3"></div>
       </div>
     </>

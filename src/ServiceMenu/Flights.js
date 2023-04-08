@@ -1,7 +1,5 @@
 import React, { useState, lazy } from 'react';
-
 import { Link } from 'react-router-dom';
-
 import flight from '../Data/Flight-Section/flight';
 
 const BestPrices = lazy(() => import('./Flight/BestPrices'));
