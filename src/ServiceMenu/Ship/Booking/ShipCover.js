@@ -7,6 +7,7 @@ import Modal from '@mui/material/Modal';
 import { Button, Divider, Paper } from '@mui/material';
 import StarIcon from '@mui/icons-material/Star';
 import DoneIcon from '@mui/icons-material/CheckCircle';
+import { useLocation, useNavigate } from 'react-router-dom';
 
 const style = {
   position: 'absolute',
@@ -29,6 +30,11 @@ const ShipCover = (props) => {
     },
   ]);
 
+  const navigate = useNavigate()
+  const location = useLocation();
+  const { state } = location
+  const { origin, destination, departDate, travellerDetails } = state
+
   const [open, setOpen] = useState(false)
   const [showFlightInfo, setShowFlightInfo] = useState(false);
 
@@ -37,6 +43,23 @@ const ShipCover = (props) => {
   const handleOptionChange = (event) => {
     setSelectedOption(event.target.value);
   };
+
+  const proceedHandler = () => {
+    navigate('/travellerDetails', { 
+      state : {
+        origin, 
+        destination, 
+        departDate ,
+        shipName: props.shipName,
+        shipClass: selectedOption,
+        departTime: props.departureTime,
+        arrivalTime: props.arrivalTime,
+        travellerDetails,
+        adultFare: 1450,
+        infantFare: 0
+      } 
+    })
+  }
 
   return (
     <>
@@ -69,7 +92,7 @@ const ShipCover = (props) => {
         {showFlightInfo && (
           <div className="mx-auto h-60 w-auto bg-slate-900 my-6 text-white px-auto rounded-lg">
             <div className="h-60 w-auto bg-slate-900 mx-auto px-auto rounded-lg">
-              <div className="flex flex-col h-60 w-full justify-between mx-auto py-3 p-1 text-center px-auto">
+              <div className="flex flex-col h-56 w-full justify-between mx-auto py-3 p-1 text-center px-auto">
                 <div className="flex flex-row px-auto">
                   <div className="flex flex-col mx-auto py-1 w-36 px-auto">
                     <span className="text-lg uppercase font-thin py-1 my-auto">
@@ -130,7 +153,7 @@ const ShipCover = (props) => {
                             type="radio" 
                             value="Premium" 
                             checked={selectedOption === 'Premium'} 
-                            onChange={handleOptionChange} 
+                            onChange={handleOptionChange}                             
                           />
                            <Button variant='contained' sx={{fontSize:'0.8rem',ml:2}} disableRipple disableElevation disableFocusRipple >
                             ₹ 1,450 Premium
@@ -169,7 +192,9 @@ const ShipCover = (props) => {
                     </div>
                   </div>
 
-                  <Button variant='contained' sx={{fontSize:'0.8rem',mt:3}}>Proceed with Premium</Button>
+                  <Button variant='contained' sx={{fontSize:'0.8rem',mt:3}} onClick={proceedHandler} disabled={selectedOption === ""}>
+                    Proceed with Premium
+                  </Button>
 
                   </Paper>
                   </Modal>

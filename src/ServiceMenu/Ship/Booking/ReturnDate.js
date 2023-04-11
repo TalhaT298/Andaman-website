@@ -8,7 +8,7 @@ import { faCalendarDays } from '@fortawesome/free-solid-svg-icons';
 
 import Modal from 'react-modal';
 
-const ReturnDate = () => {
+const ReturnDate = ( {setReturnDate} ) => {
   const [openArrDate, setOpenArrDate] = useState(false);
 
   const [endingDate, setEndingDate] = useState([
@@ -17,6 +17,9 @@ const ReturnDate = () => {
       key: 'selection',
     },
   ]);
+
+  //Depart Date
+  setReturnDate(endingDate[0].endDate.toDateString())
 
   return (
     <>

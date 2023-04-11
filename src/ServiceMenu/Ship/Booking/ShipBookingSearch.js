@@ -15,6 +15,11 @@ const ShipBookingSearch = (props) => {
   const [destination, setDestination] = useState("Havelock");
   //depart date
   const [departDate, setDepartDate] = useState("")
+  //return date
+  const [returnDate, setReturnDate] = useState("")
+
+  //traveller details
+  const [travellerDetails, setTravellerDetails] = useState({})
 
   const navigate = useNavigate()
 
@@ -22,7 +27,7 @@ const ShipBookingSearch = (props) => {
     event.preventDefault();
     navigate('/selectFerry', 
       { 
-        state : {origin, destination, departDate} 
+        state : {origin, destination, departDate, returnDate, travellerDetails} 
       }
     )
   };  
@@ -58,9 +63,9 @@ const ShipBookingSearch = (props) => {
               setDestination={setDestination}
             />
             <DepartDate setDepartDate={setDepartDate} />
-            {twoWay && <ReturnDate />}
+            {twoWay && <ReturnDate setReturnDate={setReturnDate} />}
 
-            <Options />
+            <Options setTravellerDetails={setTravellerDetails} />
 
             <div className="bg-gradient-to-br to-amber-400 from-pink-500 hover:bg-gradient-to-br hover:to-amber-600 hover:from-pink-600 hover:text-white h-auto w-full flex flex-col gap-y-3 border-solid border-2 border-slate-300 mx-auto px-2 px-auto ml:w-auto airbnbml:w-96  xs:w-64 py-2 airbnbml:items-center">
               <button

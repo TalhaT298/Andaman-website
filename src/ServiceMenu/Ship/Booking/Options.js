@@ -3,13 +3,15 @@ import { useState } from 'react';
 import classes from './Options.module.css';
 import Modal from 'react-modal';
 
-const Options = () => {
+const Options = ( {setTravellerDetails} ) => {
   const [openTravellerInfo, setOpenTravellerInfo] = useState(false);
   const [travellerInfo, setTravellerInfo] = useState({
     adult: 1,
     infant: 0,
     traveller: 0,
   });
+
+  setTravellerDetails(travellerInfo)
 
   const handleTravellerInfo = (category, arithmetricOperation) => {
     setTravellerInfo((prev) => {
@@ -93,6 +95,7 @@ const Options = () => {
                 >
                   <span className="">+</span>
                 </button>
+                
               </div>
             </div>
           </div>          
