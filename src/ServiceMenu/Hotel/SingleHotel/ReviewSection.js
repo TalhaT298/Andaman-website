@@ -66,7 +66,7 @@ const ReviewSection = () => {
             <div className={classes.review}>
               <h4>Amazing Views</h4>
               <p>
-                “The views from this hotel were amazing! My room had a balcony
+                “ The views from this hotel were amazing! My room had a balcony
                 overlooking the ocean, and I spent hours just taking in the
                 scenery. The staff was also helpful and accommodating, making
                 for a truly memorable stay. ”

@@ -63,8 +63,7 @@ const CabContactForm = () => {
         <div className="w-[90%] flex md:flex-col justify-center items-stretch mx-auto my-6 shadow-xl rounded-lg">
           <form
             ref={form}
-            className="w-[50%] md:w-full lg:w-[55%] xl:w-[50%] bg-white overflow-hidden border border-gray-300 
-                    p-12 md:p-6 lg:p-8 "
+            className="w-[50%] md:w-full lg:w-[55%] xl:w-[50%] bg-white overflow-hidden border border-gray-300 p-12 md:p-6 lg:p-8 "
             onSubmit={handleSubmit}
           >
             <h1 className="text-[#699c78] text-[26px] md:text-2xl font-Ubuntu_Mono font-bold mb-6 md:mb-3 tracking-wide">
@@ -122,7 +121,7 @@ const CabContactForm = () => {
             </div>
             <div className="flex flex-col gap-1 mt-5">
               <input
-                type="datetime-local"
+                type="date" // for date input with time you can use "datetime-local" instead of date
                 id="arrival"
                 name="user_arrival"
                 placeholder="Expected Arrival"
