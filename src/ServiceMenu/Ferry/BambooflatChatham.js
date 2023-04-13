@@ -64,7 +64,7 @@ const BambooflatChatham = (props) => {
         google={props.google}
         zoom={14}
         style={mapStyles}
-        center={{ lat : 11.698336, lng : 92.718586 }}
+        center={{ lat : lat, lng : lng }}
       >
         <Marker icon={Boat} position={{lat: lat, lng: lng}} />
       </Map>
