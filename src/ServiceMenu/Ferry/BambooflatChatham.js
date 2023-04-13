@@ -19,7 +19,7 @@ const BambooflatChatham = (props) => {
 
 
   useEffect(() => {
-    const locationRef = firebase.database().ref('locations');
+    const locationRef = firebase.database().ref('bambooflatchatham');
     locationRef.on('value', (snapshot) => {
       snapshot.forEach((location) => {
         const newLat = location.val().latitude;
@@ -33,28 +33,28 @@ const BambooflatChatham = (props) => {
     };
   }, []);
   const smoothUpdateLat = (newLat) => {
-    const latStep = (newLat - lat) / 200;
+    const latStep = (newLat - lat) / 100;
     let currentLat = lat;
 
-    for (let i = 1; i <= 200; i++) {
+    for (let i = 1; i <= 10; i++) {
       // eslint-disable-next-line no-loop-func
       setTimeout(() => {
         currentLat += latStep;
         setLat(currentLat);
-      }, i * 100);
+      }, i * 10);
     }
   };
 
   const smoothUpdateLng = (newLng) => {
-    const lngStep = (newLng - lng) / 200;
+    const lngStep = (newLng - lng) / 100;
     let currentLng = lng;
 
-    for (let i = 1; i <= 200; i++) {
+    for (let i = 1; i <= 10; i++) {
       // eslint-disable-next-line no-loop-func
       setTimeout(() => {
         currentLng += lngStep;
         setLng(currentLng);
-      }, i * 100);
+      }, i * 10);
     }
   };
 
