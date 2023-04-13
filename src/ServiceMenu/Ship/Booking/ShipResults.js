@@ -8,7 +8,7 @@ const ShipResults = () => {
 
     const location = useLocation();
     const { state } = location
-    const { origin, destination, departDate } = state
+    const { origin, destination, departDate, returnDate } = state
 
     const shipData = ship
       .filter((ship) =>
@@ -29,7 +29,8 @@ const ShipResults = () => {
   return (
     <>
     <Navforwithout />
-  
+
+  <div>
     <h1 className='text-2xl text-center font-semibold mt-12 '>
       {origin} <span className='text-2xl'>to</span> {destination}
     </h1>
@@ -48,6 +49,11 @@ const ShipResults = () => {
           shipData
         )}
       </div>
+    </div>
+    </div>
+
+    <div>
+
     </div>
     </>
   )
