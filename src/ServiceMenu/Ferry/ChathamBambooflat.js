@@ -11,7 +11,7 @@ const mapStyles = {
   width: '82%',
 };
 
-const Overview = (props) => {
+const ChathamBambooflat = (props) => {
   const [lat, setlat] = useState({
     lat: 11.687574,
   });
@@ -49,4 +49,4 @@ const Overview = (props) => {
 
 export default GoogleApiWrapper({
   apiKey: 'AIzaSyDnSNNGQQ8AhLEmcsXJbmz1_MVrbOz55rM',
-})(Overview);
+})(ChathamBambooflat);

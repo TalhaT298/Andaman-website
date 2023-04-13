@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import Overview from './Ferry/Overview';
 import BambooflatChatham from './Ferry/BambooflatChatham';
+import ChathamBambooflat from './Ferry/ChathamBambooflat';
 
 const Ferry = () => {
   const [selectedOption, setSelectedOption] = useState('Overview');
@@ -19,8 +19,8 @@ const Ferry = () => {
         </select>
       </div>
       <div className="mx-auto w-full h-screen items-center justify-center">
-        {selectedOption === 'Overview' && <Overview />}
         {selectedOption === 'BambooflatChatham' && <BambooflatChatham className="border-4" />}
+        {selectedOption === 'Overview' && <ChathamBambooflat />}
       </div>
     </div>
   );
