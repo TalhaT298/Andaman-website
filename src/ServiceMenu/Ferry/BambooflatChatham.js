@@ -21,9 +21,9 @@ const BambooflatChatham = (props) => {
   useEffect(() => {
     const locationRef = firebase.database().ref('bambooflatchatham');
     locationRef.on('value', (snapshot) => {
-      snapshot.forEach((location) => {
-        const newLat = location.val().latitude;
-        const newLng = location.val().longitude;
+      snapshot.forEach((bamboochat) => {
+        const newLat = bamboochat.val().latitude;
+        const newLng = bamboochat.val().longitude;
         smoothUpdateLat(newLat);
         smoothUpdateLng(newLng);
       });
