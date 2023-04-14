@@ -7,24 +7,29 @@ const FlightSearch = lazy(() => import('./Flight/FlightSearch'));
 const FlightCover = lazy(() => import('./Flight/FlightCover'));
 
 const Flights = () => {
-  //search feature
-  const [searchOriginTerm, setSearchOriginTerm] = useState('');
-  const [searchDestTerm, setSearchDestTerm] = useState('');
+  //Filter feature
+  const [currentDestinationFilter, setCurrentDestinationFilter] = useState('');
+  const [nextDestinationFilter, setNextDestinationFilter] = useState('');
 
   const flightData = flight
     .filter((airplane) =>
-      airplane.currentDestination
-        .toLowerCase()
-        .includes(searchOriginTerm.toLowerCase())
+      currentDestinationFilter === '' ||
+      airplane.currentDestination === currentDestinationFilter
     )
     .filter((airplane) =>
-      airplane.nextDestination
-        .toLowerCase()
-        .includes(searchDestTerm.toLowerCase())
+      nextDestinationFilter === '' ||
+      airplane.nextDestination === nextDestinationFilter
     )
     .map((airplane, index) => {
       return <FlightCover key={airplane.flightID} {...airplane} />;
     });
+
+  const currentDestinationOptions = Array.from(
+    new Set(flight.map((airplane) => airplane.currentDestination))
+  );
+  const nextDestinationOptions = Array.from(
+    new Set(flight.map((airplane) => airplane.nextDestination))
+  );
 
   return (
     <div className="pt-10 h-full w-auto cursor-pointer">
@@ -43,21 +48,25 @@ const Flights = () => {
         </div>
       </div>
       <FlightSearch
-        setSearchOriginTerm={setSearchOriginTerm}
-        setSearchDestTerm={setSearchDestTerm}
+        currentDestinationFilter={currentDestinationFilter}
+        nextDestinationFilter={nextDestinationFilter}
+        currentDestinationOptions={currentDestinationOptions}
+        nextDestinationOptions={nextDestinationOptions}
+        setCurrentDestinationFilter={setCurrentDestinationFilter}
+        setNextDestinationFilter={setNextDestinationFilter}
       />
-      <div className="pt-2 w-full text-center">
-        <span className="text-black text-3xl font-semibold mb-6 mx-auto w-full">
-          Search Results
-        </span>
-        {flightData.length === 0 ? (
-          <center>
-            <h1 className="my-5">No results found...</h1>
-          </center>
-        ) : (
-          flightData
-        )}
-      </div>
+        <div className="pt-2 w-full text-center">
+          <span className="text-black text-3xl font-semibold mb-6 mx-auto w-full">
+            Search Results
+          </span>
+          {flightData.length === 0 ? (
+            <center>
+              <h1 className="my-5">No results found...</h1>
+            </center>
+          ) : (
+            flightData
+          )}
+        </div>
       <BestPrices />
     </div>
   );

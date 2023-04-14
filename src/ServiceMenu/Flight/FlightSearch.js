@@ -49,8 +49,8 @@ const Options = lazy(() => import("./Options"));
 // }
 
 const FlightSearch = (props) => {
-  const [origin, setOrigin] = useState("Port Blair");
-  const [destination, setDestination] = useState("Chennai");
+  // const [origin, setOrigin] = useState("Port Blair");
+  // const [destination, setDestination] = useState("Chennai");
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -86,10 +86,6 @@ const FlightSearch = (props) => {
           <div className="font-medium text-slate-800 flex h-auto w-full my-4 mx-auto flex-row airbnbml:flex-col ml:w-auto airbnbml:w-96  xs:w-64">
             <Locations
               {...props}
-              origin={origin}
-              setOrigin={setOrigin}
-              destination={destination}
-              setDestination={setDestination}
             />
             <DepartDate />
             {twoWay && <ReturnDate />}
