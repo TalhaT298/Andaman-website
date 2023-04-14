@@ -22,12 +22,12 @@ const DepartDate = () => {
     <>
       <div
         onClick={() => setOpenDeptDate(!openDeptDate)}
-        className="bg-slate-300 h-auto w-full mx-auto px-auto flex flex-col gap-y-3 px-4 border-solid border-2 border-slate-300 ml:w-auto airbnbml:w-96  xs:w-64 py-2 airbnbml:items-center airbnbml:border-b-transparent"
+        className="h-auto w-full mx-auto px-auto flex flex-col gap-y-3 px-4 ml:w-auto airbnbml:w-96  xs:w-64 py-2 airbnbml:items-center airbnbml:border-b-transparent"
       >
-        <span className="mx-auto text-slate-600 text-sm font-normal">
+        <span className="mx-auto text-slate-500 font-bold text-xl font-mono">
           DEPART DATE
         </span>
-        <span className="font-medium text-black text-lg mx-auto">
+        <span className=" text-slate-400 font-bold text-lg mx-auto">
           {`${format(startingDate[0].startDate, "dd/MM/yyyy")}`}
         </span>
         <Modal

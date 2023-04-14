@@ -50,7 +50,7 @@ const FlightCover = (props) => {
           onClick={() => {
             setShowFlightInfo(!showFlightInfo);
           }}
-          className="flex-row rounded-lg bg-slate-900 w-auto py-8 h-auto drop-shadow-2xl shadow-black shadow-lg transition:origin-center hover:ease-in-out hover:scale-110 transition:duration-1000 transition-transform"
+          className="flex-row rounded-lg bg-gray-700 w-auto py-8 h-auto drop-shadow-2xl shadow-black shadow-lg transition:origin-center hover:ease-in-out hover:scale-110 transition:duration-1000 transition-transform"
         >
           <div className="text-slate-200 flex items-center justify-between mx-auto py-auto px-4 text-center px-auto w-auto xs:flex-col xs:py-2 xs:gap-y-3">
             <span className="uppercase">{props.flightName}</span>
@@ -71,8 +71,8 @@ const FlightCover = (props) => {
         </div>
 
         {showFlightInfo && (
-          <div className="mx-auto h-64 w-auto bg-slate-900 my-6 text-white px-auto rounded-lg">
-            <div className="h-60 w-auto bg-slate-900 mx-auto px-auto rounded-lg">
+          <div className="mx-auto h-64 w-auto bg-slate-500 my-6 text-white px-auto rounded-lg">
+            <div className="h-60 w-auto bg-slate-500 mx-auto px-auto rounded-lg">
               <div className="flex flex-col h-60 w-full justify-between mx-auto py-3 p-1 text-center px-auto">
                 <div className="flex flex-row px-auto">
                   <div className="flex flex-col mx-auto py-1 w-36 px-auto">
@@ -105,7 +105,7 @@ const FlightCover = (props) => {
                     <span className="text-xl uppercase font-medium py-1 my-auto">
                       {props.departureTime}
                     </span>
-                    <span className="text-sm uppercase font-thin py-1">
+                    <span className="text-sm uppercase font-thin py-1 tracking-widest">
                       {props.currentDestination}
                     </span>
                   </div>
@@ -113,7 +113,7 @@ const FlightCover = (props) => {
                     <span className="text-base uppercase font-thin py-1">
                       {props.flightDuration}
                     </span>
-                    <span className="text-xs uppercase font-thin py-1">
+                    <span className="text-xs uppercase font-thin py-1 tracking-widest">
                       {props.flightInterval}
                     </span>
                   </div>
@@ -127,7 +127,7 @@ const FlightCover = (props) => {
                   </div>
                 </div>
                 <div className="flex flex-col mx-auto py-1 w-28">
-                  <button className="pb-1 rounded-sm h-10 bg-gradient-to-br to-amber-400 from-pink-500 hover:bg-gradient-to-br hover:to-amber-600 hover:from-pink-600">
+                  <button className="pb-1 rounded-sm h-10 bg-pink-800 text-white">
                     Book Now
                   </button>
                 </div>

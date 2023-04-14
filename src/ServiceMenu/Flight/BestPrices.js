@@ -12,7 +12,7 @@ const BestPrices = () => {
   return (
     <>
       <div className="mt-8 w-full text-center">
-        <span className="text-black text-3xl font-semibold mb-6 mx-auto w-full">
+        <span className="text-slate-400 text-3xl font-bold font-mono mb-6 mx-auto w-full">
           Best Flight Rates
         </span>
         {bestPrices}

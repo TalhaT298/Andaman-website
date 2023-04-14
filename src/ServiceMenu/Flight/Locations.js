@@ -21,10 +21,11 @@ const Locations = ( {currentDestinationFilter, nextDestinationFilter, setCurrent
 
   return (
     <>
-      <div className='bg-slate-300 h-auto w-full flex flex-col gap-y-3 px-4 border-solid border-2 border-slate-300 mx-auto px-auto ml:w-auto airbnbml:w-96  xs:w-64 py-2 airbnbml:items-center airbnbml:border-b-transparent'>
-        <span className='text-slate-600 text-sm font-normal'>FROM</span>
+      <div className='h-auto w-full flex flex-col gap-y-3 px-4 mx-auto px-auto ml:w-auto airbnbml:w-96  xs:w-64 py-2 airbnbml:items-center airbnbml:border-b-transparent'>
+        <span className='text-slate-500 font-bold text-xl font-mono'>FROM</span>
         <select
             id="currentDestinationFilter"
+            className='bg-transparent text-slate-400 font-bold tracking-widest'
             value={currentDestinationFilter}
             onChange={(e) => setCurrentDestinationFilter(e.target.value)}
           >
@@ -35,10 +36,11 @@ const Locations = ( {currentDestinationFilter, nextDestinationFilter, setCurrent
             ))}
           </select>
       </div>
-      <div className='bg-slate-300 h-auto w-full flex flex-col gap-y-3 px-4 border-solid border-2 border-slate-300 mx-auto px-auto ml:w-auto airbnbml:w-96  xs:w-64 py-2 airbnbml:items-center airbnbml:border-b-transparent'>
-        <span className='text-slate-600 text-sm font-normal'>TO</span>
+      <div className='h-auto w-full flex flex-col gap-y-3 px-4 mx-auto px-auto ml:w-auto airbnbml:w-96  xs:w-64 py-2 airbnbml:items-center airbnbml:border-b-transparent'>
+        <span className='text-slate-500 font-bold text-xl font-mono'>TO</span>
         <select
             id="nextDestinationFilter"
+            className='bg-transparent text-slate-400 font-bold tracking-widest'
             value={nextDestinationFilter}
             onChange={(e) => setNextDestinationFilter(e.target.value)}
           >

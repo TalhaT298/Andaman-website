@@ -65,7 +65,7 @@ const FlightSearch = (props) => {
           onClick={() => {
             setTwoWay(false);
           }}
-          className="font-medium border-solid border-2 px-1 py-1 hover:bg-rose-500 rounded-md hover:border-none"
+          className="font-lg text-slate-400 border font-mono border-2 px-4 py-2 hover:bg-white  hover:text-slate-800 cursor-pointer"
         >
           One Way
         </span>
@@ -73,7 +73,7 @@ const FlightSearch = (props) => {
           onClick={() => {
             setTwoWay(true);
           }}
-          className="font-medium border-solid border-2 px-1 py-1 hover:bg-rose-500 rounded-md hover:border-none"
+          className="font-lg text-slate-400 border font-mono border-2 px-4 py-2 hover:bg-white  hover:text-slate-800 cursor-pointer"
         >
           Two Way
         </span>
@@ -83,23 +83,13 @@ const FlightSearch = (props) => {
       </div>
       <div>
         <form onSubmit={handleSubmit}>
-          <div className="font-medium text-slate-800 flex h-auto w-full my-4 mx-auto flex-row airbnbml:flex-col ml:w-auto airbnbml:w-96  xs:w-64">
+          <div className="font-medium text-slate-800 flex h-auto w-full my-4 mx-auto flex-row airbnbml:flex-col ml:w-auto airbnbml:w-96  xs:w-64 border border-gray-600">
             <Locations
               {...props}
             />
             <DepartDate />
             {twoWay && <ReturnDate />}
-
             <Options />
-
-            <div className="bg-gradient-to-br to-amber-400 from-pink-500 hover:bg-gradient-to-br hover:to-amber-600 hover:from-pink-600 hover:text-white h-auto w-full flex flex-col gap-y-3 border-solid border-2 border-slate-300 mx-auto px-2 px-auto ml:w-auto airbnbml:w-96  xs:w-64 py-2 airbnbml:items-center">
-              <button
-                type="submit"
-                className="text-center text-white text-xl font-medium font-Nunito_Sans mx-auto my-auto w-full h-auto"
-              >
-                Search
-              </button>
-            </div>
           </div>
         </form>
       </div>

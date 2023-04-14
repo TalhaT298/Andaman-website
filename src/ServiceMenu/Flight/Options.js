@@ -27,16 +27,16 @@ const Options = () => {
   const [passengerClass, setPassengerClass] = useState('ECONOMY');
 
   return (
-    <div className="bg-slate-300 h-auto w-full flex flex-col gap-y-3 px-4 border-solid border-2 border-slate-300 mx-auto px-auto ml:w-auto airbnbml:w-96  xs:w-64 py-2 airbnbml:items-center airbnbml:border-b-transparent">
+    <div className="h-auto w-full flex flex-col gap-y-3 px-4 mx-auto px-auto ml:w-auto airbnbml:w-96  xs:w-64 py-2 airbnbml:items-center airbnbml:border-b-transparent">
       <span
         onClick={() => setOpenTravellerInfo(!openTravellerInfo)}
-        className="mx-auto text-slate-600 text-sm font-normal"
+        className="mx-auto text-slate-500 font-bold text-xl font-mono"
       >
         TRAVELLER & CLASS
       </span>
       <span
         onClick={() => setOpenTravellerInfo(!openTravellerInfo)}
-        className="font-medium text-black text-lg mx-auto"
+        className=" text-slate-400 font-bold text-lg mx-auto"
       >
         {`${
           travellerInfo.adult + travellerInfo.children + travellerInfo.infant
@@ -45,7 +45,7 @@ const Options = () => {
       </span>
       <span
         onClick={() => setOpenTravellerInfo(!openTravellerInfo)}
-        className="mx-auto text-slate-800 text-xs"
+        className="mx-auto text-slate-200 tracking-widest text-xs"
       >
         {passengerClass}
       </span>
@@ -128,7 +128,7 @@ const Options = () => {
                 setPassengerClass('ECONOMY');
                 setOpenTravellerInfo(false);
               }}
-              className="hover:cursor-pointer"
+              className="text-slate-200 hover:cursor-pointer"
             >
               Economy
             </span>

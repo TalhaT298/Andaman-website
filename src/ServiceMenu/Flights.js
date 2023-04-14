@@ -25,15 +25,15 @@ const Flights = () => {
     });
 
   return (
-    <div className="pt-10 h-full w-full lg:px-5 px-20">
+    <div className="pt-10 h-full w-full lg:px-5 px-20 bg-slate-900 mt-6">
       <div className="flex">
         <div className="flex-col mx-auto mt-5 mb-10 space-y-5">
-          <p className="text-3xl font-Nunito_Sans font-semibold text-slate-800">
+          <p className="text-3xl font-Nunito_Sans font-semibold text-slate-400">
             🤫 Lowest Price's Here 😉 🚀
           </p>
           <Link to="/FlightContactForm" target="_blank">
             <div>
-              <p className="text-base font-Nunito_Sans font-semibold text-slate-800 hover:underline hover:italic">
+              <p className="text-base font-Nunito_Sans font-semibold text-slate-300 hover:underline hover:italic">
                 If you don't find the flight you're looking for, then click here
               </p>
             </div>
@@ -47,7 +47,7 @@ const Flights = () => {
         setNextDestinationFilter={setNextDestinationFilter}
       />
         <div className="pt-2 w-full text-center">
-          <span className="text-black text-3xl font-semibold mb-6 mx-auto w-full">
+          <span className="text-slate-400 text-3xl font-bold font-mono mb-6 mx-auto w-full">
             Search Results
           </span>
           {flightData.length === 0 ? (
