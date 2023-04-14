@@ -16,8 +16,8 @@ const Locations = ( {currentDestinationFilter, nextDestinationFilter, setCurrent
   const nextDestinationOptions = Array.from(
     new Set(flight.map((airplane) => airplane.nextDestination))
   );
-  console.log(currentDestinationOptions)
-  console.log(nextDestinationOptions)
+  // console.log(currentDestinationOptions)
+  // console.log(nextDestinationOptions)
 
   return (
     <>
@@ -28,7 +28,6 @@ const Locations = ( {currentDestinationFilter, nextDestinationFilter, setCurrent
             value={currentDestinationFilter}
             onChange={(e) => setCurrentDestinationFilter(e.target.value)}
           >
-            <option value="">All</option>
             {currentDestinationOptions.map((destination) => (
               <option key={destination} value={destination}>
                 {destination}
@@ -43,7 +42,6 @@ const Locations = ( {currentDestinationFilter, nextDestinationFilter, setCurrent
             value={nextDestinationFilter}
             onChange={(e) => setNextDestinationFilter(e.target.value)}
           >
-            <option value="">All</option>
             {nextDestinationOptions.map((destination) => (
               <option key={destination} value={destination}>
                 {destination}

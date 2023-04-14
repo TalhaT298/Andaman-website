@@ -24,15 +24,8 @@ const Flights = () => {
       return <FlightCover key={airplane.flightID} {...airplane} />;
     });
 
-  const currentDestinationOptions = Array.from(
-    new Set(flight.map((airplane) => airplane.currentDestination))
-  );
-  const nextDestinationOptions = Array.from(
-    new Set(flight.map((airplane) => airplane.nextDestination))
-  );
-
   return (
-    <div className="pt-10 h-full w-auto cursor-pointer">
+    <div className="pt-10 h-full w-full lg:px-5 px-20">
       <div className="flex">
         <div className="flex-col mx-auto mt-5 mb-10 space-y-5">
           <p className="text-3xl font-Nunito_Sans font-semibold text-slate-800">
@@ -50,8 +43,6 @@ const Flights = () => {
       <FlightSearch
         currentDestinationFilter={currentDestinationFilter}
         nextDestinationFilter={nextDestinationFilter}
-        currentDestinationOptions={currentDestinationOptions}
-        nextDestinationOptions={nextDestinationOptions}
         setCurrentDestinationFilter={setCurrentDestinationFilter}
         setNextDestinationFilter={setNextDestinationFilter}
       />
