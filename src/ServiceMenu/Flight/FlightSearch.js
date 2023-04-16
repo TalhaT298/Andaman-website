@@ -59,13 +59,13 @@ const FlightSearch = (props) => {
   const [twoWay, setTwoWay] = useState(false);
 
   return (
-    <div className="flex flex-col h-full w-full my-6">
+    <div className="flex flex-col h-full w-full lg:my-0 my-6">
       <div className="flex gap-6 mx-auto">
         <span
           onClick={() => {
             setTwoWay(false);
           }}
-          className="font-lg text-slate-400 border font-mono border-2 px-4 py-2 hover:bg-white  hover:text-slate-800 cursor-pointer"
+          className="font-lg text-slate-400 font-mono border-2 px-4 py-2 hover:bg-white  hover:text-slate-800 cursor-pointer"
         >
           One Way
         </span>
@@ -73,7 +73,7 @@ const FlightSearch = (props) => {
           onClick={() => {
             setTwoWay(true);
           }}
-          className="font-lg text-slate-400 border font-mono border-2 px-4 py-2 hover:bg-white  hover:text-slate-800 cursor-pointer"
+          className="font-lg text-slate-400 border-2  font-monopx-4 px-4 py-2 hover:bg-white  hover:text-slate-800 cursor-pointer"
         >
           Two Way
         </span>
@@ -83,7 +83,7 @@ const FlightSearch = (props) => {
       </div>
       <div>
         <form onSubmit={handleSubmit}>
-          <div className="font-medium text-slate-800 flex h-auto w-full my-4 mx-auto flex-row airbnbml:flex-col ml:w-auto airbnbml:w-96  xs:w-64 border border-gray-600">
+          <div className="font-medium text-slate-800 flex h-auto w-full my-4 mx-auto flex-row airbnbml:flex-col ml:w-auto airbnbml:w-96  xs:w-60 border border-gray-600">
             <Locations
               {...props}
             />

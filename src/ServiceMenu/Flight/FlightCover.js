@@ -52,9 +52,11 @@ const FlightCover = (props) => {
           }}
           className="flex-row rounded-lg bg-gray-700 w-auto py-8 h-auto drop-shadow-2xl shadow-black shadow-lg transition:origin-center hover:ease-in-out hover:scale-110 transition:duration-1000 transition-transform"
         >
-          <div className="text-slate-200 flex items-center justify-between mx-auto py-auto px-4 text-center px-auto w-auto xs:flex-col xs:py-2 xs:gap-y-3">
-            <span className="uppercase">{props.flightName}</span>
-            <span>{props.travelRoute}</span>
+          <div className="text-slate-200 flex items-center justify-between mx-auto py-auto lg:px-0 px-4 text-center px-auto w-auto xs:flex-col xs:py-2 xs:gap-y-3">
+            <div className='flex'>
+              <span className="uppercase lg:mr-10 mr-20">{props.flightName}</span>
+              <span>{props.travelRoute}</span>
+            </div>
             <span>{`${format(date[0].startDate, 'dd/MM/yyyy')}`}</span>
 
             <div className="flex gap-2">
