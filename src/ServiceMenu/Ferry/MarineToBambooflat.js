@@ -13,9 +13,9 @@ const mapStyles = {
   // borderWidth: '5px'
 };
 
-const BambooflatChatham = (props) => {
-  const [lat, setLat] = useState(11.7056);
-  const [lng, setLng] = useState(92.7158);
+const MarineToBambooflat = (props) => {
+  const [lat, setLat] = useState(11.6860);
+  const [lng, setLng] = useState(92.7218);
 
 
   useEffect(() => {
@@ -64,7 +64,7 @@ const BambooflatChatham = (props) => {
         google={props.google}
         zoom={14}
         style={mapStyles}
-        center={{ lat : 11.696603, lng : 92.719163 }}
+        center={{ lat : 11.689074, lng : 92.727586 }}
       >
         <Marker icon={Boat} position={{lat: lat, lng: lng}} />
       </Map>
@@ -74,4 +74,4 @@ const BambooflatChatham = (props) => {
 
 export default GoogleApiWrapper({
   apiKey: 'AIzaSyDnSNNGQQ8AhLEmcsXJbmz1_MVrbOz55rM',
-})(BambooflatChatham);
+})(MarineToBambooflat);
