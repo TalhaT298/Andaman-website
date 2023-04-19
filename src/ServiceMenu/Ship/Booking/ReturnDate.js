@@ -45,7 +45,7 @@ const ReturnDate = ( {setReturnDate} ) => {
             onChange={(item) => setEndingDate([item.selection])}
             moveRangeOnFirstSelection={false}
             ranges={endingDate}
-            className='absolute -bottom-8 -mx- left-1/2 airbnbml:left-56 airbnbml:-bottom-16 sm:-bottom-16 sm:left-2'
+            className='absolute -bottom-8 -mx- left-1/2 airbnbml:left-56 airbnbml:-bottom-16 sm:-bottom-[25rem] sm:left-16'
           />
         </Modal>
         <FontAwesomeIcon icon={faCalendarDays} className='text-slate-400' />

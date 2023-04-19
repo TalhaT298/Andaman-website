@@ -22,6 +22,8 @@ const style = {
 };
 
 const ShipCover = (props) => {
+  const { tripSummaries, setTripSummaries } = props
+
   const [date, setDate] = useState([
     {
       startDate: new Date(),
@@ -33,18 +35,66 @@ const ShipCover = (props) => {
   const navigate = useNavigate()
   const location = useLocation();
   const { state } = location
-  const { origin, destination, departDate, travellerDetails } = state
+  const { origin, destination, departDate, returnDate, travellerDetails } = state
 
   const [open, setOpen] = useState(false)
   const [showFlightInfo, setShowFlightInfo] = useState(false);
 
+  //for two way
+  const returnOrigin = destination
+  const returnDestination = origin
 
+  //select option (premium)
   const [selectedOption, setSelectedOption] = useState('');
   const handleOptionChange = (event) => {
     setSelectedOption(event.target.value);
-  };
-
+  };  
+  
+  //proceed to traveller details
   const proceedHandler = () => {
+    setOpen(false)  
+    
+    let object = {
+      origin,
+      destination,
+      returnOrigin,
+      returnDestination,
+      departDate,
+      returnDate,
+      shipName: props.shipName,
+      shipClass: selectedOption,
+      departTime: props.departureTime,
+      arrivalTime: props.arrivalTime,
+      adultFare: 1450,
+      infantFare: 0,
+      travellerDetails
+    }
+    setTripSummaries(prev => [...prev, object])       
+    
+  }
+
+  //navigate if
+  if(returnDate){
+    if(tripSummaries.length === 2){        
+      navigate('/travellerDetails', { 
+        state : {
+          origin, 
+          destination, 
+          departDate ,
+          shipName: props.shipName,
+          shipClass: selectedOption,
+          departTime: props.departureTime,
+          arrivalTime: props.arrivalTime,
+          travellerDetails,
+          tripSummaries,
+          adultFare: 1450,
+          infantFare: 0
+        } 
+      })
+    }
+  }
+  else{
+    if(tripSummaries.length === 1){
     navigate('/travellerDetails', { 
       state : {
         origin, 
@@ -55,11 +105,12 @@ const ShipCover = (props) => {
         departTime: props.departureTime,
         arrivalTime: props.arrivalTime,
         travellerDetails,
+        tripSummaries,
         adultFare: 1450,
         infantFare: 0
       } 
     })
-  }
+  }}  
 
   return (
     <>
@@ -136,9 +187,9 @@ const ShipCover = (props) => {
                     onClose={() => setOpen(false)}
                     aria-labelledby="modal-modal-title"
                     aria-describedby="modal-modal-description"
-                    className=''
+                    className='overflow-scroll'
                   >
-                  <Paper sx={style} className='text-center'>
+                  <Paper sx={style} className='text-center '>
                     <img
                       src="https://tourtravelandaman.com/images/GreenOcean.jpg"
                       alt="Green Ocean"

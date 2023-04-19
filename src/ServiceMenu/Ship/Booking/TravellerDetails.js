@@ -7,7 +7,7 @@ const TravellerDetails = () => {
   const location = useLocation();
   const { state } = location
   const { 
-    origin, destination, departDate, shipName, shipClass, departTime, arrivalTime, travellerDetails, adultFare, infantFare
+    origin, destination, departDate, shipName, shipClass, departTime, arrivalTime, travellerDetails, adultFare, infantFare, tripSummaries
   } = state  
 
   //calculating fares
@@ -742,6 +742,48 @@ const TravellerDetails = () => {
     setContactDetails(object)
   }
 
+  //display tripSummaries
+  const tripData = tripSummaries.map((trip, index) => {
+    return <div key={index}>
+
+    <div className='flex gap-3 mt-4 mb-2 text-[15px]'>
+      <h1 className='border-b border-black font-bold'>Trip-{index+1}:</h1>
+      <h1 className='font-bold'>{index === 1 ? trip.returnOrigin : trip.origin} -&gt; {index === 1 ? trip.returnDestination : trip.destination}</h1>  
+    </div>
+
+    <div className='flex flex-col gap-1 text-sm ml-1'>
+    <div className='flex gap-2'>
+      <h1>Date: </h1>
+      <h1 className='font-bold'>{index === 1 ? trip.returnDate.slice(3) : trip.departDate.slice(3)}</h1>  
+    </div>
+
+    <div className='flex gap-2'>
+      <h1>Time: </h1>
+      <h1 className='font-bold'>{trip.departTime} to {trip.arrivalTime}</h1>  
+    </div>
+
+    <div className='flex gap-2'>
+      <h1>Ferry: </h1>
+      <h1 className='font-bold'>{trip.shipName}(<span className='italic font-normal'>{trip.shipClass} Class</span>)</h1>  
+    </div>
+
+    <div className='flex flex-wrap gap-x-2'>
+      <h1>Total Fare: </h1>
+      <h1 className='font-bold'>
+      {trip.travellerDetails.adult} x Adult(₹ {trip.adultFare})
+      {trip.travellerDetails.infant !== 0 ? 
+        <span> + {trip.travellerDetails.infant} x Infant(₹ {trip.infantFare})
+        </span> 
+        : 
+        "" 
+      }
+      <span> = ₹ {(trip.travellerDetails.adult * trip.adultFare) + (trip.travellerDetails.adult * trip.infantFare)}</span>
+      </h1>  
+    </div>
+    </div> 
+    </div>                    
+  })
+
   //handle submit
   const handleSubmit = (e) => {
     e.preventDefault()
@@ -777,6 +819,7 @@ const TravellerDetails = () => {
         departTime,
         arrivalTime,
         travellerDetails,
+        tripSummaries,
         adultFare: 1450,
         infantFare: 0,
         adultDetails,
@@ -889,8 +932,7 @@ const TravellerDetails = () => {
             </form>
 
             <div className="w-[50%] md:w-full lg:w-[45%] xl:w-[50%] p-8 ">
-
-              <h1 className="text-[26px] text-[#699c78] md:text-2xl font-Ubuntu_Mono font-semibold">
+              {/* <h1 className="text-[26px] text-[#699c78] md:text-2xl font-Ubuntu_Mono font-semibold">
                 Trip Summary
               </h1> 
 
@@ -928,11 +970,21 @@ const TravellerDetails = () => {
                 <span> = ₹ {totalFare}</span>
                 </h1>  
               </div>
-              </div>
-                
-                
+              </div> */}
+
+            <h1 className="text-[26px] text-[#699c78] md:text-2xl font-Ubuntu_Mono font-semibold">
+              Trip Summary
+            </h1>  
+            {
+              tripData.length === 0 ? 
+              <h1>Please select seats to proceed with booking.</h1> 
+              : 
+              tripData
+            }                
 
             </div>
+
+
           </div>
         </div>        
       </div>

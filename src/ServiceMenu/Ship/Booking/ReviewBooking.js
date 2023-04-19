@@ -13,12 +13,13 @@ const ReviewBooking = () => {
     const location = useLocation();
     const { state } = location
     const { 
-      origin, destination, departDate, 
+      origin, destination, departDate, returnDate,
       shipName, shipClass, 
       departTime, arrivalTime, 
       adultFare, infantFare,
       adultDetails, infantDetails, 
-      travellerDetails, contactDetails
+      travellerDetails, contactDetails,
+      tripSummaries
     } 
     = state 
 
@@ -26,6 +27,10 @@ const ReviewBooking = () => {
     const totalAdultFare = travellerDetails.adult * adultFare
     const totalInfantFare = travellerDetails.adult * infantFare
     const totalFare = totalAdultFare + totalInfantFare
+    let totalTripFare = totalFare
+    if(tripSummaries.length === 2){
+      totalTripFare = 2 * totalFare
+    }
 
     //display adults
     const adultsData = adultDetails.map((adult, index) => 
@@ -693,12 +698,90 @@ const ReviewBooking = () => {
 
         </div>
       </div>
-    )    
+    ) 
+    
+    //display tripSummaries
+  const tripData = tripSummaries.map((trip, index) => {
+    return <div key={index}>
 
-    const handleSubmit = (e) => {
-      e.preventDefault()
-      alert('Paid!')
-    }
+    <div className='flex gap-3 mt-4 mb-2 text-[15px]'>
+      <h1 className='border-b border-black font-bold'>Trip-{index+1}:</h1>
+      <h1 className='font-bold'>{index === 1 ? trip.returnOrigin : trip.origin} -&gt; {index === 1 ? trip.returnDestination : trip.destination}</h1>  
+    </div>
+
+    <div className='flex flex-col gap-1 text-sm ml-1'>
+    <div className='flex gap-2'>
+      <h1>Date: </h1>
+      <h1 className='font-bold'>{index === 1 ? trip.returnDate.slice(3) : trip.departDate.slice(3)}</h1>  
+    </div>
+
+    <div className='flex gap-2'>
+      <h1>Time: </h1>
+      <h1 className='font-bold'>{trip.departTime} to {trip.arrivalTime}</h1>  
+    </div>
+
+    <div className='flex gap-2'>
+      <h1>Ferry: </h1>
+      <h1 className='font-bold'>{trip.shipName}(<span className='italic font-normal'>{trip.shipClass} Class</span>)</h1>  
+    </div>
+
+    <div className='flex flex-wrap gap-x-2'>
+      <h1>Total Fare: </h1>
+      <h1 className='font-bold'>
+      {trip.travellerDetails.adult} x Adult(₹ {trip.adultFare})
+      {trip.travellerDetails.infant !== 0 ? 
+        <span> + {trip.travellerDetails.infant} x Infant(₹ {trip.infantFare})
+        </span> 
+        : 
+        "" 
+      }
+      <span> = ₹ {(trip.travellerDetails.adult * trip.adultFare) + (trip.travellerDetails.adult * trip.infantFare)}</span>
+      </h1>  
+    </div>
+    </div> 
+    </div>                    
+  })
+
+  //display payment details
+  const paymentData = tripSummaries.map((trip, index) => {
+    return <div key={index} className='text-sm mt-4'>
+    <div>
+      <h1 className='font-bold'>Trip-{index+1}: [{index === 1 ? trip.returnOrigin : trip.origin} -&gt; {index === 1 ? trip.returnDestination : trip.destination}]</h1>
+      <h1 className='font-semibold'>{trip.shipName}</h1>
+      <h1>{trip.departTime} | {index === 1 ? trip.returnDate.slice(3) : trip.departDate.slice(3)}</h1>
+    </div>
+
+    <div className='flex justify-between flex-wrap gap-y-2 mt-1'>
+      <div>
+        <h1 className='font-semibold'>Passengers</h1>
+        <h1>Adult -&gt; {travellerDetails.adult}</h1>
+        <h1>Infant -&gt; {travellerDetails.infant}</h1>
+      </div>
+      <div>
+        <h1 className='font-semibold'>Price</h1>
+        <h1>₹{adultFare}</h1>
+        <h1>₹{infantFare}</h1>
+      </div>
+      <div>
+        <h1 className='font-semibold'>Convenience Fee</h1>
+        <h1>₹0</h1>
+        <h1>₹0</h1>
+      </div>
+      <div>
+        <h1 className='font-semibold'>Sum</h1>
+        <h1>₹{totalAdultFare}</h1>
+        <h1>₹{totalInfantFare}</h1>
+      </div>
+    </div>   
+
+  </div>
+  })
+
+
+  const handleSubmit = (e) => {
+    e.preventDefault()
+    alert('Paid!')
+  }
 
   return (
     <>
@@ -766,7 +849,7 @@ const ReviewBooking = () => {
                   required
                 />
               </div> 
-              <div className="flex flex-col gap-1 mt-5">
+              <div className="flex flex-col gap-1 mt-5 mb-10">
               <label htmlFor='contact-altphone' className='font-semibold'>Alternate Mobile Number</label>
                 <input
                   type="number"
@@ -778,101 +861,37 @@ const ReviewBooking = () => {
                 />                
               </div>                 
 
-              {/*Payment details */}
-              
-              <div className='text-base mt-10'>
-                <div>
-                  <h1 className='font-bold'>Trip 1: {origin} -&gt; {destination}</h1>
-                  <h1 className='font-semibold'>{shipName}</h1>
-                  <h1>{departTime} | {departDate}</h1>
-                </div>
-
-                <div className='flex justify-between flex-wrap gap-y-2 mt-4'>
-                  <div>
-                    <h1 className='font-bold'>Passengers</h1>
-                    <h1>Adult -&gt; {travellerDetails.adult}</h1>
-                    <h1>Infant -&gt; {travellerDetails.infant}</h1>
-                  </div>
-                  <div>
-                    <h1 className='font-bold'>Price</h1>
-                    <h1>₹{adultFare}</h1>
-                    <h1>₹{infantFare}</h1>
-                  </div>
-                  <div>
-                    <h1 className='font-bold'>Convenience Fee</h1>
-                    <h1>₹0</h1>
-                    <h1>₹0</h1>
-                  </div>
-                  <div>
-                    <h1 className='font-bold'>Sum</h1>
-                    <h1>₹{totalAdultFare}</h1>
-                    <h1>₹{totalInfantFare}</h1>
-                  </div>
-                </div>
-
-                <div className='mt-5 flex'>
-                  <h1 className='text-lg font-semibold'>Grand Total</h1>
-                  <h1 className='text-lg font-semibold ml-auto'>₹{totalFare}</h1>                  
-                </div>
-                <hr className='border-t border-gray-300' />
-
-              </div>       
+              {/*Payment details */}              
+              {paymentData}
+              <div className='mt-6 flex'>
+                <h1 className='text-lg font-semibold'>Grand Total</h1>
+                <h1 className='text-lg font-semibold ml-auto'>₹{totalTripFare}</h1>                  
+              </div>
+              <hr className='border-t border-gray-300' />      
               
               <button
                 type="submit"
                 className="bg-[#408c57] shadow-2xl hover:bg-[#51795d]
                   text-white text-[21px] md:text-[16px] tracking-wider font-Ubuntu_Mono font-semibold rounded-full
-                  p-2 w-full mt-10 mb-4"
+                  p-2 w-full mt-8 mb-4"
               >                
-                Pay Now (₹{totalFare})
+                Pay Now (₹{totalTripFare})
               </button>
             </form>
 
             <div className="w-[50%] md:w-full lg:w-[45%] xl:w-[50%] p-8 ">
 
-              <h1 className="text-[26px] text-[#699c78] md:text-2xl font-Ubuntu_Mono font-semibold">
-                Trip Summary
-              </h1> 
-
-              <div className='flex gap-3 mt-4 mb-2 text-[15px]'>
-                <h1 className='border-b border-black font-bold'>Trip-1:</h1>
-                <h1 className='font-bold'>{origin} -&gt; {destination}</h1>  
-              </div>
-
-              <div className='flex flex-col gap-1 text-sm ml-1'>
-              <div className='flex gap-2'>
-                <h1>Date: </h1>
-                <h1 className='font-bold'>{departDate.slice(3)}</h1>  
-              </div>
-
-              <div className='flex gap-2'>
-                <h1>Time: </h1>
-                <h1 className='font-bold'>{departTime} to {arrivalTime}</h1>  
-              </div>
-
-              <div className='flex gap-2'>
-                <h1>Ferry: </h1>
-                <h1 className='font-bold'>{shipName}(<span className='italic font-normal'>{shipClass} Class</span>)</h1>  
-              </div>
-
-              <div className='flex flex-wrap gap-x-2'>
-                <h1>Total Fare: </h1>
-                <h1 className='font-bold'>
-                {travellerDetails.adult} x Adult(₹ {adultFare})
-                {travellerDetails.infant !== 0 ? 
-                  <span> + {travellerDetails.infant} x Infant(₹ {infantFare})
-                  </span> 
-                  : 
-                  "" 
-                }
-                <span> = ₹ {totalFare}</span>
-                </h1>  
-              </div>
-              </div>
-                
-                
-
+            <h1 className="text-[26px] text-[#699c78] md:text-2xl font-Ubuntu_Mono font-semibold">
+              Trip Summary
+            </h1>  
+            {
+              tripData.length === 0 ? 
+              <h1>Please select seats to proceed with booking.</h1> 
+              : 
+              tripData
+            }  
             </div>
+
           </div>
         </div>
 
