@@ -2,8 +2,9 @@ import React, { useState, lazy } from 'react';
 import { Link } from 'react-router-dom';
 import flight from '../Data/Flight-Section/flight';
 
+import FlightSearch from './Flight/FlightSearch';
+
 const BestPrices = lazy(() => import('./Flight/BestPrices'));
-const FlightSearch = lazy(() => import('./Flight/FlightSearch'));
 const FlightCover = lazy(() => import('./Flight/FlightCover'));
 
 const Flights = () => {
@@ -29,7 +30,7 @@ const Flights = () => {
       <div className="flex">
         <div className="flex-col mx-auto mt-5 mb-10 space-y-5">
           <p className="lg:text-2xl text-3xl font-Nunito_Sans font-semibold text-slate-400">
-            🤫 Lowest Price's Here 😉 🚀
+            🤫 Lowest Prices Here 🚀
           </p>
           <Link to="/FlightContactForm" target="_blank">
             <div>
@@ -46,18 +47,18 @@ const Flights = () => {
         setCurrentDestinationFilter={setCurrentDestinationFilter}
         setNextDestinationFilter={setNextDestinationFilter}
       />
-        <div className="pt-2 w-full text-center">
-          <span className="text-slate-400 text-3xl font-bold font-mono mb-6 mx-auto w-full">
-            Search Results
-          </span>
-          {flightData.length === 0 ? (
-            <center>
-              <h1 className="my-5">No results found...</h1>
-            </center>
-          ) : (
-            flightData
-          )}
-        </div>
+      <div className="pt-2 w-full text-center">
+        <span className="text-slate-400 text-3xl font-bold font-mono mb-6 mx-auto w-full">
+          Search Results
+        </span>
+        {flightData.length === 0 ? (
+          <center>
+            <h1 className="my-5">No results found...</h1>
+          </center>
+        ) : (
+          flightData
+        )}
+      </div>
       <BestPrices />
     </div>
   );
