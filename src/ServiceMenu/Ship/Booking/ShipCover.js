@@ -13,12 +13,11 @@ const style = {
   position: 'absolute',
   top: '50%',
   left: '50%',
-  transform: 'translate(-50%, -50%)',
-  width: '32rem',
+  transform: 'translate(-50%, -50%)',  
   bgcolor: 'background.paper',
   border: '1px solid #000',
   boxShadow: 24,
-  p: 4,
+  p: 3,
 };
 
 const ShipCover = (props) => {
@@ -39,6 +38,18 @@ const ShipCover = (props) => {
 
   const [open, setOpen] = useState(false)
   const [showFlightInfo, setShowFlightInfo] = useState(false);
+
+  //display images
+  let shipImage = ""
+  switch(props.shipName){
+    case "Makruzz Pearl" : shipImage = "https://tourtravelandaman.com/images/SeaLinkCruise.jpg"
+              break
+    case "Green Ocean 1" : shipImage = "https://tourtravelandaman.com/images/GreenOcean.jpg"
+              break
+    case "Nautika Lite" : shipImage = "https://tourtravelandaman.com/images/Nautica.jpg"
+              break
+    default : shipImage = ""
+  }
 
   //for two way
   const returnOrigin = destination
@@ -189,11 +200,11 @@ const ShipCover = (props) => {
                     aria-describedby="modal-modal-description"
                     className='overflow-scroll'
                   >
-                  <Paper sx={style} className='text-center '>
+                  <Paper sx={style} className='mt-3 sm:text-sm text-center w-[45%] xl:w-[60%] sm:w-full md:w-[80%]'>
                     <img
-                      src="https://tourtravelandaman.com/images/GreenOcean.jpg"
-                      alt="Green Ocean"
-                      className="object-center h-[20rem] w-[30rem] mx-auto"
+                      src={shipImage}
+                      alt={props.shipName}
+                      className="object-center mx-auto w-[80%]"
                     />
 
                     <div className=''>
@@ -216,7 +227,7 @@ const ShipCover = (props) => {
                       </div>
                     </div>
 
-                  <div className='mt-4'>
+                  <div className='mt-5'>
                     <h1 className='my-2 flex justify-start items-center gap-1'>
                       <StarIcon fontSize='small' className='text-black' /> 
                       <h1 className='font-semibold'>Amenities -</h1> 
@@ -225,7 +236,7 @@ const ShipCover = (props) => {
                     
                     <Divider style={{ background: 'gray', borderBottomWidth: '1px' }}  />
                     
-                    <div className='w-[94%] mt-3 mx-auto flex justify-between text-sm'>
+                    <div className='w-[94%] mt-3 mx-auto flex justify-between sm:text-[11px]'>
                       <div className='flex flex-col g-2 items-start'>
                       <h1 className='text-blue-800'><DoneIcon fontSize='small' /> High-Speed Ferry</h1>
                       <h1 className='text-blue-800'><DoneIcon fontSize='small'  /> Air Conditioned</h1>
@@ -243,7 +254,7 @@ const ShipCover = (props) => {
                     </div>
                   </div>
 
-                  <Button variant='contained' sx={{fontSize:'0.8rem',mt:3}} onClick={proceedHandler} disabled={selectedOption === ""}>
+                  <Button variant='contained' sx={{fontSize:'0.8rem',mt:4}} onClick={proceedHandler} disabled={selectedOption === ""}>
                     Proceed with Premium
                   </Button>
 

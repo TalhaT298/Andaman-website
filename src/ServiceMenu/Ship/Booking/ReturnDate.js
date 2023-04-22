@@ -25,7 +25,7 @@ const ReturnDate = ( {setReturnDate} ) => {
     <>
       <div
         onClick={() => setOpenArrDate(!openArrDate)}
-        className='bg-slate-300 h-auto w-full mx-auto px-auto flex flex-col gap-y-3 px-4 border-solid border-2 border-slate-300 ml:w-auto airbnbml:w-96  xs:w-64 py-2 airbnbml:items-center airbnbml:border-b-transparent'
+        className='relative bg-slate-300 h-auto w-full mx-auto px-auto flex flex-col gap-y-3 px-4 border-solid border-2 border-slate-300 ml:w-auto airbnbml:w-96  xs:w-64 py-2 airbnbml:items-center airbnbml:border-b-transparent'
       >
         <span className='mx-auto text-slate-600 text-sm font-normal'>
           RETURN DATE
@@ -34,20 +34,24 @@ const ReturnDate = ( {setReturnDate} ) => {
           endingDate[0].endDate,
           'dd/MM/yyyy'
         )}`}</span>
-        <Modal
+        {/* <Modal
           isOpen={openArrDate}
           onRequestClose={() => setOpenArrDate(false)}
           overlayClassName='modal-overlay bg-black opacity'
           className='modal-content w-auto h-auto'
-        >
+        > */}
+
+        {openArrDate &&
           <DateRange
             editableDateInputs={true}
             onChange={(item) => setEndingDate([item.selection])}
             moveRangeOnFirstSelection={false}
             ranges={endingDate}
-            className='absolute -bottom-8 -mx- left-1/2 airbnbml:left-56 airbnbml:-bottom-16 sm:-bottom-[25rem] sm:left-16'
+            className='absolute z-10 top-20 right-[-4rem]'
           />
-        </Modal>
+        }
+
+        {/* </Modal> */}
         <FontAwesomeIcon icon={faCalendarDays} className='text-slate-400' />
       </div>
     </>

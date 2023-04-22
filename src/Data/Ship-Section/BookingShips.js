@@ -27,7 +27,7 @@ const ship = [
     arrivalTime: '09:30 am',
     shift: 'morning',
     shipDuration: '02h 00m',
-    adultPrice: 6700,
+    adultPrice: 5700,
     childrenPrice: 3000, // this is just dummy price
     infantPrice: 2000, // this is just dummy price
   },
@@ -43,7 +43,7 @@ const ship = [
     arrivalTime: '09:30 am',
     shift: 'morning',
     shipDuration: '02h 00m',
-    adultPrice: 6700,
+    adultPrice: 4700,
     childrenPrice: 3000, // this is just dummy price
     infantPrice: 2000, // this is just dummy price
   },
@@ -75,7 +75,7 @@ const ship = [
     arrivalTime: '09:30 am',
     shift: 'morning',
     shipDuration: '02h 00m',
-    adultPrice: 6700,
+    adultPrice: 5700,
     childrenPrice: 3000, // this is just dummy price
     infantPrice: 2000, // this is just dummy price
   },
@@ -91,7 +91,7 @@ const ship = [
     arrivalTime: '09:30 am',
     shift: 'morning',
     shipDuration: '02h 00m',
-    adultPrice: 6700,
+    adultPrice: 4700,
     childrenPrice: 3000, // this is just dummy price
     infantPrice: 2000, // this is just dummy price
   },
@@ -107,7 +107,7 @@ const ship = [
     arrivalTime: '09:30 am',
     shift: 'morning',
     shipDuration: '02h 00m',
-    adultPrice: 6700,
+    adultPrice: 3700,
     childrenPrice: 3000, // this is just dummy price
     infantPrice: 2000, // this is just dummy price
   },
@@ -139,7 +139,7 @@ const ship = [
     arrivalTime: '09:30 am',
     shift: 'morning',
     shipDuration: '02h 00m',
-    adultPrice: 6700,
+    adultPrice: 5700,
     childrenPrice: 3000, // this is just dummy price
     infantPrice: 2000, // this is just dummy price
   },
@@ -155,7 +155,7 @@ const ship = [
     arrivalTime: '3:30 pm',
     shift: 'evening',
     shipDuration: '02h 00m',
-    adultPrice: 6700,
+    adultPrice: 4700,
     childrenPrice: 3000, // this is just dummy price
     infantPrice: 2000, // this is just dummy price
   },
@@ -171,7 +171,7 @@ const ship = [
     arrivalTime: '3:30 pm',
     shift: 'evening',
     shipDuration: '02h 00m',
-    adultPrice: 6700,
+    adultPrice: 7700,
     childrenPrice: 3000, // this is just dummy price
     infantPrice: 2000, // this is just dummy price
   },
@@ -203,7 +203,7 @@ const ship = [
     arrivalTime: '09:30 am',
     shift: 'morning',
     shipDuration: '02h 00m',
-    adultPrice: 6700,
+    adultPrice: 4700,
     childrenPrice: 3000, // this is just dummy price
     infantPrice: 2000, // this is just dummy price
   },
@@ -219,7 +219,7 @@ const ship = [
     arrivalTime: '09:30 am',
     shift: 'morning',
     shipDuration: '02h 00m',
-    adultPrice: 6700,
+    adultPrice: 5700,
     childrenPrice: 3000, // this is just dummy price
     infantPrice: 2000, // this is just dummy price
   },
@@ -235,7 +235,7 @@ const ship = [
     arrivalTime: '03:30 pm',
     shift: 'evening',
     shipDuration: '02h 00m',
-    adultPrice: 6700,
+    adultPrice: 7700,
     childrenPrice: 3000, // this is just dummy price
     infantPrice: 2000, // this is just dummy price
   },

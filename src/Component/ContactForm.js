@@ -73,6 +73,25 @@ const ContactForm = () => {
               <h1 className="text-[#699c78] text-[26px] md:text-2xl font-Ubuntu_Mono font-bold mb-6 md:mb-3 tracking-wide">
                 Book your Hotel's
               </h1>
+              <div className="flex flex-col gap-1 mb-5">
+                <label className='text-slate-500'>
+                  Select service according to your query placeholder content
+                </label>
+                <select                  
+                  id="service"
+                  name="user_service"                  
+                  className=" outline-none p-2 rounded-md border border-gray-300 focus:border focus:border-slate-400"
+                  required
+                >
+                  <option value="" selected >Select</option>
+                  <option value="Hotels"  >Hotels</option>
+                  <option value="Bus Service" >Bus Service</option>
+                  <option value="Water sports activity">Water sports activity</option>
+                  <option value="Paying Guest/PG">Paying Guest/PG</option>
+                  <option value="Travel packages">Travel packages</option>
+                  <option value="Trekking trips">Trekking trips</option>
+                </select>
+              </div>
               <div className="flex flex-col gap-1">
                 <input
                   type="text"
