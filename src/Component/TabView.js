@@ -1,5 +1,6 @@
 import React, { Component, lazy } from 'react';
 import { Tab, Tabs } from '@mui/material';
+import { Link } from "react-router-dom";
 
 // import {Text} from "@nextui-org/react";
 // import Flights from '../ServiceMenu/Flights';
@@ -256,185 +257,208 @@ export default class TabView extends Component {
     };
 
     return (
-      <Container fluid>
-        <Tabs
-          value={this.state.value || 0}
-          onChange={handleTabs}
-          variant='scrollable'
-          textColor='#757574'
-          indicatorColor='#757574'
-          centered={true}
-          scrollButtons='auto'
-          TabIndicatorProps={{
-            style: {
-              backgroundColor: '#757574',
-            },
-          }}
-        >
-          <Tab
-            label='Flights'
-            icon={<Lottie options={FlightIcon} height={size} width={size} />}
-            style={{
-              color: this.state.value === 0 ? this.state.tabcolor : '#757574',
-              fontWeight:
-                this.state.value === 0 ? this.state.weight : 'lighter',
-              fontSize: '11px',
-            }}
-          />
-          <Tab
-            label='Hotels'
-            icon={<Lottie options={HotelIcon} height={size} width={size} />}
-            style={{
-              color: this.state.value === 1 ? this.state.tabcolor : '#757574',
-              fontWeight:
-                this.state.value === 1 ? this.state.weight : 'lighter',
-              fontSize: '11px',
-            }}
-          />
-          <Tab
-            label='Ship'
-            icon={<Lottie options={ShipIcon} height={size} width={size} />}
-            style={{
-              color: this.state.value === 2 ? this.state.tabcolor : '#757574',
-              fontWeight:
-                this.state.value === 2 ? this.state.weight : 'lighter',
-              fontSize: '11px',
-            }}
-          />
-          <Tab
-            label='Bus'
-            icon={<Lottie options={BusIcon} height={size} width={size} />}
-            style={{
-              color: this.state.value === 3 ? this.state.tabcolor : '#757574',
-              fontWeight:
-                this.state.value === 3 ? this.state.weight : 'lighter',
-              fontSize: '11px',
-            }}
-          />
-          <Tab
-            label='Cabs'
-            icon={<Lottie options={CabIcon} height={size} width={size} />}
-            style={{
-              color: this.state.value === 4 ? this.state.tabcolor : '#757574',
-              fontWeight:
-                this.state.value === 4 ? this.state.weight : 'lighter',
-              fontSize: '11px',
-            }}
-          />
-          <Tab
-            label='Ferry'
-            icon={<Lottie options={FerryIcon} height={size} width={size} />}
-            style={{
-              color: this.state.value === 5 ? this.state.tabcolor : '#757574',
-              fontWeight:
-                this.state.value === 5 ? this.state.weight : 'lighter',
-              fontSize: '11px',
-            }}
-          />
-          <Tab
-            label='Water Sports'
-            icon={<Lottie options={DivingIcon} height={size} width={size} />}
-            style={{
-              color: this.state.value === 6 ? this.state.tabcolor : '#757574',
-              fontWeight:
-                this.state.value === 6 ? this.state.weight : 'lighter',
-              fontSize: '11px',
-            }}
-          />
-          <Tab
-            label='Paying Guest'
-            icon={<Lottie options={GuestIcon} height={size} width={size} />}
-            style={{
-              color: this.state.value === 7 ? this.state.tabcolor : '#757574',
-              fontWeight:
-                this.state.value === 7 ? this.state.weight : 'lighter',
-              fontSize: '11px',
-            }}
-          />
-          <Tab
-            label='Package'
-            icon={<Lottie options={TravelIcon} height={size} width={size} />}
-            style={{
-              color: this.state.value === 8 ? this.state.tabcolor : '#757574',
-              fontWeight:
-                this.state.value === 8 ? this.state.weight : 'lighter',
-              fontSize: '11px',
-            }}
-          />
-          <Tab
-            label='Dinning'
-            icon={<Lottie options={DinningIcon} height={size} width={size} />}
-            style={{
-              color: this.state.value === 9 ? this.state.tabcolor : '#757574',
-              fontWeight:
-                this.state.value === 9 ? this.state.weight : 'lighter',
-              fontSize: '11px',
-            }}
-          />
-          <Tab
-            label='Trekking'
-            icon={<Lottie options={TrekkingIcon} height={size} width={size} />}
-            style={{
-              color: this.state.value === 10 ? this.state.tabcolor : '#757574',
-              fontWeight:
-                this.state.value === 10 ? this.state.weight : 'lighter',
-              fontSize: '11px',
-            }}
-          />
-          <Tab
-            label='Shop'
-            icon={<Lottie options={ShopIcon} height={size} width={size} />}
-            style={{
-              color: this.state.value === 11 ? this.state.tabcolor : '#757574',
-              fontWeight:
-                this.state.value === 11 ? this.state.weight : 'lighter',
-              fontSize: '11px',
-            }}
-          />
-        </Tabs>
+			<Container fluid>
+				<Tabs
+					value={this.state.value || 0}
+					onChange={handleTabs}
+					variant="scrollable"
+					textColor="#757574"
+					indicatorColor="#757574"
+					centered={true}
+					scrollButtons="auto"
+					TabIndicatorProps={{
+						style: {
+							backgroundColor: "#757574",
+						},
+					}}>
+					<Tab
+						label="Flights"
+						component={Link}
+						to="/Flights"
+						icon={<Lottie options={FlightIcon} height={size} width={size} />}
+						style={{
+							color: this.state.value === 0 ? this.state.tabcolor : "#757574",
+							fontWeight:
+								this.state.value === 0 ? this.state.weight : "lighter",
+							fontSize: "11px",
+						}}
+					/>
+					<Tab
+						label="Hotels"
+						component={Link}
+						to="/Hotels"
+						icon={<Lottie options={HotelIcon} height={size} width={size} />}
+						style={{
+							color: this.state.value === 1 ? this.state.tabcolor : "#757574",
+							fontWeight:
+								this.state.value === 1 ? this.state.weight : "lighter",
+							fontSize: "11px",
+						}}
+					/>
+					<Tab
+						label="Ship"
+						component={Link}
+						to="/Ship"
+						icon={<Lottie options={ShipIcon} height={size} width={size} />}
+						style={{
+							color: this.state.value === 2 ? this.state.tabcolor : "#757574",
+							fontWeight:
+								this.state.value === 2 ? this.state.weight : "lighter",
+							fontSize: "11px",
+						}}
+					/>
+					<Tab
+						label="Bus"
+						component={Link}
+						to="/Bus"
+						icon={<Lottie options={BusIcon} height={size} width={size} />}
+						style={{
+							color: this.state.value === 3 ? this.state.tabcolor : "#757574",
+							fontWeight:
+								this.state.value === 3 ? this.state.weight : "lighter",
+							fontSize: "11px",
+						}}
+					/>
+					<Tab
+						label="Cabs"
+						component={Link}
+						to="/Cabs"
+						icon={<Lottie options={CabIcon} height={size} width={size} />}
+						style={{
+							color: this.state.value === 4 ? this.state.tabcolor : "#757574",
+							fontWeight:
+								this.state.value === 4 ? this.state.weight : "lighter",
+							fontSize: "11px",
+						}}
+					/>
+					<Tab
+						label="Ferry"
+						component={Link}
+						to="/Ferry"
+						icon={<Lottie options={FerryIcon} height={size} width={size} />}
+						style={{
+							color: this.state.value === 5 ? this.state.tabcolor : "#757574",
+							fontWeight:
+								this.state.value === 5 ? this.state.weight : "lighter",
+							fontSize: "11px",
+						}}
+					/>
+					<Tab
+						label="Water Sports"
+						component={Link}
+						to="/Water-Sports"
+						icon={<Lottie options={DivingIcon} height={size} width={size} />}
+						style={{
+							color: this.state.value === 6 ? this.state.tabcolor : "#757574",
+							fontWeight:
+								this.state.value === 6 ? this.state.weight : "lighter",
+							fontSize: "11px",
+						}}
+					/>
+					<Tab
+						label="Paying Guest"
+						component={Link}
+						to="/Paying-Guest"
+						icon={<Lottie options={GuestIcon} height={size} width={size} />}
+						style={{
+							color: this.state.value === 7 ? this.state.tabcolor : "#757574",
+							fontWeight:
+								this.state.value === 7 ? this.state.weight : "lighter",
+							fontSize: "11px",
+						}}
+					/>
+					<Tab
+						label="Package"
+						component={Link}
+						to="/Package"
+						icon={<Lottie options={TravelIcon} height={size} width={size} />}
+						style={{
+							color: this.state.value === 8 ? this.state.tabcolor : "#757574",
+							fontWeight:
+								this.state.value === 8 ? this.state.weight : "lighter",
+							fontSize: "11px",
+						}}
+					/>
+					<Tab
+						label="Dinning"
+						component={Link}
+						to="/Dinning"
+						icon={<Lottie options={DinningIcon} height={size} width={size} />}
+						style={{
+							color: this.state.value === 9 ? this.state.tabcolor : "#757574",
+							fontWeight:
+								this.state.value === 9 ? this.state.weight : "lighter",
+							fontSize: "11px",
+						}}
+					/>
+					<Tab
+						label="Trekking"
+						component={Link}
+						to="/Trekking"
+						icon={<Lottie options={TrekkingIcon} height={size} width={size} />}
+						style={{
+							color: this.state.value === 10 ? this.state.tabcolor : "#757574",
+							fontWeight:
+								this.state.value === 10 ? this.state.weight : "lighter",
+							fontSize: "11px",
+						}}
+					/>
+					<Tab
+						label="Shop"
+						component={Link}
+						to="/Shop"
+						icon={<Lottie options={ShopIcon} height={size} width={size} />}
+						style={{
+							color: this.state.value === 11 ? this.state.tabcolor : "#757574",
+							fontWeight:
+								this.state.value === 11 ? this.state.weight : "lighter",
+							fontSize: "11px",
+						}}
+					/>
+				</Tabs>
 
-        <TabPanel value={this.state.value || 0} index={0}>
-          {/* <Flights flightdata={flightcard} /> */}
-          <Flights />
-        </TabPanel>
-        <TabPanel value={this.state.value} index={1}>
-          {/* <Hotel carddata={card} /> */}
-          <Hotel />
-        </TabPanel>
-        <TabPanel value={this.state.value} index={2}>
-          <Ship />
-        </TabPanel>
-        <TabPanel value={this.state.value} index={3}>
-          <Bus />
-        </TabPanel>
-        <TabPanel value={this.state.value} index={4}>
-          <Cab cabdata={cabcard} />
-          {/* <Cab /> */}
-        </TabPanel>
-        <TabPanel value={this.state.value} index={5}>
-          {/* <Ferry maploc={card} /> */}
-          <Ferry />
-        </TabPanel>
-        <TabPanel value={this.state.value} index={6}>
-          <Activity />
-        </TabPanel>
-        <TabPanel value={this.state.value} index={7}>
-          {/* <Pg pgdata={pgcard} /> */}
-          <Pg />
-        </TabPanel>
-        <TabPanel value={this.state.value} index={8}>
-          <Travelpackage />
-        </TabPanel>
-        <TabPanel value={this.state.value} index={9}>
-          <Dinning />
-        </TabPanel>
-        <TabPanel value={this.state.value} index={10}>
-          <Trekking />
-        </TabPanel>
-        <TabPanel value={this.state.value} index={11}>
-          <Shop />
-        </TabPanel>
-      </Container>
-    );
+				<TabPanel value={this.state.value || 0} index={0}>
+					{/* <Flights flightdata={flightcard} /> */}
+					<Flights />
+				</TabPanel>
+				<TabPanel value={this.state.value} index={1}>
+					{/* <Hotel carddata={card} /> */}
+					<Hotel />
+				</TabPanel>
+				<TabPanel value={this.state.value} index={2}>
+					<Ship />
+				</TabPanel>
+				<TabPanel value={this.state.value} index={3}>
+					<Bus />
+				</TabPanel>
+				<TabPanel value={this.state.value} index={4}>
+					<Cab cabdata={cabcard} />
+					{/* <Cab /> */}
+				</TabPanel>
+				<TabPanel value={this.state.value} index={5}>
+					{/* <Ferry maploc={card} /> */}
+					<Ferry />
+				</TabPanel>
+				<TabPanel value={this.state.value} index={6}>
+					<Activity />
+				</TabPanel>
+				<TabPanel value={this.state.value} index={7}>
+					{/* <Pg pgdata={pgcard} /> */}
+					<Pg />
+				</TabPanel>
+				<TabPanel value={this.state.value} index={8}>
+					<Travelpackage />
+				</TabPanel>
+				<TabPanel value={this.state.value} index={9}>
+					<Dinning />
+				</TabPanel>
+				<TabPanel value={this.state.value} index={10}>
+					<Trekking />
+				</TabPanel>
+				<TabPanel value={this.state.value} index={11}>
+					<Shop />
+				</TabPanel>
+			</Container>
+		);
   }
 }
