@@ -11,7 +11,7 @@ const ShipResults = () => {
     const navigate = useNavigate()
     const location = useLocation();
     const { state } = location
-    const { origin, destination, departDate, returnDate, travellerDetails } = state
+    const { origin, destination, departDate, returnDate, travellerDetails, wayType } = state
 
     //filter Morning/evening
     const [selectedValue, setSelectedValue] = useState('');
@@ -23,16 +23,16 @@ const ShipResults = () => {
     //Two Way
     let returnOrigin = ""
     let returnDestination = ""
-    if(returnDate){
+    if(wayType === "Two Way"){
       returnOrigin = destination
       returnDestination = origin
     }    
 
     //trip summarries
-    const [tripSummaries, setTripSummaries] = useState([])
-    const [count, setCount] = useState(0);    
+    const [tripSummaries, setTripSummaries] = useState([]) 
+       
 
-    //display ship results
+    //display ship results   
     let shipData
     if(tripSummaries.length === 1){
       shipData = ship
@@ -69,46 +69,45 @@ const ShipResults = () => {
       });
     }       
 
-    //display tripSummaries
-    const tripData = tripSummaries.map((trip, index) => {
+    //display tripSummaries    
+    const tripData = tripSummaries.map((trip, index) => {      
       return <div key={index}>
+        <div className='flex gap-3 mt-4 mb-2 text-[15px]'>
+          <h1 className='border-b border-black font-bold'>Trip-{index+1}:</h1>
+          <h1 className='font-bold'>{index === 1 ? trip.returnOrigin : trip.origin} -&gt; {index === 1 ? trip.returnDestination : trip.destination}</h1>  
+        </div>
 
-      <div className='flex gap-3 mt-4 mb-2 text-[15px]'>
-        <h1 className='border-b border-black font-bold'>Trip-{index+1}:</h1>
-        <h1 className='font-bold'>{index === 1 ? trip.returnOrigin : trip.origin} -&gt; {index === 1 ? trip.returnDestination : trip.destination}</h1>  
-      </div>
+        <div className='flex flex-col gap-1 text-sm ml-1'>
+        <div className='flex gap-2'>
+          <h1>Date: </h1>
+          <h1 className='font-bold'>{index === 1 ? trip.returnDate.slice(3) : trip.departDate.slice(3)}</h1>  
+        </div>
 
-      <div className='flex flex-col gap-1 text-sm ml-1'>
-      <div className='flex gap-2'>
-        <h1>Date: </h1>
-        <h1 className='font-bold'>{index === 1 ? trip.returnDate.slice(3) : trip.departDate.slice(3)}</h1>  
-      </div>
+        <div className='flex gap-2'>
+          <h1>Time: </h1>
+          <h1 className='font-bold'>{trip.departTime} to {trip.arrivalTime}</h1>  
+        </div>
 
-      <div className='flex gap-2'>
-        <h1>Time: </h1>
-        <h1 className='font-bold'>{trip.departTime} to {trip.arrivalTime}</h1>  
-      </div>
+        <div className='flex gap-2'>
+          <h1>Ferry: </h1>
+          <h1 className='font-bold'>{trip.shipName}(<span className='italic font-normal'>{trip.shipClass} Class</span>)</h1>  
+        </div>
 
-      <div className='flex gap-2'>
-        <h1>Ferry: </h1>
-        <h1 className='font-bold'>{trip.shipName}(<span className='italic font-normal'>{trip.shipClass} Class</span>)</h1>  
-      </div>
-
-      <div className='flex flex-wrap gap-x-2'>
-        <h1>Total Fare: </h1>
-        <h1 className='font-bold'>
-        {trip.travellerDetails.adult} x Adult(₹ {trip.adultFare})
-        {trip.travellerDetails.infant !== 0 ? 
-          <span> + {trip.travellerDetails.infant} x Infant(₹ {trip.infantFare})
-          </span> 
-          : 
-          "" 
-        }
-        <span> = ₹ {(trip.travellerDetails.adult * trip.adultFare) + (trip.travellerDetails.adult * trip.infantFare)}</span>
-        </h1>  
-      </div>
-      </div> 
-      </div>                    
+        <div className='flex flex-wrap gap-x-2'>
+          <h1>Total Fare: </h1>
+          <h1 className='font-bold'>
+          {trip.travellerDetails.adult} x Adult(₹ {trip.adultFare})
+          {trip.travellerDetails.infant !== 0 ? 
+            <span> + {trip.travellerDetails.infant} x Infant(₹ {trip.infantFare})
+            </span> 
+            : 
+            "" 
+          }
+          <span> = ₹ {(trip.travellerDetails.adult * trip.adultFare) + (trip.travellerDetails.adult * trip.infantFare)}</span>
+          </h1>  
+        </div>
+        </div> 
+        </div>                    
     })  
     
     //navigate if tripSummaries is full
@@ -180,15 +179,10 @@ const ShipResults = () => {
 
     </div>
 
-    <div className='basis-[70%] '>
-    {
-      returnDate ? 
-      <h1 className='text-[#699c78] text-center text-2xl font-semibold mt-6'>Two Way Trip</h1> 
-      : 
-      <h1 className='text-[#699c78] text-center text-2xl font-bold mt-6'>One Way Trip</h1>
-    }
+    <div className='basis-[70%] '>    
+       
+    <h1 className='text-[#699c78] text-center text-2xl font-semibold mt-6'>{wayType} Trip</h1> 
     
-
     <div className='mx-auto '>
       <div className='mt-5 lg:mt-3'>
         <h1 className='text-xl text-center font-semibold '>
@@ -197,7 +191,7 @@ const ShipResults = () => {
         <h1 className='text-base text-center font-semibold text-slate-500 italic'>{departDate.slice(3)}</h1>
       </div>
 
-      {returnDate && 
+      {wayType === "Two Way" && 
       <div className='mt-2'>
         <h1 className='text-xl text-center font-semibold'>
           <CheckIcon fontSize='small' className={tripSummaries.length > 1? "text-green-600" : "text-gray-400"} /> {returnOrigin} <EastIcon fontSize='small' /> {returnDestination}

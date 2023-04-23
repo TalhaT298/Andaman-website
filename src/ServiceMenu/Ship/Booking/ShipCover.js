@@ -34,7 +34,7 @@ const ShipCover = (props) => {
   const navigate = useNavigate()
   const location = useLocation();
   const { state } = location
-  const { origin, destination, departDate, returnDate, travellerDetails } = state
+  const { origin, destination, departDate, returnDate, travellerDetails, wayType } = state
 
   const [open, setOpen] = useState(false)
   const [showFlightInfo, setShowFlightInfo] = useState(false);
@@ -42,7 +42,7 @@ const ShipCover = (props) => {
   //display images
   let shipImage = ""
   switch(props.shipName){
-    case "Makruzz Pearl" : shipImage = "https://tourtravelandaman.com/images/SeaLinkCruise.jpg"
+    case "Makruzz Pearl" : shipImage = "https://ocean.go2andaman.com/wp-content/uploads/2021/08/1DD36AC9-E6EA-4450-BDFA-8BD805AB81F0_4_5005_c.jpeg?compress=true&quality=90&w=600&dpr=1.3"
               break
     case "Green Ocean 1" : shipImage = "https://tourtravelandaman.com/images/GreenOcean.jpg"
               break
@@ -80,12 +80,13 @@ const ShipCover = (props) => {
       infantFare: 0,
       travellerDetails
     }
-    setTripSummaries(prev => [...prev, object])       
+    
+    setTripSummaries(prev => [...prev, object])    
     
   }
 
   //navigate if
-  if(returnDate){
+  if(wayType === "Two Way"){
     if(tripSummaries.length === 2){        
       navigate('/travellerDetails', { 
         state : {

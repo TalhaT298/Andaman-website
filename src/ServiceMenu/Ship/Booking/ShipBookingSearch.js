@@ -20,14 +20,22 @@ const ShipBookingSearch = (props) => {
 
   //traveller details
   const [travellerDetails, setTravellerDetails] = useState({})
-
   const navigate = useNavigate()
+
+  //one way or two way
+  let wayType = ""
+  if(twoWay){
+    wayType = "Two Way"
+  }
+  else{
+    wayType = "One Way"
+  }
 
   const handleSubmit = (event) => {
     event.preventDefault();
     navigate('/selectFerry', 
       { 
-        state : {origin, destination, departDate, returnDate, travellerDetails} 
+        state : {origin, destination, departDate, returnDate, travellerDetails, wayType } 
       }
     )
   };  
