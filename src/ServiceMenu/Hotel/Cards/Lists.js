@@ -1,4 +1,3 @@
-import { lazy } from 'react';
 import React from "react";
 import Cards from "./Cards";
 import "./styles.css";

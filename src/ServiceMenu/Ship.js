@@ -1,9 +1,10 @@
-import React, { useState, useRef } from "react";
-import ShipSearch from "./Ship/ShipSearch";
+import React, { useRef } from "react";
+// import { useState } from "react";
+// import ShipSearch from "./Ship/ShipSearch";
 import Mainland from "./Ship/Mainland";
 import Inland from "./Ship/Inland";
-import ship from "../Data/Ship-Section/ship";
-import ShipCover from "./Ship/ShipCover";
+// import ship from "../Data/Ship-Section/ship";
+// import ShipCover from "./Ship/ShipCover";
 import ImageSection from "./Ship/ImageSection";
 import MainlandDetails from "./Ship/MainlandDetails";
 import SecondSchedule from "./Ship/SecondSchedule";
@@ -11,24 +12,24 @@ import SecondSchedule from "./Ship/SecondSchedule";
 
 const Ship = () => {
   //search feature
-  const [searchOriginTerm, setSearchOriginTerm] = useState("");
-  const [searchDestTerm, setSearchDestTerm] = useState("");
+  // const [searchOriginTerm, setSearchOriginTerm] = useState("");
+  // const [searchDestTerm, setSearchDestTerm] = useState("");
 
   const mainlandRef = useRef(null);
   const inlandRef = useRef(null);
 
-  const shipData = ship
-    .filter((ship) =>
-      ship.currentDestination
-        .toLowerCase()
-        .includes(searchOriginTerm.toLowerCase())
-    )
-    .filter((ship) =>
-      ship.nextDestination.toLowerCase().includes(searchDestTerm.toLowerCase())
-    )
-    .map((ship, index) => {
-      return <ShipCover key={index} {...ship} />;
-    });
+  // const shipData = ship
+  //   .filter((ship) =>
+  //     ship.currentDestination
+  //       .toLowerCase()
+  //       .includes(searchOriginTerm.toLowerCase())
+  //   )
+  //   .filter((ship) =>
+  //     ship.nextDestination.toLowerCase().includes(searchDestTerm.toLowerCase())
+  //   )
+  //   .map((ship, index) => {
+  //     return <ShipCover key={index} {...ship} />;
+  //   });
 
   const handleClick = (id) => {
     if (id === "mainland" && mainlandRef.current) {
@@ -42,7 +43,7 @@ const Ship = () => {
     <>
       <ImageSection handleClick={handleClick} />
       <div className="pt-10 h-full w-auto cursor-pointer">
-        <div className="flex">
+        {/* <div className="flex">
           <div className="flex mx-auto mt-10 mb-10">
             <span className="text-3xl font-Nunito_Sans font-semibold text-slate-800 ">
               😎 Comfortable Reliable Experience 😁 🚢
@@ -63,7 +64,7 @@ const Ship = () => {
           ) : (
             shipData
           )}
-        </div>
+        </div> */}
         <Mainland ref={mainlandRef} />
         <SecondSchedule />
         <MainlandDetails />
