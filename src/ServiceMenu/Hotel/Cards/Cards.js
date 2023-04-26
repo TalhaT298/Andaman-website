@@ -15,7 +15,7 @@ function Cards({ card }) {
       <Swiper
         slidesPerView={1}
         spaceBetween={15}
-        loop={true}
+        loop={false}
         mousewheel={true}
         cssMode={true}
         pagination
