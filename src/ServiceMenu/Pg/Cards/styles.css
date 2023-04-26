@@ -26,13 +26,22 @@
   width: 310px;
   object-fit: cover;
 }
+.searchButton:hover{
+  color: #f5f5f5;
+  transform: scale(1.01);
+  transition: 0.5s;
 
+}
+ /* placeholder::placeholder {
+  color: #0af;
+  font: weight 4px;
+} */
 .card-img:hover {
   /* height: 330px;
   width: 330px;
   transition: 7s ease-in ease-out 4s; */
   transform-origin: 50% 45%;
-  transition: transform 5s, filter 3s ease-in-out;
+  transition: transform 5s, filter 3s ease-out;
   filter: brightness(150%);
   filter: brightness(100%);
   transform: scale(1.1);
@@ -46,7 +55,7 @@
 
 .card-rating {
   display: flex;
-  align-items: end;
+  align-items: center;
   gap: 0.25rem;
 }
 
@@ -57,7 +66,6 @@
 @media only screen and (max-width: 1246px) {
   .swiper-container,
   .card-img {
-    max-height: 375px;
     width: 375px;
   }
 }
@@ -65,8 +73,6 @@
 @media only screen and (max-width: 1000px) {
   .swiper-container,
   .card-img {
-    height: 50%;
-    max-height: 375px;
     width: 65vw;
   }
 }
@@ -74,8 +80,6 @@
 @media only screen and (max-width: 800px) {
   .swiper-container,
   .card-img {
-    height: 50%;
-    max-height: 400px;
     width: 90vw;
   }
 
