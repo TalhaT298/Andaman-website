@@ -34,229 +34,229 @@ import { fire } from '../fire';
 
 const Flights = lazy(() => import('../ServiceMenu/Flights'));
 
-let card = [];
-let flightcard = [];
-let cabcard = [];
-let pgcard = [];
+// let card = [];
+// let flightcard = [];
+// let cabcard = [];
+// let pgcard = [];
 export default class TabView extends Component {
-  state = { value: 0, weight: '', tabcolor: '' };
+	state = { value: 0, weight: '', tabcolor: '' };
 
-  componentDidMount() {
-    var ref = fire.database().ref('cards').orderByValue();
-    ref.on('value', getData, errData);
-    function getData(data) {
-      var carddata = data.val();
-      //console.log(carddata);
-      for (let c in carddata) {
-        card.push({
-          id: c,
-          hotelimg: carddata[c].hotelimg,
-          hotelname: carddata[c].hotelname,
-          hotelsummary: carddata[c].hotelsummary,
-          rating: carddata[c].rating,
-          schedule: carddata[c].schedule,
-          city: carddata[c].city,
-          state: carddata[c].state,
-          zip: carddata[c].zip,
-        });
-      }
-      console.log(card);
-    }
-    function errData(err) {
-      console.log('error' + err);
-    }
+	componentDidMount() {
+		// var ref = fire.database().ref('cards').orderByValue();
+		// ref.on('value', getData, errData);
+		// function getData(data) {
+		//   var carddata = data.val();
+		//   //console.log(carddata);
+		//   for (let c in carddata) {
+		//     card.push({
+		//       id: c,
+		//       hotelimg: carddata[c].hotelimg,
+		//       hotelname: carddata[c].hotelname,
+		//       hotelsummary: carddata[c].hotelsummary,
+		//       rating: carddata[c].rating,
+		//       schedule: carddata[c].schedule,
+		//       city: carddata[c].city,
+		//       state: carddata[c].state,
+		//       zip: carddata[c].zip,
+		//     });
+		//   }
+		//   console.log(card);
+		// }
+		// function errData(err) {
+		//   console.log('error' + err);
+		// }
 
-    var flightref = fire.database().ref('flights').orderByValue();
-    flightref.on('value', getFlightData, errflightData);
-    function getFlightData(data) {
-      var carddata = data.val();
-      console.log(carddata);
-      for (let c in carddata) {
-        flightcard.push({
-          id: c,
-          from: carddata[c].from,
-          to: carddata[c].to,
-          schedule: carddata[c].schedule,
-          offer: carddata[c].offer,
-          price: carddata[c].price,
-        });
-      }
-      console.log(flightcard);
-    }
-    function errflightData(err) {
-      console.log('error' + err);
-    }
+		// var flightref = fire.database().ref('flights').orderByValue();
+		// flightref.on('value', getFlightData, errflightData);
+		// function getFlightData(data) {
+		//   var carddata = data.val();
+		//   console.log(carddata);
+		//   for (let c in carddata) {
+		//     flightcard.push({
+		//       id: c,
+		//       from: carddata[c].from,
+		//       to: carddata[c].to,
+		//       schedule: carddata[c].schedule,
+		//       offer: carddata[c].offer,
+		//       price: carddata[c].price,
+		//     });
+		//   }
+		//   console.log(flightcard);
+		// }
+		// function errflightData(err) {
+		//   console.log('error' + err);
+		// }
 
-    // var cabref = fire.database().ref('cabs').orderByValue();
-    // cabref.on('value', getCabData, errcCabData);
-    // function getCabData(data) {
-    //   var carddata = data.val();
-    //   console.log(carddata);
-    //   for (let c in carddata) {
-    //     cabcard.push({
-    //       id: c,
-    //       Pick: carddata[c].Pick,
-    //       drop: carddata[c].drop,
-    //       schedule: carddata[c].schedule,
-    //       contact: carddata[c].contact,
-    //       price: carddata[c].price,
-    //       starttime: carddata[c].starttime,
-    //       endtime: carddata[c].endtime,
-    //       vehicleno: carddata[c].vehicleno,
-    //     });
-    //   }
-    //   console.log(cabcard);
-    // }
-    // function errcCabData(err) {
-    //   console.log('error' + err);
-    // }
+		// var cabref = fire.database().ref('cabs').orderByValue();
+		// cabref.on('value', getCabData, errcCabData);
+		// function getCabData(data) {
+		//   var carddata = data.val();
+		//   console.log(carddata);
+		//   for (let c in carddata) {
+		//     cabcard.push({
+		//       id: c,
+		//       Pick: carddata[c].Pick,
+		//       drop: carddata[c].drop,
+		//       schedule: carddata[c].schedule,
+		//       contact: carddata[c].contact,
+		//       price: carddata[c].price,
+		//       starttime: carddata[c].starttime,
+		//       endtime: carddata[c].endtime,
+		//       vehicleno: carddata[c].vehicleno,
+		//     });
+		//   }
+		//   console.log(cabcard);
+		// }
+		// function errcCabData(err) {
+		//   console.log('error' + err);
+		// }
 
-    var pgref = fire.database().ref('pgs').orderByValue();
-    pgref.on('value', getpgData, errcpgData);
-    function getpgData(data) {
-      var carddata = data.val();
-      console.log(carddata);
-      for (let c in carddata) {
-        pgcard.push({
-          id: c,
-          pgname: carddata[c].pgname,
-          pgadd: carddata[c].pgadd,
-          pgprice: carddata[c].pgprice,
-          contact: carddata[c].contact,
-          rating: carddata[c].rating,
-          hotelimg: carddata[c].hotelimg,
-        });
-      }
-      console.log(pgcard);
-    }
-    function errcpgData(err) {
-      console.log('error' + err);
-    }
-  }
+		// var pgref = fire.database().ref('pgs').orderByValue();
+		// pgref.on('value', getpgData, errcpgData);
+		// function getpgData(data) {
+		//   var carddata = data.val();
+		//   console.log(carddata);
+		//   for (let c in carddata) {
+		//     pgcard.push({
+		//       id: c,
+		//       pgname: carddata[c].pgname,
+		//       pgadd: carddata[c].pgadd,
+		//       pgprice: carddata[c].pgprice,
+		//       contact: carddata[c].contact,
+		//       rating: carddata[c].rating,
+		//       hotelimg: carddata[c].hotelimg,
+		//     });
+		//   }
+		//   console.log(pgcard);
+		// }
+		// function errcpgData(err) {
+		//   console.log('error' + err);
+		// }
+	}
 
-  render() {
-    const handleTabs = (e, val) => {
-      console.warn(val);
-      this.setState({ value: val, weight: 'bolder', tabcolor: '#100E09' });
-    };
+	render() {
+		const handleTabs = (e, val) => {
+			console.warn(val);
+			this.setState({ value: val, weight: 'bolder', tabcolor: '#100E09' });
+		};
 
-    function TabPanel(props) {
-      const { children, value, index } = props;
-      return <div>{value === index && <h1>{children}</h1>}</div>;
-    }
+		function TabPanel(props) {
+			const { children, value, index } = props;
+			return <div>{value === index && <h1>{children}</h1>}</div>;
+		}
 
-    const size = 40;
+		const size = 40;
 
-    //Icons
-    const FlightIcon = {
-      loop: true,
-      autoplay: true,
-      animationData: FlightData,
-      rendererSettings: {
-        preserveAspectRatio: 'xMidYMid slice',
-      },
-    };
+		//Icons
+		const FlightIcon = {
+			loop: true,
+			autoplay: true,
+			animationData: FlightData,
+			rendererSettings: {
+				preserveAspectRatio: 'xMidYMid slice',
+			},
+		};
 
-    const HotelIcon = {
-      loop: true,
-      autoplay: true,
-      animationData: HotelData,
-      rendererSettings: {
-        preserveAspectRatio: 'xMidYMid slice',
-      },
-    };
+		const HotelIcon = {
+			loop: true,
+			autoplay: true,
+			animationData: HotelData,
+			rendererSettings: {
+				preserveAspectRatio: 'xMidYMid slice',
+			},
+		};
 
-    const ShipIcon = {
-      loop: true,
-      autoplay: true,
-      animationData: ShipData,
-      rendererSettings: {
-        preserveAspectRatio: 'xMidYMid slice',
-      },
-    };
+		const ShipIcon = {
+			loop: true,
+			autoplay: true,
+			animationData: ShipData,
+			rendererSettings: {
+				preserveAspectRatio: 'xMidYMid slice',
+			},
+		};
 
-    const BusIcon = {
-      loop: true,
-      autoplay: true,
-      animationData: BusData,
-      rendererSettings: {
-        preserveAspectRatio: 'xMidYMid slice',
-      },
-    };
+		const BusIcon = {
+			loop: true,
+			autoplay: true,
+			animationData: BusData,
+			rendererSettings: {
+				preserveAspectRatio: 'xMidYMid slice',
+			},
+		};
 
-    const CabIcon = {
-      loop: true,
-      autoplay: true,
-      animationData: CabData,
-      rendererSettings: {
-        preserveAspectRatio: 'xMidYMid slice',
-      },
-    };
+		const CabIcon = {
+			loop: true,
+			autoplay: true,
+			animationData: CabData,
+			rendererSettings: {
+				preserveAspectRatio: 'xMidYMid slice',
+			},
+		};
 
-    const FerryIcon = {
-      loop: true,
-      autoplay: true,
-      animationData: FerryData,
-      rendererSettings: {
-        preserveAspectRatio: 'xMidYMid slice',
-      },
-    };
+		const FerryIcon = {
+			loop: true,
+			autoplay: true,
+			animationData: FerryData,
+			rendererSettings: {
+				preserveAspectRatio: 'xMidYMid slice',
+			},
+		};
 
-    const DivingIcon = {
-      loop: true,
-      autoplay: true,
-      animationData: DivingData,
-      rendererSettings: {
-        preserveAspectRatio: 'xMidYMid slice',
-      },
-    };
+		const DivingIcon = {
+			loop: true,
+			autoplay: true,
+			animationData: DivingData,
+			rendererSettings: {
+				preserveAspectRatio: 'xMidYMid slice',
+			},
+		};
 
-    const GuestIcon = {
-      loop: true,
-      autoplay: true,
-      animationData: GuestData,
-      rendererSettings: {
-        preserveAspectRatio: 'xMidYMid slice',
-      },
-    };
+		const GuestIcon = {
+			loop: true,
+			autoplay: true,
+			animationData: GuestData,
+			rendererSettings: {
+				preserveAspectRatio: 'xMidYMid slice',
+			},
+		};
 
-    const TravelIcon = {
-      loop: true,
-      autoplay: true,
-      animationData: TravelData,
-      rendererSettings: {
-        preserveAspectRatio: 'xMidYMid slice',
-      },
-    };
+		const TravelIcon = {
+			loop: true,
+			autoplay: true,
+			animationData: TravelData,
+			rendererSettings: {
+				preserveAspectRatio: 'xMidYMid slice',
+			},
+		};
 
-    const DinningIcon = {
-      loop: true,
-      autoplay: true,
-      animationData: DinningData,
-      rendererSettings: {
-        preserveAspectRatio: 'xMidYMid slice',
-      },
-    };
+		const DinningIcon = {
+			loop: true,
+			autoplay: true,
+			animationData: DinningData,
+			rendererSettings: {
+				preserveAspectRatio: 'xMidYMid slice',
+			},
+		};
 
-    const TrekkingIcon = {
-      loop: true,
-      autoplay: true,
-      animationData: TrekkingData,
-      rendererSettings: {
-        preserveAspectRatio: 'xMidYMid slice',
-      },
-    };
+		const TrekkingIcon = {
+			loop: true,
+			autoplay: true,
+			animationData: TrekkingData,
+			rendererSettings: {
+				preserveAspectRatio: 'xMidYMid slice',
+			},
+		};
 
-    const ShopIcon = {
-      loop: true,
-      autoplay: true,
-      animationData: ShopData,
-      rendererSettings: {
-        preserveAspectRatio: 'xMidYMid slice',
-      },
-    };
+		const ShopIcon = {
+			loop: true,
+			autoplay: true,
+			animationData: ShopData,
+			rendererSettings: {
+				preserveAspectRatio: 'xMidYMid slice',
+			},
+		};
 
-    return (
+		return (
 			<Container fluid>
 				<Tabs
 					value={this.state.value || 0}
@@ -298,7 +298,7 @@ export default class TabView extends Component {
 					<Tab
 						label="Ship"
 						component={Link}
-						to="/Ship"
+						to="/Ships"
 						icon={<Lottie options={ShipIcon} height={size} width={size} />}
 						style={{
 							color: this.state.value === 2 ? this.state.tabcolor : "#757574",
@@ -310,7 +310,7 @@ export default class TabView extends Component {
 					<Tab
 						label="Bus"
 						component={Link}
-						to="/Bus"
+						to="/Buses"
 						icon={<Lottie options={BusIcon} height={size} width={size} />}
 						style={{
 							color: this.state.value === 3 ? this.state.tabcolor : "#757574",
@@ -334,7 +334,7 @@ export default class TabView extends Component {
 					<Tab
 						label="Ferry"
 						component={Link}
-						to="/Ferry"
+						to="/Ferries"
 						icon={<Lottie options={FerryIcon} height={size} width={size} />}
 						style={{
 							color: this.state.value === 5 ? this.state.tabcolor : "#757574",
@@ -382,7 +382,7 @@ export default class TabView extends Component {
 					<Tab
 						label="Dinning"
 						component={Link}
-						to="/Dinning"
+						to="/Dinnings"
 						icon={<Lottie options={DinningIcon} height={size} width={size} />}
 						style={{
 							color: this.state.value === 9 ? this.state.tabcolor : "#757574",
@@ -394,7 +394,7 @@ export default class TabView extends Component {
 					<Tab
 						label="Trekking"
 						component={Link}
-						to="/Trekking"
+						to="/Treks"
 						icon={<Lottie options={TrekkingIcon} height={size} width={size} />}
 						style={{
 							color: this.state.value === 10 ? this.state.tabcolor : "#757574",
@@ -406,7 +406,7 @@ export default class TabView extends Component {
 					<Tab
 						label="Shop"
 						component={Link}
-						to="/Shop"
+						to="/Shops"
 						icon={<Lottie options={ShopIcon} height={size} width={size} />}
 						style={{
 							color: this.state.value === 11 ? this.state.tabcolor : "#757574",
@@ -432,8 +432,8 @@ export default class TabView extends Component {
 					<Bus />
 				</TabPanel>
 				<TabPanel value={this.state.value} index={4}>
-					<Cab cabdata={cabcard} />
-					{/* <Cab /> */}
+					{/* <Cab cabdata={cabcard} /> */}
+					<Cab />
 				</TabPanel>
 				<TabPanel value={this.state.value} index={5}>
 					{/* <Ferry maploc={card} /> */}
@@ -460,5 +460,5 @@ export default class TabView extends Component {
 				</TabPanel>
 			</Container>
 		);
-  }
+	}
 }

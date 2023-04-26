@@ -99,13 +99,13 @@ const Cardamom1 = lazy(() =>
 
 export default function App() {
   useEffect(() => {
-		if (window.performance) {
-			if (performance.navigation.type === 1) {
-				window.location.href = "/";
-			}
+    if (window.performance) {
+      if (performance.navigation.type === 1) {
+        window.location.href = "/";
+      }
     }
     console.log(performance.navigation.type);
-	}, []);
+  }, []);
 
   return (
     <div className="bg-gradient-to-br from-white text-slate-800 font-Ubuntu_Mono h-full m-0 p-0">
@@ -126,18 +126,18 @@ export default function App() {
             <Route path="/Explore" element={<Explore />} />
             <Route path="/Stay" element={<Stay />} />
             <Route path="/Fun" element={<Fun />} />
-            {/* <Route path="/Flight" element={<Flights />} />
-            <Route path="/Ships" element={<Ship />} />
-            <Route path="/Hotel" element={<Hotel />} /> */}
-            {/* <Route path="/Buss" element={<Bus />} /> */}
-            {/* <Route path="/Ferrys" element={<Ferry />} /> */}
-            <Route path="/Activitys" element={<Activity />} />
+            <Route path="/Flight" element={<Flights />} />
+            <Route path="/Ship" element={<Ship />} />
+            <Route path="/Hotel" element={<Hotel />} />
+            <Route path="/Bus" element={<Bus />} />
+            <Route path="/Ferry" element={<Ferry />} />
+            <Route path="/Activity" element={<Activity />} />
             <Route path="/Pg" element={<Pg />} />
             <Route path="/Travelpackage" element={<Travelpackage />} />
-            {/* <Route path="/Cab" element={<Cab />} /> */}
-            {/* <Route path="/Dinning" element={<Dinning />} /> */}
-            {/* <Route path="/Trekking" element={<Trekking />} /> */}
-            {/* <Route path="/Shop" element={<Shop />} /> */}
+            <Route path="/Cab" element={<Cab />} />
+            <Route path="/Dinning" element={<Dinning />} />
+            <Route path="/Trekking" element={<Trekking />} />
+            <Route path="/Shop" element={<Shop />} />
             <Route path="/Tandoor" element={<Tandoor />} />
             <Route path="/Trio" element={<Trio />} />
             <Route path="/Tillai" element={<Tillai />} />
@@ -164,10 +164,10 @@ export default function App() {
 
             {/* Ship Booking */}
             <Route path="/ShipBooking" element={<ShipBooking />} />
-            <Route path="/selectFerry" element={<ShipResults />} /> 
-            <Route path="/travellerDetails" element={<TravellerDetails />} />  
-            <Route path="/ReviewBooking" element={<ReviewBooking />} />           
-            
+            <Route path="/selectFerry" element={<ShipResults />} />
+            <Route path="/travellerDetails" element={<TravellerDetails />} />
+            <Route path="/ReviewBooking" element={<ReviewBooking />} />
+
             <Route path="/CabContactForm" element={<CabContactForm />} />
             <Route path="/FlightContactForm" element={<FlightContactForm />} />
             <Route
