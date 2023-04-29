@@ -125,20 +125,9 @@ export default function App() {
             <Route path="/" element={<Nav />} />
             <Route path="/Explore" element={<Explore />} />
             <Route path="/Stay" element={<Stay />} />
-            <Route path="/Fun" element={<Fun />} />
-            <Route path="/Flight" element={<Flights />} />
-            <Route path="/Ship" element={<Ship />} />
-            <Route path="/Hotel" element={<Hotel />} />
-            <Route path="/Bus" element={<Bus />} />
-            <Route path="/Ferry" element={<Ferry />} />
-            <Route path="/Activity" element={<Activity />} />
-            <Route path="/Pg" element={<Pg />} />
+            <Route path="/Fun" element={<Fun />} />          
             <Route path="/Travelpackage" element={<Travelpackage />} />
-            <Route path="/Cab" element={<Cab />} />
-            <Route path="/Dinning" element={<Dinning />} />
-            <Route path="/Trekking" element={<Trekking />} />
-            <Route path="/Shop" element={<Shop />} />
-            <Route path="/Tandoor" element={<Tandoor />} />
+             <Route path="/Tandoor" element={<Tandoor />} />
             <Route path="/Trio" element={<Trio />} />
             <Route path="/Tillai" element={<Tillai />} />
             <Route path="/Icyspicy" element={<Icyspicy />} />
