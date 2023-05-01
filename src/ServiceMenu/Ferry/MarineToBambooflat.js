@@ -14,8 +14,8 @@ const mapStyles = {
 };
 
 const MarineToBambooflat = (props) => {
-  const [lat, setLat] = useState(11.6860);
-  const [lng, setLng] = useState(92.7218);
+  const [lat, setLat] = useState(11.6744);
+  const [lng, setLng] = useState(92.7330);
 
 
   useEffect(() => {
@@ -64,7 +64,7 @@ const MarineToBambooflat = (props) => {
         google={props.google}
         zoom={14}
         style={mapStyles}
-        center={{ lat : 11.689074, lng : 92.727586 }}
+        center={{ lat : 11.6744, lng : 92.7330 }}
       >
         <Marker icon={Boat} position={{lat: lat, lng: lng}} />
       </Map>

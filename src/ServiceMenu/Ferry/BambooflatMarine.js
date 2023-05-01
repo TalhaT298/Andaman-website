@@ -13,9 +13,9 @@ const mapStyles = {
   // borderWidth: '5px'
 };
 
-const HaddoToHavelock = (props) => {
-  const [lat, setLat] = useState(11.6860);
-  const [lng, setLng] = useState(92.7218);
+const BambooflatMarine = (props) => {
+  const [lat, setLat] = useState(11.704840);
+  const [lng, setLng] = useState(92.715733);
 
 
   useEffect(() => {
@@ -62,9 +62,9 @@ const HaddoToHavelock = (props) => {
     <div>
       <Map
         google={props.google}
-        zoom={10}
+        zoom={14}
         style={mapStyles}
-        center={{ lat : 11.6860, lng : 92.7218 }}
+        center={{ lat : 11.704840, lng : 92.715733 }}
       >
         <Marker icon={Boat} position={{lat: lat, lng: lng}} />
       </Map>
@@ -74,4 +74,4 @@ const HaddoToHavelock = (props) => {
 
 export default GoogleApiWrapper({
   apiKey: 'AIzaSyDnSNNGQQ8AhLEmcsXJbmz1_MVrbOz55rM',
-})(HaddoToHavelock);
+})(BambooflatMarine);
