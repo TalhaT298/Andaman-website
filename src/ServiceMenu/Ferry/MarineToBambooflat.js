@@ -64,7 +64,7 @@ const MarineToBambooflat = (props) => {
         google={props.google}
         zoom={14}
         style={mapStyles}
-        center={{ lat : 11.6744, lng : 92.7330 }}
+        center={{ lat : lat, lng : lng }}
       >
         <Marker icon={Boat} position={{lat: lat, lng: lng}} />
       </Map>

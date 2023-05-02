@@ -64,7 +64,7 @@ const HavelockHaddo = (props) => {
         google={props.google}
         zoom={10}
         style={mapStyles}
-        center={{ lat : 12.0427, lng : 92.9825 }}
+        center={{ lat : lat, lng : lng }}
       >
         <Marker icon={Boat} position={{lat: lat, lng: lng}} />
       </Map>
