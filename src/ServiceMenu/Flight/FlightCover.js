@@ -6,6 +6,7 @@ import { useState } from 'react';
 import 'react-date-range/dist/styles.css';
 import 'react-date-range/dist/theme/default.css';
 import { format } from 'date-fns';
+import { Link } from 'react-router-dom';
 
 // Always remember, the data we fetch from firebase is in objects, so, we will have to convert it into an array of objects that's why we have used
 // here Object.values in flightsData
@@ -123,11 +124,11 @@ const FlightCover = (props) => {
                     </span>
                   </div>
                 </div>
-                <div className="flex flex-col mx-auto py-1 w-28">
+                <Link to={'/Review'} className="flex flex-col mx-auto py-1 w-28">
                   <button className="pb-1 rounded-sm h-10 bg-pink-800 text-white">
                     Book Now
                   </button>
-                </div>
+                </Link>
               </div>
             </div>
           </div>
