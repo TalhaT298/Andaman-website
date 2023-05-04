@@ -13,9 +13,9 @@ const mapStyles = {
   // borderWidth: '5px'
 };
 
-const MarineToBambooflat = (props) => {
-  const [lat, setLat] = useState(11.6744);
-  const [lng, setLng] = useState(92.7330);
+const HavelockHaddo = (props) => {
+  const [lat, setLat] = useState(12.0427);
+  const [lng, setLng] = useState(92.9825);
 
 
   useEffect(() => {
@@ -62,7 +62,7 @@ const MarineToBambooflat = (props) => {
     <div>
       <Map
         google={props.google}
-        zoom={14}
+        zoom={10}
         style={mapStyles}
         center={{ lat : lat, lng : lng }}
       >
@@ -74,4 +74,4 @@ const MarineToBambooflat = (props) => {
 
 export default GoogleApiWrapper({
   apiKey: 'AIzaSyDnSNNGQQ8AhLEmcsXJbmz1_MVrbOz55rM',
-})(MarineToBambooflat);
+})(HavelockHaddo);

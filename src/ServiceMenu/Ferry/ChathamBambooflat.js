@@ -13,10 +13,10 @@ const mapStyles = {
 
 const ChathamBambooflat = (props) => {
   const [lat, setlat] = useState({
-    lat: 11.687574,
+    lat: 11.6884,
   });
   const [lng, setlng] = useState({
-    lng: 92.715889,
+    lng: 92.7223,
   });
   useEffect(() => {
     const locationRef = firebase.database().ref('locations');

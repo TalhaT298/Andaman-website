@@ -1,10 +1,11 @@
-import React, { lazy } from "react";
+import React from "react";
 import { Tab, Tabs } from "@mui/material";
-import { Link, useHistory, useLocation } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
 // import {Text} from "@nextui-org/react";
 // import Flights from '../ServiceMenu/Flights';
 
+import Flights from "../ServiceMenu/Flights";
 import Ship from "../ServiceMenu/Ship";
 import Hotel from "../ServiceMenu/Hotel";
 import Cab from "../ServiceMenu/Cab";
@@ -31,7 +32,12 @@ import * as DinningData from "../Icons/dinning.json";
 import * as TrekkingData from "../Icons/trekking.json";
 import * as ShopData from "../Icons/shop.json";
 
-const Flights = lazy(() => import("../ServiceMenu/Flights"));
+import { fire } from "../fire";
+
+// let card = []
+// let flightcard = []
+// let cabcard = []
+// let pgcard = []
 
 const TabView = () => {
 	const [value, setValue] = React.useState({
@@ -45,7 +51,7 @@ const TabView = () => {
 	React.useEffect(() => {
 		const { pathname } = location;
 		if (pathname === "/Hotels") {
-			setValue({ value: 1});
+			setValue({ value: 1 });
 		} else if (pathname === "/Ships") {
 			setValue({ value: 2 });
 		} else if (pathname === "/Bus") {

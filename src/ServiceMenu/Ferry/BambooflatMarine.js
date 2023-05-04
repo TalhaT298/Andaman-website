@@ -13,9 +13,9 @@ const mapStyles = {
   // borderWidth: '5px'
 };
 
-const MarineToBambooflat = (props) => {
-  const [lat, setLat] = useState(11.6744);
-  const [lng, setLng] = useState(92.7330);
+const BambooflatMarine = (props) => {
+  const [lat, setLat] = useState(11.704840);
+  const [lng, setLng] = useState(92.715733);
 
 
   useEffect(() => {
@@ -74,4 +74,4 @@ const MarineToBambooflat = (props) => {
 
 export default GoogleApiWrapper({
   apiKey: 'AIzaSyDnSNNGQQ8AhLEmcsXJbmz1_MVrbOz55rM',
-})(MarineToBambooflat);
+})(BambooflatMarine);

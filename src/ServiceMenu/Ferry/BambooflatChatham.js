@@ -14,8 +14,8 @@ const mapStyles = {
 };
 
 const BambooflatChatham = (props) => {
-  const [lat, setLat] = useState(11.7056);
-  const [lng, setLng] = useState(92.7158);
+  const [lat, setLat] = useState(11.704840);
+  const [lng, setLng] = useState(92.715733);
 
 
   useEffect(() => {
@@ -24,39 +24,41 @@ const BambooflatChatham = (props) => {
       snapshot.forEach((bamboochat) => {
         const newLat = bamboochat.val().latitude;
         const newLng = bamboochat.val().longitude;
-        smoothUpdateLat(newLat);
-        smoothUpdateLng(newLng);
+        setLat(newLat)
+        setLng(newLng)
+        // smoothUpdateLat(newLat);
+        // smoothUpdateLng(newLng);
       });
     });
     return () => {
       locationRef.off();
     };
   }, []);
-  const smoothUpdateLat = (newLat) => {
-    const latStep = (newLat - lat) / 10;
-    let currentLat = lat;
+  // const smoothUpdateLat = (newLat) => {
+  //   const latStep = (newLat - lat) / 10;
+  //   let currentLat = lat;
 
-    for (let i = 1; i <= 10; i++) {
-      // eslint-disable-next-line no-loop-func
-      setTimeout(() => {
-        currentLat += latStep;
-        setLat(currentLat);
-      }, i * 10);
-    }
-  };
+  //   for (let i = 1; i <= 10; i++) {
+  //     // eslint-disable-next-line no-loop-func
+  //     setTimeout(() => {
+  //       currentLat += latStep;
+  //       setLat(currentLat);
+  //     }, i * 10);
+  //   }
+  // };
 
-  const smoothUpdateLng = (newLng) => {
-    const lngStep = (newLng - lng) / 10;
-    let currentLng = lng;
+  // const smoothUpdateLng = (newLng) => {
+  //   const lngStep = (newLng - lng) / 10;
+  //   let currentLng = lng;
 
-    for (let i = 1; i <= 10; i++) {
-      // eslint-disable-next-line no-loop-func
-      setTimeout(() => {
-        currentLng += lngStep;
-        setLng(currentLng);
-      }, i * 10);
-    }
-  };
+  //   for (let i = 1; i <= 10; i++) {
+  //     // eslint-disable-next-line no-loop-func
+  //     setTimeout(() => {
+  //       currentLng += lngStep;
+  //       setLng(currentLng);
+  //     }, i * 10);
+  //   }
+  // };
 
   return (
     <div>
@@ -64,7 +66,7 @@ const BambooflatChatham = (props) => {
         google={props.google}
         zoom={14}
         style={mapStyles}
-        center={{ lat : 11.696603, lng : 92.719163 }}
+        center={{ lat : lat, lng : lng }}
       >
         <Marker icon={Boat} position={{lat: lat, lng: lng}} />
       </Map>

@@ -64,7 +64,7 @@ const HaddoToHavelock = (props) => {
         google={props.google}
         zoom={10}
         style={mapStyles}
-        center={{ lat : 11.871391, lng : 92.857278 }}
+        center={{ lat : lat, lng : lng }}
       >
         <Marker icon={Boat} position={{lat: lat, lng: lng}} />
       </Map>
