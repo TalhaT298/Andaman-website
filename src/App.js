@@ -3,6 +3,7 @@ import { ScaleLoader } from 'react-spinners';
 // import { RingLoader } from 'react-spinners';
 
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import Review from "./ServiceMenu/Flight/Review.js";
 
 const Explore = lazy(() => import('./NavMenu/Explore.js'));
 const Fun = lazy(() => import('./NavMenu/Fun.js'));
@@ -69,7 +70,6 @@ export default function App() {
         window.location.href = "/";
       }
     }
-    console.log(performance.navigation.type);
   }, []);
 
   return (
@@ -114,6 +114,7 @@ export default function App() {
             <Route path="/MakkruzGold" element={<MakkruzGoldDetails />} />
             <Route path="/PgSingleHotel" element={<PgHotel />} />
             <Route path="/ContactForm" element={<ContactForm />} />
+            <Route path="/Review" element={<Review />} />
 
             {/* Ship Booking */}
             <Route path="/ShipBooking" element={<ShipBooking />} />
