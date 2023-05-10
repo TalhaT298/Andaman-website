@@ -5,6 +5,10 @@ import HaddoToHavelock from './Ferry/HaddoToHavelock';
 import HavelockHaddo from './Ferry/HavelockHaddo';
 import MarineToBambooflat from './Ferry/MarineToBambooflat';
 import BambooflatMarine from './Ferry/BambooflatMarine';
+import ChathamDunduspoint from './Ferry/ChathamDunduspoint';
+import DunduspointChatham from './Ferry/DunduspointChatham';
+import MarinePanighat from './Ferry/MarinePanighat';
+import PanighatMarine from './Ferry/PanighatMarine';
 // import ChathamBambooflat from './Ferry/ChathamBambooflat';
 
 const Ferry = () => {
@@ -25,6 +29,10 @@ const Ferry = () => {
           <option className='text-slate-700' value="HavelockHaddo">Havelock-Haddo</option>
           <option className='text-slate-700' value="MarineBambooflat">Marine-Bambooflat</option>
           <option className='text-slate-700' value="BambooflatMarine">Bambooflat-Marine</option>
+          <option className='text-slate-700' value="ChathamDunduspoint">Chatham-Dunduspoint</option>
+          <option className='text-slate-700' value="DunduspointChatham">Dunduspoint-Chatham</option>
+          <option className='text-slate-700' value="MarinePanighat">Marine-Panighat</option>
+          <option className='text-slate-700' value="PanighatMarine">Panighat-Marine</option>
         </select>
       </div>
       <div className="mx-auto w-full h-screen items-center justify-center">
@@ -34,6 +42,10 @@ const Ferry = () => {
         {selectedOption === 'HavelockHaddo' && <HavelockHaddo className="border-4" />}
         {selectedOption === 'MarineBambooflat' && <MarineToBambooflat className="border-4" />}
         {selectedOption === 'BambooflatMarine' && <BambooflatMarine className="border-4" />}
+        {selectedOption === 'ChathamDunduspoint' && <ChathamDunduspoint className="border-4" />}
+        {selectedOption === 'DunduspointChatham' && <DunduspointChatham className="border-4" />}
+        {selectedOption === 'MarinePanighat' && <MarinePanighat className="border-4" />}
+        {selectedOption === 'PanighatMarine' && <PanighatMarine className="border-4" />}
       </div>
     </div>
   );

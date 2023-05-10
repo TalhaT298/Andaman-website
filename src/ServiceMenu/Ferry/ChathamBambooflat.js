@@ -19,7 +19,7 @@ const ChathamBambooflat = (props) => {
     lng: 92.7223,
   });
   useEffect(() => {
-    const locationRef = firebase.database().ref('locations');
+    const locationRef = firebase.database().ref('ChathamBambooflat');
     locationRef.on('value', (snapshot) => {
       snapshot.forEach((location) => {
         console.log(location.val().latitude);
