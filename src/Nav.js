@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import { Navbar, Link, Text, Avatar, Dropdown } from '@nextui-org/react';
 import { Layout } from './Layout.js';
-import { AcmeLogo } from './AcmeLogo.js';
-import Lottie from 'react-lottie';
-import * as Dolphin from './Icons/dolphin.json';
+// import { AcmeLogo } from './AcmeLogo.js';
+// import Lottie from 'react-lottie';
+// import * as Dolphin from './Icons/dolphin.json';
 
 import { NavLink } from 'react-router-dom';
 
@@ -20,14 +20,14 @@ const collapseItems = [
   'Log Out',
 ];
 
-const DolphinIcon = {
-  loop: true,
-  autoplay: true,
-  animationData: Dolphin,
-  rendererSettings: {
-    preserveAspectRatio: 'xMidYMid slice',
-  },
-};
+// const DolphinIcon = {
+//   loop: true,
+//   autoplay: true,
+//   animationData: Dolphin,
+//   rendererSettings: {
+//     preserveAspectRatio: 'xMidYMid slice',
+//   },
+// };
 
 const HeadColor = '#3f51b5'; //'#2f4f4f';';
 
@@ -46,11 +46,11 @@ export default class Navapp extends Component {
                 },
               }}
             >
-              <AcmeLogo />
+              {/* <AcmeLogo /> */}
               <Text b css={{ color: '#3f51b5' }} hideIn="xs">
                 Sublime Andaman
               </Text>
-              <Lottie options={DolphinIcon} height={70} width={100} />
+              {/* <Lottie options={DolphinIcon} height={70} width={100} /> */}
             </Navbar.Brand>
             <Navbar.Content
               enableCursorHighlight

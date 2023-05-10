@@ -63,23 +63,23 @@ const ContactForm = () => {
       <Navforwithout />
       <div className="h-full w-auto">
         <div className="font-Nunito_Sans">
-          <div className="w-[90%] flex md:flex-col-reverse justify-center items-stretch mx-auto my-6 shadow-xl rounded-lg">
+          <div className="w-[90%] flex md:flex-col justify-center items-stretch mx-auto my-6 shadow-xl rounded-lg">
             <form
               ref={form}
               className="w-[50%] md:w-full lg:w-[55%] xl:w-[50%] bg-white overflow-hidden border border-gray-300 
                     p-12 md:p-6 lg:p-8 "
               onSubmit={handleSubmit}
             >
-              <h1 className="text-[#699c78] text-[26px] md:text-2xl font-Ubuntu_Mono font-bold mb-6 md:mb-3 tracking-wide">
-                Book your Hotel's
+              <h1 className="text-[#699c78] text-[26px] md:text-2xl md:text-center font-Ubuntu_Mono font-bold mb-6 md:mb-3 tracking-wide">
+                Book your Hotel
               </h1>
-              <div className="flex flex-col gap-1 mb-5">
+              {/* <div className="flex flex-col gap-1 mb-5">
                 <label className='text-slate-500'>
                   Select service according to your query placeholder content
                 </label>
-                <select                  
+                <select
                   id="service"
-                  name="user_service"                  
+                  name="user_service"
                   className=" outline-none p-2 rounded-md border border-gray-300 focus:border focus:border-slate-400"
                   required
                 >
@@ -91,7 +91,7 @@ const ContactForm = () => {
                   <option value="Travel packages">Travel packages</option>
                   <option value="Trekking trips">Trekking trips</option>
                 </select>
-              </div>
+              </div> */}
               <div className="flex flex-col gap-1">
                 <input
                   type="text"
@@ -132,7 +132,7 @@ const ContactForm = () => {
                   required
                 />
               </div>
-              <div className="flex flex-col gap-1 mt-5">
+              {/* <div className="flex flex-col gap-1 mt-5">
                 <input
                   type="text"
                   id="destination"
@@ -141,10 +141,10 @@ const ContactForm = () => {
                   className="h-[45px] outline-none p-4 rounded-md border border-gray-300 focus:border-2 focus:border-slate-400"
                   required
                 />
-              </div>
+              </div> */}
               <div className="flex flex-col gap-1 mt-5">
                 <input
-                  type="text"
+                  type="number"
                   id="travellers"
                   name="user_travellers"
                   placeholder="No. of Travellers"
@@ -163,12 +163,12 @@ const ContactForm = () => {
                 />
               </div>
               <div className="flex flex-col gap-1 mt-5">
+                <span className='font-bold ml-3'>* optional *</span>
                 <textarea
                   id="message"
                   name="message"
                   placeholder="Message"
                   className="h-[90px] outline-none p-3 rounded-md resize-none border border-gray-300 focus:border-2 focus:border-slate-400"
-                  required
                 />
               </div>
               <button

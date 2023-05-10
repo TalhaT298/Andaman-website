@@ -63,14 +63,14 @@ const ActivityContactForm = () => {
       <Navforwithout />
       <div className="h-full w-auto">
         <div className="font-Nunito_Sans">
-          <div className="w-[90%] flex md:flex-col-reverse justify-center items-stretch mx-auto my-6 shadow-xl rounded-lg">
+          <div className="w-[90%] flex md:flex-col justify-center items-stretch mx-auto my-6 shadow-xl rounded-lg">
             <form
               ref={form}
               className="w-[50%] md:w-full lg:w-[55%] xl:w-[50%] bg-white overflow-hidden border border-gray-300 
                     p-12 md:p-6 lg:p-8 "
               onSubmit={handleSubmit}
             >
-              <h1 className="text-[#699c78] text-[26px] md:text-2xl font-Ubuntu_Mono font-bold mb-6 md:mb-3 tracking-wide">
+              <h1 className="text-[#699c78] text-[26px] md:text-2xl md:text-center font-Ubuntu_Mono font-bold mb-6 md:mb-3 tracking-wide">
                 Book your Activity
               </h1>
               <div className="flex flex-col gap-1">
@@ -125,7 +125,7 @@ const ActivityContactForm = () => {
               </div>
               <div className="flex flex-col gap-1 mt-5">
                 <input
-                  type="text"
+                  type="number"
                   id="people"
                   name="user_people"
                   placeholder="No. of People wanting to do Activity"
@@ -144,12 +144,12 @@ const ActivityContactForm = () => {
                 />
               </div>
               <div className="flex flex-col gap-1 mt-5">
+                <span className='font-bold ml-3'>* optional *</span>
                 <textarea
                   id="message"
                   name="message"
                   placeholder="Message"
                   className="h-[90px] outline-none p-3 rounded-md resize-none border border-gray-300 focus:border-2 focus:border-slate-400"
-                  required
                 />
               </div>
               <button
