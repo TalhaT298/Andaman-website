@@ -65,7 +65,7 @@ const Options = ( {setTravellerDetails} ) => {
           
             <div className="flex flex-row gap-6 px-6">
               <div className="flex flex-col gap-y-5 py-2">
-                <span className="optionText">Adult</span>
+                <span className="optionText">Adult </span>
                 <span className="optionText">Infant</span>
               </div>
               <div className="text-center">

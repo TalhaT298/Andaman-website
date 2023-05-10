@@ -31,7 +31,7 @@ const ReturnDate = () => {
           endingDate[0].endDate,
           'dd/MM/yyyy'
         )}`}</span>
-        <Modal
+        {/* <Modal
           isOpen={openArrDate}
           onRequestClose={() => setOpenArrDate(false)}
           overlayClassName='modal-overlay bg-black opacity'
@@ -44,7 +44,16 @@ const ReturnDate = () => {
             ranges={endingDate}
             className='absolute -bottom-24 -mx- left-1/2 airbnbml:left-56 airbnbml:-bottom-16 sm:-bottom-16 sm:left-2'
           />
-        </Modal>
+        </Modal> */}
+           {openArrDate &&
+          <DateRange
+          editableDateInputs={true}
+          onChange={(item) => setEndingDate([item.selection])}
+          moveRangeOnFirstSelection={false}
+          ranges={endingDate}
+            className={`absolute z-10 top-20 right-[-2.5rem]`}
+          />
+        }
         <FontAwesomeIcon icon={faCalendarDays} className='text-slate-400' />
       </div>
     </>

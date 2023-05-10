@@ -64,13 +64,13 @@ const Cardamom = lazy(() =>
 );
 
 export default function App() {
-  useEffect(() => {
-    if (window.performance) {
-      if (performance.navigation.type === 1) {
-        window.location.href = "/";
-      }
-    }
-  }, []);
+  // useEffect(() => {
+  //   if (window.performance) {
+  //     if (performance.navigation.type === 1) {
+  //       window.location.href = "/";
+  //     }
+  //   }
+  // }, []);
 
   return (
     <div className="bg-gradient-to-br from-white text-slate-800 font-Ubuntu_Mono h-full m-0 p-0">
