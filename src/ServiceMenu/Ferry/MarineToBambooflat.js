@@ -19,44 +19,47 @@ const MarineToBambooflat = (props) => {
 
 
   useEffect(() => {
-    const locationRef = firebase.database().ref('bambooflatchatham');
+    const locationRef = firebase.database().ref('MarineBambooflat');
     locationRef.on('value', (snapshot) => {
-      snapshot.forEach((bamboochat) => {
-        const newLat = bamboochat.val().latitude;
-        const newLng = bamboochat.val().longitude;
-        smoothUpdateLat(newLat);
-        smoothUpdateLng(newLng);
+      snapshot.forEach((bambooMarine) => {
+        const newLat = bambooMarine.val().latitude;
+        const newLng = bambooMarine.val().longitude;
+        setLat(newLat)
+        setLng(newLng)
+        // smoothUpdateLat(newLat);
+        // smoothUpdateLng(newLng);
       });
     });
     return () => {
       locationRef.off();
     };
   }, []);
-  const smoothUpdateLat = (newLat) => {
-    const latStep = (newLat - lat) / 10;
-    let currentLat = lat;
+  // const smoothUpdateLat = (newLat) => {
+  //   const latStep = (newLat - lat) / 10;
+  //   let currentLat = lat;
 
-    for (let i = 1; i <= 10; i++) {
-      // eslint-disable-next-line no-loop-func
-      setTimeout(() => {
-        currentLat += latStep;
-        setLat(currentLat);
-      }, i * 10);
-    }
-  };
+  //   for (let i = 1; i <= 10; i++) {
+  //     // eslint-disable-next-line no-loop-func
+  //     setTimeout(() => {
+  //       currentLat += latStep;
+  //       setLat(currentLat);
+  //     }, i * 10);
+  //   }
+  // };
 
-  const smoothUpdateLng = (newLng) => {
-    const lngStep = (newLng - lng) / 10;
-    let currentLng = lng;
+  // const smoothUpdateLng = (newLng) => {
+  //   const lngStep = (newLng - lng) / 10;
+  //   let currentLng = lng;
 
-    for (let i = 1; i <= 10; i++) {
-      // eslint-disable-next-line no-loop-func
-      setTimeout(() => {
-        currentLng += lngStep;
-        setLng(currentLng);
-      }, i * 10);
-    }
-  };
+  //   for (let i = 1; i <= 10; i++) {
+  //     // eslint-disable-next-line no-loop-func
+  //     setTimeout(() => {
+  //       currentLng += lngStep;
+  //       setLng(currentLng);
+  //     }, i * 10);
+  //   }
+  // };
+
 
   return (
     <div>

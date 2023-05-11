@@ -13,17 +13,17 @@ const mapStyles = {
   // borderWidth: '5px'
 };
 
-const BambooflatMarine = (props) => {
-  const [lat, setLat] = useState(11.704840);
-  const [lng, setLng] = useState(92.715733);
+const ChathamDunduspoint = (props) => {
+  const [lat, setLat] = useState(11.6860);
+  const [lng, setLng] = useState(92.7218);
 
 
   useEffect(() => {
-    const locationRef = firebase.database().ref('BambooflatMarine');
+    const locationRef = firebase.database().ref('ChathamDunduspoint');
     locationRef.on('value', (snapshot) => {
-      snapshot.forEach((bambooMarine) => {
-        const newLat = bambooMarine.val().latitude;
-        const newLng = bambooMarine.val().longitude;
+      snapshot.forEach((chathamDundduspoint) => {
+        const newLat = chathamDundduspoint.val().latitude;
+        const newLng = chathamDundduspoint.val().longitude;
         setLat(newLat)
         setLng(newLng)
         // smoothUpdateLat(newLat);
@@ -60,11 +60,12 @@ const BambooflatMarine = (props) => {
   //   }
   // };
 
+
   return (
     <div>
       <Map
         google={props.google}
-        zoom={14}
+        zoom={10}
         style={mapStyles}
         center={{ lat : lat, lng : lng }}
       >
@@ -76,4 +77,4 @@ const BambooflatMarine = (props) => {
 
 export default GoogleApiWrapper({
   apiKey: 'AIzaSyDnSNNGQQ8AhLEmcsXJbmz1_MVrbOz55rM',
-})(BambooflatMarine);
+})(ChathamDunduspoint);
