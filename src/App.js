@@ -3,7 +3,8 @@ import { ScaleLoader } from 'react-spinners';
 // import { RingLoader } from 'react-spinners';
 
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import Review from "./ServiceMenu/Flight/Review.js";
+import TravellersDetailsFlight from "./ServiceMenu/Flight/TravellersDetailsFlight.js";
+import ReviewBookingFlight from "./ServiceMenu/Flight/ReviewBookingFlight.js";
 
 const Explore = lazy(() => import('./NavMenu/Explore.js'));
 const Fun = lazy(() => import('./NavMenu/Fun.js'));
@@ -114,7 +115,8 @@ export default function App() {
             <Route path="/MakkruzGold" element={<MakkruzGoldDetails />} />
             <Route path="/PgSingleHotel" element={<PgHotel />} />
             <Route path="/ContactForm" element={<ContactForm />} />
-            <Route path="/Review" element={<Review />} />
+            <Route path="/ReviewFlight" element={<TravellersDetailsFlight />} />
+            <Route path="/FlightReviewBooking" element={<ReviewBookingFlight />} />
 
             {/* Ship Booking */}
             <Route path="/ShipBooking" element={<ShipBooking />} />

@@ -124,7 +124,7 @@ const FlightCover = (props) => {
                     </span>
                   </div>
                 </div>
-                <Link to={'/Review'} className="flex flex-col mx-auto py-1 w-28">
+                <Link to={'/ReviewFlight'} className="flex flex-col mx-auto py-1 w-28">
                   <button className="pb-1 rounded-sm h-10 bg-pink-800 text-white">
                     Book Now
                   </button>

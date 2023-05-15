@@ -4,6 +4,7 @@ import ReturnDate from './ReturnDate'
 
 import "react-date-range/dist/styles.css";
 import "react-date-range/dist/theme/default.css";
+import {  useDataContext } from "../../context/DataContext";
 const Locations = lazy(() => import("./Locations"));
 const DepartDate = lazy(() => import("./DepartDate"));
 const Options = lazy(() => import("./Options"));
@@ -57,7 +58,7 @@ const FlightSearch = (props) => {
     event.preventDefault();
   };
 
-  const [twoWay, setTwoWay] = useState(false);
+  const {twoWay, setTwoWay} = useDataContext();
 
   return (
     <div className="flex flex-col h-full w-full lg:my-0 my-6">

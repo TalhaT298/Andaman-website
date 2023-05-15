@@ -1,17 +1,15 @@
-import React from 'react';
-import { useState } from 'react';
-import classes from './Options.module.css';
-import Modal from 'react-modal';
+import React, { useState } from 'react';
+import { useDataContext } from '../../context/DataContext';
 
 const Options = () => {
   const [openTravellerInfo, setOpenTravellerInfo] = useState(false);
-  const [travellerInfo, setTravellerInfo] = useState({
-    adult: 1,
-    children: 0,
-    infant: 0,
-    traveller: 0,
-  });
-
+  // const [travellerInfo, setTravellerInfo] = useState({
+  //   adult: 1,
+  //   children: 0,
+  //   infant: 0,
+  //   traveller: 0,
+  // });
+const {travellerInfo, setTravellerInfo}=useDataContext();
   const handleTravellerInfo = (category, arithmetricOperation) => {
     setTravellerInfo((prev) => {
       return {
@@ -27,7 +25,7 @@ const Options = () => {
   const [passengerClass, setPassengerClass] = useState('ECONOMY');
 
   return (
-    <div className="relative bg-slate-300 h-auto w-full flex flex-col gap-y-3 px-4 border-solid border-2 border-slate-300 mx-auto px-auto ml:w-auto airbnbml:w-96  xs:w-64 py-2 airbnbml:items-center airbnbml:border-b-transparent">
+    <div className="relative h-auto w-full flex flex-col gap-y-3 px-4 mx-auto px-auto ml:w-auto airbnbml:w-96  xs:w-64 py-2 airbnbml:items-center airbnbml:border-b-transparent">
       <span
         onClick={() => setOpenTravellerInfo(!openTravellerInfo)}
         className="mx-auto text-slate-500 font-bold text-xl font-mono"

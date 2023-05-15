@@ -3,14 +3,17 @@ import { Link } from 'react-router-dom';
 import flight from '../Data/Flight-Section/flight';
 
 import FlightSearch from './Flight/FlightSearch';
+import { useDataContext } from '../context/DataContext';
 
 const BestPrices = lazy(() => import('./Flight/BestPrices'));
 const FlightCover = lazy(() => import('./Flight/FlightCover'));
 
 const Flights = () => {
   //Filter feature
-  const [currentDestinationFilter, setCurrentDestinationFilter] = useState('');
-  const [nextDestinationFilter, setNextDestinationFilter] = useState('');
+  // const [currentDestinationFilter, setCurrentDestinationFilter] = useState('');
+  // const [nextDestinationFilter, setNextDestinationFilter] = useState('');
+const {currentDestinationFilter, setCurrentDestinationFilter,nextDestinationFilter, setNextDestinationFilter}=useDataContext();
+const [flightStoreData,setFlightStoreData]=useState([])
 
   const flightData = flight
     .filter((airplane) =>
@@ -22,7 +25,10 @@ const Flights = () => {
       airplane.nextDestination === nextDestinationFilter
     )
     .map((airplane, index) => {
-      return <FlightCover key={airplane.flightID} {...airplane} />;
+      return (<>
+      <FlightCover key={airplane.flightID} {...airplane} />
+      </>
+      );
     });
 
   return (

@@ -7,22 +7,23 @@ import { format } from 'date-fns';
 import { faCalendarDays } from '@fortawesome/free-solid-svg-icons';
 
 import Modal from 'react-modal';
+import { useDataContext } from '../../context/DataContext';
 
 const ReturnDate = () => {
   const [openArrDate, setOpenArrDate] = useState(false);
 
-  const [endingDate, setEndingDate] = useState([
-    {
-      endDate: new Date(),
-      key: 'selection',
-    },
-  ]);
-
+  // const [endingDate, setEndingDate] = useState([
+  //   {
+  //     endDate: new Date(),
+  //     key: 'selection',
+  //   },
+  // ]);
+const {endingDate, setEndingDate}=useDataContext();
   return (
     <>
       <div
         onClick={() => setOpenArrDate(!openArrDate)}
-        className='bg-slate-300 h-auto w-full mx-auto px-auto flex flex-col gap-y-3 px-4 border-solid border-2 border-slate-300 ml:w-auto airbnbml:w-96  xs:w-64 py-2 airbnbml:items-center airbnbml:border-b-transparent'
+        className='bg-slate-300 h-auto w-full mx-auto px-auto flex flex-col gap-y-3 px-4 border-solid border-2 border-slate-300 ml:w-auto airbnbml:w-96  xs:w-64 py-2 airbnbml:items-center airbnbml:border-b-transparent relative'
       >
         <span className='mx-auto text-slate-600 text-sm font-normal'>
           RETURN DATE

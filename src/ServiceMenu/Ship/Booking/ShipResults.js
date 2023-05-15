@@ -12,6 +12,7 @@ const ShipResults = () => {
     const location = useLocation();
     const { state } = location
     const { origin, destination, departDate, returnDate, travellerDetails, wayType } = state
+    console.log("🚀 ~ file: ShipResults.js:15 ~ ShipResults ~ origin:", origin)
 
     //filter Morning/evening
     const [selectedValue, setSelectedValue] = useState('');

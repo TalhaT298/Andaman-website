@@ -1,0 +1,91 @@
+import React, { createContext, useContext, useState } from "react";
+
+// Create the DataContext
+const DataContext = createContext();
+
+// Create the DataProvider component
+export const DataProvider = ({ children }) => {
+  // Location State
+  const [currentDestinationFilter, setCurrentDestinationFilter] =
+    useState("Chennai");
+  const [nextDestinationFilter, setNextDestinationFilter] =
+    useState("Port Blair");
+  // Option State
+
+  const [travellerInfo, setTravellerInfo] = useState({
+    adult: 1,
+    children: 0,
+    infant: 0,
+    traveller: 0,
+  });
+
+  // Depart State
+
+  const [startingDate, setStartingDate] = useState([
+    {
+      startDate: new Date(),
+      key: "selection",
+    },
+  ]);
+
+  // Return State
+
+  const [endingDate, setEndingDate] = useState([
+    {
+      endDate: new Date(),
+      key: "selection",
+    },
+  ]);
+
+  // Flight Search State
+  const [twoWay, setTwoWay] = useState(false);
+  let wayType = "";
+  if (twoWay) {
+    wayType = "Two Way";
+  } else {
+    wayType = "One Way";
+  }
+  // TripSummary
+  const [flightDataState, setFlightDataState] = useState({});
+
+  const [adultDetails, setAdultDetails] = useState([]);
+  const [childrenDetails, setChildrenDetails] = useState([]);
+  const [infantDetails, setInfantDetails] = useState([]);
+  const [contactDetails, setContactDetails] = useState({
+    name: "",
+    email: "",
+    phone: "",
+    altPhone: "",
+  });
+  const state = {
+    travellerInfo,
+    setTravellerInfo,
+    startingDate,
+    setStartingDate,
+    currentDestinationFilter,
+    setCurrentDestinationFilter,
+    nextDestinationFilter,
+    setNextDestinationFilter,
+    twoWay,
+    setTwoWay,
+    endingDate,
+    setEndingDate,
+    wayType,
+    flightDataState,
+    setFlightDataState,
+    adultDetails,
+    setAdultDetails,
+    childrenDetails,
+    setChildrenDetails,
+    infantDetails,
+    setInfantDetails,
+    contactDetails,
+    setContactDetails,
+  };
+
+  console.log("🚀 ~ file: DataContext.js:44 ~ DataProvider ~ state:", state);
+  return <DataContext.Provider value={state}>{children}</DataContext.Provider>;
+};
+
+// Create the useData hook to access the context
+export const useDataContext = () => useContext(DataContext);
