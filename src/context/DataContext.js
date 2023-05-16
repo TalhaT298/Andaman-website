@@ -10,6 +10,10 @@ export const DataProvider = ({ children }) => {
     useState("Chennai");
   const [nextDestinationFilter, setNextDestinationFilter] =
     useState("Port Blair");
+  const [currentDestinationFilterShip, setcurrentDestinationFilterShip] =
+    useState("From");
+  const [nextDestinationFilterShip, setnextDestinationFilterShip] =
+    useState("To");
   // Option State
 
   const [travellerInfo, setTravellerInfo] = useState({
@@ -66,6 +70,10 @@ export const DataProvider = ({ children }) => {
     setCurrentDestinationFilter,
     nextDestinationFilter,
     setNextDestinationFilter,
+    currentDestinationFilterShip,
+    nextDestinationFilterShip,
+    setcurrentDestinationFilterShip,
+    setnextDestinationFilterShip,
     twoWay,
     setTwoWay,
     endingDate,

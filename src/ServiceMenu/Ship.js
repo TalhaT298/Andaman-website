@@ -3,17 +3,42 @@ import React, { useRef } from "react";
 // import ShipSearch from "./Ship/ShipSearch";
 import Mainland from "./Ship/Mainland";
 import Inland from "./Ship/Inland";
-// import ship from "../Data/Ship-Section/ship";
+import ship from "../Data/Ship-Section/ship";
+import ShipOverview from './Ship/Shipoverview';
 // import ShipCover from "./Ship/ShipCover";
-import ImageSection from "./Ship/ImageSection";
+// import ImageSection from "./Ship/ImageSection";
+import ShipSearch from "./Ship/ShipSearch";
 import MainlandDetails from "./Ship/MainlandDetails";
 import SecondSchedule from "./Ship/SecondSchedule";
+import { useDataContext } from '../context/DataContext';
 
 
 const Ship = () => {
   //search feature
   // const [searchOriginTerm, setSearchOriginTerm] = useState("");
   // const [searchDestTerm, setSearchDestTerm] = useState("");
+
+  const { 
+    currentDestinationFilterShip, 
+    nextDestinationFilterShip,
+    setcurrentDestinationFilterShip,
+    setnextDestinationFilterShip,} =  useDataContext();
+
+    const shipData = ship
+    .filter((getShip) =>
+    currentDestinationFilterShip === '' ||
+      getShip.currentDestination === currentDestinationFilterShip
+    )
+    .filter((getShip) =>
+    nextDestinationFilterShip === '' ||
+      getShip.nextDestination === nextDestinationFilterShip
+    )
+    .map((getShip, index) => {
+      return (<>
+      <ShipOverview key={index} {...getShip} />
+      </>
+      );
+    });
 
   const mainlandRef = useRef(null);
   const inlandRef = useRef(null);
@@ -31,17 +56,23 @@ const Ship = () => {
   //     return <ShipCover key={index} {...ship} />;
   //   });
 
-  const handleClick = (id) => {
-    if (id === "mainland" && mainlandRef.current) {
-      mainlandRef.current.scrollIntoView({ behavior: "smooth" });
-    } else if (id === "inland" && inlandRef.current) {
-      inlandRef.current.scrollIntoView({ behavior: "smooth" });
-    }
-  };
+  // const handleClick = (id) => {
+  //   if (id === "mainland" && mainlandRef.current) {
+  //     mainlandRef.current.scrollIntoView({ behavior: "smooth" });
+  //   } else if (id === "inland" && inlandRef.current) {
+  //     inlandRef.current.scrollIntoView({ behavior: "smooth" });
+  //   }
+  // };
 
   return (
     <>
-      <ImageSection handleClick={handleClick} />
+      {/* <ImageSection handleClick={handleClick} /> */}
+      <ShipSearch 
+        currentDestinationFilterShip={currentDestinationFilterShip}
+        nextDestinationFilterShip={nextDestinationFilterShip}
+        setcurrentDestinationFilterShip={setcurrentDestinationFilterShip}
+        setnextDestinationFilterShip={setnextDestinationFilterShip}
+      />
       <div className="pt-10 h-full w-auto cursor-pointer">
         {/* <div className="flex">
           <div className="flex mx-auto mt-10 mb-10">
