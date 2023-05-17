@@ -74,6 +74,18 @@ const Ship = () => {
         setnextDestinationFilterShip={setnextDestinationFilterShip}
       />
       <div className="pt-2 w-full text-center">
+        <div className="flex justify-between mb-5 mt-11">
+          <div className="font-bold">
+            <p>Showing 4 of <span className="text-rose-400">10 Ships</span></p>
+          </div>
+          <div className="flex">
+            <p>short by</p>
+            <select className="font-bold" name="" id="">
+              <option value="">Recommended</option>
+              <option value="">Boatmap</option>
+            </select>
+          </div>
+        </div>
         {shipData.length === 0 ? (
           <center>
             <h1 className="my-5">No results found...</h1>
