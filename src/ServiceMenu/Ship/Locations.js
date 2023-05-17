@@ -1,6 +1,7 @@
 import React from 'react';
 // import { useState } from 'react';
 import ship from '../../Data/Ship-Section/ship';
+import allArrow from '../../images/image_source_for_shiptab/arrow_all.png'
 
 const Locations = ( { currentDestinationFilterShip, nextDestinationFilterShip, setcurrentDestinationFilterShip,
   setnextDestinationFilterShip} ) => {
@@ -22,11 +23,11 @@ const Locations = ( { currentDestinationFilterShip, nextDestinationFilterShip, s
 
   return (
     <>
-    <div className='h-auto w-full flex flex-col gap-y-3 px-4 mx-auto px-auto ml:w-auto airbnbml:w-96  xs:w-64 py-2 airbnbml:items-center airbnbml:border-b-transparent'>
-      <span className='text-slate-500 font-bold text-xl font-mono'>FROM</span>
+    <div className='flex w-64 border border-slate-300 py-3 px-3 hover:border-2 hover:border-rose-400 hover:rounded-md'>
+      <img class="max-w-none mr-3" src={allArrow} alt="..." />
       <select
           id="currentDestinationFilter"
-          className='bg-transparent text-slate-400 font-bold tracking-widest'
+          className='text-black'
           value={currentDestinationFilterShip}
           onChange={(e) => setcurrentDestinationFilterShip(e.target.value)}
         >
@@ -37,11 +38,11 @@ const Locations = ( { currentDestinationFilterShip, nextDestinationFilterShip, s
           ))}
         </select>
     </div>
-    <div className='h-auto w-full flex flex-col gap-y-3 px-4 mx-auto px-auto ml:w-auto airbnbml:w-96  xs:w-64 py-2 airbnbml:items-center airbnbml:border-b-transparent'>
-      <span className='text-slate-500 font-bold text-xl font-mono'>TO</span>
+    <div className='flex w-64 border border-slate-300 py-3 px-3 hover:border-2 hover:border-rose-400 hover:rounded-md'>
+    <img class="max-w-none mr-3" src={allArrow} alt="..." />
       <select
           id="nextDestinationFilter"
-          className='bg-transparent text-slate-400 font-bold tracking-widest'
+          className='text-black'
           value={nextDestinationFilterShip}
           onChange={(e) => setnextDestinationFilterShip(e.target.value)}
         >

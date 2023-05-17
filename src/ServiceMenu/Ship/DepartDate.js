@@ -10,43 +10,48 @@ import Modal from 'react-modal';
 
 const DepartDate = () => {
   const [openDeptDate, setOpenDeptDate] = useState(false);
+  const [startingDate, setStartingDate] = useState([{ startDate: new Date(), key: 'selection' }]);
+  const [selectedDate, setSelectedDate] = useState(null);
 
-  const [startingDate, setStartingDate] = useState([
-    {
-      startDate: new Date(),
-      key: 'selection',
-    },
-  ]);
+  const toggleDateModal = () => {
+    setOpenDeptDate(!openDeptDate);
+  };
+
+  const handleDateSelect = (item) => {
+    setSelectedDate(item.selection.startDate);
+    setStartingDate([item.selection]);
+    setOpenDeptDate(false);
+  };
 
   return (
-    <>
-      <div
-        onClick={() => setOpenDeptDate(!openDeptDate)}
-        className='bg-slate-300 h-auto w-full mx-auto px-auto flex flex-col gap-y-3 px-4 border-solid border-2 border-slate-300 ml:w-auto airbnbml:w-96  xs:w-64 py-2 airbnbml:items-center airbnbml:border-b-transparent'
+    <div
+      onClick={toggleDateModal}
+      className='w-56 border border-slate-300 py-3 px-3 hover:border-2 hover:border-rose-400 hover:rounded-md'
+    >
+      <FontAwesomeIcon icon={faCalendarDays} className='text-slate-900 mr-3' />
+      {selectedDate ? (
+        <span className='text-black text-lg'>
+          {`${format(selectedDate, 'dd/MM/yyyy')}`}
+        </span>
+      ) : (
+        <span className='text-slate-600'>DEPART DATE</span>
+      )}
+
+      <Modal
+        isOpen={openDeptDate}
+        onRequestClose={toggleDateModal}
+        overlayClassName='modal-overlay bg-black opacity'
+        className='modal-content w-auto h-auto'
       >
-        <span className='mx-auto text-slate-600 text-sm font-normal'>
-          DEPART DATE
-        </span>
-        <span className='font-medium text-black text-lg mx-auto'>
-          {`${format(startingDate[0].startDate, 'dd/MM/yyyy')}`}
-        </span>
-        <Modal
-          isOpen={openDeptDate}
-          onRequestClose={() => setOpenDeptDate(false)}
-          overlayClassName='modal-overlay bg-black opacity'
-          className='modal-content w-auto h-auto'
-        >
-          <DateRange
-            editableDateInputs={true}
-            onChange={(item) => setStartingDate([item.selection])}
-            moveRangeOnFirstSelection={false}
-            ranges={startingDate}
-            className={`${classes.responsivee} absolute -bottom-[6.8rem] -mx- left-[39%]  lg:-bottom-[8.45rem] lg:left-[30%]  md:-bottom-[20rem] md:left-[12.5rem] sm:bottom-4 sm:left-2 responsivee`}
-          />
-        </Modal>
-        <FontAwesomeIcon icon={faCalendarDays} className='text-slate-400' />
-      </div>
-    </>
+        <DateRange
+          editableDateInputs={true}
+          onChange={handleDateSelect}
+          moveRangeOnFirstSelection={false}
+          ranges={startingDate}
+          className={`${classes.responsivee} absolute -bottom-[6.8rem] -mx- left-[39%]  lg:-bottom-[8.45rem] lg:left-[30%]  md:-bottom-[20rem] md:left-[12.5rem] sm:bottom-4 sm:left-2 responsivee`}
+        />
+      </Modal>
+    </div>
   );
 };
 

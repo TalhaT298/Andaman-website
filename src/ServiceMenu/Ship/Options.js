@@ -2,6 +2,7 @@ import React from "react";
 import { useState } from "react";
 import classes from './options.module.css'
 import Modal from "react-modal";
+import person from '../../images/image_source_for_shiptab/person.png';
 
 const Options = () => {
   const [openTravellerInfo, setOpenTravellerInfo] = useState(false);
@@ -24,23 +25,17 @@ const Options = () => {
     });
   };
 
-  const [passengerClass, setPassengerClass] = useState("ECONOMY");
-
   return (
-    <div className="bg-slate-300 h-auto w-full flex flex-col gap-y-3 px-4 border-solid border-2 border-slate-300 mx-auto px-auto ml:w-auto airbnbml:w-96  xs:w-64 py-2 airbnbml:items-center airbnbml:border-b-transparent">
-      <span className="mx-auto text-slate-600 text-sm font-normal">
-        TRAVELLER & CLASS
-      </span>
+    <div className="w-52 flex items-center  border border-slate-300 py-3 px-3 hover:border-2 hover:border-rose-400 hover:rounded-md">
+      <img class="max-w-none mr-3" src={person} alt="..." />
       <span
         onClick={() => setOpenTravellerInfo(!openTravellerInfo)}
-        className="font-medium text-black text-lg mx-auto"
+        className="font-medium text-black text-lg"
       >
         {`${
           travellerInfo.adult + travellerInfo.children + travellerInfo.infant
-        }`}{" "}
-        Traveller(s)
+        }`}{" "} Adult
       </span>
-      <span className="mx-auto text-slate-800 text-xs">{passengerClass}</span>
 
       <Modal
         isOpen={openTravellerInfo}
@@ -113,35 +108,6 @@ const Options = () => {
                 </button>
               </div>
             </div>
-          </div>
-          <div className="flex flex-col gap-3 px-2">
-            <span
-              onClick={() => {
-                setPassengerClass("ECONOMY");
-                setOpenTravellerInfo(false);
-              }}
-              className="hover:cursor-pointer"
-            >
-              Economy
-            </span>
-            <span
-              onClick={() => {
-                setPassengerClass("BUSINESS");
-                setOpenTravellerInfo(false);
-              }}
-              className="hover:cursor-pointer"
-            >
-              Business
-            </span>
-            <span
-              onClick={() => {
-                setPassengerClass("FIRST");
-                setOpenTravellerInfo(false);
-              }}
-              className="hover:cursor-pointer"
-            >
-              First
-            </span>
           </div>
         </div>
       </Modal>

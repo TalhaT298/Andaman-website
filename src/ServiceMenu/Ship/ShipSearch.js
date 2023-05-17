@@ -5,7 +5,7 @@ import 'react-date-range/dist/theme/default.css';
 
 import Locations from './Locations';
 import DepartDate from './DepartDate';
-import ReturnDate from './ReturnDate';
+// import ReturnDate from './ReturnDate';
 import Options from './Options';
 
 // This below code is for fetching data from local storage for json file
@@ -56,10 +56,10 @@ const ShipSearch = (props) => {
     event.preventDefault();
   };
 
-  const [twoWay, setTwoWay] = useState(false);
+  // const [twoWay, setTwoWay] = useState(false);
 
   return (
-    <div className='flex flex-col h-full w-full my-6'>
+    <div className='h-full w-full py-4 my-6 drop-shadow-xl bg-white rounded-lg'>
       {/* <div className='flex gap-6 mx-auto'>
         <span
           onClick={() => {
@@ -81,17 +81,17 @@ const ShipSearch = (props) => {
           Multi-City
         </span>
       </div> */}
-      <form onSubmit={handleSubmit}>
-        <div className=''>
+      <form onSubmit={handleSubmit} className=''>
+        <div className='flex px-10 mx-auto'>
           <Locations {...props} />
 
           <DepartDate />
-          {twoWay && <ReturnDate />}
+          {/* {twoWay && <ReturnDate />} */}
 
           <Options />
           <button
             type='submit'
-            className=''
+            className='w-20 bg-rose-400 px-3 py-3 text-white rounded-md'
           >
             Search
           </button>

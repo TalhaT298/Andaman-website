@@ -11,9 +11,9 @@ export const DataProvider = ({ children }) => {
   const [nextDestinationFilter, setNextDestinationFilter] =
     useState("Port Blair");
   const [currentDestinationFilterShip, setcurrentDestinationFilterShip] =
-    useState("From");
+    useState("");
   const [nextDestinationFilterShip, setnextDestinationFilterShip] =
-    useState("To");
+    useState("");
   // Option State
 
   const [travellerInfo, setTravellerInfo] = useState({
