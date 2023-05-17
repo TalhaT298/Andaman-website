@@ -40,8 +40,8 @@ const Ship = () => {
       );
     });
 
-  const mainlandRef = useRef(null);
-  const inlandRef = useRef(null);
+  // const mainlandRef = useRef(null);
+  // const inlandRef = useRef(null);
 
   // const shipData = ship
   //   .filter((ship) =>
@@ -73,6 +73,15 @@ const Ship = () => {
         setcurrentDestinationFilterShip={setcurrentDestinationFilterShip}
         setnextDestinationFilterShip={setnextDestinationFilterShip}
       />
+      <div className="pt-2 w-full text-center">
+        {shipData.length === 0 ? (
+          <center>
+            <h1 className="my-5">No results found...</h1>
+          </center>
+        ) : (
+          shipData
+        )}
+      </div>
       <div className="pt-10 h-full w-auto cursor-pointer">
         {/* <div className="flex">
           <div className="flex mx-auto mt-10 mb-10">
@@ -96,10 +105,10 @@ const Ship = () => {
             shipData
           )}
         </div> */}
-        <Mainland ref={mainlandRef} />
+        {/* <Mainland ref={mainlandRef} />
         <SecondSchedule />
         <MainlandDetails />
-        <Inland ref={inlandRef} />
+        <Inland ref={inlandRef} /> */}
       </div>
     </>
   );
