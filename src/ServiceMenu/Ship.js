@@ -1,5 +1,5 @@
 import React, { useRef } from "react";
-// import { useState } from "react";
+import { useState } from "react";
 // import ShipSearch from "./Ship/ShipSearch";
 // import Mainland from "./Ship/Mainland";
 // import Inland from "./Ship/Inland";
@@ -17,12 +17,17 @@ const Ship = () => {
   //search feature
   // const [searchOriginTerm, setSearchOriginTerm] = useState("");
   // const [searchDestTerm, setSearchDestTerm] = useState("");
+    const [showResults, setShowResults] = useState(false);
 
   const { 
     currentDestinationFilterShip, 
     nextDestinationFilterShip,
     setcurrentDestinationFilterShip,
     setnextDestinationFilterShip,} =  useDataContext();
+
+    const handleSearch = () => {
+      setShowResults(true);
+    };
 
     const shipData = ship
     .filter((getShip) =>
@@ -72,6 +77,7 @@ const Ship = () => {
         nextDestinationFilterShip={nextDestinationFilterShip}
         setcurrentDestinationFilterShip={setcurrentDestinationFilterShip}
         setnextDestinationFilterShip={setnextDestinationFilterShip}
+        handleSearch={handleSearch}
       />
       <div className="pt-2 w-full text-center">
         <div className="flex justify-between mb-5 mt-11">
@@ -86,12 +92,18 @@ const Ship = () => {
             </select>
           </div>
         </div>
-        {shipData.length === 0 ? (
-          <center>
-            <h1 className="my-5">No results found...</h1>
-          </center>
+        {showResults ? (
+          shipData.length === 0 ? (
+            <center>
+              <h1 className="my-5">No results found...</h1>
+            </center>
+          ) : (
+            shipData
+          )
         ) : (
-          shipData
+          <center>
+            <h1 className="mt-28 text-3xl font bold">Search your destination</h1>
+          </center>
         )}
       </div>
       <div className="pt-10 h-full w-auto cursor-pointer">

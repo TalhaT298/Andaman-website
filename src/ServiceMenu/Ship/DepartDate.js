@@ -48,7 +48,7 @@ const DepartDate = () => {
           onChange={handleDateSelect}
           moveRangeOnFirstSelection={false}
           ranges={startingDate}
-          className={`${classes.responsivee} absolute -bottom-[6.8rem] -mx- left-[39%]  lg:-bottom-[8.45rem] lg:left-[30%]  md:-bottom-[20rem] md:left-[12.5rem] sm:bottom-4 sm:left-2 responsivee`}
+          className={`${classes.responsivee} absolute -bottom-[-1rem] -mx- left-[45%]  lg:-bottom-[8.45rem] lg:left-[30%]  md:-bottom-[20rem] md:left-[12.5rem] sm:bottom-4 sm:left-2 responsivee`}
         />
       </Modal>
     </div>

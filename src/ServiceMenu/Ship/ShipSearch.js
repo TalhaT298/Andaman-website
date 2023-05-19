@@ -50,7 +50,7 @@ import Options from './Options';
 // }
 
 const ShipSearch = (props) => {
-  // const {setSearchOriginTerm, setSearchDestTerm} = props
+  const { handleSearch } = props
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -92,6 +92,7 @@ const ShipSearch = (props) => {
           <button
             type='submit'
             className='w-20 bg-rose-400 px-3 py-3 text-white rounded-md'
+            onClick={handleSearch}
           >
             Search
           </button>
