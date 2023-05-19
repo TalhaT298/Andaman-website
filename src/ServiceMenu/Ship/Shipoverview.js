@@ -7,8 +7,8 @@ import heart from '../../images/image_source_for_shiptab/heart.png';
 const Shipoverview = (props) => {
     return (
         <div className='bg-white drop-shadow-xl rounded-lg flex px-10 py-5 mb-8'>
-            <div className='w-56 mr-8'>
-                <img class="w-full mr-3" src={props.flightLogo} alt="..." />
+            <div className='w-56 h-48 mr-8'>
+                <img class="w-full h-full mr-3" src={props.flightLogo} alt="..." />
             </div>
             <div className='w-full mx-6'>
                 <div className='flex justify-between items-center'>
