@@ -22,12 +22,12 @@ const Locations = ( { currentDestinationFilterShip, nextDestinationFilterShip, s
   //  setSearchDestTerm(destination)
 
   return (
-    <>
-    <div className='flex w-64 border border-slate-300 py-3 px-3 hover:border-2 hover:border-rose-400 hover:rounded-md'>
+  <div className='flex flex-row lg:flex-col mx-auto lg:w-full relative'>
+    <div className='flex w-64 lg:w-full border border-slate-300 py-3 px-3 hover:border-2 hover:border-rose-400 hover:rounded-md lg:mb-3'>
       <img class="max-w-none mr-3" src={allArrow} alt="..." />
       <select
           id="currentDestinationFilter"
-          className='text-black'
+          className='text-black appearance-none w-full pl-2'
           value={currentDestinationFilterShip}
           onChange={(e) => setcurrentDestinationFilterShip(e.target.value)}
         >
@@ -38,11 +38,11 @@ const Locations = ( { currentDestinationFilterShip, nextDestinationFilterShip, s
           ))}
         </select>
     </div>
-    <div className='flex w-64 border border-slate-300 py-3 px-3 hover:border-2 hover:border-rose-400 hover:rounded-md'>
+    <div className='flex w-64 lg:w-full border border-slate-300 py-3 px-3 hover:border-2 hover:border-rose-400 hover:rounded-md lg:mb-3'>
     <img class="max-w-none mr-3" src={allArrow} alt="..." />
       <select
           id="nextDestinationFilter"
-          className='text-black'
+          className='text-black appearance-none w-full  pl-2'
           value={nextDestinationFilterShip}
           onChange={(e) => setnextDestinationFilterShip(e.target.value)}
         >
@@ -53,7 +53,7 @@ const Locations = ( { currentDestinationFilterShip, nextDestinationFilterShip, s
           ))}
         </select>
     </div>
-  </>
+  </div>
   );
 };
 

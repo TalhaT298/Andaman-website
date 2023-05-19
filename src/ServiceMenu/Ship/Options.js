@@ -26,7 +26,7 @@ const Options = () => {
   };
 
   return (
-    <div className="w-52 flex items-center  border border-slate-300 py-3 px-3 hover:border-2 hover:border-rose-400 hover:rounded-md">
+    <div className="w-52 lg:w-full flex items-center  border border-slate-300 py-3 px-3 hover:border-2 hover:border-rose-400 hover:rounded-md lg:mb-3">
       <img class="max-w-none mr-3" src={person} alt="..." />
       <span
         onClick={() => setOpenTravellerInfo(!openTravellerInfo)}

@@ -26,7 +26,7 @@ const DepartDate = () => {
   return (
     <div
       onClick={toggleDateModal}
-      className='w-56 border border-slate-300 py-3 px-3 hover:border-2 hover:border-rose-400 hover:rounded-md'
+      className='w-56 border border-slate-300 py-3 px-3 hover:border-2 hover:border-rose-400 hover:rounded-md lg:mb-3 lg:w-full'
     >
       <FontAwesomeIcon icon={faCalendarDays} className='text-slate-900 mr-3' />
       {selectedDate ? (

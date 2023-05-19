@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 
 import 'react-date-range/dist/styles.css';
 import 'react-date-range/dist/theme/default.css';
+import mail from '../../images/image_source_for_shiptab/mail_arrow.png'
 
 import Locations from './Locations';
 import DepartDate from './DepartDate';
@@ -82,7 +83,7 @@ const ShipSearch = (props) => {
         </span>
       </div> */}
       <form onSubmit={handleSubmit} className=''>
-        <div className='flex px-10 mx-auto'>
+        <div className='flex flex-row lg:flex-col px-10 mx-auto'>
           <Locations {...props} />
 
           <DepartDate />
@@ -91,10 +92,11 @@ const ShipSearch = (props) => {
           <Options />
           <button
             type='submit'
-            className='w-20 bg-rose-400 px-3 py-3 text-white rounded-md'
+            className='lg:flex lg:items-center lg:justify-center w-20 bg-rose-400 px-3 py-3 text-white rounded-md lg:w-full'
             onClick={handleSearch}
           >
-            Search
+            <img src={mail} alt=""  className='hidden lg:block mr-3'/>
+            <span>Search</span>
           </button>
         </div>
       </form>
