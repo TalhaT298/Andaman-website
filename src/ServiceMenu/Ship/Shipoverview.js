@@ -7,11 +7,11 @@ import heart from '../../images/image_source_for_shiptab/heart.png';
 const Shipoverview = (props) => {
     return (
         <div className='bg-white drop-shadow-xl rounded-lg flex flex-row lg:flex-col px-10 py-5 mb-8 relative'>
-            <div className='w-56 h-48 lg:w-28 lg:h-10 lg:border lg:border-rose-400 mr-8'>
+            <div className='w-56 h-48 lg:w-28 lg:h-16 lg:border lg:border-rose-400 mr-8 mt-3'>
                 <img class="w-full h-full mr-3" src={props.flightLogo} alt="..." />
             </div>
             <div className='w-full mx-6'>
-                <div className='flex flex-row lg:flex-col lg:place-items-end lg:mt-[-2.6rem] justify-between items-center'>
+                <div className='flex flex-row lg:flex-col lg:place-items-end lg:mt-[-4rem] justify-between items-center'>
                     <div className='flex items-center'>
                         <h2 className='mr-4 border border-rose-400 lg:rounded-lg px-2 py-1'>4.9</h2>
                         <h3 className='font-bold'>Very Good Review</h3>
@@ -19,10 +19,10 @@ const Shipoverview = (props) => {
                     <h2 className='text-sky-600 font-bold text-xl'>$7</h2>
                 </div>
                 <div className='flex justify-between items-center text-xl text-slate-500 mt-5'>
-                    <p className='lg:mt-[-13rem] lg:text-black lg:font-bold lg:ml-[-1.5rem] lg:mb-[-1rem]'>Wed, Dec 8</p>
+                    <p className='lg:absolute lg:top-1 lg:left-11 lg:text-black'>Wed, Dec 8</p>
                     <p className="font-sans lg:absolute lg:top-44 lg:left-40 lg:text-black">{props.flightDuration}</p>
                 </div>
-                <div className='w-full flex items-center my-4'>
+                <div className='w-full flex items-center my-4 lg:mt-1'>
                     <div className='border border-slate-600 w-5 h-5 mr-3 lg:hidden'></div>
                     <div className='w-full flex justify-between items-center lg:ml-[-2rem]'>
                         <div className='flex flex-row lg:flex-col items-center'>
