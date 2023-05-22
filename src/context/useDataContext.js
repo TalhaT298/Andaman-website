@@ -11,9 +11,9 @@ export const DataProvider = ({ children }) => {
   const [nextDestinationFilter, setNextDestinationFilter] =
     useState("Port Blair");
   const [currentDestinationFilterShip, setcurrentDestinationFilterShip] =
-    useState("");
+    useState("Chennai");
   const [nextDestinationFilterShip, setnextDestinationFilterShip] =
-    useState("");
+    useState("Port Blair");
   // Option State
 
   const [travellerInfo, setTravellerInfo] = useState({
@@ -52,6 +52,7 @@ export const DataProvider = ({ children }) => {
   }
   // TripSummary
   const [flightDataState, setFlightDataState] = useState({});
+  const [shipDataState, setShipDataState] = useState({});
 
   const [adultDetails, setAdultDetails] = useState([]);
   const [childrenDetails, setChildrenDetails] = useState([]);
@@ -92,6 +93,8 @@ export const DataProvider = ({ children }) => {
     setContactDetails,
     passengerClass,
     setPassengerClass,
+    shipDataState,
+    setShipDataState,
   };
 
   return <DataContext.Provider value={state}>{children}</DataContext.Provider>;
