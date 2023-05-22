@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 // import { AcmeLogo } from './AcmeLogo.js';
 // import Lottie from 'react-lottie';
 // import * as Dolphin from './Icons/dolphin.json';
-
+import {CgHome} from 'react-icons/cg'
 import { NavLink } from 'react-router-dom';
 
 const collapseItems = [
@@ -31,9 +31,16 @@ const collapseItems = [
 const HeadColor = '#3f51b5'; //'#2f4f4f';
 
 export default function Navforwithout() {
+
   return (
-    <Navbar isBordered variant="floating">
+    <Navbar isBordered variant="static">
       <Navbar.Toggle showIn="xs" />
+ 
+      <Navbar.Content activeColor={"primary"} hideIn="xs" variant={"underline"}>
+          <Navbar.Link href="/">Home</Navbar.Link>
+          <Navbar.Link isActive href="#">Customers</Navbar.Link>
+          
+        </Navbar.Content>
       <Navbar.Brand
         css={{
           '@xs': {
@@ -42,40 +49,11 @@ export default function Navforwithout() {
         }}
       >
         {/* <AcmeLogo /> */}
-        <Text b css={{ color: '#3f51b5' }} hideIn="xs">
+        <Text b css={{ color: '#14274A' }} >
           <Link to="/">Sublime Andaman</Link>
         </Text>
         {/* <Lottie options={DolphinIcon} height={70} width={100} /> */}
       </Navbar.Brand>
-      <Navbar.Content
-        enableCursorHighlight
-        activeColor="secondary"
-        hideIn="xs"
-        variant="highlight-rounded"
-      >
-        <NavLink to="/Explore">
-          <Navbar.Link>
-            <Text h3 size={30} color={HeadColor} weight="bold">
-              Explore
-            </Text>
-          </Navbar.Link>
-        </NavLink>
-        <NavLink to="/Stay">
-          <Navbar.Link>
-            <Text h3 size={30} color={HeadColor} weight="bold">
-              Stay
-            </Text>
-          </Navbar.Link>
-        </NavLink>
-        <NavLink to="/Fun">
-          <Navbar.Link>
-            <Text h3 size={30} color={HeadColor} weight="bold">
-              Fun
-            </Text>
-          </Navbar.Link>
-        </NavLink>
-      </Navbar.Content>
-
       <Navbar.Content
         css={{
           '@xs': {

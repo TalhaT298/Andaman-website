@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
-import { useDataContext } from '../../context/DataContext';
-
+import { AiOutlineMinus, AiOutlinePlus } from 'react-icons/ai';
+import { FaUser } from 'react-icons/fa';
+import { useDataContext } from '../../context/useDataContext';
 const Options = () => {
   const [openTravellerInfo, setOpenTravellerInfo] = useState(false);
   // const [travellerInfo, setTravellerInfo] = useState({
@@ -9,7 +10,7 @@ const Options = () => {
   //   infant: 0,
   //   traveller: 0,
   // });
-const {travellerInfo, setTravellerInfo}=useDataContext();
+const {travellerInfo, setTravellerInfo, passengerClass, setPassengerClass}=useDataContext();
   const handleTravellerInfo = (category, arithmetricOperation) => {
     setTravellerInfo((prev) => {
       return {
@@ -22,35 +23,36 @@ const {travellerInfo, setTravellerInfo}=useDataContext();
     });
   };
 
-  const [passengerClass, setPassengerClass] = useState('ECONOMY');
 
   return (
-    <div className="relative h-auto w-full flex flex-col gap-y-3 px-4 mx-auto px-auto ml:w-auto airbnbml:w-96  xs:w-64 py-2 airbnbml:items-center airbnbml:border-b-transparent">
-      <span
+    <div className="relative h-auto w-full mx-auto px-auto flex flex-col gap-y-3  ml:w-auto airbnbml:w-96  xs:w-64 py-2 airbnbml:items-center airbnbml:border-b-transparent">
+      {/* <span
         onClick={() => setOpenTravellerInfo(!openTravellerInfo)}
         className="mx-auto text-slate-500 font-bold text-xl font-mono"
-      >
+        >
         TRAVELLER & CLASS
-      </span>
+      </span> */}
       <span
         onClick={() => setOpenTravellerInfo(!openTravellerInfo)}
-        className=" text-slate-400 font-bold text-lg mx-auto"
-      >
+        className=" flex items-center space-x-2 cursor-pointer border p-2 bottom-1"
+        >
+        <FaUser className='mr-2'/>
         {`${
           travellerInfo.adult + travellerInfo.children + travellerInfo.infant
         }`}{' '}
         Traveller(s)
       </span>
-      <span
+      {/* <span
         onClick={() => setOpenTravellerInfo(!openTravellerInfo)}
         className="mx-auto text-slate-200 tracking-widest text-xs"
       >
         {passengerClass}
-      </span>
-      {openTravellerInfo &&
-          <div 
-            className={`flex flex-col bg-white absolute top-20 right-0 z-10 w-auto
-            py-3 mx-auto px-auto space-x-4 border-solid border-2 border-black rounded-md shadow-md shadow-black drop-shadow-md`}
+      </span> */}
+    
+
+          {openTravellerInfo && <div 
+            className={`bg-white rounded absolute top-20 right-0 z-10 w-auto
+            py-3 mx-auto px-auto space-x-4 border-solid border-2 `}
           >
           
             <div className="flex flex-row gap-6 px-6">
@@ -64,65 +66,65 @@ const {travellerInfo, setTravellerInfo}=useDataContext();
                 <button
                   disabled={travellerInfo.adult <= 1}
                   onClick={() => handleTravellerInfo('adult', 'd')}
-                  className="disabled:cursor-not-allowed bg-amber-500 border-black border-solid border-2 text-xl w-6 h-8 my-1.5"
+                  className="disabled:cursor-not-allowed  w-6 h-8 mb-3"
                 >
-                  <span className="">-</span>
+                   <span className=""><AiOutlineMinus/></span>
                 </button>
                 <span className="optionCounterNumber">
                   {travellerInfo.adult}
                 </span>
                 <button
                   onClick={() => handleTravellerInfo('adult', 'i')}
-                  className=" bg-amber-500 border-black border-solid border-2 text-xl w-6 h-8 my-1.5"
+                  className="  w-6 h-8 my-3"
                 >
-                  <span className="">+</span>
+                   <span className=""><AiOutlinePlus/></span>
                 </button>
               </div>
               <div className="mx-auto px-auto space-x-6">
                 <button
                   disabled={travellerInfo.children <= 0}
                   onClick={() => handleTravellerInfo('children', 'd')}
-                  className="disabled:cursor-not-allowed bg-amber-500 border-black border-solid border-2 text-xl w-6 h-8 my-1.5"
+                  className="disabled:cursor-not-allowed "
                 >
-                  <span className="">-</span>
+                  <span className=""><AiOutlineMinus/></span>
                 </button>
                 <span className="optionCounterNumber">
                   {travellerInfo.children}
                 </span>
                 <button
                   onClick={() => handleTravellerInfo('children', 'i')}
-                  className=" bg-amber-500 border-black border-solid border-2 text-xl w-6 h-8 my-1.5"
+                  className=" "
                 >
-                  <span className="">+</span>
+                  <span className=""><AiOutlinePlus/></span>
                 </button>
               </div>
               <div className="w-28 space-x-6">
                 <button
                   disabled={travellerInfo.infant <= 0}
                   onClick={() => handleTravellerInfo('infant', 'd')}
-                  className="disabled:cursor-not-allowed bg-amber-500 border-black border-solid border-2 text-xl w-6 h-8 my-1.5"
+                  className="disabled:cursor-not-allowed "
                 >
-                  <span className="">-</span>
+                   <span className=""><AiOutlineMinus/></span>
                 </button>
                 <span className="optionCounterNumber">
                   {travellerInfo.infant}
                 </span>
                 <button
                   onClick={() => handleTravellerInfo('infant', 'i')}
-                  className=" bg-amber-500 border-black border-solid border-2 text-xl w-6 h-8 my-1.5"
+                  className="  w-6 h-8 my-3"
                 >
-                  <span className="">+</span>
+                   <span className=""><AiOutlinePlus/></span>
                 </button>
               </div>
             </div>
           </div>
-          <div className="flex flex-col gap-3 px-2">
+          <div className="flex flex-col gap-1 px-2">
             <span
               onClick={() => {
                 setPassengerClass('ECONOMY');
                 setOpenTravellerInfo(false);
               }}
-              className="text-slate-200 hover:cursor-pointer"
+              className=" hover:bg-[#FF8682] hover:text-white cursor-pointer p-1 rounded"
             >
               Economy
             </span>
@@ -131,7 +133,7 @@ const {travellerInfo, setTravellerInfo}=useDataContext();
                 setPassengerClass('BUSINESS');
                 setOpenTravellerInfo(false);
               }}
-              className="hover:cursor-pointer"
+              className="hover:bg-[#FF8682] hover:text-white cursor-pointer p-1 rounded"
             >
               Business
             </span>
@@ -140,13 +142,13 @@ const {travellerInfo, setTravellerInfo}=useDataContext();
                 setPassengerClass('FIRST');
                 setOpenTravellerInfo(false);
               }}
-              className="hover:cursor-pointer"
+              className="hover:bg-[#FF8682] hover:text-white cursor-pointer p-1 rounded"
             >
               First
             </span>
           </div>         
-          </div>
-        }
+          </div>}
+        
       {/* <Modal
         isOpen={openTravellerInfo}
         overlayClassName="modal-overlay bg-black opacity"
@@ -167,7 +169,7 @@ const {travellerInfo, setTravellerInfo}=useDataContext();
                 <button
                   disabled={travellerInfo.adult <= 1}
                   onClick={() => handleTravellerInfo('adult', 'd')}
-                  className="disabled:cursor-not-allowed bg-amber-500 border-black border-solid border-2 text-xl w-6 h-8 my-1.5"
+                  className="disabled:cursor-not-allowed  w-6 h-8 my-3"
                 >
                   <span className="">-</span>
                 </button>
@@ -176,7 +178,7 @@ const {travellerInfo, setTravellerInfo}=useDataContext();
                 </span>
                 <button
                   onClick={() => handleTravellerInfo('adult', 'i')}
-                  className=" bg-amber-500 border-black border-solid border-2 text-xl w-6 h-8 my-1.5"
+                  className="  w-6 h-8 my-3"
                 >
                   <span className="">+</span>
                 </button>
@@ -185,7 +187,7 @@ const {travellerInfo, setTravellerInfo}=useDataContext();
                 <button
                   disabled={travellerInfo.children <= 0}
                   onClick={() => handleTravellerInfo('children', 'd')}
-                  className="disabled:cursor-not-allowed bg-amber-500 border-black border-solid border-2 text-xl w-6 h-8 my-1.5"
+                  className="disabled:cursor-not-allowed  w-6 h-8 my-3"
                 >
                   <span className="">-</span>
                 </button>
@@ -194,7 +196,7 @@ const {travellerInfo, setTravellerInfo}=useDataContext();
                 </span>
                 <button
                   onClick={() => handleTravellerInfo('children', 'i')}
-                  className=" bg-amber-500 border-black border-solid border-2 text-xl w-6 h-8 my-1.5"
+                  className="  w-6 h-8 my-3"
                 >
                   <span className="">+</span>
                 </button>
@@ -203,7 +205,7 @@ const {travellerInfo, setTravellerInfo}=useDataContext();
                 <button
                   disabled={travellerInfo.infant <= 0}
                   onClick={() => handleTravellerInfo('infant', 'd')}
-                  className="disabled:cursor-not-allowed bg-amber-500 border-black border-solid border-2 text-xl w-6 h-8 my-1.5"
+                  className="disabled:cursor-not-allowed  w-6 h-8 my-3"
                 >
                   <span className="">-</span>
                 </button>
@@ -212,7 +214,7 @@ const {travellerInfo, setTravellerInfo}=useDataContext();
                 </span>
                 <button
                   onClick={() => handleTravellerInfo('infant', 'i')}
-                  className=" bg-amber-500 border-black border-solid border-2 text-xl w-6 h-8 my-1.5"
+                  className="  w-6 h-8 my-3"
                 >
                   <span className="">+</span>
                 </button>
@@ -225,7 +227,7 @@ const {travellerInfo, setTravellerInfo}=useDataContext();
                 setPassengerClass('ECONOMY');
                 setOpenTravellerInfo(false);
               }}
-              className="text-slate-200 hover:cursor-pointer"
+              className="text-slate-200 hover:bg-[#FF8682] hover:text-white cursor-pointer p-1 rounded"
             >
               Economy
             </span>
@@ -234,7 +236,7 @@ const {travellerInfo, setTravellerInfo}=useDataContext();
                 setPassengerClass('BUSINESS');
                 setOpenTravellerInfo(false);
               }}
-              className="hover:cursor-pointer"
+              className="hover:bg-[#FF8682] hover:text-white cursor-pointer p-1 rounded"
             >
               Business
             </span>
@@ -243,13 +245,14 @@ const {travellerInfo, setTravellerInfo}=useDataContext();
                 setPassengerClass('FIRST');
                 setOpenTravellerInfo(false);
               }}
-              className="hover:cursor-pointer"
+              className="hover:bg-[#FF8682] hover:text-white cursor-pointer p-1 rounded"
             >
               First
             </span>
           </div>
         </div>
       </Modal> */}
+
     </div>
   );
 };

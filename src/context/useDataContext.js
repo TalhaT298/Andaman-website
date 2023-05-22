@@ -43,6 +43,7 @@ export const DataProvider = ({ children }) => {
 
   // Flight Search State
   const [twoWay, setTwoWay] = useState(false);
+  const [passengerClass, setPassengerClass] = useState("ECONOMY");
   let wayType = "";
   if (twoWay) {
     wayType = "Two Way";
@@ -87,11 +88,12 @@ export const DataProvider = ({ children }) => {
     setChildrenDetails,
     infantDetails,
     setInfantDetails,
-    contactDetails,
+    contactDetails, 
     setContactDetails,
+    passengerClass,
+    setPassengerClass,
   };
 
-  console.log("🚀 ~ file: DataContext.js:44 ~ DataProvider ~ state:", state);
   return <DataContext.Provider value={state}>{children}</DataContext.Provider>;
 };
 

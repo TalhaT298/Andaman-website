@@ -1,13 +1,10 @@
-import React from 'react';
-import { useState } from 'react';
+import React, { useState } from 'react';
 
+import { faCalendarDays } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { DateRange } from 'react-date-range';
-import { format } from 'date-fns';
-import { faCalendarDays } from '@fortawesome/free-solid-svg-icons';
 
-import Modal from 'react-modal';
-import { useDataContext } from '../../context/DataContext';
+import { useDataContext } from '../../context/useDataContext';
 
 const ReturnDate = () => {
   const [openArrDate, setOpenArrDate] = useState(false);
@@ -23,15 +20,16 @@ const {endingDate, setEndingDate}=useDataContext();
     <>
       <div
         onClick={() => setOpenArrDate(!openArrDate)}
-        className='bg-slate-300 h-auto w-full mx-auto px-auto flex flex-col gap-y-3 px-4 border-solid border-2 border-slate-300 ml:w-auto airbnbml:w-96  xs:w-64 py-2 airbnbml:items-center airbnbml:border-b-transparent relative'
-      >
-        <span className='mx-auto text-slate-600 text-sm font-normal'>
-          RETURN DATE
-        </span>
-        <span className='font-medium text-black text-lg mx-auto'>{`${format(
+        className="relative h-auto w-full mx-auto px-auto flex flex-col gap-y-3  ml:w-auto airbnbml:w-96  xs:w-64 py-2 airbnbml:items-center airbnbml:border-b-transparent"
+        >
+          <span className="flex items-center space-x-2 cursor-pointer border p-2 bottom-1">
+          <FontAwesomeIcon icon={faCalendarDays} className="text-slate-400 mr-2" />
+            RETURN
+          </span>
+        {/* <span className='font-medium text-black text-lg mx-auto'>{`${format(
           endingDate[0].endDate,
           'dd/MM/yyyy'
-        )}`}</span>
+        )}`}</span> */}
         {/* <Modal
           isOpen={openArrDate}
           onRequestClose={() => setOpenArrDate(false)}
@@ -55,7 +53,7 @@ const {endingDate, setEndingDate}=useDataContext();
             className={`absolute z-10 top-20 right-[-2.5rem]`}
           />
         }
-        <FontAwesomeIcon icon={faCalendarDays} className='text-slate-400' />
+        {/* <FontAwesomeIcon icon={faCalendarDays} className='text-slate-400' /> */}
       </div>
     </>
   );

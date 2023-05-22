@@ -1,16 +1,16 @@
 import React, { useRef } from "react";
 // import { useState } from "react";
 // import ShipSearch from "./Ship/ShipSearch";
-import Mainland from "./Ship/Mainland";
-import Inland from "./Ship/Inland";
 import ship from "../Data/Ship-Section/ship";
+import Inland from "./Ship/Inland";
+import Mainland from "./Ship/Mainland";
 import ShipOverview from './Ship/Shipoverview';
 // import ShipCover from "./Ship/ShipCover";
 // import ImageSection from "./Ship/ImageSection";
-import ShipSearch from "./Ship/ShipSearch";
+import { useDataContext } from '../context/useDataContext';
 import MainlandDetails from "./Ship/MainlandDetails";
 import SecondSchedule from "./Ship/SecondSchedule";
-import { useDataContext } from '../context/DataContext';
+import ShipSearch from "./Ship/ShipSearch";
 
 
 const Ship = () => {

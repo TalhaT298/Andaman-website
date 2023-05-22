@@ -1,24 +1,18 @@
-import React from 'react';
+import React from "react";
 
-import { useState } from 'react';
-
-
-import 'react-date-range/dist/styles.css';
-import 'react-date-range/dist/theme/default.css';
-import { format } from 'date-fns';
-import { Link } from 'react-router-dom';
-
+import { useState } from "react";
+import flightIcon from "../../images/flightIcon.png";
+import { format } from "date-fns";
+import "react-date-range/dist/styles.css";
+import "react-date-range/dist/theme/default.css";
+import { Link } from "react-router-dom";
+import flightLogo from "../../images/flightlogo.png";
+import { useDataContext } from "../../context/useDataContext";
 // Always remember, the data we fetch from firebase is in objects, so, we will have to convert it into an array of objects that's why we have used
 // here Object.values in flightsData
 
 const FlightCover = (props) => {
-  const [date, setDate] = useState([
-    {
-      startDate: new Date(),
-      endDate: new Date(),
-      key: 'selection',
-    },
-  ]);
+  const { startingDate: date } = useDataContext();
 
   const [showFlightInfo, setShowFlightInfo] = useState(false);
 
@@ -45,94 +39,67 @@ const FlightCover = (props) => {
 
   return (
     <>
-      <div className="py-3 flex-col w-5/6 mx-auto my-auto ">
-      {/* flight ? <div>{JSON.stringify(flight)}</div> : <div>Loading...</div> */}
+      <div className="py-3 flex-col  mx-auto my-auto ">
+        {/* flight ? <div>{JSON.stringify(flight)}</div> : <div>Loading...</div> */}
         <div
           onClick={() => {
             setShowFlightInfo(!showFlightInfo);
           }}
-          className="flex-row rounded-lg bg-gray-700 w-auto py-8 h-auto drop-shadow-2xl shadow-black shadow-lg transition:origin-center hover:ease-in-out hover:scale-110 transition:duration-1000 transition-transform"
+          className="flex-row bg-white rounded-xl w-auto py-8 h-auto shadow-[0px_4px_16px_rgba(17,34,17,0.05)] transition:origin-center hover:ease-in-out hover:scale-110 transition:duration-1000 transition-transform"
         >
-          <div className="text-slate-200 flex items-center justify-between mx-auto py-auto lg:px-0 px-4 text-center px-auto w-auto xs:flex-col xs:py-2 xs:gap-y-3">
-            <div className='flex'>
-              <span className="uppercase lg:mr-10 mr-20">{props.flightName}</span>
-              <span>{props.travelRoute}</span>
+          <div className="text-[#112211] flex items-end gap-10  mx-auto py-auto lg:px-0 px-4 text-center px-auto w-full xs:flex-col xs:py-2 xs:gap-y-3">
+            <div className="">
+              <img src={flightLogo} alt="" />{" "}
+              <h4 className="text-xl font-semibold">Emirates</h4>{" "}
+              <p className="text-[#112211]">{props.flightName}</p>
             </div>
-            <span>{`${format(date[0].startDate, 'dd/MM/yyyy')}`}</span>
+            <div>
+              <div className="flex justify-between">
+                <div>{date[0].startDate.toDateString()}</div>
+                <div className="flex flex-col items-end gap-4 -mt-16">
+                  <p>
+                    Starting from{" "}
+                    <span className="block text-right text-[#425D97] text-xl font-bold">
+                      ₹ {props.adultPrice}
+                    </span>{" "}
+                  </p>
+                  <p>{props.flightDuration} </p>
+                </div>
+              </div>
+              <div className="flex justify-between items-center w-[45vw]">
+                <div className="">
+                  <div>
+                    <span className="font-bold">{props.departureTime}</span>
 
-            <div className="flex gap-2">
-              <div>
-                <span>{props.departureTime}</span>
+                    <span className="ml-2">{props.currentDestination}</span>
+                  </div>
+                </div>
+                <div className="flex gap-2">
+                  <span>
+                    {" "}
+                    <img
+                      src={flightIcon}
+                      className="w-full h-8"
+                      alt="flightIcon"
+                    />{" "}
+                  </span>
+                </div>
+                <div>
+                  <span className="font-bold">{props.arrivalTime}</span>
+                  <span className="ml-2">{props.nextDestination}</span>
+                </div>
               </div>
-              <span> - </span>
-              <div>
-                <span>{props.arrivalTime}</span>
-              </div>
+              <Link
+                to={"/FlightPreview"}
+                className="flex justify-end mt-3 -mb-3"
+              >
+                <button className="bg-[#FF8682] font-semibold rounded p-[8px_16px]">
+                  Book Now
+                </button>
+              </Link>
             </div>
-            <span>₹ {props.adultPrice}</span>
           </div>
         </div>
-
-        {showFlightInfo && (
-          <div className="mx-auto h-60 w-auto bg-slate-500 my-6 text-white px-auto rounded-lg">
-            <div className="h-60 w-auto bg-slate-500 mx-auto px-auto rounded-lg">
-              <div className="flex flex-col h-60 w-full justify-between mx-auto py-3 p-1 text-center px-auto">
-                <div className="flex flex-row px-auto">
-                  <div className="flex flex-col mx-auto py-1 w-36 px-auto">
-                    <span className="text-lg uppercase font-thin py-1 my-auto">
-                      {props.flightName}
-                    </span>
-                    <span className="text-sm uppercase font-thin py-1 my-auto">
-                      {props.flightGateway}
-                    </span>
-                  </div>
-                  <div className="flex flex-col mx-auto py-2 w-36">
-                    <span className="text-base uppercase font-thin my-auto">
-                      {props.travelRoute}
-                    </span>
-                  </div>
-                  <div className="flex flex-col mx-auto py-2 w-36">
-                    <span className="text-xl uppercase font-bold my-auto">
-                      ₹ {props.adultPrice}
-                    </span>
-                    {/* <span>₹ {props.childrenPrice}</span> */}
-                  </div>
-                </div>
-                <div className="flex flex-row px-auto">
-                  <div className="flex flex-col mx-auto py-2 w-32">
-                    <span className="text-xl uppercase font-medium py-1 my-auto">
-                      {props.departureTime}
-                    </span>
-                    <span className="text-sm uppercase font-thin py-1 tracking-widest">
-                      {props.currentDestination}
-                    </span>
-                  </div>
-                  <div className="flex flex-col mx-auto py-2 w-32">
-                    <span className="text-base uppercase font-thin py-1">
-                      {props.flightDuration}
-                    </span>
-                    <span className="text-xs uppercase font-thin py-1 tracking-widest">
-                      {props.flightInterval}
-                    </span>
-                  </div>
-                  <div className="flex flex-col mx-auto py-2 w-32">
-                    <span className="text-xl uppercase font-medium py-1 my-auto">
-                      {props.arrivalTime}
-                    </span>
-                    <span className="text-sm uppercase font-thin py-1">
-                      {props.nextDestination}
-                    </span>
-                  </div>
-                </div>
-                <Link to={'/ReviewFlight'} className="flex flex-col mx-auto py-1 w-28">
-                  <button className="pb-1 rounded-sm h-10 bg-pink-800 text-white">
-                    Book Now
-                  </button>
-                </Link>
-              </div>
-            </div>
-          </div>
-        )}
       </div>
     </>
   );

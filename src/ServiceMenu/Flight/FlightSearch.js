@@ -1,10 +1,10 @@
-import React, { useState, lazy } from "react";
-
-import ReturnDate from './ReturnDate'
+import React, { lazy, useState } from "react";
+import './FlightSearch.css';
+import ReturnDate from './ReturnDate';
 
 import "react-date-range/dist/styles.css";
 import "react-date-range/dist/theme/default.css";
-import {  useDataContext } from "../../context/DataContext";
+import { useDataContext } from "../../context/useDataContext";
 const Locations = lazy(() => import("./Locations"));
 const DepartDate = lazy(() => import("./DepartDate"));
 const Options = lazy(() => import("./Options"));
@@ -53,12 +53,23 @@ const Options = lazy(() => import("./Options"));
 const FlightSearch = (props) => {
   // const [origin, setOrigin] = useState("Port Blair");
   // const [destination, setDestination] = useState("Chennai");
-
+  const {twoWay, setTwoWay,setStartingDate} = useDataContext();
+  const [departDate, setDepartDate] = useState("");
+  const [returnDate, setReturnDate] = useState("");
+  const [startingDateState, setStartingDateState] = useState([
+    {
+      startDate: new Date(),
+      key: "selection",
+    },
+  ]);
   const handleSubmit = (event) => {
     event.preventDefault();
+    props.setCurrentDestinationFilter(departDate)
+    props.setNextDestinationFilter(returnDate)
+    setStartingDate(startingDateState)
+    
   };
 
-  const {twoWay, setTwoWay} = useDataContext();
 
   return (
     <div className="flex flex-col h-full w-full lg:my-0 my-6">
@@ -85,13 +96,14 @@ const FlightSearch = (props) => {
       </div>
       <div>
         <form onSubmit={handleSubmit}>
-          <div className="font-medium text-slate-800 flex h-auto w-full my-4 mx-auto flex-row airbnbml:flex-col ml:w-auto airbnbml:w-96  xs:w-64">
+          <div className="font-medium text-slate-800 flex h-auto w-full bg-white px-4 my-4 py-4 mx-auto flex-row airbnbml:flex-col ml:w-auto airbnbml:w-96  xs:w-64 shadow-[0px_4px_16px_rgba(17,34,17,0.05)]">
             <Locations
-              {...props}
+              {...props} setDepartDate={setDepartDate} departDate={departDate} setReturnDate={setReturnDate} returnDate={returnDate}
             />
-            <DepartDate />
+            <DepartDate startingDateState={startingDateState} setStartingDateState={setStartingDateState}/>
             {twoWay && <ReturnDate />}
             <Options />
+            <button type="submit" className="bg-[#FF8682]  h-auto  my-2  px-5 text-white rounded-r">Search</button>
           </div>
         </form>
       </div>

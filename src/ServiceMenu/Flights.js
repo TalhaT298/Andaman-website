@@ -1,9 +1,8 @@
-import React, { useState, lazy } from 'react';
-import { Link } from 'react-router-dom';
+import React, { lazy } from 'react';
 import flight from '../Data/Flight-Section/flight';
 
+import { useDataContext } from '../context/useDataContext';
 import FlightSearch from './Flight/FlightSearch';
-import { useDataContext } from '../context/DataContext';
 
 const BestPrices = lazy(() => import('./Flight/BestPrices'));
 const FlightCover = lazy(() => import('./Flight/FlightCover'));
@@ -13,7 +12,7 @@ const Flights = () => {
   // const [currentDestinationFilter, setCurrentDestinationFilter] = useState('');
   // const [nextDestinationFilter, setNextDestinationFilter] = useState('');
 const {currentDestinationFilter, setCurrentDestinationFilter,nextDestinationFilter, setNextDestinationFilter}=useDataContext();
-const [flightStoreData,setFlightStoreData]=useState([])
+
 
   const flightData = flight
     .filter((airplane) =>
@@ -32,8 +31,8 @@ const [flightStoreData,setFlightStoreData]=useState([])
     });
 
   return (
-    <div className="pt-10 h-full w-full lg:px-5 px-20 bg-slate-900 mt-6">
-      <div className="flex">
+    <div className="pt-10 h-full w-full lg:px-5 px-20 " style={{fontFamily:"Montserrat"}}>
+      {/* <div className="flex">
         <div className="flex-col mx-auto mt-5 mb-10 space-y-5">
           <p className="lg:text-2xl text-3xl font-Nunito_Sans font-semibold text-slate-400">
             🤫 Lowest Prices Here 🚀
@@ -46,7 +45,7 @@ const [flightStoreData,setFlightStoreData]=useState([])
             </div>
           </Link>
         </div>
-      </div>
+      </div> */}
       <FlightSearch
         currentDestinationFilter={currentDestinationFilter}
         nextDestinationFilter={nextDestinationFilter}

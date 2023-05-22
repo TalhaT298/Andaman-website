@@ -11,6 +11,7 @@ const flight = [
     departureTime: '12:30',
     arrivalTime: '14:30',
     flightDuration: '02h 00m',
+    flightLocation: "North landing Guide road. No:8, Chennai 34437",
     adultPrice: 6700,
     childrenPrice: 3000, // this is just dummy price
     infantPrice: 2000, // this is just dummy price
@@ -27,6 +28,7 @@ const flight = [
     departureTime: '12:30',
     arrivalTime: '14:30',
     flightDuration: '02h 00m',
+    flightLocation: "North landing Guide road. No:8, Chennai 34437",
     adultPrice: 6700,
     childrenPrice: 3000, // this is just dummy price
     infantPrice: 2000, // this is just dummy price
@@ -43,6 +45,7 @@ const flight = [
     departureTime: '12:30',
     arrivalTime: '14:30',
     flightDuration: '02h 00m',
+    flightLocation: "North landing Guide road. No:8, Chennai 34437",
     adultPrice: 6700,
     childrenPrice: 3000, // this is just dummy price
     infantPrice: 2000, // this is just dummy price
@@ -59,6 +62,7 @@ const flight = [
     departureTime: '12:30',
     arrivalTime: '14:30',
     flightDuration: '02h 00m',
+    flightLocation: "North landing Guide road. No:8, Chennai 34437",
     adultPrice: 6700,
     childrenPrice: 3000, // this is just dummy price
     infantPrice: 2000, // this is just dummy price
@@ -75,6 +79,7 @@ const flight = [
     departureTime: '12:30',
     arrivalTime: '14:30',
     flightDuration: '02h 00m',
+    flightLocation: "North landing Guide road. No:8, Chennai 34437",
     adultPrice: 6700,
     childrenPrice: 3000, // this is just dummy price
     infantPrice: 2000, // this is just dummy price
@@ -91,6 +96,7 @@ const flight = [
     departureTime: '12:30',
     arrivalTime: '14:30',
     flightDuration: '02h 00m',
+    flightLocation: "North landing Guide road. No:8, Chennai 34437",
     adultPrice: 6700,
     childrenPrice: 3000, // this is just dummy price
     infantPrice: 2000, // this is just dummy price
@@ -107,6 +113,7 @@ const flight = [
     departureTime: '12:30',
     arrivalTime: '14:30',
     flightDuration: '02h 00m',
+    flightLocation: "North landing Guide road. No:8, Chennai 34437",
     adultPrice: 6700,
     childrenPrice: 3000, // this is just dummy price
     infantPrice: 2000, // this is just dummy price
@@ -123,6 +130,7 @@ const flight = [
     departureTime: '12:30',
     arrivalTime: '14:30',
     flightDuration: '02h 00m',
+    flightLocation: "North landing Guide road. No:8, Chennai 34437",
     adultPrice: 6700,
     childrenPrice: 3000, // this is just dummy price
     infantPrice: 2000, // this is just dummy price
@@ -139,6 +147,7 @@ const flight = [
     departureTime: '12:30',
     arrivalTime: '14:30',
     flightDuration: '02h 00m',
+    flightLocation: "North landing Guide road. No:8, Chennai 34437",
     adultPrice: 6700,
     childrenPrice: 3000, // this is just dummy price
     infantPrice: 2000, // this is just dummy price
@@ -155,6 +164,7 @@ const flight = [
     departureTime: '12:30',
     arrivalTime: '14:30',
     flightDuration: '02h 00m',
+    flightLocation: "North landing Guide road. No:8, Chennai 34437",
     adultPrice: 6700,
     childrenPrice: 3000, // this is just dummy price
     infantPrice: 2000, // this is just dummy price
@@ -171,6 +181,7 @@ const flight = [
     departureTime: '12:30',
     arrivalTime: '14:30',
     flightDuration: '02h 00m',
+    flightLocation: "North landing Guide road. No:8, Chennai 34437",
     adultPrice: 6700,
     childrenPrice: 3000, // this is just dummy price
     infantPrice: 2000, // this is just dummy price
@@ -187,6 +198,7 @@ const flight = [
     departureTime: '12:30',
     arrivalTime: '14:30',
     flightDuration: '02h 00m',
+    flightLocation: "North landing Guide road. No:8, Chennai 34437",
     adultPrice: 6700,
     childrenPrice: 3000, // this is just dummy price
     infantPrice: 2000, // this is just dummy price
@@ -203,6 +215,7 @@ const flight = [
     departureTime: '12:30',
     arrivalTime: '14:30',
     flightDuration: '02h 00m',
+    flightLocation: "North landing Guide road. No:8, Chennai 34437",
     adultPrice: 6700,
     childrenPrice: 3000, // this is just dummy price
     infantPrice: 2000, // this is just dummy price
@@ -219,6 +232,7 @@ const flight = [
     departureTime: '12:30',
     arrivalTime: '14:30',
     flightDuration: '02h 00m',
+    flightLocation: "North landing Guide road. No:8, Chennai 34437",
     adultPrice: 6700,
     childrenPrice: 3000, // this is just dummy price
     infantPrice: 2000, // this is just dummy price
@@ -235,6 +249,7 @@ const flight = [
     departureTime: '12:30',
     arrivalTime: '14:30',
     flightDuration: '02h 00m',
+    flightLocation: "North landing Guide road. No:8, Chennai 34437",
     adultPrice: 6700,
     childrenPrice: 3000, // this is just dummy price
     infantPrice: 2000, // this is just dummy price
@@ -251,6 +266,7 @@ const flight = [
     departureTime: '12:30',
     arrivalTime: '14:30',
     flightDuration: '02h 00m',
+    flightLocation: "North landing Guide road. No:8, Chennai 34437",
     adultPrice: 6700,
     childrenPrice: 3000, // this is just dummy price
     infantPrice: 2000, // this is just dummy price
@@ -267,6 +283,7 @@ const flight = [
     departureTime: '12:30',
     arrivalTime: '14:30',
     flightDuration: '02h 00m',
+    flightLocation: "North landing Guide road. No:8, Chennai 34437",
     adultPrice: 6700,
     childrenPrice: 3000, // this is just dummy price
     infantPrice: 2000, // this is just dummy price
@@ -283,6 +300,7 @@ const flight = [
     departureTime: '12:30',
     arrivalTime: '14:30',
     flightDuration: '02h 00m',
+    flightLocation: "North landing Guide road. No:8, Chennai 34437",
     adultPrice: 6700,
     childrenPrice: 3000, // this is just dummy price
     infantPrice: 2000, // this is just dummy price

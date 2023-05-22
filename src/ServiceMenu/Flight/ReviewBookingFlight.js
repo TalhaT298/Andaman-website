@@ -1,134 +1,75 @@
 import React, { useRef } from "react";
-import Navforwithout from "../../Navforwithout";
-import { useDataContext } from "../../context/DataContext";
 import flight from "../../Data/Flight-Section/flight";
-import { useLocation } from "react-router-dom";
+import Navforwithout from "../../Navforwithout";
+import { useDataContext } from "../../context/useDataContext";
+import flightLogo from "../../images/flightlogo.png";
+import { MdKeyboardArrowRight } from "react-icons/md";
+import flightFeature from "../../images/flightFeature.png";
+import flightIcon from "../../images/flightIcon.png";
+import flightLogoMini from "../../images/flightLogoMini.png";
+import { useNavigate } from "react-router-dom";
 
 const ReviewBookingFlight = () => {
-
-
-    //scroll to policies
-    const policiesRef = useRef(null);
-    const scrollToPolicies = (ref) => {
-      ref.current.scrollIntoView({ behavior: 'smooth' });
-    };
-    // const location = useLocation();
-    // const { state } = location
-    // const {
-    //   travellerInfo,
-    //   currentDestinationFilter,
-    //   startingDate,
-    //   nextDestinationFilter,
-    //   twoWay,
-    //   endingDate,
-    //   adultDetails,
-    //   setAdultDetails,
-    //   childrenDetails,
-    //   setChildrenDetails,
-    //   infantDetails,
-    //   setInfantDetails,
-    //   contactDetails,
-    //   setContactDetails,
-    //   setFlightDataState,
-    //   flightDataState
-    // } = state
+  //scroll to policies
+  const policiesRef = useRef(null);
+  const scrollToPolicies = (ref) => {
+    ref.current.scrollIntoView({ behavior: "smooth" });
+  };
+  // const location = useLocation();
+  // const { state } = location
+  // const {
+  //   travellerInfo,
+  //   currentDestinationFilter,
+  //   startingDate,
+  //   nextDestinationFilter,
+  //   twoWay,
+  //   endingDate,
+  //   adultDetails,
+  //   setAdultDetails,
+  //   childrenDetails,
+  //   setChildrenDetails,
+  //   infantDetails,
+  //   setInfantDetails,
+  //   contactDetails,
+  //   setContactDetails,
+  //   setFlightDataState,
+  //   flightDataState
+  // } = state
   const {
     travellerInfo,
     currentDestinationFilter,
     startingDate,
     nextDestinationFilter,
-    twoWay,
-    endingDate,adultDetails, setAdultDetails,childrenDetails, setChildrenDetails,infantDetails, setInfantDetails,contactDetails, setContactDetails,flightDataState
+    passengerClass,
+    endingDate,
+    adultDetails,
+    childrenDetails,
+    infantDetails,
+    contactDetails,
+    flightDataState,
   } = useDataContext();
   //   console.log("🚀 ~ file: ReviewBookingFlight.js:22 ~ ReviewBookingFlight ~ flightDataState:", flightDataState)
-    // calculating fares
-    const totalAdultFare = travellerInfo.adult * flightDataState.adultPrice;
-    const totalInfantFare = travellerInfo.infant * flightDataState.infantPrice;
-    const totalChildrenFare = travellerInfo.children * flightDataState.childrenPrice;
-    const totalFare = totalAdultFare + totalInfantFare+totalChildrenFare;
-    let totalTripFare = totalFare
-    let num = 1;
-    if (twoWay) num = 2;
-    if(num === 2){
-      totalTripFare = 2 * totalFare
-    }
+  // calculating fares
+  const totalAdultFare = travellerInfo.adult * flightDataState.adultPrice;
+  const totalInfantFare = travellerInfo.infant * flightDataState.infantPrice;
+  const totalChildrenFare =
+    travellerInfo.children * flightDataState.childrenPrice;
+  const totalFare = totalAdultFare + totalInfantFare + totalChildrenFare;
+  let totalTripFare = totalFare;
+  const discount = 200;
+  const taxes = totalFare * (3 / 100);
+  const fee = 400;
+  const netTotal = totalFare + discount + taxes + fee;
+  let num = 1;
+
+  // if (twoWay) num = 2;
+  // if (num === 2) {
+  //   totalTripFare = 2 * totalFare;
+  // }
 
   const flightData = flight.find(
     (airplane) => airplane.currentDestination === currentDestinationFilter
   );
-
-  //calculating fares
-  // const totalAdultFare = travellerInfo.adult * 1400;
-  // const totalInfantFare = travellerInfo.adult * 200;
-  // const totalFare = totalAdultFare + totalInfantFare;
-
-  //adult details
-  // const [adultDetails, setAdultDetails] = useState([]);
-  // useEffect(() => {
-  //   const tempAdultDetails = [];
-  //   for (let i = 0; i < travellerInfo.adult; i++) {
-  //     let object = {
-  //       title: "",
-  //       name: "",
-  //       gender: "",
-  //       age: "",
-  //       nationality: "IN",
-  //     };
-  //     tempAdultDetails.push(object);
-  //   }
-  //   setAdultDetails(tempAdultDetails);
-  // }, [travellerInfo]);
-
-  // const adultChangeHandler = (event, index) => {
-  //   let data = [...adultDetails];
-  //   data[index][event.target.name] = event.target.value;
-  //   setAdultDetails(data);
-  // };
-  //children details
-  // const [childrenDetails, setChildrenDetails] = useState([]);
-  // useEffect(() => {
-  //   const tempChildrenDetails = [];
-  //   for (let i = 0; i < travellerInfo.children; i++) {
-  //     let object = {
-  //       title: "",
-  //       name: "",
-  //       gender: "",
-  //       age: "",
-  //       nationality: "IN",
-  //     };
-  //     tempChildrenDetails.push(object);
-  //   }
-  //   setChildrenDetails(tempChildrenDetails);
-  // }, [travellerInfo]);
-
-  // const childrenChangeHandler = (event, index) => {
-  //   let data = [...childrenDetails];
-  //   data[index][event.target.name] = event.target.value;
-  //   setChildrenDetails(data);
-  // };
-
-  //infant details
-  // const [infantDetails, setInfantDetails] = useState([]);
-  // useEffect(() => {
-  //   const tempInfantDetails = [];
-  //   for (let i = 0; i < travellerInfo.infant; i++) {
-  //     let object = {
-  //       title: "",
-  //       name: "",
-  //       gender: "",
-  //       age: "",
-  //       nationality: "IN",
-  //     };
-  //     tempInfantDetails.push(object);
-  //   }
-  //   setInfantDetails(tempInfantDetails);
-  // }, [travellerInfo]);
-
-  // const infantChangeHandler = (event, index) => {
-  //   let data = [...infantDetails];
-  //   data[index][event.target.name] = event.target.value;
-  //   setInfantDetails(data);
-  // };
 
   //display adults
   const adultsData = adultDetails.map((adult, index) => (
@@ -1152,311 +1093,197 @@ const ReviewBookingFlight = () => {
       </div>
     </div>
   ));
+  const navigate= useNavigate()
+  //handle submit
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    alert("Paid!");
+    navigate("/Flight")
+  };
 
-  //contact details
-  // const [contactDetails, setContactDetails] = useState({
-  //   name: "",
-  //   email: "",
-  //   phone: "",
-  //   altPhone: "",
-  // });
-  // const handleContactChange = (e) => {
-  //   let object = { ...contactDetails };
-  //   object[e.target.name] = e.target.value;
-  //   setContactDetails(object);
-  // };
-
-  // display tripSummaries
-  // const tripData = Object.entries(flightData).map(([key, value]) => ({ key, value })).map((trip, index) => {
-  //   return <div key={index}>
-
-  //   <div className='flex gap-3 mt-4 mb-2 text-[15px]'>
-  //     <h1 className='border-b border-black font-bold'>Trip-{index+1}:</h1>
-  //     <h1 className='font-bold'>{index === 1 ? trip?.returnOrigin : trip?.origin} -&gt; {index === 1 ? trip?.returnDestination : trip?.destination}</h1>
-  //   </div>
-
-  //   <div className='flex flex-col gap-1 text-sm ml-1'>
-  //   <div className='flex gap-2'>
-  //     <h1>Date: </h1>
-  //     <h1 className='font-bold'>{index === 1 ? trip?.returnDate.slice(3) : trip?..slice(3)}</h1>
-  //   </div>
-
-  //   <div className='flex gap-2'>
-  //     <h1>Time: </h1>
-  //     <h1 className='font-bold'>{trip.departTime} to {trip.arrivalTime}</h1>
-  //   </div>
-
-  //   <div className='flex gap-2'>
-  //     <h1>Ferry: </h1>
-  //     <h1 className='font-bold'>{trip.shipName}(<span className='italic font-normal'>{trip.shipClass} Class</span>)</h1>
-  //   </div>
-
-  //   <div className='flex flex-wrap gap-x-2'>
-  //     <h1>Total Fare: </h1>
-  //     <h1 className='font-bold'>
-  //     {trip.travellerInfo.adult} x Adult(₹ {trip.adultFare})
-  //     {trip.travellerInfo.infant !== 0 ?
-  //       <span> + {trip.travellerInfo.infant} x Infant(₹ {trip.infantFare})
-  //       </span>
-  //       :
-  //       ""
-  //     }
-  //     <span> = ₹ {(trip.travellerInfo.adult * trip.adultFare) + (trip.travellerInfo.adult * trip.infantFare)}</span>
-  //     </h1>
-  //   </div>
-  //   </div>
-  //   </div>
-  // })
   const tripData = [...Array(num)].reverse().map((_, index) => (
-    <div key={index}>
+    <div className="p-4 w-[29.29vw] bg-white" key={index}>
       {" "}
-      <div className="flex gap-3 mt-4 mb-2 text-[15px]">
-        <h1 className="border-b border-black font-bold">Trip-:{index + 1}</h1>
-        <h1 className="font-bold">
-          {index === 1 ? currentDestinationFilter : nextDestinationFilter} -&gt;{" "}
-          {index === 1 ? nextDestinationFilter : currentDestinationFilter}
-        </h1>
-      </div>
-      <div className="flex flex-col gap-1 text-sm ml-1">
-        <div className="flex gap-2">
-          <h1>Date: </h1>
-          <h1 className="font-bold">
-            {index === 1
-              ? endingDate[0].endDate.toDateString()
-              : startingDate[0].startDate.toDateString()}
-          </h1>
-        </div>
-
-        <div className="flex gap-2">
-          <h1>Time: </h1>
-          <h1 className="font-bold">
-            {index === 1 ? flightData.departureTime : flightData.arrivalTime} to{" "}
-            {index === 1 ? flightData.arrivalTime : flightData.departureTime}
-          </h1>
-        </div>
-
-        <div className="flex gap-2">
-          <h1>Ferry: </h1>
-          <h1 className="font-bold">
-            {flightData.flightName}(
-            <span className="italic font-normal">
-              {flightData.travelRoute} Class
-            </span>
-            )
-          </h1>
-        </div>
-
-        <div className="flex flex-wrap gap-x-2">
-          <h1>Total Fare: </h1>
-          <h1 className="font-bold">
-            {travellerInfo.adult} x Adult(₹ {flightData.adultPrice})
-            {travellerInfo.infant !== 0 ? (
-              <span>
-                {" "}
-                + {travellerInfo.infant} x Infant(₹ {flightData.infantPrice})
-              </span>
-            ) : (
-              ""
-            )}
-            {travellerInfo.children !== 0 ? (
-              <span>
-                {" "}
-                + {travellerInfo.children} x children(₹{" "}
-                {flightData.childrenPrice})
-              </span>
-            ) : (
-              ""
-            )}
-            <span>
-              {" "}
-              = ₹{" "}
-              {travellerInfo.adult * flightData.adultPrice +
-                travellerInfo.children * flightData.childrenPrice}
-            </span>
-          </h1>
+      <div className=" flex items-center gap-5 ">
+        <img src={flightLogo} alt="flightLogo" className="w-24 h-24" />
+        <div>
+          <p className="font-[500] text-black/75">{passengerClass}</p>
+          <p className="font-semibold text-lg">{flightDataState.flightName}</p>
         </div>
       </div>
+      <hr className="my-5" />
+      <p>
+        Your booking is protected by <b>golobe</b>
+      </p>
+      <hr className="my-5" />
+      <div className="flex flex-col gap-4">
+        <h1 className="font-bold">Price Details</h1>
+        <div className="flex justify-between">
+          <p className="font-[500] text-md">Base Fare</p>
+          <p className="font-[600] text-md">₹ {totalFare}</p>
+        </div>
+        <div className="flex justify-between">
+          <p className="font-[500] text-md">Discount</p>
+          <p className="font-[600] text-md">₹ {discount}</p>
+        </div>
+        <div className="flex justify-between">
+          <p className="font-[500] text-md">Taxes</p>
+          <p className="font-[600] text-md">₹ {taxes}</p>
+        </div>
+        <div className="flex justify-between">
+          <p className="font-[500] text-md">Service Fee</p>
+          <p className="font-[600] text-md">₹ {fee}</p>
+        </div>
+      </div>
+      <hr className="my-4" />
+      <div className="flex justify-between">
+        <p className="font-[500] text-md">Total</p>
+        <p className="font-[600] text-md">₹ {netTotal}</p>
+      </div>
+      <button
+        onClick={handleSubmit}
+        className="w-full bg-[#FF8682] rounded py-4 mt-3 text-white text-md"
+      >
+        Confirm and Pay
+      </button>
     </div>
   ));
   const paymentData = [...Array(num)].reverse().map((_, index) => (
     <div key={index}>
       {" "}
       <div className="text-sm mt-4">
-        <h1 className="font-bold">Trip-:{index + 1} [{index === 1 ? currentDestinationFilter : nextDestinationFilter} -&gt;{" "}
-          {index === 1 ? nextDestinationFilter : currentDestinationFilter}]</h1>
+        <h1 className="font-bold">
+          Trip-:{index + 1} [
+          {index === 1 ? currentDestinationFilter : nextDestinationFilter} -&gt;{" "}
+          {index === 1 ? nextDestinationFilter : currentDestinationFilter}]
+        </h1>
         <h1 className="font-bold">
           {index === 1 ? currentDestinationFilter : nextDestinationFilter} -&gt;{" "}
           {index === 1 ? nextDestinationFilter : currentDestinationFilter}
         </h1>
         <h1 className="font-bold">
-            {flightData.flightName}(
-            <span className="italic font-normal">
-              {flightData.travelRoute} Class
-            </span>
-            )
-          </h1>
-          <h1 className="font-bold">
-          {flightData.departureTime} | {index === 1
-              ? endingDate[0].endDate.toDateString()
-              : startingDate[0].startDate.toDateString()}
-          </h1>
+          {flightData.flightName}(
+          <span className="italic font-normal">
+            {flightData.travelRoute} Class
+          </span>
+          )
+        </h1>
+        <h1 className="font-bold">
+          {flightData.departureTime} |{" "}
+          {index === 1
+            ? endingDate[0].endDate.toDateString()
+            : startingDate[0].startDate.toDateString()}
+        </h1>
       </div>
-
-        <div className="flex justify-between flex-wrap gap-y-2 mt-1">
-          <div>
-
+      <div className="flex justify-between flex-wrap gap-y-2 mt-1">
+        <div>
           <h1>Passengers </h1>
           <h1>Adult -&gt; {travellerInfo.adult}</h1>
           <h1>Children -&gt; {travellerInfo.children}</h1>
           <h1>Infant -&gt; {travellerInfo.infant} </h1>
-          </div>
-     
-               <div>
-        <h1 className='font-semibold'>Price</h1>
-        <h1>₹{flightData.adultPrice}</h1>
-        <h1>₹{flightData.childrenPrice}</h1>
-        <h1>₹{flightData.infantPrice}</h1>
-      </div>
-      <div>
-        <h1 className='font-semibold'>Convenience Fee</h1>
-        <h1>₹0</h1>
-        <h1>₹0</h1>
-        <h1>₹0</h1>
-      </div>
-      <div>
-        <h1 className='font-semibold'>Sum</h1>
-        <h1>₹{totalAdultFare}</h1>
-        <h1>₹{totalInfantFare}</h1>
-        <h1>₹{totalChildrenFare}</h1>
-      </div>
         </div>
+
+        <div>
+          <h1 className="font-semibold">Price</h1>
+          <h1>₹{flightData.adultPrice}</h1>
+          <h1>₹{flightData.childrenPrice}</h1>
+          <h1>₹{flightData.infantPrice}</h1>
+        </div>
+        <div>
+          <h1 className="font-semibold">Convenience Fee</h1>
+          <h1>₹0</h1>
+          <h1>₹0</h1>
+          <h1>₹0</h1>
+        </div>
+        <div>
+          <h1 className="font-semibold">Sum</h1>
+          <h1>₹{totalAdultFare}</h1>
+          <h1>₹{totalInfantFare}</h1>
+          <h1>₹{totalChildrenFare}</h1>
+        </div>
+      </div>
       {/* </div> */}
     </div>
   ));
-  //handle submit
-  const handleSubmit = (e) => {
-    e.preventDefault()
-    alert('Paid!')
-
-  };
 
   return (
     <>
       <Navforwithout />
-      <div className="h-full w-auto">
-        <div className="font-Nunito_Sans">
-          <div className="w-[90%] flex xl:flex-col justify-center mx-auto mt-12 mb-8">
-
-            <div className="w-[50%] lg:w-full xl:w-[50%] px-8 py-8">
-                <h1 className="text-[#699c78] text-[26px] md:text-2xl font-Ubuntu_Mono font-semibold ">
-                  Review Booking
-                </h1> 
-                <h1 
-                  className='cursor-pointer italic decoration-[1.5px] decoration-green-600 hover:underline hover:text-green-700'
-                  onClick={() => scrollToPolicies(policiesRef)}
-                >
-                  (Please read our policies before booking)
-                </h1>
-
-              {/* Displaying infants and adults data */}
-              {adultsData}
-              {childrenData}
-              {infantsData}
-            </div>
-
-            <form
-              className="w-[50%] xs:w-full lg:w-[60%] xl:w-[50%] bg-white overflow-hidden 
-                    p-8 "
-              onSubmit={handleSubmit}
-            >
-              <h1 className="text-[#699c78] text-[26px] md:text-2xl font-Ubuntu_Mono font-bold mb-6 md:mb-3 tracking-wide">
-                Add Contact Details
-              </h1>
-              <div className="flex flex-col gap-1">
-                <input
-                  type="text"
-                  id="name"
-                  name="name"
-                  value={contactDetails.name}
-                  // onChange={handleContactChange}
-                  placeholder="Full Name"
-                  className="h-[40px] outline-none p-4 rounded-md border border-gray-300 focus:border-2 focus:border-slate-400"
-                  required
-                />
+      <div className="h-full w-auto" style={{ fontFamily: "Montserrat" }}>
+        <div className="w-[90%] mx-auto mt-12 mb-8">
+          <div className="flex items-center gap-2 ">
+            <span className="text-[#FF8682] ">Flight</span>
+            <span>
+              <MdKeyboardArrowRight />
+            </span>
+            <span className="text-[#FF8682] ">
+              {flightDataState.flightName}
+            </span>
+            <span>
+              <MdKeyboardArrowRight />
+            </span>
+            <span>Payment</span>
+          </div>
+          <div className=" flex xl:flex-col  ">
+            <div className="mt-12 w-full h-fit bg-[#FFFFFF] py-8 px-6 shadow-[0px_4px_16px_rgba(17,34,17,0.05)] rounded-xl">
+              <div className="flex justify-between">
+                <h5 className="text-xl text-[#112211]">
+                  Return {endingDate[0].endDate.toDateString()}
+                </h5>
+                <h5 className="text-xl text-[#112211]">
+                  {flightDataState.flightDuration}
+                </h5>
               </div>
-              <div className="flex flex-col gap-1 mt-5">
-                <input
-                  type="email"
-                  id="email"
-                  name="email"
-                  value={contactDetails.email}
-                  // onChange={handleContactChange}
-                  placeholder="Email"
-                  className="h-[40px] outline-none p-4 rounded-md border border-gray-300 focus:border-2 focus:border-slate-400"
-                  required
-                />
-              </div>
-              <div className="flex flex-col gap-1 mt-5">
-                <input
-                  type="number"
-                  id="phone"
-                  name="phone"
-                  value={contactDetails.phone}
-                  // onChange={handleContactChange}
-                  placeholder="Mobile Number"
-                  className="h-[45px] outline-none p-4 rounded-md border border-gray-300 focus:border-2 focus:border-slate-400"
-                  required
-                />
-              </div>
-              <div className="flex flex-col gap-1 mt-5">
-                <input
-                  type="number"
-                  id="alt_phone"
-                  name="altPhone"
-                  value={contactDetails.altPhone}
-                  // onChange={handleContactChange}
-                  placeholder="Alternate Mobile Number"
-                  className="h-[45px] outline-none p-4 rounded-md border border-gray-300 focus:border-2 focus:border-slate-400"
-                />
-                <div className="ml-1 mt-5">
-                  {/* <input type="checkbox" id="check" required className="mr-2" />
-                  <label htmlFor="check">
-                    Agree with
-                    <span className="text-[#549b69]">
-                      {" "}
-                      terms and conditions
-                    </span>{" "}
-                    and the
-                    <span className="text-[#549b69]">
-                      {" "}
-                      cancellation policy.
-                    </span>
-                  </label> */}
+              <div className="flex justify-between mt-5">
+                <div className="flex items-center w-auto justify-center bg-[#FFFFFF] gap-5  border-[0.5px] border-[0.5px_solid_#8DD3BB] rounded-lg px-8 py-4 ">
+                  <img src={flightLogoMini} alt="flightLogoMini" className="" />
+                  <div className="">
+                    <h2 className="font-semibold text-2xl">Emirates</h2>
+                    <p className="text-[#112211] opacity-[0.6] font-[500]">
+                      {flightDataState.flightName}
+                    </p>
+                  </div>
+                </div>
+                <div className="">
+                  {" "}
+                  <img src={flightFeature} alt="" />
                 </div>
               </div>
-          {/*Payment details */}              
-          {paymentData}
-              <div className='mt-6 flex'>
-                <h1 className='text-lg font-semibold'>Grand Total</h1>
-                <h1 className='text-lg font-semibold ml-auto'>₹{totalTripFare}</h1>                  
+              <div
+                className="flex justify-between items-center w-full h-auto
+           mx-auto mt-5"
+              >
+                <div className="">
+                  <div>
+                    <span className="font-bold">
+                      {flightDataState.departureTime}
+                    </span>
+
+                    <span className="ml-2">{currentDestinationFilter}</span>
+                  </div>
+                </div>
+                <div className="flex gap-2">
+                  <span>
+                    {" "}
+                    <img
+                      src={flightIcon}
+                      className="w-full h-8"
+                      alt="flightIcon"
+                    />{" "}
+                  </span>
+                </div>
+                <div>
+                  <span className="font-bold">
+                    {flightDataState.arrivalTime}
+                  </span>
+                  <span className="ml-2">{nextDestinationFilter}</span>
+                </div>
               </div>
-              <hr className='border-t border-gray-300' />     
-              <button
-                type="submit"
-                className="bg-[#408c57] shadow-2xl hover:bg-[#51795d]
-                  text-white text-[21px] md:text-[16px] tracking-wider font-Ubuntu_Mono font-semibold rounded-full
-                  p-2 w-full mt-8 mb-4"
-              >                
-                Pay Now (₹{totalTripFare})
-              </button>
-            </form>
-
-            <div className="w-[50%] md:w-full lg:w-[45%] xl:w-[50%] p-8 ">
-
-
-              <h1 className="text-[26px] text-[#699c78] md:text-2xl font-Ubuntu_Mono font-semibold">
+            </div>
+            <div className="w-[50%] md:w-full lg:w-[35%] xl:w-[30%] pl-8 ">
+              {/* <h1 className="text-[26px] text-[#699c78] md:text-2xl  font-semibold">
                 Trip Summary
-              </h1>
+              </h1> */}
               {tripData.length === 0 ? (
                 <h1>Please select seats to proceed with booking.</h1>
               ) : (
@@ -1465,79 +1292,101 @@ const ReviewBookingFlight = () => {
             </div>
           </div>
         </div>
-      <div className='w-[90%] mx-auto font-Nunito_Sans'>
-          <h1 ref={policiesRef} className='text-3xl font-semibold my-4'>Read Before you Book</h1>
-          <div className='flex flex-wrap gap-5 mb-10'>
-
-            <div className='flex flex-col w-[30rem]'>
-              <h1 className='text-lg font-semibold'>Confirmation</h1>
-              <hr className='border-t border-gray-300 w-[95%]' />
-              <p className='mt-2'>This is not a confirmed booking. This is an order to confirm the booking and SublimeIsland will confirm the booking on the best effort basis in the next 3-4 hours,
-               maximum being 24 hours.
+        {/* <div className="w-[90%] mx-auto font-Nunito_Sans">
+          <h1 ref={policiesRef} className="text-3xl font-semibold my-4">
+            Read Before you Book
+          </h1>
+          <div className="flex flex-wrap gap-5 mb-10">
+            <div className="flex flex-col w-[30rem]">
+              <h1 className="text-lg font-semibold">Confirmation</h1>
+              <hr className="border-t border-gray-300 w-[95%]" />
+              <p className="mt-2">
+                This is not a confirmed booking. This is an order to confirm the
+                booking and SublimeIsland will confirm the booking on the best
+                effort basis in the next 3-4 hours, maximum being 24 hours.
               </p>
             </div>
 
-            <div className='flex flex-col w-[30rem]'>
-              <h1 className='text-lg font-semibold'>Cancellation</h1>
-              <hr className='border-t border-gray-300 w-[95%]' />
-              <p className='mt-2'>48 hours before the departure, INR 250/person/ticket. 
-              24 – 48 hours before the departure 50% of the tickets. Within 24 hours, 100% of the ticket.
+            <div className="flex flex-col w-[30rem]">
+              <h1 className="text-lg font-semibold">Cancellation</h1>
+              <hr className="border-t border-gray-300 w-[95%]" />
+              <p className="mt-2">
+                48 hours before the departure, INR 250/person/ticket. 24 – 48
+                hours before the departure 50% of the tickets. Within 24 hours,
+                100% of the ticket.
               </p>
             </div>
 
-            <div className='flex flex-col w-[30rem]'>
-              <h1 className='text-lg font-semibold'>Reporting Time</h1>
-              <hr className='border-t border-gray-300' />
-              <p className='mt-2'>Please report at the operator’s check-in at Jetty 1 hour before the departure.
+            <div className="flex flex-col w-[30rem]">
+              <h1 className="text-lg font-semibold">Reporting Time</h1>
+              <hr className="border-t border-gray-300" />
+              <p className="mt-2">
+                Please report at the operator’s check-in at Jetty 1 hour before
+                the departure.
               </p>
             </div>
 
-            <div className='flex flex-col w-[30rem]'>
-              <h1 className='text-lg font-semibold'>Rescheduling</h1>
-              <hr className='border-t border-gray-300 w-[95%]' />
-              <p className='mt-2'>Rescheduling will be treated as cancellation and rebooking, will be charged as per the cancellation policy.
+            <div className="flex flex-col w-[30rem]">
+              <h1 className="text-lg font-semibold">Rescheduling</h1>
+              <hr className="border-t border-gray-300 w-[95%]" />
+              <p className="mt-2">
+                Rescheduling will be treated as cancellation and rebooking, will
+                be charged as per the cancellation policy.
               </p>
             </div>
 
-            <div className='flex flex-col w-[30rem]'>
-              <h1 className='text-lg font-semibold'>Ferry Seat Category</h1>
-              <hr className='border-t border-gray-300 w-[95%]' />
-              <p className='mt-2'>The ferries will usually have 3 seat categories: Economy, Luxury and Royal. 
-              While different operators use different terms but the facilities are similar for each category, there still exist some differences between operators.
+            <div className="flex flex-col w-[30rem]">
+              <h1 className="text-lg font-semibold">Ferry Seat Category</h1>
+              <hr className="border-t border-gray-300 w-[95%]" />
+              <p className="mt-2">
+                The ferries will usually have 3 seat categories: Economy, Luxury
+                and Royal. While different operators use different terms but the
+                facilities are similar for each category, there still exist some
+                differences between operators.
               </p>
             </div>
 
-            <div className='flex flex-col w-[30rem]'>
-              <h1 className='text-lg font-semibold'>Luggage Policy</h1>
-              <hr className='border-t border-gray-300 w-[95%]' />
-              <p className='mt-2'>25 KG/person, mostly not too strict. You’ll be able to carry more than what you can carry in a flight.
+            <div className="flex flex-col w-[30rem]">
+              <h1 className="text-lg font-semibold">Luggage Policy</h1>
+              <hr className="border-t border-gray-300 w-[95%]" />
+              <p className="mt-2">
+                25 KG/person, mostly not too strict. You’ll be able to carry
+                more than what you can carry in a flight.
               </p>
             </div>
 
-            <div className='flex flex-col w-[30rem]'>
-              <h1 className='text-lg font-semibold'>Reschedule/Cancellations by Operator</h1>
-              <hr className='border-t border-gray-300 w-[95%]' />
-              <p className='mt-2'>The operator reserves the right to change or cancel based on weather or technical issues. 
-              In that case, you’ll be endorsed to a different ferry or given a full refund.
+            <div className="flex flex-col w-[30rem]">
+              <h1 className="text-lg font-semibold">
+                Reschedule/Cancellations by Operator
+              </h1>
+              <hr className="border-t border-gray-300 w-[95%]" />
+              <p className="mt-2">
+                The operator reserves the right to change or cancel based on
+                weather or technical issues. In that case, you’ll be endorsed to
+                a different ferry or given a full refund.
               </p>
             </div>
 
-            <div className='flex flex-col w-[30rem]'>
-              <h1 className='text-lg font-semibold'>Ferry Boarding Points</h1>
-              <hr className='border-t border-gray-300 w-[95%]' />
-              <p className='mt-2'>Port Blair: Haddo Jetty, Havelock: Havelock Jetty (only Jetty in Havelock Island), Neil Island: Neil Jetty (only Jetty in Neil Island).
+            <div className="flex flex-col w-[30rem]">
+              <h1 className="text-lg font-semibold">Ferry Boarding Points</h1>
+              <hr className="border-t border-gray-300 w-[95%]" />
+              <p className="mt-2">
+                Port Blair: Haddo Jetty, Havelock: Havelock Jetty (only Jetty in
+                Havelock Island), Neil Island: Neil Jetty (only Jetty in Neil
+                Island).
               </p>
             </div>
 
-            <div className='flex flex-col w-[30rem]'>
-              <h1 className='text-lg font-semibold'>Infant Policy</h1>
-              <hr className='border-t border-gray-300 w-[95%]' />
-              <p className='mt-2'>A child above 12 months/1 years will be charged a full ticket amount.
+            <div className="flex flex-col w-[30rem]">
+              <h1 className="text-lg font-semibold">Infant Policy</h1>
+              <hr className="border-t border-gray-300 w-[95%]" />
+              <p className="mt-2">
+                A child above 12 months/1 years will be charged a full ticket
+                amount.
               </p>
             </div>
-
           </div>
-        </div>
+        </div> */}
       </div>
     </>
   );

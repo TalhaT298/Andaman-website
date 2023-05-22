@@ -1,8 +1,8 @@
-import React, { useEffect} from "react";
-import Navforwithout from "../../Navforwithout";
-import { useDataContext } from "../../context/DataContext";
+import React, { useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import flight from "../../Data/Flight-Section/flight";
-import { useLocation, useNavigate } from "react-router-dom";
+import Navforwithout from "../../Navforwithout";
+import { useDataContext } from "../../context/useDataContext";
 // import { useLocation, useNavigate } from 'react-router-dom';
 
 const TravellersDetailsFlight = () => {
@@ -43,17 +43,17 @@ const TravellersDetailsFlight = () => {
     setInfantDetails,
     contactDetails,
     setContactDetails,
-    setFlightDataState,
+    // setFlightDataState,
     flightDataState
   } = useDataContext();
 
   let num = 1;
   if (twoWay) num = 2;
 
-  const flightData = flight.find(
-    (airplane) => airplane.currentDestination === currentDestinationFilter
-  );
-  setFlightDataState(flightData)
+  // const flightData = flight.find(
+  //   (airplane) => airplane.currentDestination === currentDestinationFilter
+  // );
+  // setFlightDataState(flightData)
   //calculating fares
   // const totalAdultFare = travellerInfo.adult * 1400;
   // const totalInfantFare = travellerInfo.adult * 200;
@@ -360,7 +360,7 @@ const TravellersDetailsFlight = () => {
             <option value="MC">Monaco</option>
             <option value="MN">Mongolia</option>
             <option value="ME">Montenegro</option>
-            <option value="MS">Montserrat</option>
+            <option value="MS">[Montserrat]</option>
             <option value="MA">Morocco</option>
             <option value="MZ">Mozambique</option>
             <option value="MM">Myanmar</option>
@@ -702,7 +702,7 @@ const TravellersDetailsFlight = () => {
             <option value="MC">Monaco</option>
             <option value="MN">Mongolia</option>
             <option value="ME">Montenegro</option>
-            <option value="MS">Montserrat</option>
+            <option value="MS">[Montserrat]</option>
             <option value="MA">Morocco</option>
             <option value="MZ">Mozambique</option>
             <option value="MM">Myanmar</option>
@@ -1040,7 +1040,7 @@ const TravellersDetailsFlight = () => {
             <option value="MC">Monaco</option>
             <option value="MN">Mongolia</option>
             <option value="ME">Montenegro</option>
-            <option value="MS">Montserrat</option>
+            <option value="MS">[Montserrat]</option>
             <option value="MA">Morocco</option>
             <option value="MZ">Mozambique</option>
             <option value="MM">Myanmar</option>
@@ -1163,47 +1163,7 @@ const TravellersDetailsFlight = () => {
     setContactDetails(object);
   };
 
-  // display tripSummaries
-  // const tripData = Object.entries(flightData).map(([key, value]) => ({ key, value })).map((trip, index) => {
-  //   return <div key={index}>
 
-  //   <div className='flex gap-3 mt-4 mb-2 text-[15px]'>
-  //     <h1 className='border-b border-black font-bold'>Trip-{index+1}:</h1>
-  //     <h1 className='font-bold'>{index === 1 ? trip?.returnOrigin : trip?.origin} -&gt; {index === 1 ? trip?.returnDestination : trip?.destination}</h1>
-  //   </div>
-
-  //   <div className='flex flex-col gap-1 text-sm ml-1'>
-  //   <div className='flex gap-2'>
-  //     <h1>Date: </h1>
-  //     <h1 className='font-bold'>{index === 1 ? trip?.returnDate.slice(3) : trip?..slice(3)}</h1>
-  //   </div>
-
-  //   <div className='flex gap-2'>
-  //     <h1>Time: </h1>
-  //     <h1 className='font-bold'>{trip.departTime} to {trip.arrivalTime}</h1>
-  //   </div>
-
-  //   <div className='flex gap-2'>
-  //     <h1>Ferry: </h1>
-  //     <h1 className='font-bold'>{trip.shipName}(<span className='italic font-normal'>{trip.shipClass} Class</span>)</h1>
-  //   </div>
-
-  //   <div className='flex flex-wrap gap-x-2'>
-  //     <h1>Total Fare: </h1>
-  //     <h1 className='font-bold'>
-  //     {trip.travellerInfo.adult} x Adult(₹ {trip.adultFare})
-  //     {trip.travellerInfo.infant !== 0 ?
-  //       <span> + {trip.travellerInfo.infant} x Infant(₹ {trip.infantFare})
-  //       </span>
-  //       :
-  //       ""
-  //     }
-  //     <span> = ₹ {(trip.travellerInfo.adult * trip.adultFare) + (trip.travellerInfo.adult * trip.infantFare)}</span>
-  //     </h1>
-  //   </div>
-  //   </div>
-  //   </div>
-  // })
   const tripData = [...Array(num)].reverse().map((_, index) => (
     <div key={index}>
       {" "}
@@ -1227,17 +1187,17 @@ const TravellersDetailsFlight = () => {
         <div className="flex gap-2">
           <h1>Time: </h1>
           <h1 className="font-bold">
-            {index === 1 ? flightData.departureTime : flightData.arrivalTime} to{" "}
-            {index === 1 ? flightData.arrivalTime : flightData.departureTime}
+            {index === 1 ? flightDataState.departureTime : flightDataState.arrivalTime} to{" "}
+            {index === 1 ? flightDataState.arrivalTime : flightDataState.departureTime}
           </h1>
         </div>
 
         <div className="flex gap-2">
           <h1>Ferry: </h1>
           <h1 className="font-bold">
-            {flightData.flightName}(
+            {flightDataState.flightName}(
             <span className="italic font-normal">
-              {flightData.travelRoute} Class
+              {flightDataState.travelRoute} Class
             </span>
             )
           </h1>
@@ -1246,11 +1206,11 @@ const TravellersDetailsFlight = () => {
         <div className="flex flex-wrap gap-x-2">
           <h1>Total Fare: </h1>
           <h1 className="font-bold">
-            {travellerInfo.adult} x Adult(₹ {flightData.adultPrice})
+            {travellerInfo.adult} x Adult(₹ {flightDataState.adultPrice})
             {travellerInfo.infant !== 0 ? (
               <span>
                 {" "}
-                + {travellerInfo.infant} x Infant(₹ {flightData.infantPrice})
+                + {travellerInfo.infant} x Infant(₹ {flightDataState.infantPrice})
               </span>
             ) : (
               ""
@@ -1259,7 +1219,7 @@ const TravellersDetailsFlight = () => {
               <span>
                 {" "}
                 + {travellerInfo.children} x children(₹{" "}
-                {flightData.childrenPrice})
+                {flightDataState.childrenPrice})
               </span>
             ) : (
               ""
@@ -1267,8 +1227,8 @@ const TravellersDetailsFlight = () => {
             <span>
               {" "}
               = ₹{" "}
-              {travellerInfo.adult * flightData.adultPrice +
-                travellerInfo.children * flightData.childrenPrice}
+              {travellerInfo.adult * flightDataState.adultPrice +
+                travellerInfo.children * flightDataState.childrenPrice}
             </span>
           </h1>
         </div>
@@ -1313,7 +1273,7 @@ const TravellersDetailsFlight = () => {
         <div className="font-Nunito_Sans">
           <div className="w-[90%] flex xl:flex-col justify-center mx-auto mt-12 mb-8">
             <div className="w-[50%] lg:w-full xl:w-[50%] px-8 py-8">
-              <h1 className="text-[#699c78] text-[26px] md:text-2xl font-Ubuntu_Mono font-semibold ">
+              <h1 className="text-[#699c78] text-[26px] md:text-2xl font-[Montserrat] font-semibold ">
                 Add Traveller(s) Details
               </h1>
 
@@ -1328,7 +1288,7 @@ const TravellersDetailsFlight = () => {
                     p-8 "
               onSubmit={handleSubmit}
             >
-              <h1 className="text-[#699c78] text-[26px] md:text-2xl font-Ubuntu_Mono font-bold mb-6 md:mb-3 tracking-wide">
+              <h1 className="text-[#699c78] text-[26px] md:text-2xl font-[Montserrat] font-bold mb-6 md:mb-3 tracking-wide">
                 Add Contact Details
               </h1>
               <div className="flex flex-col gap-1">
@@ -1397,7 +1357,7 @@ const TravellersDetailsFlight = () => {
               <button
                 type="submit"
                 className="bg-[#408c57] shadow-2xl hover:bg-[#51795d]
-                  text-white text-[21px] md:text-[16px] tracking-wider font-Ubuntu_Mono font-semibold rounded-full
+                  text-white text-[21px] md:text-[16px] tracking-wider font-[Montserrat] font-semibold rounded-full
                   p-2 w-full mt-8"
               >
                 {/* {status} */}
@@ -1406,47 +1366,7 @@ const TravellersDetailsFlight = () => {
             </form>
 
             <div className="w-[50%] md:w-full lg:w-[45%] xl:w-[50%] p-8 ">
-              {/* <h1 className="text-[26px] text-[#699c78] md:text-2xl font-Ubuntu_Mono font-semibold">
-                Trip Summary
-              </h1> 
-
-              <div className='flex gap-3 mt-4 mb-2 text-[15px]'>
-                <h1 className='border-b border-black font-bold'>Trip-1:</h1>
-                <h1 className='font-bold'>{origin} -&gt; {destination}</h1>  
-              </div>
-
-              <div className='flex flex-col gap-1 text-sm ml-1'>
-              <div className='flex gap-2'>
-                <h1>Date: </h1>
-                <h1 className='font-bold'>{departDate.slice(3)}</h1>  
-              </div>
-
-              <div className='flex gap-2'>
-                <h1>Time: </h1>
-                <h1 className='font-bold'>{departTime} to {arrivalTime}</h1>  
-              </div>
-
-              <div className='flex gap-2'>
-                <h1>Ferry: </h1>
-                <h1 className='font-bold'>{shipName}(<span className='italic font-normal'>{shipClass} Class</span>)</h1>  
-              </div>
-
-              <div className='flex flex-wrap gap-x-2'>
-                <h1>Total Fare: </h1>
-                <h1 className='font-bold'>
-                {travellerInfo.adult} x Adult(₹ {adultFare})
-                {travellerInfo.infant !== 0 ? 
-                  <span> + {travellerInfo.infant} x Infant(₹ {infantFare})
-                  </span> 
-                  : 
-                  "" 
-                }
-                <span> = ₹ {totalFare}</span>
-                </h1>  
-              </div>
-              </div> */}
-
-              <h1 className="text-[26px] text-[#699c78] md:text-2xl font-Ubuntu_Mono font-semibold">
+              <h1 className="text-[26px] text-[#699c78] md:text-2xl font-[Montserrat] font-semibold">
                 Trip Summary
               </h1>
               {tripData.length === 0 ? (
@@ -1472,16 +1392,16 @@ const TravellersDetailsFlight = () => {
                 <div className="flex gap-2">
                   <h1>Time: </h1>
                   <h1 className="font-bold">
-                    {flightData.departureTime} to {flightData.arrivalTime}
+                    {flightDataState.departureTime} to {flightDataState.arrivalTime}
                   </h1>
                 </div>
 
                 <div className="flex gap-2">
                   <h1>Ferry: </h1>
                   <h1 className="font-bold">
-                    {flightData.flightName}(
+                    {flightDataState.flightName}(
                     <span className="italic font-normal">
-                      {flightData.travelRoute} Class
+                      {flightDataState.travelRoute} Class
                     </span>
                     )
                   </h1>
@@ -1490,12 +1410,12 @@ const TravellersDetailsFlight = () => {
                 <div className="flex flex-wrap gap-x-2">
                   <h1>Total Fare: </h1>
                   <h1 className="font-bold">
-                    {travellerInfo.adult} x Adult(₹ {flightData.adultPrice})
+                    {travellerInfo.adult} x Adult(₹ {flightDataState.adultPrice})
                     {travellerInfo.infant !== 0 ? (
                       <span>
                         {" "}
                         + {travellerInfo.infant} x Infant(₹{" "}
-                        {flightData.infantPrice})
+                        {flightDataState.infantPrice})
                       </span>
                     ) : (
                       ""
@@ -1504,7 +1424,7 @@ const TravellersDetailsFlight = () => {
                       <span>
                         {" "}
                         + {travellerInfo.children} x children(₹{" "}
-                        {flightData.childrenPrice})
+                        {flightDataState.childrenPrice})
                       </span>
                     ) : (
                       ""
@@ -1512,8 +1432,8 @@ const TravellersDetailsFlight = () => {
                     <span>
                       {" "}
                       = ₹{" "}
-                      {travellerInfo.adult * flightData.adultPrice +
-                        travellerInfo.children * flightData.childrenPrice}
+                      {travellerInfo.adult * flightDataState.adultPrice +
+                        travellerInfo.children * flightDataState.childrenPrice}
                     </span>
                   </h1>
                 </div>
