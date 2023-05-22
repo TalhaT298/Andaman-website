@@ -70,7 +70,7 @@ const Ship = () => {
   // };
 
   return (
-    <>
+    <div  style={{fontFamily:"Montserrat"}}>
       {/* <ImageSection handleClick={handleClick} /> */}
       <ShipSearch 
         currentDestinationFilterShip={currentDestinationFilterShip}
@@ -134,7 +134,7 @@ const Ship = () => {
         <MainlandDetails /> */}
         {/* <Inland ref={inlandRef} /> */}
       </div>
-    </>
+    </div>
   );
 };
 

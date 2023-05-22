@@ -3,7 +3,7 @@ const ship = [
     flightID: 1,
     flightGateway: 'Terminal 1',
     flightLogo: 'https://flight.easemytrip.com/Content/AirlineLogon/G8.png',
-    flightName: 'Indigo',
+    shipName: 'Indigo',
     travelRoute: 'MAA-IXZ',
     currentDestination: 'Chennai',
     flightInterval: 'non-stop', // 1 stoppages // 2 stoppages
@@ -19,7 +19,7 @@ const ship = [
     flightID: 2,
     flightGateway: 'Terminal 1',
     flightLogo: 'https://flight.easemytrip.com/Content/AirlineLogon/G8.png',
-    flightName: 'Indigo',
+    shipName: 'Indigo',
     travelRoute: 'MAA-IXZ',
     currentDestination: 'Chennai',
     flightInterval: 'non-stop', // 1 stoppages // 2 stoppages
@@ -35,7 +35,7 @@ const ship = [
     flightID: 3,
     flightGateway: 'Terminal 1',
     flightLogo: 'https://flight.easemytrip.com/Content/AirlineLogon/G8.png',
-    flightName: 'Indigo',
+    shipName: 'Indigo',
     travelRoute: 'MAA-IXZ',
     currentDestination: 'Chennai',
     flightInterval: 'non-stop', // 1 stoppages // 2 stoppages
@@ -51,7 +51,7 @@ const ship = [
     flightID: 4,
     flightGateway: 'Terminal 1',
     flightLogo: 'https://flight.easemytrip.com/Content/AirlineLogon/G8.png',
-    flightName: 'Indigo',
+    shipName: 'Indigo',
     travelRoute: 'MAA-IXZ',
     currentDestination: 'Chennai',
     flightInterval: 'non-stop', // 1 stoppages // 2 stoppages
@@ -67,7 +67,7 @@ const ship = [
     flightID: 5,
     flightGateway: 'Terminal 1',
     flightLogo: 'https://flight.easemytrip.com/Content/AirlineLogon/G8.png',
-    flightName: 'Indigo',
+    shipName: 'Indigo',
     travelRoute: 'MAA-IXZ',
     currentDestination: 'Chennai',
     flightInterval: 'non-stop', // 1 stoppages // 2 stoppages
@@ -83,7 +83,7 @@ const ship = [
     flightID: 6,
     flightGateway: 'Terminal 1',
     flightLogo: 'https://flight.easemytrip.com/Content/AirlineLogon/G8.png',
-    flightName: 'Indigo',
+    shipName: 'Indigo',
     travelRoute: 'MAA-IXZ',
     currentDestination: 'Chennai',
     flightInterval: 'non-stop', // 1 stoppages // 2 stoppages
@@ -99,7 +99,7 @@ const ship = [
     flightID: 7,
     flightGateway: 'Terminal 1',
     flightLogo: 'https://flight.easemytrip.com/Content/AirlineLogon/G8.png',
-    flightName: 'Indigo',
+    shipName: 'Indigo',
     travelRoute: 'MAA-IXZ',
     currentDestination: 'Chennai',
     flightInterval: 'non-stop', // 1 stoppages // 2 stoppages
@@ -115,7 +115,7 @@ const ship = [
     flightID: 8,
     flightGateway: 'Terminal 1',
     flightLogo: 'https://flight.easemytrip.com/Content/AirlineLogon/G8.png',
-    flightName: 'Indigo',
+    shipName: 'Indigo',
     travelRoute: 'MAA-IXZ',
     currentDestination: 'Chennai',
     flightInterval: 'non-stop', // 1 stoppages // 2 stoppages
@@ -131,7 +131,7 @@ const ship = [
     flightID: 9,
     flightGateway: 'Terminal 1',
     flightLogo: 'https://flight.easemytrip.com/Content/AirlineLogon/G8.png',
-    flightName: 'Indigo',
+    shipName: 'Indigo',
     travelRoute: 'MAA-IXZ',
     currentDestination: 'Chennai',
     flightInterval: 'non-stop', // 1 stoppages // 2 stoppages
@@ -147,7 +147,7 @@ const ship = [
     flightID: 10,
     flightGateway: 'Terminal 1',
     flightLogo: 'https://flight.easemytrip.com/Content/AirlineLogon/G8.png',
-    flightName: 'Indigo',
+    shipName: 'Indigo',
     travelRoute: 'MAA-IXZ',
     currentDestination: 'Chennai',
     flightInterval: 'non-stop', // 1 stoppages // 2 stoppages
@@ -163,7 +163,7 @@ const ship = [
     flightID: 11,
     flightGateway: 'Terminal 1',
     flightLogo: 'https://flight.easemytrip.com/Content/AirlineLogon/G8.png',
-    flightName: 'Indigo',
+    shipName: 'Indigo',
     travelRoute: 'MAA-IXZ',
     currentDestination: 'Chennai',
     flightInterval: 'non-stop', // 1 stoppages // 2 stoppages
@@ -179,7 +179,7 @@ const ship = [
     flightID: 12,
     flightGateway: 'Terminal 1',
     flightLogo: 'https://flight.easemytrip.com/Content/AirlineLogon/G8.png',
-    flightName: 'Indigo',
+    shipName: 'Indigo',
     travelRoute: 'MAA-IXZ',
     currentDestination: 'Port Blair',
     flightInterval: 'non-stop', // 1 stoppages // 2 stoppages
@@ -195,7 +195,7 @@ const ship = [
     flightID: 13,
     flightGateway: 'Terminal 1',
     flightLogo: 'https://flight.easemytrip.com/Content/AirlineLogon/G8.png',
-    flightName: 'Indigo',
+    shipName: 'Indigo',
     travelRoute: 'MAA-IXZ',
     currentDestination: 'Port Blair',
     flightInterval: 'non-stop', // 1 stoppages // 2 stoppages
@@ -211,7 +211,7 @@ const ship = [
     flightID: 14,
     flightGateway: 'Terminal 1',
     flightLogo: 'https://flight.easemytrip.com/Content/AirlineLogon/G8.png',
-    flightName: 'Indigo',
+    shipName: 'Indigo',
     travelRoute: 'MAA-IXZ',
     currentDestination: 'Mumbai',
     flightInterval: 'non-stop', // 1 stoppages // 2 stoppages
@@ -227,7 +227,7 @@ const ship = [
     flightID: 15,
     flightGateway: 'Terminal 1',
     flightLogo: 'https://flight.easemytrip.com/Content/AirlineLogon/G8.png',
-    flightName: 'Indigo',
+    shipName: 'Indigo',
     travelRoute: 'MAA-IXZ',
     currentDestination: 'Mumbai',
     flightInterval: 'non-stop', // 1 stoppages // 2 stoppages
@@ -243,7 +243,7 @@ const ship = [
     flightID: 16,
     flightGateway: 'Terminal 1',
     flightLogo: 'https://flight.easemytrip.com/Content/AirlineLogon/G8.png',
-    flightName: 'Indigo',
+    shipName: 'Indigo',
     travelRoute: 'MAA-IXZ',
     currentDestination: 'Mumbai',
     flightInterval: 'non-stop', // 1 stoppages // 2 stoppages

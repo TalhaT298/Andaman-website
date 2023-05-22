@@ -3,6 +3,7 @@ import lftarrow from '../../images/image_source_for_shiptab/lft-side.png';
 import rhttarrow from '../../images/image_source_for_shiptab/rht-side.png';
 import boat from '../../images/image_source_for_shiptab/Groupboat.png';
 import heart from '../../images/image_source_for_shiptab/heart.png';
+import { Link } from 'react-router-dom';
 
 const Shipoverview = (props) => {
     return (
@@ -44,7 +45,9 @@ const Shipoverview = (props) => {
                     <div className='border border-rose-400 px-2 py-2 mr-5'>
                         <img class="max-w-none" src={heart} alt="..." />
                     </div>
+                    <Link to={"/ShipBookingPreview"}>
                     <button className='text-black bg-rose-400 px-8 py-2'>Book Now</button>
+                    </Link>
                 </div>
             </div>
         </div>

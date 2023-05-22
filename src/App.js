@@ -6,6 +6,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import TravellersDetailsFlight from "./ServiceMenu/Flight/TravellersDetailsFlight.js";
 import ReviewBookingFlight from "./ServiceMenu/Flight/ReviewBookingFlight.js";
 import FlightPreview from "./ServiceMenu/Flight/FlightPreview.js";
+import ShipOverviewBooking  from './ServiceMenu/Ship/ShipBookingPreview.js';
 
 const Explore = lazy(() => import('./NavMenu/Explore.js'));
 const Fun = lazy(() => import('./NavMenu/Fun.js'));
@@ -123,6 +124,7 @@ export default function App() {
 
             {/* Ship Booking */}
             <Route path="/ShipBooking" element={<ShipBooking />} />
+            <Route path="/ShipBookingPreview" element={<ShipOverviewBooking />} />
             <Route path="/selectFerry" element={<ShipResults />} />
             <Route path="/travellerDetails" element={<TravellerDetails />} />
             <Route path="/ReviewBooking" element={<ReviewBooking />} />
