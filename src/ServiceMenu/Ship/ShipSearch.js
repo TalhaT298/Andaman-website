@@ -2,10 +2,11 @@ import React, { useState } from 'react';
 
 import 'react-date-range/dist/styles.css';
 import 'react-date-range/dist/theme/default.css';
+import mail from '../../images/image_source_for_shiptab/mail_arrow.png'
 
 import Locations from './Locations';
 import DepartDate from './DepartDate';
-import ReturnDate from './ReturnDate';
+// import ReturnDate from './ReturnDate';
 import Options from './Options';
 
 // This below code is for fetching data from local storage for json file
@@ -50,16 +51,16 @@ import Options from './Options';
 // }
 
 const ShipSearch = (props) => {
-  // const {setSearchOriginTerm, setSearchDestTerm} = props
+  const { handleSearch } = props
 
   const handleSubmit = (event) => {
     event.preventDefault();
   };
 
-  const [twoWay, setTwoWay] = useState(false);
+  // const [twoWay, setTwoWay] = useState(false);
 
   return (
-    <div className='flex flex-col h-full w-full my-6'>
+    <div className='h-full w-full py-4 my-6 drop-shadow-xl bg-white rounded-lg'>
       {/* <div className='flex gap-6 mx-auto'>
         <span
           onClick={() => {
@@ -81,19 +82,21 @@ const ShipSearch = (props) => {
           Multi-City
         </span>
       </div> */}
-      <form onSubmit={handleSubmit}>
-        <div className=''>
+      <form onSubmit={handleSubmit} className=''>
+        <div className='flex flex-row lg:flex-col px-10 mx-auto'>
           <Locations {...props} />
 
           <DepartDate />
-          {twoWay && <ReturnDate />}
+          {/* {twoWay && <ReturnDate />} */}
 
           <Options />
           <button
             type='submit'
-            className=''
+            className='lg:flex lg:items-center lg:justify-center w-20 bg-rose-400 px-3 py-3 text-white rounded-md lg:w-full'
+            onClick={handleSearch}
           >
-            Search
+            <img src={mail} alt=""  className='hidden lg:block mr-3'/>
+            <span>Search</span>
           </button>
         </div>
       </form>

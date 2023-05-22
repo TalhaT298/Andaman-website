@@ -1,6 +1,8 @@
 import React from 'react';
 // import { useState } from 'react';
 import ship from '../../Data/Ship-Section/ship';
+import allArrow from '../../images/image_source_for_shiptab/arrow_all.png'
+import topbottomArrow from '../../images/image_source_for_shiptab/up-and-downarrow.png'
 
 const Locations = ( { currentDestinationFilterShip, nextDestinationFilterShip, setcurrentDestinationFilterShip,
   setnextDestinationFilterShip} ) => {
@@ -21,38 +23,47 @@ const Locations = ( { currentDestinationFilterShip, nextDestinationFilterShip, s
   //  setSearchDestTerm(destination)
 
   return (
-    <>
-    <div className='h-auto w-full flex flex-col gap-y-3 px-4 mx-auto px-auto ml:w-auto airbnbml:w-96  xs:w-64 py-2 airbnbml:items-center airbnbml:border-b-transparent'>
-      <span className='text-slate-500 font-bold text-xl font-mono'>FROM</span>
-      <select
-          id="currentDestinationFilter"
-          className='bg-transparent text-slate-400 font-bold tracking-widest'
-          value={currentDestinationFilterShip}
-          onChange={(e) => setcurrentDestinationFilterShip(e.target.value)}
-        >
-          {currentDestinationOptions.map((destination) => (
-            <option key={destination} value={destination}>
-              {destination}
-            </option>
-          ))}
-        </select>
+  <div className='flex flex-row lg:flex-col mx-auto lg:w-full relative'>
+    <fieldset className='border border-slate-300 py-3 lg:pb-3 lg:pt-2 px-3 hover:border-2 hover:border-rose-400 hover:rounded-md lg:mb-3'>
+      <legend className='hidden lg:block'>From</legend>
+      <div className='flex w-64 lg:w-full'>
+        <img class="max-w-none mr-3" src={allArrow} alt="..." />
+        <select
+            id="currentDestinationFilter"
+            className='text-black appearance-none w-full pl-2'
+            value={currentDestinationFilterShip}
+            onChange={(e) => setcurrentDestinationFilterShip(e.target.value)}
+          >
+            {currentDestinationOptions.map((destination) => (
+              <option key={destination} value={destination}>
+                {destination}
+              </option>
+            ))}
+          </select>
+      </div>
+    </fieldset>
+    <div className='hidden lg:flex justify-center items-center place-content-center border border-slate-700 rounded-full w-12 h-12 pl-3 absolute top-14 left-60 bg-white'>
+      <img class="max-w-none mr-3" src={topbottomArrow} alt="..." />
     </div>
-    <div className='h-auto w-full flex flex-col gap-y-3 px-4 mx-auto px-auto ml:w-auto airbnbml:w-96  xs:w-64 py-2 airbnbml:items-center airbnbml:border-b-transparent'>
-      <span className='text-slate-500 font-bold text-xl font-mono'>TO</span>
-      <select
-          id="nextDestinationFilter"
-          className='bg-transparent text-slate-400 font-bold tracking-widest'
-          value={nextDestinationFilterShip}
-          onChange={(e) => setnextDestinationFilterShip(e.target.value)}
-        >
-          {nextDestinationOptions.map((destination) => (
-            <option key={destination} value={destination}>
-              {destination}
-            </option>
-          ))}
-        </select>
-    </div>
-  </>
+    <fieldset className='border border-slate-300 py-3 lg:pb-3 lg:pt-2 px-3 hover:border-2 hover:border-rose-400 hover:rounded-md lg:mb-3'>
+      <legend className='hidden lg:block'>To</legend>
+      <div className='flex w-64 lg:w-full'>
+      <img class="max-w-none mr-3" src={allArrow} alt="..." />
+        <select
+            id="nextDestinationFilter"
+            className='text-black appearance-none w-full  pl-2'
+            value={nextDestinationFilterShip}
+            onChange={(e) => setnextDestinationFilterShip(e.target.value)}
+          >
+            {nextDestinationOptions.map((destination) => (
+              <option key={destination} value={destination}>
+                {destination}
+              </option>
+            ))}
+          </select>
+      </div>
+    </fieldset>
+  </div>
   );
 };
 

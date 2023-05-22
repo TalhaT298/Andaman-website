@@ -2,6 +2,7 @@ import React from "react";
 import { useState } from "react";
 import classes from './options.module.css'
 import Modal from "react-modal";
+import person from '../../images/image_source_for_shiptab/person.png';
 
 const Options = () => {
   const [openTravellerInfo, setOpenTravellerInfo] = useState(false);
@@ -24,23 +25,17 @@ const Options = () => {
     });
   };
 
-  const [passengerClass, setPassengerClass] = useState("ECONOMY");
-
   return (
-    <div className="bg-slate-300 h-auto w-full flex flex-col gap-y-3 px-4 border-solid border-2 border-slate-300 mx-auto px-auto ml:w-auto airbnbml:w-96  xs:w-64 py-2 airbnbml:items-center airbnbml:border-b-transparent">
-      <span className="mx-auto text-slate-600 text-sm font-normal">
-        TRAVELLER & CLASS
-      </span>
+    <div className="w-52 lg:w-full flex items-center  border border-slate-300 py-3 px-3 hover:border-2 hover:border-rose-400 hover:rounded-md lg:mb-3">
+      <img class="max-w-none mr-3" src={person} alt="..." />
       <span
         onClick={() => setOpenTravellerInfo(!openTravellerInfo)}
-        className="font-medium text-black text-lg mx-auto"
+        className="font-medium text-black text-lg"
       >
         {`${
           travellerInfo.adult + travellerInfo.children + travellerInfo.infant
-        }`}{" "}
-        Traveller(s)
+        }`}{" "} Adult
       </span>
-      <span className="mx-auto text-slate-800 text-xs">{passengerClass}</span>
 
       <Modal
         isOpen={openTravellerInfo}
@@ -48,8 +43,8 @@ const Options = () => {
         className="modal-content w-auto h-auto ml-96"
       >
         <div
-          className={`${classes.responsive} flex flex-col absolute bg-white -bottom-[1.3rem]  right-[22rem] lg:right-[8rem] md:bottom-[27rem] sm:bottom-[20rem] 
-         lexs:right-20  lexs:-bottom-24 w-auto h-auto py-3 mx-auto px-auto space-x-4 border-solid border-2 border-black rounded-md shadow-md shadow-black drop-shadow-md`}
+          className={`${classes.responsive} flex flex-col absolute bg-white -bottom-[-12rem] lg:right-[8rem] md:bottom-[27rem] sm:bottom-[20rem] 
+         lexs:right-20  lexs:-bottom-24 w-auto h-auto py-3 mx-auto px-auto space-x-4 border-solid border-2 border-rose-400 rounded-md shadow-md shadow-black drop-shadow-md`}
         >
           <div className="flex flex-row gap-6 px-6">
             <div className="flex flex-col gap-y-5 py-2">
@@ -62,7 +57,7 @@ const Options = () => {
                 <button
                   disabled={travellerInfo.adult <= 1}
                   onClick={() => handleTravellerInfo("adult", "d")}
-                  className="disabled:cursor-not-allowed bg-amber-500 border-black border-solid border-2 text-xl w-6 h-8 my-1.5"
+                  className="disabled:cursor-not-allowed text-rose-400 text-2xl w-6 h-8 my-1.5"
                 >
                   <span className="">-</span>
                 </button>
@@ -71,7 +66,7 @@ const Options = () => {
                 </span>
                 <button
                   onClick={() => handleTravellerInfo("adult", "i")}
-                  className=" bg-amber-500 border-black border-solid border-2 text-xl w-6 h-8 my-1.5"
+                  className="text-rose-400 text-2xl w-6 h-8 my-1.5"
                 >
                   <span className="">+</span>
                 </button>
@@ -80,7 +75,7 @@ const Options = () => {
                 <button
                   disabled={travellerInfo.children <= 0}
                   onClick={() => handleTravellerInfo("children", "d")}
-                  className="disabled:cursor-not-allowed bg-amber-500 border-black border-solid border-2 text-xl w-6 h-8 my-1.5"
+                  className="disabled:cursor-not-allowed text-rose-400 text-2xl w-6 h-8 my-1.5"
                 >
                   <span className="">-</span>
                 </button>
@@ -89,7 +84,7 @@ const Options = () => {
                 </span>
                 <button
                   onClick={() => handleTravellerInfo("children", "i")}
-                  className=" bg-amber-500 border-black border-solid border-2 text-xl w-6 h-8 my-1.5"
+                  className="text-rose-400 text-2xl w-6 h-8 my-1.5"
                 >
                   <span className="">+</span>
                 </button>
@@ -98,7 +93,7 @@ const Options = () => {
                 <button
                   disabled={travellerInfo.infant <= 0}
                   onClick={() => handleTravellerInfo("infant", "d")}
-                  className="disabled:cursor-not-allowed bg-amber-500 border-black border-solid border-2 text-xl w-6 h-8 my-1.5"
+                  className="disabled:cursor-not-allowed text-rose-400 text-2xl w-6 h-8 my-1.5"
                 >
                   <span className="">-</span>
                 </button>
@@ -107,41 +102,12 @@ const Options = () => {
                 </span>
                 <button
                   onClick={() => handleTravellerInfo("infant", "i")}
-                  className=" bg-amber-500 border-black border-solid border-2 text-xl w-6 h-8 my-1.5"
+                  className="text-rose-400 text-2xl w-6 h-8 my-1.5"
                 >
                   <span className="">+</span>
                 </button>
               </div>
             </div>
-          </div>
-          <div className="flex flex-col gap-3 px-2">
-            <span
-              onClick={() => {
-                setPassengerClass("ECONOMY");
-                setOpenTravellerInfo(false);
-              }}
-              className="hover:cursor-pointer"
-            >
-              Economy
-            </span>
-            <span
-              onClick={() => {
-                setPassengerClass("BUSINESS");
-                setOpenTravellerInfo(false);
-              }}
-              className="hover:cursor-pointer"
-            >
-              Business
-            </span>
-            <span
-              onClick={() => {
-                setPassengerClass("FIRST");
-                setOpenTravellerInfo(false);
-              }}
-              className="hover:cursor-pointer"
-            >
-              First
-            </span>
           </div>
         </div>
       </Modal>
