@@ -1,167 +1,102 @@
-import React, { Component } from 'react';
-import { Navbar, Link, Text, Avatar, Dropdown } from '@nextui-org/react';
-import { Layout } from './Layout.js';
-// import { AcmeLogo } from './AcmeLogo.js';
-// import Lottie from 'react-lottie';
-// import * as Dolphin from './Icons/dolphin.json';
+import { Navbar, Text, Avatar, Dropdown } from "@nextui-org/react";
+import { Link } from "react-router-dom";
+import { BiHomeAlt } from "react-icons/bi";
+import { HiOutlineMail } from "react-icons/hi";
+import { Layout } from "./Layout";
 
-import { NavLink } from 'react-router-dom';
+const collapseItems = ["Connect With Us", "Contact Us", "About Us"];
 
-const collapseItems = [
-  'Profile',
-  'Dashboard',
-  'Activity',
-  'Analytics',
-  'System',
-  'Deployments',
-  'My Settings',
-  'Team Settings',
-  'Help & Feedback',
-  'Log Out',
-];
+const HeadColor = "#3f51b5"; //'#2f4f4f';
 
-// const DolphinIcon = {
-//   loop: true,
-//   autoplay: true,
-//   animationData: Dolphin,
-//   rendererSettings: {
-//     preserveAspectRatio: 'xMidYMid slice',
-//   },
-// };
-
-const HeadColor = '#3f51b5'; //'#2f4f4f';';
-
-export default class Navapp extends Component {
-  render() {
-    return (
-      <Layout>
-        <div className="">
-          <Navbar isBordered variant="floating">
-            <Navbar.Toggle showIn="xs" />
-
-            <Navbar.Brand
-              css={{
-                '@xs': {
-                  w: '12%',
-                },
+export default function Navapp() {
+  return (
+    <Layout>
+    <Navbar isBordered variant="static">
+      <Navbar.Content activeColor={"primary"} hideIn="xs" variant={"underline"}>
+        <Navbar.Link isActive href="/">
+          <BiHomeAlt className="w-6 h-6 mr-2" /> Home
+        </Navbar.Link>
+        <Navbar.Link b href="/">
+          <HiOutlineMail className="w-6 h-6 mr-2" /> Contact Us
+        </Navbar.Link>
+        {/* <Navbar.Link isActive href="#">Customers</Navbar.Link> */}
+      </Navbar.Content>
+      <Navbar.Brand
+        css={{
+          "@xs": {
+            w: "12%",
+          },
+        }}
+      >
+        {/* <AcmeLogo /> */}
+        <Text
+          b
+          css={{
+            color: "#14274A",
+            textTransform: "uppercase",
+            fontWeight: "bold",
+          }}
+        >
+          <Link to="/">
+            <span
+              style={{ fontFamily: "IBM Plex Serif", letterSpacing: "0.15em" }}
+              className="text-[40px]"
+            >
+              Sublime
+            </span>
+            <span
+              className="block text-center -mt-4"
+              style={{
+                fontFamily: "Aeonik Pro TRIAL",
+                letterSpacing: "0.6rem",
               }}
             >
-              {/* <AcmeLogo /> */}
-              <Text b css={{ color: '#3f51b5' }} hideIn="xs">
-                Sublime Andaman
-              </Text>
-              {/* <Lottie options={DolphinIcon} height={70} width={100} /> */}
-            </Navbar.Brand>
-            <Navbar.Content
-              enableCursorHighlight
-              activeColor="secondary"
-              hideIn="xs"
-              variant="highlight-rounded"
-            >
-              <NavLink to="/Explore">
-                <Navbar.Link>
-                  <Text h3 size={30} color={HeadColor} weight="bold">
-                    Explore
-                  </Text>
-                </Navbar.Link>
-              </NavLink>
-              <NavLink to="/Stay">
-                <Navbar.Link>
-                  <Text h3 size={30} color={HeadColor} weight="bold">
-                    Stay
-                  </Text>
-                </Navbar.Link>
-              </NavLink>
-              <NavLink to="/Fun">
-                <Navbar.Link>
-                  <Text h3 size={30} color={HeadColor} weight="bold">
-                    Fun
-                  </Text>
-                </Navbar.Link>
-              </NavLink>
-            </Navbar.Content>
-
-            <Navbar.Content
+              Andaman
+            </span>
+          </Link>
+        </Text>
+        {/* <Lottie options={DolphinIcon} height={70} width={100} /> */}
+      </Navbar.Brand>
+      <Navbar.Content
+        css={{
+          "@xs": {
+            w: "20%",
+            jc: "flex-end",
+          },
+        }}
+        activeColor={"primary"}
+        hideIn="xs"
+        variant={"underline"}
+      >
+        <Navbar.Link href="/">Connect With Us</Navbar.Link> |
+        <Navbar.Link href="/">About Us</Navbar.Link>
+      </Navbar.Content>
+      <Navbar.Collapse>
+        {collapseItems.map((item, index) => (
+          <Navbar.CollapseItem
+            key={item}
+            activeColor="secondary"
+            css={{
+              color: index === collapseItems.length - 1 ? "$error" : "",
+            }}
+            isActive={index === 2}
+          >
+            <Link
+              color="inherit"
               css={{
-                '@xs': {
-                  w: '12%',
-                  jc: 'flex-end',
-                },
+                minWidth: "100%",
               }}
+              href="#"
             >
-              <Dropdown placement="bottom-right">
-                <Navbar.Item>
-                  <Dropdown.Trigger>
-                    <Avatar
-                      bordered
-                      as="button"
-                      color="secondary"
-                      size="md"
-                      src="https://i.pravatar.cc/150?u=a042581f4e29026704d"
-                    />
-                  </Dropdown.Trigger>
-                </Navbar.Item>
-                <Dropdown.Menu
-                  aria-label="User menu actions"
-                  color="secondary"
-                  onAction={(actionKey) => console.log({ actionKey })}
-                >
-                  <Dropdown.Item key="profile" css={{ height: '$18' }}>
-                    <Text b color="inherit" css={{ d: 'flex' }}>
-                      Signed in as
-                    </Text>
-                    <Text b color="inherit" css={{ d: 'flex' }}>
-                      zoey@example.com
-                    </Text>
-                  </Dropdown.Item>
-                  <Dropdown.Item key="settings" withDivider>
-                    My Settings
-                  </Dropdown.Item>
-                  <Dropdown.Item key="team_settings">
-                    Team Settings
-                  </Dropdown.Item>
-                  <Dropdown.Item key="analytics" withDivider>
-                    Analytics
-                  </Dropdown.Item>
-                  <Dropdown.Item key="system">System</Dropdown.Item>
-                  <Dropdown.Item key="configurations">
-                    Configurations
-                  </Dropdown.Item>
-                  <Dropdown.Item key="help_and_feedback" withDivider>
-                    Help & Feedback
-                  </Dropdown.Item>
-                  <Dropdown.Item key="logout" withDivider color="error">
-                    Log Out
-                  </Dropdown.Item>
-                </Dropdown.Menu>
-              </Dropdown>
-            </Navbar.Content>
+              {item}
+            </Link>
+          </Navbar.CollapseItem>
+        ))}
+      </Navbar.Collapse>
 
-            <Navbar.Collapse>
-              {collapseItems.map((item, index) => (
-                <Navbar.CollapseItem
-                  key={item}
-                  activeColor="secondary"
-                  css={{
-                    color: index === collapseItems.length - 1 ? '$error' : '',
-                  }}
-                  isActive={index === 2}
-                >
-                  <Link
-                    color="inherit"
-                    css={{
-                      minWidth: '100%',
-                    }}
-                    href="#"
-                  >
-                    {item}
-                  </Link>
-                </Navbar.CollapseItem>
-              ))}
-            </Navbar.Collapse>
-          </Navbar>
-        </div>
-      </Layout>
-    );
-  }
+      <Navbar.Toggle showIn="xs" />
+    </Navbar>
+
+    </Layout>
+  );
 }

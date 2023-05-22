@@ -53,7 +53,7 @@ const FlightCover = (props) => {
               <h4 className="text-xl font-semibold">Emirates</h4>{" "}
               <p className="text-[#112211]">{props.flightName}</p>
             </div>
-            <div>
+            <div classNameane="w-full">
               <div className="flex justify-between">
                 <div>{date[0].startDate.toDateString()}</div>
                 <div className="flex flex-col items-end gap-4 -mt-16">
@@ -66,7 +66,7 @@ const FlightCover = (props) => {
                   <p>{props.flightDuration} </p>
                 </div>
               </div>
-              <div className="flex justify-between items-center w-[45vw]">
+              <div className="flex justify-between items-center ">
                 <div className="">
                   <div>
                     <span className="font-bold">{props.departureTime}</span>

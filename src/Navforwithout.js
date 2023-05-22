@@ -1,125 +1,88 @@
-import { Navbar, Text, Avatar, Dropdown } from '@nextui-org/react';
-import { Link } from 'react-router-dom';
-// import { AcmeLogo } from './AcmeLogo.js';
-// import Lottie from 'react-lottie';
-// import * as Dolphin from './Icons/dolphin.json';
-import {CgHome} from 'react-icons/cg'
-import { NavLink } from 'react-router-dom';
+import { Navbar, Text, Avatar, Dropdown } from "@nextui-org/react";
+import { Link } from "react-router-dom";
+import { BiHomeAlt } from "react-icons/bi";
+import { HiOutlineMail } from "react-icons/hi";
 
-const collapseItems = [
-  'Profile',
-  'Dashboard',
-  'Activity',
-  'Analytics',
-  'System',
-  'Deployments',
-  'My Settings',
-  'Team Settings',
-  'Help & Feedback',
-  'Log Out',
-];
+const collapseItems = ["Connect With Us", "Contact Us", "About Us"];
 
-// const DolphinIcon = {
-//   loop: true,
-//   autoplay: true,
-//   animationData: Dolphin,
-//   rendererSettings: {
-//     preserveAspectRatio: 'xMidYMid slice',
-//   },
-// };
-
-const HeadColor = '#3f51b5'; //'#2f4f4f';
+const HeadColor = "#3f51b5"; //'#2f4f4f';
 
 export default function Navforwithout() {
-
   return (
     <Navbar isBordered variant="static">
-      <Navbar.Toggle showIn="xs" />
- 
       <Navbar.Content activeColor={"primary"} hideIn="xs" variant={"underline"}>
-          <Navbar.Link href="/">Home</Navbar.Link>
-          <Navbar.Link isActive href="#">Customers</Navbar.Link>
-          
-        </Navbar.Content>
+        <Navbar.Link isActive href="/">
+          <BiHomeAlt className="w-6 h-6 mr-2" /> Home
+        </Navbar.Link>
+        <Navbar.Link b href="/">
+          <HiOutlineMail className="w-6 h-6 mr-2" /> Contact Us
+        </Navbar.Link>
+        {/* <Navbar.Link isActive href="#">Customers</Navbar.Link> */}
+      </Navbar.Content>
       <Navbar.Brand
         css={{
-          '@xs': {
-            w: '12%',
+          "@xs": {
+            w: "12%",
           },
         }}
       >
         {/* <AcmeLogo /> */}
-        <Text b css={{ color: '#14274A' }} >
-          <Link to="/">Sublime Andaman</Link>
+        <Text
+          b
+          css={{
+            color: "#14274A",
+            textTransform: "uppercase",
+            fontWeight: "bold",
+          }}
+        >
+          <Link to="/">
+            <span
+              style={{ fontFamily: "IBM Plex Serif", letterSpacing: "0.15em" }}
+              className="text-[40px]"
+            >
+              Sublime
+            </span>
+            <span
+              className="block text-center -mt-4"
+              style={{
+                fontFamily: "Aeonik Pro TRIAL",
+                letterSpacing: "0.6rem",
+              }}
+            >
+              Andaman
+            </span>
+          </Link>
         </Text>
         {/* <Lottie options={DolphinIcon} height={70} width={100} /> */}
       </Navbar.Brand>
       <Navbar.Content
         css={{
-          '@xs': {
-            w: '12%',
-            jc: 'flex-end',
+          "@xs": {
+            w: "20%",
+            jc: "flex-end",
           },
         }}
+        activeColor={"primary"}
+        hideIn="xs"
+        variant={"underline"}
       >
-        <Dropdown placement="bottom-right">
-          <Navbar.Item>
-            <Dropdown.Trigger>
-              <Avatar
-                bordered
-                as="button"
-                color="secondary"
-                size="md"
-                src="https://i.pravatar.cc/150?u=a042581f4e29026704d"
-              />
-            </Dropdown.Trigger>
-          </Navbar.Item>
-          <Dropdown.Menu
-            aria-label="User menu actions"
-            color="secondary"
-            onAction={(actionKey) => console.log({ actionKey })}
-          >
-            <Dropdown.Item key="profile" css={{ height: '$18' }}>
-              <Text b color="inherit" css={{ d: 'flex' }}>
-                Signed in as
-              </Text>
-              <Text b color="inherit" css={{ d: 'flex' }}>
-                zoey@example.com
-              </Text>
-            </Dropdown.Item>
-            <Dropdown.Item key="settings" withDivider>
-              My Settings
-            </Dropdown.Item>
-            <Dropdown.Item key="team_settings">Team Settings</Dropdown.Item>
-            <Dropdown.Item key="analytics" withDivider>
-              Analytics
-            </Dropdown.Item>
-            <Dropdown.Item key="system">System</Dropdown.Item>
-            <Dropdown.Item key="configurations">Configurations</Dropdown.Item>
-            <Dropdown.Item key="help_and_feedback" withDivider>
-              Help & Feedback
-            </Dropdown.Item>
-            <Dropdown.Item key="logout" withDivider color="error">
-              Log Out
-            </Dropdown.Item>
-          </Dropdown.Menu>
-        </Dropdown>
+        <Navbar.Link href="/">Connect With Us</Navbar.Link> |
+        <Navbar.Link href="/">About Us</Navbar.Link>
       </Navbar.Content>
-
       <Navbar.Collapse>
         {collapseItems.map((item, index) => (
           <Navbar.CollapseItem
             key={item}
             activeColor="secondary"
             css={{
-              color: index === collapseItems.length - 1 ? '$error' : '',
+              color: index === collapseItems.length - 1 ? "$error" : "",
             }}
             isActive={index === 2}
           >
             <Link
               color="inherit"
               css={{
-                minWidth: '100%',
+                minWidth: "100%",
               }}
               href="#"
             >
@@ -128,6 +91,8 @@ export default function Navforwithout() {
           </Navbar.CollapseItem>
         ))}
       </Navbar.Collapse>
+
+      <Navbar.Toggle showIn="xs" />
     </Navbar>
   );
 }
