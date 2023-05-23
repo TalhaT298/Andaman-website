@@ -7,6 +7,7 @@ import TravellersDetailsFlight from "./ServiceMenu/Flight/TravellersDetailsFligh
 import ReviewBookingFlight from "./ServiceMenu/Flight/ReviewBookingFlight.js";
 import FlightPreview from "./ServiceMenu/Flight/FlightPreview.js";
 import ShipOverviewBooking  from './ServiceMenu/Ship/ShipBookingPreview.js';
+import TravellerDetailsShip from './ServiceMenu/Ship/TravelarDetailsShip.js';
 
 const Explore = lazy(() => import('./NavMenu/Explore.js'));
 const Fun = lazy(() => import('./NavMenu/Fun.js'));
@@ -128,6 +129,7 @@ export default function App() {
             <Route path="/selectFerry" element={<ShipResults />} />
             <Route path="/travellerDetails" element={<TravellerDetails />} />
             <Route path="/ReviewBooking" element={<ReviewBooking />} />
+            <Route path="/travellerShip" element={< TravellerDetailsShip />} />
 
             <Route path="/CabContactForm" element={<CabContactForm />} />
             <Route path="/FlightContactForm" element={<FlightContactForm />} />

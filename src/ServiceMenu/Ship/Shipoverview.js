@@ -4,8 +4,10 @@ import rhttarrow from '../../images/image_source_for_shiptab/rht-side.png';
 import boat from '../../images/image_source_for_shiptab/Groupboat.png';
 import heart from '../../images/image_source_for_shiptab/heart.png';
 import { Link } from 'react-router-dom';
+import { useDataContext } from '../../context/useDataContext';
 
 const Shipoverview = (props) => {
+    const {setShipDataState} = useDataContext();
     return (
         <div className='bg-white drop-shadow-xl rounded-lg flex flex-row lg:flex-col px-10 py-5 mb-8 relative'>
             <div className='w-56 h-48 lg:w-28 lg:h-16 lg:border lg:border-rose-400 mr-8 mt-3'>
@@ -46,7 +48,9 @@ const Shipoverview = (props) => {
                         <img class="max-w-none" src={heart} alt="..." />
                     </div>
                     <Link to={"/ShipBookingPreview"}>
-                    <button className='text-black bg-rose-400 px-8 py-2'>Book Now</button>
+                    <button 
+                    onClick={() => setShipDataState(props.shipID)}
+                    className='text-black bg-rose-400 px-8 py-2'>Book Now</button>
                     </Link>
                 </div>
             </div>
