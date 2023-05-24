@@ -23,6 +23,8 @@ export const DataProvider = ({ children }) => {
     traveller: 0,
   });
 
+  const [selectedDate, setSelectedDate] = useState(new Date());
+
   // Depart State
 
   const [startingDate, setStartingDate] = useState([
@@ -99,6 +101,8 @@ export const DataProvider = ({ children }) => {
     setShipDataState,
     flightSearch,
     setFlightSearch,
+    selectedDate, 
+    setSelectedDate
   };
 
   return <DataContext.Provider value={state}>{children}</DataContext.Provider>;

@@ -3,15 +3,11 @@ import { useState } from "react";
 import classes from './options.module.css'
 import Modal from "react-modal";
 import person from '../../images/image_source_for_shiptab/person.png';
+import { useDataContext } from "../../context/useDataContext";
 
 const Options = () => {
   const [openTravellerInfo, setOpenTravellerInfo] = useState(false);
-  const [travellerInfo, setTravellerInfo] = useState({
-    adult: 1,
-    children: 0,
-    infant: 0,
-    traveller: 0,
-  });
+  const {travellerInfo, setTravellerInfo} = useDataContext()
 
   const handleTravellerInfo = (category, arithmetricOperation) => {
     setTravellerInfo((prev) => {
@@ -34,7 +30,7 @@ const Options = () => {
       >
         {`${
           travellerInfo.adult + travellerInfo.children + travellerInfo.infant
-        }`}{" "} Adult
+        }`}{" "} Travelers
       </span>
 
       <Modal

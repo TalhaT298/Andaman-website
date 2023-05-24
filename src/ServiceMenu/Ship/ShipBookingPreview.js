@@ -15,9 +15,24 @@ import Navforwithout from '../../Navforwithout';
 const ShipBookingPreview = () => {
     const  {
         shipDataState,
+        travellerInfo,
+        selectedDate
     } = useDataContext()
+    const formattedDate = selectedDate.toLocaleDateString("en-US", {
+        weekday: "short",
+        year: "numeric",
+        month: "short",
+        day: "numeric"
+      });
     const filerShip = ship.filter((ship) => ship.shipID === shipDataState)
     const filterData = filerShip[0];
+    const adultPrice = travellerInfo.adult * filterData.adultPrice
+    const children = travellerInfo.children * filterData.childrenPrice
+    const infant = travellerInfo.infant * filterData.infantPrice
+    const totalPrice = adultPrice + children + infant
+
+    const taxes = totalPrice * (3 / 100);
+    const serviceFee = 400;
 
     return (
         <div className='bg-slate-100 h-full' style={{fontFamily:"Montserrat"}}>
@@ -35,11 +50,11 @@ const ShipBookingPreview = () => {
                             <h2 className='flex items-center font-bold text-cyan-800 text-2xl'><MdAttachMoney /> 7</h2>
                         </div>
                         <div className='flex justify-between my-5'>
-                            <p className='font-bold'>Wed, Dec 8</p>
+                            <p className='font-bold'>{formattedDate}</p>
                             <p>{filterData.flightDuration}</p>
                         </div>
                         <div className='flex items-center justify-between'>
-                            <p className='flex flex-row lg:flex-col items-center'><span className='font-bold text-xl lg:text-sm mr-2'>{filterData.departureTime}</span><span>{filterData.currentDestination}</span></p>
+                            <p className='flex flex-row lg:flex-col items-center'><span className='font-bold text-xl lg:text-sm mr-2'>{filterData?.departureTime}</span><span>{filterData.currentDestination}</span></p>
                             <div className='flex items-center'>
                                 <img src={lftarrow} alt="left-hand-side" />
                                 <img src={boat} alt="boat" className='mx-4' />
@@ -79,21 +94,21 @@ const ShipBookingPreview = () => {
                 <div className='w-2/5 lg:w-full bg-white drop-shadow-lg rounded-lg p-7 h-96'>
                     <p className='text-black font-bold text-xl mb-6'>Price Details</p>
                     <div className='flex items-center justify-between font-bold mb-4'>
-                        <p>Adult Price</p>
-                        <p className='flex items-center'><MdAttachMoney /> {filterData.adultPrice}</p>
+                        <p>Base Fare</p>
+                        <p className='flex items-center'>₹ {totalPrice}</p>
                     </div>
                     <div className='flex items-center justify-between font-bold mb-4'>
-                        <p>Children Price</p>
-                        <p className='flex items-center'><MdAttachMoney /> {filterData.childrenPrice}</p>
+                        <p>Taxes</p>
+                        <p className='flex items-center'>₹ {taxes}</p>
                     </div>
                     <div className='flex items-center justify-between font-bold mb-4'>
-                        <p>Infant Price</p>
-                        <p className='flex items-center'><MdAttachMoney /> {filterData.infantPrice}</p>
+                        <p>Service Fee</p>
+                        <p className='flex items-center'>₹ {serviceFee}</p>
                     </div>
                     <hr />
                     <div className='flex items-center justify-between font-bold my-4'>
                         <p>Total</p>
-                        <p className='flex items-center'><MdAttachMoney /> {parseInt(filterData.adultPrice + filterData.childrenPrice + filterData.infantPrice)}</p>
+                        <p className='flex items-center'>₹ {totalPrice + taxes + serviceFee}</p>
                     </div>
                     <input type="text"  placeholder='Cupon Code' className='w-full border border-slate-400 p-3 mb-4'/>
                     <Link to={'/travellerShip'}>

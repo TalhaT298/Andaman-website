@@ -7,11 +7,12 @@ import { format } from 'date-fns';
 import { faCalendarDays } from '@fortawesome/free-solid-svg-icons';
 
 import Modal from 'react-modal';
+import { useDataContext } from '../../context/useDataContext';
 
 const DepartDate = () => {
   const [openDeptDate, setOpenDeptDate] = useState(false);
   const [startingDate, setStartingDate] = useState([{ startDate: new Date(), key: 'selection' }]);
-  const [selectedDate, setSelectedDate] = useState(null);
+  const {selectedDate, setSelectedDate} = useDataContext();
 
   const toggleDateModal = () => {
     setOpenDeptDate(!openDeptDate);
