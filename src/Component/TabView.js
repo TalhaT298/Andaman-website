@@ -213,10 +213,10 @@ const TabView = () => {
 				TabIndicatorProps={{
 					style: {
 						backgroundColor: "#757574",
-						display:"grid",
-						justifyContent:"center"
+						display: "grid",
+						justifyContent: "center"
 					},
-					
+
 				}}>
 				<Tab
 					label="Flights"
@@ -351,47 +351,47 @@ const TabView = () => {
 					}}
 				/>
 			</Tabs>
-<div className="">
+			<div className="">
 
-			<TabPanel value={value || 0} index={0}>
-				{/* <Flights flightdata={flightcard} /> */}
-				<Flights />
-			</TabPanel>
-			<TabPanel value={value} index={1}>
-				{/* <Hotel carddata={card} /> */}
-				<Hotel />
-			</TabPanel>
-			<TabPanel value={value} index={2}>
-				<Ship />
-			</TabPanel>
-			<TabPanel value={value} index={3}>
-				<Bus />
-			</TabPanel>
-			<TabPanel value={value} index={4}>
-				<Cab />
-			</TabPanel>
-			<TabPanel value={value} index={5}>
-				<Ferry />
-			</TabPanel>
-			<TabPanel value={value} index={6}>
-				<Activity />
-			</TabPanel>
-			<TabPanel value={value} index={7}>
-				<Pg />
-			</TabPanel>
-			<TabPanel value={value} index={8}>
-				<Travelpackage />
-			</TabPanel>
-			<TabPanel value={value} index={9}>
-				<Dinning />
-			</TabPanel>
-			<TabPanel value={value} index={10}>
-				<Trekking />
-			</TabPanel>
-			<TabPanel value={value} index={11}>
-				<Shop />
-			</TabPanel>
-</div>
+				<TabPanel value={value || 0} index={0}>
+					{/* <Flights flightdata={flightcard} /> */}
+					<Flights />
+				</TabPanel>
+				<TabPanel value={value} index={1}>
+					{/* <Hotel carddata={card} /> */}
+					<Hotel />
+				</TabPanel>
+				<TabPanel value={value} index={2}>
+					<Ship />
+				</TabPanel>
+				<TabPanel value={value} index={3}>
+					<Bus />
+				</TabPanel>
+				<TabPanel value={value} index={4}>
+					<Cab />
+				</TabPanel>
+				<TabPanel value={value} index={5}>
+					<Ferry />
+				</TabPanel>
+				<TabPanel value={value} index={6}>
+					<Activity />
+				</TabPanel>
+				<TabPanel value={value} index={7}>
+					<Pg />
+				</TabPanel>
+				<TabPanel value={value} index={8}>
+					<Travelpackage />
+				</TabPanel>
+				<TabPanel value={value} index={9}>
+					<Dinning />
+				</TabPanel>
+				<TabPanel value={value} index={10}>
+					<Trekking />
+				</TabPanel>
+				<TabPanel value={value} index={11}>
+					<Shop />
+				</TabPanel>
+			</div>
 		</div>
 	);
 };
