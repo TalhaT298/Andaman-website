@@ -53,21 +53,28 @@ const Options = lazy(() => import("./Options"));
 const FlightSearch = (props) => {
   // const [origin, setOrigin] = useState("Port Blair");
   // const [destination, setDestination] = useState("Chennai");
-  const {twoWay, setTwoWay,setStartingDate} = useDataContext();
-  const [departDate, setDepartDate] = useState("");
-  const [returnDate, setReturnDate] = useState("");
+  const {twoWay, setTwoWay,setStartingDate, setFlightSearch, setTravellerInfo,} = useDataContext();
+  const [departDate, setDepartDate] = useState("Chennai");
+  const [returnDate, setReturnDate] = useState("Port Blair");
   const [startingDateState, setStartingDateState] = useState([
     {
       startDate: new Date(),
       key: "selection",
     },
   ]);
+  const [travellerInfoState, setTravellerInfoState] = useState({
+    adult: 1,
+    children: 0,
+    infant: 0,
+    traveller: 0,
+  });
   const handleSubmit = (event) => {
     event.preventDefault();
     props.setCurrentDestinationFilter(departDate)
     props.setNextDestinationFilter(returnDate)
     setStartingDate(startingDateState)
-    
+    setFlightSearch(true)
+    setTravellerInfo(travellerInfoState)
   };
 
 
@@ -102,7 +109,7 @@ const FlightSearch = (props) => {
             />
             <DepartDate startingDateState={startingDateState} setStartingDateState={setStartingDateState}/>
             {twoWay && <ReturnDate />}
-            <Options />
+            <Options travellerInfoState={travellerInfoState} setTravellerInfoState={setTravellerInfoState}/>
             <button type="submit" className="bg-[#FF8682]  h-auto  my-2  px-5 text-white rounded-r">Search</button>
           </div>
         </form>

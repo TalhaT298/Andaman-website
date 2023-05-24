@@ -14,7 +14,7 @@ import { useDataContext } from "../../context/useDataContext";
 const FlightCover = (props) => {
   const { startingDate: date } = useDataContext();
 
-  const [showFlightInfo, setShowFlightInfo] = useState(false);
+  // const [showFlightInfo, setShowFlightInfo] = useState(false);
 
   // const [flight, setFlight] = useState([]);
 
@@ -42,21 +42,21 @@ const FlightCover = (props) => {
       <div className="py-3 flex-col  mx-auto my-auto ">
         {/* flight ? <div>{JSON.stringify(flight)}</div> : <div>Loading...</div> */}
         <div
-          onClick={() => {
-            setShowFlightInfo(!showFlightInfo);
-          }}
+          // onClick={() => {
+          //   setShowFlightInfo(!showFlightInfo);
+          // }}
           className="flex-row bg-white rounded-xl w-auto py-8 h-auto shadow-[0px_4px_16px_rgba(17,34,17,0.05)] transition:origin-center hover:ease-in-out hover:scale-110 transition:duration-1000 transition-transform"
         >
-          <div className="text-[#112211] flex items-end gap-10  mx-auto py-auto lg:px-0 px-4 text-center px-auto w-full xs:flex-col xs:py-2 xs:gap-y-3">
+          <div className="text-[#112211] flex items-center gap-16  mx-auto py-auto lg:px-0 px-4 text-center px-auto w-full xs:flex-col xs:py-2 xs:gap-y-3">
             <div className="">
-              <img src={flightLogo} alt="" />{" "}
+              <img src={flightLogo} alt="flight-logo" className="w-32 h-24" />{" "}
               <h4 className="text-xl font-semibold">Emirates</h4>{" "}
               <p className="text-[#112211]">{props.flightName}</p>
             </div>
-            <div classNameane="w-full">
+            <div className="w-full">
               <div className="flex justify-between">
-                <div>{date[0].startDate.toDateString()}</div>
-                <div className="flex flex-col items-end gap-4 -mt-16">
+                <div className="self-end">{date[0].startDate.toDateString()}</div>
+                <div className="flex flex-col items-end gap-4">
                   <p>
                     Starting from{" "}
                     <span className="block text-right text-[#425D97] text-xl font-bold">
@@ -91,7 +91,7 @@ const FlightCover = (props) => {
               </div>
               <Link
                 to={"/FlightPreview"}
-                className="flex justify-end mt-3 -mb-3"
+                className="flex justify-end mt-3"
               >
                 <button className="bg-[#FF8682] font-semibold rounded p-[8px_16px]">
                   Book Now

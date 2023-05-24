@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import flight from "../../Data/Flight-Section/flight";
 import Navforwithout from "../../Navforwithout";
 import { useDataContext } from "../../context/useDataContext";
+import Footer from "../../Component/Footer/Footer";
 // import { useLocation, useNavigate } from 'react-router-dom';
 
 const TravellersDetailsFlight = () => {
@@ -1269,10 +1270,10 @@ const TravellersDetailsFlight = () => {
   return (
     <>
       <Navforwithout />
-      <div className="h-full w-auto">
-        <div className="font-Nunito_Sans">
+      <div className="h-full w-auto" style={{ fontFamily: "Montserrat" }}>
+        <div>
           <div className="w-[90%] flex xl:flex-col justify-center mx-auto mt-12 mb-8">
-            <div className="w-[50%] lg:w-full xl:w-[50%] px-8 py-8">
+            <div className="w-[50%] lg:w-full bg-white shadow xl:w-[50%] px-8 py-8">
               <h1 className="text-[#699c78] text-[26px] md:text-2xl font-[Montserrat] font-semibold ">
                 Add Traveller(s) Details
               </h1>
@@ -1503,6 +1504,7 @@ const TravellersDetailsFlight = () => {
           </div>
         </div>
       </div>
+      <Footer/>
     </>
   );
 };

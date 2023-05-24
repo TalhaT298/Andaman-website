@@ -200,19 +200,23 @@ const TabView = () => {
 	};
 
 	return (
-		<Container fluid>
+		<div >
 			<Tabs
 				value={value.value || 0}
 				onChange={handleTabs}
 				variant="scrollable"
 				textColor="#757574"
 				indicatorColor="#757574"
-				centered={true}
+				centered={false}
 				scrollButtons="auto"
+				className="w-[75%] mx-auto"
 				TabIndicatorProps={{
 					style: {
 						backgroundColor: "#757574",
+						display:"grid",
+						justifyContent:"center"
 					},
+					
 				}}>
 				<Tab
 					label="Flights"
@@ -347,6 +351,7 @@ const TabView = () => {
 					}}
 				/>
 			</Tabs>
+<div className="">
 
 			<TabPanel value={value || 0} index={0}>
 				{/* <Flights flightdata={flightcard} /> */}
@@ -386,7 +391,8 @@ const TabView = () => {
 			<TabPanel value={value} index={11}>
 				<Shop />
 			</TabPanel>
-		</Container>
+</div>
+		</div>
 	);
 };
 

@@ -9,6 +9,7 @@ import flightFeature from "../../images/flightFeature.png";
 import flightIcon from "../../images/flightIcon.png";
 import flightLogoMini from "../../images/flightLogoMini.png";
 import flightLogo from "../../images/flightlogo.png";
+import Footer from "../../Component/Footer/Footer";
 
 const FlightPreview = () => {
   const {
@@ -210,6 +211,7 @@ const FlightPreview = () => {
           </div>
         </div>
       </div>
+      <Footer/>
     </div>
   );
 };

@@ -7,6 +7,7 @@ import TravellersDetailsFlight from "./ServiceMenu/Flight/TravellersDetailsFligh
 import ReviewBookingFlight from "./ServiceMenu/Flight/ReviewBookingFlight.js";
 import FlightPreview from "./ServiceMenu/Flight/FlightPreview.js";
 import ShipOverviewBooking  from './ServiceMenu/Ship/ShipBookingPreview.js';
+import { Layout } from "./Layout.js";
 
 const Explore = lazy(() => import('./NavMenu/Explore.js'));
 const Fun = lazy(() => import('./NavMenu/Fun.js'));
@@ -76,7 +77,7 @@ export default function App() {
   // }, []);
 
   return (
-    <div className="bg-gradient-to-br from-white text-slate-800 font-Ubuntu_Mono h-full m-0 p-0">
+    <div className="bg-[#FAFBFC] text-slate-800 font-Ubuntu_Mono h-full m-0 p-0">
       <Router>
         <Suspense
           fallback={

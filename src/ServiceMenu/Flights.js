@@ -3,15 +3,16 @@ import flight from '../Data/Flight-Section/flight';
 
 import { useDataContext } from '../context/useDataContext';
 import FlightSearch from './Flight/FlightSearch';
+// const FlightCover = lazy(() => import('./Flight/FlightCover'));
+import FlightCover from './Flight/FlightCover';
 
 const BestPrices = lazy(() => import('./Flight/BestPrices'));
-const FlightCover = lazy(() => import('./Flight/FlightCover'));
 
 const Flights = () => {
   //Filter feature
   // const [currentDestinationFilter, setCurrentDestinationFilter] = useState('');
   // const [nextDestinationFilter, setNextDestinationFilter] = useState('');
-const {currentDestinationFilter, setCurrentDestinationFilter,nextDestinationFilter, setNextDestinationFilter}=useDataContext();
+const {currentDestinationFilter, setCurrentDestinationFilter,nextDestinationFilter, setNextDestinationFilter,flightSearch}=useDataContext();
 
 
   const flightData = flight
@@ -53,16 +54,21 @@ const {currentDestinationFilter, setCurrentDestinationFilter,nextDestinationFilt
         setNextDestinationFilter={setNextDestinationFilter}
       />
       <div className="pt-2 w-full text-center">
-        <span className="text-slate-400 text-3xl font-bold font-mono mb-6 mx-auto w-full">
+        {/* <span className="text-slate-400 text-3xl font-bold font-mono mb-6 mx-auto w-full">
           Search Results
-        </span>
-        {flightData.length === 0 ? (
-          <center>
-            <h1 className="my-5">No results found...</h1>
-          </center>
-        ) : (
-          flightData
-        )}
+        </span> */}
+        {
+          flightSearch ? ( flightData.length === 0 ? (
+            <center>
+              <h1 className="my-5">No results found...</h1>
+            </center>
+          ) : (
+            flightData
+          )):( <center>
+            <h1 className="my-20 text-3xl font bold">Search your destination</h1>
+          </center>)
+        }
+     
       </div>
       <BestPrices />
     </div>

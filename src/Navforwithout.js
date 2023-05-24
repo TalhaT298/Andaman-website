@@ -9,7 +9,7 @@ const HeadColor = "#3f51b5"; //'#2f4f4f';
 
 export default function Navforwithout() {
   return (
-    <Navbar isBordered variant="static">
+    <Navbar isBordered variant="static" style={{backgroundColor:"white"}}>
       <Navbar.Content activeColor={"primary"} hideIn="xs" variant={"underline"}>
         <Navbar.Link isActive href="/">
           <BiHomeAlt className="w-6 h-6 mr-2" /> Home
@@ -35,7 +35,7 @@ export default function Navforwithout() {
             fontWeight: "bold",
           }}
         >
-          <Link to="/">
+          <a href="/">
             <span
               style={{ fontFamily: "IBM Plex Serif", letterSpacing: "0.15em" }}
               className="text-[40px]"
@@ -51,7 +51,7 @@ export default function Navforwithout() {
             >
               Andaman
             </span>
-          </Link>
+          </a>
         </Text>
         {/* <Lottie options={DolphinIcon} height={70} width={100} /> */}
       </Navbar.Brand>

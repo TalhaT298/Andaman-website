@@ -8,7 +8,7 @@ import { list } from '../Data/Hotel-Section/cards-list';
 const Hotel = () => {
   const [selectedFilter, setSelectedFilter] = useState(0);
   return (
-    <div className='h-full w-auto font-Nunito_Sans text-md scroll-smooth'>
+    <div className='h-full w-full font-Nunito_Sans text-md scroll-smooth'>
       {/* <Header /> */}
       {selectedFilter === 0 ? <Lists list={list} /> : <Lists list={list} />}
     </div>

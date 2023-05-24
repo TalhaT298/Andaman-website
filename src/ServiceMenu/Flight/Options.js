@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { AiOutlineMinus, AiOutlinePlus } from 'react-icons/ai';
 import { FaUser } from 'react-icons/fa';
 import { useDataContext } from '../../context/useDataContext';
-const Options = () => {
+const Options = ({travellerInfoState, setTravellerInfoState}) => {
   const [openTravellerInfo, setOpenTravellerInfo] = useState(false);
   // const [travellerInfo, setTravellerInfo] = useState({
   //   adult: 1,
@@ -10,15 +10,15 @@ const Options = () => {
   //   infant: 0,
   //   traveller: 0,
   // });
-const {travellerInfo, setTravellerInfo, passengerClass, setPassengerClass}=useDataContext();
+const { setPassengerClass}=useDataContext();
   const handleTravellerInfo = (category, arithmetricOperation) => {
-    setTravellerInfo((prev) => {
+    setTravellerInfoState((prev) => {
       return {
         ...prev,
         [category]:
           arithmetricOperation === 'i'
-            ? travellerInfo[category] + 1
-            : travellerInfo[category] - 1,
+            ? travellerInfoState[category] + 1
+            : travellerInfoState[category] - 1,
       };
     });
   };
@@ -38,7 +38,7 @@ const {travellerInfo, setTravellerInfo, passengerClass, setPassengerClass}=useDa
         >
         <FaUser className='mr-2'/>
         {`${
-          travellerInfo.adult + travellerInfo.children + travellerInfo.infant
+          travellerInfoState.adult + travellerInfoState.children + travellerInfoState.infant
         }`}{' '}
         Traveller(s)
       </span>
@@ -64,14 +64,14 @@ const {travellerInfo, setTravellerInfo, passengerClass, setPassengerClass}=useDa
             <div className="text-center">
               <div className="mx-auto px-auto space-x-6">
                 <button
-                  disabled={travellerInfo.adult <= 1}
+                  disabled={travellerInfoState.adult <= 1}
                   onClick={() => handleTravellerInfo('adult', 'd')}
                   className="disabled:cursor-not-allowed  w-6 h-8 mb-3"
                 >
                    <span className=""><AiOutlineMinus/></span>
                 </button>
                 <span className="optionCounterNumber">
-                  {travellerInfo.adult}
+                  {travellerInfoState.adult}
                 </span>
                 <button
                   onClick={() => handleTravellerInfo('adult', 'i')}
@@ -82,14 +82,14 @@ const {travellerInfo, setTravellerInfo, passengerClass, setPassengerClass}=useDa
               </div>
               <div className="mx-auto px-auto space-x-6">
                 <button
-                  disabled={travellerInfo.children <= 0}
+                  disabled={travellerInfoState.children <= 0}
                   onClick={() => handleTravellerInfo('children', 'd')}
                   className="disabled:cursor-not-allowed "
                 >
                   <span className=""><AiOutlineMinus/></span>
                 </button>
                 <span className="optionCounterNumber">
-                  {travellerInfo.children}
+                  {travellerInfoState.children}
                 </span>
                 <button
                   onClick={() => handleTravellerInfo('children', 'i')}
@@ -100,14 +100,14 @@ const {travellerInfo, setTravellerInfo, passengerClass, setPassengerClass}=useDa
               </div>
               <div className="w-28 space-x-6">
                 <button
-                  disabled={travellerInfo.infant <= 0}
+                  disabled={travellerInfoState.infant <= 0}
                   onClick={() => handleTravellerInfo('infant', 'd')}
                   className="disabled:cursor-not-allowed "
                 >
                    <span className=""><AiOutlineMinus/></span>
                 </button>
                 <span className="optionCounterNumber">
-                  {travellerInfo.infant}
+                  {travellerInfoState.infant}
                 </span>
                 <button
                   onClick={() => handleTravellerInfo('infant', 'i')}
@@ -167,14 +167,14 @@ const {travellerInfo, setTravellerInfo, passengerClass, setPassengerClass}=useDa
             <div className="text-center">
               <div className="mx-auto px-auto space-x-6">
                 <button
-                  disabled={travellerInfo.adult <= 1}
+                  disabled={travellerInfoState.adult <= 1}
                   onClick={() => handleTravellerInfo('adult', 'd')}
                   className="disabled:cursor-not-allowed  w-6 h-8 my-3"
                 >
                   <span className="">-</span>
                 </button>
                 <span className="optionCounterNumber">
-                  {travellerInfo.adult}
+                  {travellerInfoState.adult}
                 </span>
                 <button
                   onClick={() => handleTravellerInfo('adult', 'i')}
@@ -185,14 +185,14 @@ const {travellerInfo, setTravellerInfo, passengerClass, setPassengerClass}=useDa
               </div>
               <div className="mx-auto px-auto space-x-6">
                 <button
-                  disabled={travellerInfo.children <= 0}
+                  disabled={travellerInfoState.children <= 0}
                   onClick={() => handleTravellerInfo('children', 'd')}
                   className="disabled:cursor-not-allowed  w-6 h-8 my-3"
                 >
                   <span className="">-</span>
                 </button>
                 <span className="optionCounterNumber">
-                  {travellerInfo.children}
+                  {travellerInfoState.children}
                 </span>
                 <button
                   onClick={() => handleTravellerInfo('children', 'i')}
@@ -203,14 +203,14 @@ const {travellerInfo, setTravellerInfo, passengerClass, setPassengerClass}=useDa
               </div>
               <div className="mx-auto px-auto space-x-6">
                 <button
-                  disabled={travellerInfo.infant <= 0}
+                  disabled={travellerInfoState.infant <= 0}
                   onClick={() => handleTravellerInfo('infant', 'd')}
                   className="disabled:cursor-not-allowed  w-6 h-8 my-3"
                 >
                   <span className="">-</span>
                 </button>
                 <span className="optionCounterNumber">
-                  {travellerInfo.infant}
+                  {travellerInfoState.infant}
                 </span>
                 <button
                   onClick={() => handleTravellerInfo('infant', 'i')}

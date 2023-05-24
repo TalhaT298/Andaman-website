@@ -8,6 +8,7 @@ import flightFeature from "../../images/flightFeature.png";
 import flightIcon from "../../images/flightIcon.png";
 import flightLogoMini from "../../images/flightLogoMini.png";
 import { useNavigate } from "react-router-dom";
+import Footer from "../../Component/Footer/Footer";
 
 const ReviewBookingFlight = () => {
   //scroll to policies
@@ -1388,6 +1389,7 @@ const ReviewBookingFlight = () => {
           </div>
         </div> */}
       </div>
+      <Footer/>
     </>
   );
 };

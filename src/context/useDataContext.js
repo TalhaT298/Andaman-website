@@ -7,7 +7,7 @@ const DataContext = createContext();
 export const DataProvider = ({ children }) => {
   // Location State
   const [currentDestinationFilter, setCurrentDestinationFilter] =
-    useState("Chennai");
+  useState("Chennai");
   const [nextDestinationFilter, setNextDestinationFilter] =
     useState("Port Blair");
   const [currentDestinationFilterShip, setcurrentDestinationFilterShip] =
@@ -50,6 +50,8 @@ export const DataProvider = ({ children }) => {
   } else {
     wayType = "One Way";
   }
+  const [flightSearch, setFlightSearch] = useState(false);
+
   // TripSummary
   const [flightDataState, setFlightDataState] = useState({});
   const [shipDataState, setShipDataState] = useState({});
@@ -89,12 +91,14 @@ export const DataProvider = ({ children }) => {
     setChildrenDetails,
     infantDetails,
     setInfantDetails,
-    contactDetails, 
+    contactDetails,
     setContactDetails,
     passengerClass,
     setPassengerClass,
     shipDataState,
     setShipDataState,
+    flightSearch,
+    setFlightSearch,
   };
 
   return <DataContext.Provider value={state}>{children}</DataContext.Provider>;
