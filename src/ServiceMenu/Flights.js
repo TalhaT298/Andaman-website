@@ -32,7 +32,7 @@ const {currentDestinationFilter, setCurrentDestinationFilter,nextDestinationFilt
     });
 
   return (
-    <div className="pt-10 h-full w-full lg:px-5 px-20 " style={{fontFamily:"Montserrat"}}>
+    <div className="pt-10 h-full w-full  " style={{fontFamily:"Montserrat"}}>
       {/* <div className="flex">
         <div className="flex-col mx-auto mt-5 mb-10 space-y-5">
           <p className="lg:text-2xl text-3xl font-Nunito_Sans font-semibold text-slate-400">

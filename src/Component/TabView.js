@@ -209,7 +209,7 @@ const TabView = () => {
 				indicatorColor="#757574"
 				centered={false}
 				scrollButtons="auto"
-				className="w-[90%] mx-auto"
+				className="w-full mx-auto"
 				TabIndicatorProps={{
 					style: {
 						backgroundColor: "#757574",
