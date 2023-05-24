@@ -1,4 +1,4 @@
-import { lazy, Suspense, useEffect } from "react";
+import { lazy, Suspense } from "react";
 import { ScaleLoader } from 'react-spinners';
 // import { RingLoader } from 'react-spinners';
 
@@ -6,7 +6,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import TravellersDetailsFlight from "./ServiceMenu/Flight/TravellersDetailsFlight.js";
 import ReviewBookingFlight from "./ServiceMenu/Flight/ReviewBookingFlight.js";
 import FlightPreview from "./ServiceMenu/Flight/FlightPreview.js";
-import ShipOverviewBooking  from './ServiceMenu/Ship/ShipBookingPreview.js';
+import ShipOverviewBooking from './ServiceMenu/Ship/ShipBookingPreview.js';
 import TravellerDetailsShip from './ServiceMenu/Ship/TravelarDetailsShip.js';
 
 const Explore = lazy(() => import('./NavMenu/Explore.js'));
