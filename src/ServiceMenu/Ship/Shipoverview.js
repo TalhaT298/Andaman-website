@@ -23,11 +23,11 @@ const Shipoverview = (props) => {
                 </div>
                 <div className='flex justify-between items-center text-xl text-slate-500 mt-5'>
                     <p className='lg:absolute lg:top-1 lg:left-11 lg:text-black'>Wed, Dec 8</p>
-                    <p className="font-sans lg:absolute lg:top-44 lg:left-40 lg:text-black">{props.flightDuration}</p>
+                    <p className="font-sans lg:absolute lg:top-40 lg:left-40 lg:text-black">{props.flightDuration}</p>
                 </div>
                 <div className='w-full flex items-center my-4 lg:mt-1'>
                     <div className='border border-slate-600 w-5 h-5 mr-3 lg:hidden'></div>
-                    <div className='w-full flex justify-between items-center lg:ml-[-2rem]'>
+                    <div className='w-full flex justify-between items-center lg:mt-[-1rem] lg:ml-[-2rem]'>
                         <div className='flex flex-row lg:flex-col items-center'>
                             <p className='mr-4 font-bold text-2xl lg:text-lg lg:w-full'>{props.departureTime}</p>
                             <p className='text-xl text-slate-500'>{props.currentDestination}</p>
@@ -37,13 +37,13 @@ const Shipoverview = (props) => {
                             <img class="max-w-none mx-3" src={boat} alt="..." />
                             <img class="h-2 w-8 lg:mr-5" src={rhttarrow} alt="..." />
                         </div>
-                        <div className='flex flex-row lg:flex-col  items-center lg:ml-8'>
+                        <div className='flex flex-row lg:flex-col  items-center lg:ml-2'>
                             <p className='mr-4 font-bold text-2xl lg:text-lg lg:w-full'>{props.arrivalTime}</p>
                             <p className='text-xl text-slate-500'>{props.nextDestination}</p>
                         </div>
                     </div>
                 </div>
-                <div className='flex justify-end items-center mt-6 lg:hidden'>
+                <div className='flex justify-end items-center mt-6'>
                     <div className='border border-rose-400 px-2 py-2 mr-5'>
                         <img class="max-w-none" src={heart} alt="..." />
                     </div>
