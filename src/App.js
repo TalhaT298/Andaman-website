@@ -9,10 +9,17 @@ import FlightPreview from "./ServiceMenu/Flight/FlightPreview.js";
 import ShipOverviewBooking from "./ServiceMenu/Ship/ShipBookingPreview.js";
 import TravellerDetailsShip from "./ServiceMenu/Ship/TravelarDetailsShip.js";
 
+<<<<<<< HEAD
 const Explore = lazy(() => import("./NavMenu/Explore.js"));
 const Fun = lazy(() => import("./NavMenu/Fun.js"));
 const Stay = lazy(() => import("./NavMenu/Stay.js"));
 const Nav = lazy(() => import("./Nav"));
+=======
+// const Explore = lazy(() => import('./NavMenu/Explore.js'));
+// const Fun = lazy(() => import('./NavMenu/Fun.js'));
+// const Stay = lazy(() => import('./NavMenu/Stay.js'));
+const Nav = lazy(() => import('./Nav'));
+>>>>>>> 70fb3d9959d5596fdf4686b9679ba203a6926456
 const SingleInland = lazy(() =>
   import("./ServiceMenu/Ship/SingleInland/SingleInland.js")
 );
@@ -102,9 +109,9 @@ export default function App() {
         >
           <Routes>
             <Route path="/" element={<Nav />} />
-            <Route path="/Explore" element={<Explore />} />
+            {/* <Route path="/Explore" element={<Explore />} />
             <Route path="/Stay" element={<Stay />} />
-            <Route path="/Fun" element={<Fun />} />
+            <Route path="/Fun" element={<Fun />} /> */}
             <Route path="/Tandoor" element={<Tandoor />} />
             <Route path="/Trio" element={<Trio />} />
             <Route path="/Tillai" element={<Tillai />} />
