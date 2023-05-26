@@ -1,4 +1,4 @@
-import React, { lazy, useState } from 'react';
+import React, { lazy } from 'react';
 import flight from '../Data/Flight-Section/flight';
 
 import { useDataContext } from '../context/useDataContext';
@@ -13,8 +13,6 @@ const Flights = () => {
   // const [currentDestinationFilter, setCurrentDestinationFilter] = useState('');
   // const [nextDestinationFilter, setNextDestinationFilter] = useState('');
 const {currentDestinationFilter, setCurrentDestinationFilter,nextDestinationFilter, setNextDestinationFilter,flightSearch}=useDataContext();
-const [isResultHidden, setIsResultHidden] = useState(false);
-
 
   const flightData = flight
     .filter((airplane) =>
@@ -33,7 +31,8 @@ const [isResultHidden, setIsResultHidden] = useState(false);
     });
 
   return (
-    <div className="pt-10 h-full w-full  " style={{fontFamily:"Montserrat"}}>
+    <div className="pt-10 h-full w-full relative" style={{fontFamily:"Montserrat"}}>
+      
       {/* <div className="flex">
         <div className="flex-col mx-auto mt-5 mb-10 space-y-5">
           <p className="lg:text-2xl text-3xl font-Nunito_Sans font-semibold text-slate-400">
@@ -49,7 +48,6 @@ const [isResultHidden, setIsResultHidden] = useState(false);
         </div>
       </div> */}
       <FlightSearch
-      setIsResultHidden={setIsResultHidden}
         currentDestinationFilter={currentDestinationFilter}
         nextDestinationFilter={nextDestinationFilter}
         setCurrentDestinationFilter={setCurrentDestinationFilter}

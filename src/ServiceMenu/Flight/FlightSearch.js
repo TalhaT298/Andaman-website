@@ -8,7 +8,6 @@ import ReturnDate from "./ReturnDate";
 const Locations = lazy(() => import("./Locations"));
 const DepartDate = lazy(() => import("./DepartDate"));
 const Options = lazy(() => import("./Options"));
-
 // This below code is for fetching data from local storage for json file
 // function searchFlights(origin, destination, departureDate) {
 //   // Use the file:// protocol to read the local JSON file
@@ -72,13 +71,14 @@ const FlightSearch = (props) => {
   };
 
   return (
-    <div className="flex flex-col h-full w-full lg:my-0 my-6">
+    <div className="flex flex-col h-full w-full lg:py-0 relative py-6 z-50">
+      <div className='absolute -top-10 left-[-4vw] right-[-4vw] h-[340px] z-[-1] ms:bg-[#FF8682]'/>
       <div className="flex gap-6 mx-auto">
         <span
           onClick={() => {
             setTwoWay(false);
           }}
-          className="font-lg text-slate-400 font-mono border-2 px-4 py-2 hover:bg-white  hover:text-slate-800 cursor-pointer"
+          className={`${!twoWay && 'ms:text-slate-800 text-slate-800 font-[500] bg-white'} font-lg text-slate-400 ms:text-slate-100 font-mono border-2 ms:rounded-3xl px-4 py-2 hover:bg-white  hover:text-slate-800 cursor-pointer`}
         >
           One Way
         </span>
@@ -86,7 +86,7 @@ const FlightSearch = (props) => {
           onClick={() => {
             setTwoWay(true);
           }}
-          className="font-lg text-slate-400 border-2  font-monopx-4 px-4 py-2 hover:bg-white  hover:text-slate-800 cursor-pointer"
+          className={`${twoWay && 'text-slate-800 ms:text-slate-800 font-[500] bg-white'} font-lg text-slate-400 ms:text-slate-100 font-mono border-2 ms:rounded-3xl px-4 py-2 hover:bg-white  hover:text-slate-800 cursor-pointer`}
         >
           Two Way
         </span>
@@ -96,7 +96,7 @@ const FlightSearch = (props) => {
       </div>
       <div>
         <form onSubmit={handleSubmit}>
-          <div className="font-medium text-slate-800 flex h-auto w-full bg-white px-4 my-4 py-4 mx-auto flex-row lg:flex-col shadow-[0px_4px_16px_rgba(17,34,17,0.05)]">
+          <div className="font-medium text-slate-800 flex h-auto w-full bg-white z-50 px-4 my-4 py-4 mx-auto ms:rounded-md flex-row lg:flex-col shadow-[0px_4px_16px_rgba(17,34,17,0.05)]">
             <Locations
               {...props}
               setDepartDate={setDepartDate}
