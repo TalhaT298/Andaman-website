@@ -6,7 +6,7 @@ import Boat from '../../images/boat_final_copy.png';
 import { Map, GoogleApiWrapper, Marker } from 'google-maps-react';
 
 const mapStyles = {
-  height: '66%',
+  height: '90%',
   width: '82%',
   // borderImage: 'linear-gradient(to right, #f7b733, #fc4a1a) 1',
   // borderStyle: 'solid',
