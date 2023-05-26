@@ -60,7 +60,7 @@ const ShipSearch = (props) => {
   // const [twoWay, setTwoWay] = useState(false);
 
   return (
-    <div className='h-full w-full py-4 my-6 drop-shadow-xl bg-white rounded-lg'>
+    <div className='py-5 mb-3 mt-12 drop-shadow-xl bg-white rounded-lg  w-11/12 mx-auto px-6'>
       {/* <div className='flex gap-6 mx-auto'>
         <span
           onClick={() => {
@@ -83,7 +83,7 @@ const ShipSearch = (props) => {
         </span>
       </div> */}
       <form onSubmit={handleSubmit} className=''>
-        <div className='flex flex-row lg:flex-col px-10 mx-auto'>
+        <div className='flex flex-row lg:flex-col justify-center'>
           <Locations {...props} />
 
           <DepartDate />
