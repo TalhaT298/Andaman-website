@@ -211,7 +211,7 @@ const FlightPreview = () => {
           </div>
         </div>
       </div>
-      <Footer/>
+      <Footer />
     </div>
   );
 };

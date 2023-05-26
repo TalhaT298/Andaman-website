@@ -104,5 +104,5 @@ export const DataProvider = ({ children }) => {
   return <DataContext.Provider value={state}>{children}</DataContext.Provider>;
 };
 
-// Create the useData hook to access the context
+// Create the useDataContext hook to access the context
 export const useDataContext = () => useContext(DataContext);

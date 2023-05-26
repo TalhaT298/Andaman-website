@@ -1,10 +1,10 @@
 import React, { lazy, useState } from "react";
-import './FlightSearch.css';
-import ReturnDate from './ReturnDate';
-
 import "react-date-range/dist/styles.css";
 import "react-date-range/dist/theme/default.css";
 import { useDataContext } from "../../context/useDataContext";
+import mail from "../../images/image_source_for_shiptab/mail_arrow.png";
+import "./FlightSearch.css";
+import ReturnDate from "./ReturnDate";
 const Locations = lazy(() => import("./Locations"));
 const DepartDate = lazy(() => import("./DepartDate"));
 const Options = lazy(() => import("./Options"));
@@ -53,7 +53,8 @@ const Options = lazy(() => import("./Options"));
 const FlightSearch = (props) => {
   // const [origin, setOrigin] = useState("Port Blair");
   // const [destination, setDestination] = useState("Chennai");
-  const {twoWay, setTwoWay,setStartingDate, setFlightSearch, setTravellerInfo,} = useDataContext();
+  const { twoWay, setTwoWay, setStartingDate, setFlightSearch } =
+    useDataContext();
   const [departDate, setDepartDate] = useState("Chennai");
   const [returnDate, setReturnDate] = useState("Port Blair");
   const [startingDateState, setStartingDateState] = useState([
@@ -62,21 +63,13 @@ const FlightSearch = (props) => {
       key: "selection",
     },
   ]);
-  const [travellerInfoState, setTravellerInfoState] = useState({
-    adult: 1,
-    children: 0,
-    infant: 0,
-    traveller: 0,
-  });
+
   const handleSubmit = (event) => {
     event.preventDefault();
-    props.setCurrentDestinationFilter(departDate)
-    props.setNextDestinationFilter(returnDate)
-    setStartingDate(startingDateState)
-    setFlightSearch(true)
-    setTravellerInfo(travellerInfoState)
+    props.setCurrentDestinationFilter(departDate);
+    props.setNextDestinationFilter(returnDate);
+    setStartingDate(startingDateState);
   };
-
 
   return (
     <div className="flex flex-col h-full w-full lg:my-0 my-6">
@@ -103,14 +96,25 @@ const FlightSearch = (props) => {
       </div>
       <div>
         <form onSubmit={handleSubmit}>
-          <div className="font-medium text-slate-800 flex h-auto w-full bg-white px-4 my-4 py-4 mx-auto flex-row airbnbml:flex-col ml:w-auto airbnbml:w-96  xs:w-64 shadow-[0px_4px_16px_rgba(17,34,17,0.05)]">
+          <div className="font-medium text-slate-800 flex h-auto w-full bg-white px-4 my-4 py-4 mx-auto flex-row lg:flex-col shadow-[0px_4px_16px_rgba(17,34,17,0.05)]">
             <Locations
-              {...props} setDepartDate={setDepartDate} departDate={departDate} setReturnDate={setReturnDate} returnDate={returnDate}
+              {...props}
+              setDepartDate={setDepartDate}
+              departDate={departDate}
+              setReturnDate={setReturnDate}
+              returnDate={returnDate}
             />
-            <DepartDate startingDateState={startingDateState} setStartingDateState={setStartingDateState}/>
+            <DepartDate />
             {twoWay && <ReturnDate />}
-            <Options travellerInfoState={travellerInfoState} setTravellerInfoState={setTravellerInfoState}/>
-            <button type="submit" className="bg-[#FF8682]  h-auto  my-2  px-5 text-white rounded-r">Search</button>
+            <Options />
+            <button
+              onClick={() => setFlightSearch(true)}
+              type="submit"
+              className="bg-[#FF8682] lg:flex lg:items-center lg:justify-center h-auto  my-2 lg:py-3 px-2 text-white lg:rounded-md rounded-r"
+            >
+              <img src={mail} alt="" className="hidden lg:block mr-3" />
+              Search
+            </button>
           </div>
         </form>
       </div>

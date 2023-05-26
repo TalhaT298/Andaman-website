@@ -3,13 +3,14 @@ import flight from "../../Data/Flight-Section/flight";
 import Navforwithout from "../../Navforwithout";
 import { useDataContext } from "../../context/useDataContext";
 import flightLogo from "../../images/flightlogo.png";
-import { MdKeyboardArrowRight } from "react-icons/md";
+import { MdKeyboardArrowRight, MdAdd, MdAttachMoney } from "react-icons/md";
 import flightFeature from "../../images/flightFeature.png";
 import flightIcon from "../../images/flightIcon.png";
 import flightLogoMini from "../../images/flightLogoMini.png";
 import { useNavigate } from "react-router-dom";
 import Footer from "../../Component/Footer/Footer";
-
+import visa from "../../images/image_source_for_shiptab/visa.png";
+import master from "../../images/image_source_for_shiptab/mastercard.png";
 const ReviewBookingFlight = () => {
   //scroll to policies
   const policiesRef = useRef(null);
@@ -1094,16 +1095,16 @@ const ReviewBookingFlight = () => {
       </div>
     </div>
   ));
-  const navigate= useNavigate()
+  const navigate = useNavigate();
   //handle submit
   const handleSubmit = (e) => {
     e.preventDefault();
     alert("Paid!");
-    navigate("/Flight")
+    navigate("/Flight");
   };
 
   const tripData = [...Array(num)].reverse().map((_, index) => (
-    <div className="p-4 w-[29.29vw] bg-white" key={index}>
+    <div className="p-4 md:w-full lg:w-[29.29vw] bg-white" key={index}>
       {" "}
       <div className=" flex items-center gap-5 ">
         <img src={flightLogo} alt="flightLogo" className="w-24 h-24" />
@@ -1226,62 +1227,97 @@ const ReviewBookingFlight = () => {
             <span>Payment</span>
           </div>
           <div className=" flex xl:flex-col  ">
-            <div className="mt-12 w-full h-fit bg-[#FFFFFF] py-8 px-6 shadow-[0px_4px_16px_rgba(17,34,17,0.05)] rounded-xl">
-              <div className="flex justify-between">
-                <h5 className="text-xl text-[#112211]">
-                  Return {endingDate[0].endDate.toDateString()}
-                </h5>
-                <h5 className="text-xl text-[#112211]">
-                  {flightDataState.flightDuration}
-                </h5>
-              </div>
-              <div className="flex justify-between mt-5">
-                <div className="flex items-center w-auto justify-center bg-[#FFFFFF] gap-5  border-[0.5px] border-[0.5px_solid_#8DD3BB] rounded-lg px-8 py-4 ">
-                  <img src={flightLogoMini} alt="flightLogoMini" className="" />
+            <div className="w-full">
+              <div className="mt-12 w-full h-fit bg-[#FFFFFF] py-8 px-6 shadow-[0px_4px_16px_rgba(17,34,17,0.05)] rounded-xl">
+                <div className="flex justify-between">
+                  <h5 className="text-xl text-[#112211]">
+                    Return {endingDate[0].endDate.toDateString()}
+                  </h5>
+                  <h5 className="text-xl text-[#112211]">
+                    {flightDataState.flightDuration}
+                  </h5>
+                </div>
+                <div className="flex justify-between mt-5">
+                  <div className="flex items-center w-auto justify-center bg-[#FFFFFF] gap-5  border-[0.5px] border-[0.5px_solid_#8DD3BB] rounded-lg px-8 py-4 ">
+                    <img
+                      src={flightLogoMini}
+                      alt="flightLogoMini"
+                      className=""
+                    />
+                    <div className="">
+                      <h2 className="font-semibold text-2xl">Emirates</h2>
+                      <p className="text-[#112211] opacity-[0.6] font-[500]">
+                        {flightDataState.flightName}
+                      </p>
+                    </div>
+                  </div>
                   <div className="">
-                    <h2 className="font-semibold text-2xl">Emirates</h2>
-                    <p className="text-[#112211] opacity-[0.6] font-[500]">
-                      {flightDataState.flightName}
-                    </p>
+                    {" "}
+                    <img src={flightFeature} alt="" />
                   </div>
                 </div>
-                <div className="">
-                  {" "}
-                  <img src={flightFeature} alt="" />
-                </div>
-              </div>
-              <div
-                className="flex justify-between items-center w-full h-auto
+                <div
+                  className="flex justify-between items-center w-full h-auto
            mx-auto mt-5"
-              >
-                <div className="">
+                >
+                  <div className="">
+                    <div>
+                      <span className="font-bold">
+                        {flightDataState.departureTime}
+                      </span>
+
+                      <span className="ml-2">{currentDestinationFilter}</span>
+                    </div>
+                  </div>
+                  <div className="flex gap-2">
+                    <span>
+                      {" "}
+                      <img
+                        src={flightIcon}
+                        className="w-full h-8"
+                        alt="flightIcon"
+                      />{" "}
+                    </span>
+                  </div>
                   <div>
                     <span className="font-bold">
-                      {flightDataState.departureTime}
+                      {flightDataState.arrivalTime}
                     </span>
-
-                    <span className="ml-2">{currentDestinationFilter}</span>
+                    <span className="ml-2">{nextDestinationFilter}</span>
                   </div>
                 </div>
-                <div className="flex gap-2">
-                  <span>
-                    {" "}
-                    <img
-                      src={flightIcon}
-                      className="w-full h-8"
-                      alt="flightIcon"
-                    />{" "}
-                  </span>
-                </div>
+              </div>
+              <div>
+                <p className="text-xl font-thin text-slate-400 italic my-4">
+                  Payment Method
+                </p>
                 <div>
-                  <span className="font-bold">
-                    {flightDataState.arrivalTime}
-                  </span>
-                  <span className="ml-2">{nextDestinationFilter}</span>
+                  <div className="flex justify-between border border-[#17183B] opacity-20 rounded-sm p-4">
+                    <div className="flex">
+                      <input type="radio" class="default:ring-2 ..." />
+                      <img src={visa} alt="" className="mx-3" />
+                      <p className="mr-10">.....6754</p>
+                      <p>Expires 06/2021</p>
+                    </div>
+                    <p>Remove</p>
+                  </div>
+                  <div className="flex justify-between border border-[#17183B] opacity-20 rounded-sm p-4">
+                    <div className="flex">
+                      <input type="radio" class="default:ring-2 ..." />
+                      <img src={master} alt="" className="mx-3" />
+                      <p className="mr-10">.....5643</p>
+                      <p>Expires 11/2025</p>
+                    </div>
+                    <p>Remove</p>
+                  </div>
+                  <div className="flex items-center my-8">
+                    <MdAdd className="mr-6 text-cyan-500 text-xl" />
+                    <p>Add Payment method</p>
+                  </div>
                 </div>
               </div>
             </div>
-            <div className="w-[50%] md:w-full lg:w-[35%] xl:w-[30%] pl-8 ">
+            <div className="w-[50%] md:w-full lg:w-[35%] xl:w-[30%] md:pl-0 pl-8">
               {/* <h1 className="text-[26px] text-[#699c78] md:text-2xl  font-semibold">
                 Trip Summary
               </h1> */}
@@ -1389,7 +1425,7 @@ const ReviewBookingFlight = () => {
           </div>
         </div> */}
       </div>
-      <Footer/>
+      <Footer />
     </>
   );
 };

@@ -10,7 +10,7 @@ const HeadColor = "#3f51b5"; //'#2f4f4f';
 export default function Navforwithout() {
   return (
     <Navbar isBordered variant="static" style={{backgroundColor:"white"}}>
-      <Navbar.Content activeColor={"primary"} hideIn="xs" variant={"underline"}>
+      <Navbar.Content activeColor={"primary"} hideIn="md" variant={"underline"}>
         <Navbar.Link isActive href="/">
           <BiHomeAlt className="w-6 h-6 mr-2" /> Home
         </Navbar.Link>
@@ -63,7 +63,7 @@ export default function Navforwithout() {
           },
         }}
         activeColor={"primary"}
-        hideIn="xs"
+        hideIn="md"
         variant={"underline"}
       >
         <Navbar.Link href="/">Connect With Us</Navbar.Link> |
@@ -92,7 +92,7 @@ export default function Navforwithout() {
         ))}
       </Navbar.Collapse>
 
-      <Navbar.Toggle showIn="xs" />
+      <Navbar.Toggle showIn="md" />
     </Navbar>
   );
 }

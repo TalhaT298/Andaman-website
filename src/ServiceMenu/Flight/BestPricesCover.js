@@ -1,23 +1,22 @@
-import React from 'react';
+import React from "react";
 
-import { useState } from 'react';
+import { useState } from "react";
 
-
-import 'react-date-range/dist/styles.css';
-import 'react-date-range/dist/theme/default.css';
+import "react-date-range/dist/styles.css";
+import "react-date-range/dist/theme/default.css";
 // import { format } from 'date-fns';
 
 // Always remember, the data we fetch from firebase is in objects, so, we will have to convert it into an array of objects that's why we have used
 // here Object.values in flightsData
 
 const FlightCover = (props) => {
-//   const [date, setDate] = useState([
-//     {
-//       startDate: new Date(),
-//       endDate: new Date(),
-//       key: 'selection',
-//     },
-//   ]);
+  //   const [date, setDate] = useState([
+  //     {
+  //       startDate: new Date(),
+  //       endDate: new Date(),
+  //       key: 'selection',
+  //     },
+  //   ]);
 
   const [showFlightInfo, setShowFlightInfo] = useState(false);
 
@@ -45,7 +44,7 @@ const FlightCover = (props) => {
   return (
     <>
       <div className="py-3 flex-col w-5/6 mx-auto my-auto ">
-      {/* flight ? <div>{JSON.stringify(flight)}</div> : <div>Loading...</div> */}
+        {/* flight ? <div>{JSON.stringify(flight)}</div> : <div>Loading...</div> */}
         <div
           onClick={() => {
             setShowFlightInfo(!showFlightInfo);

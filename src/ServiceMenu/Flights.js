@@ -1,4 +1,4 @@
-import React, { lazy } from 'react';
+import React, { lazy, useState } from 'react';
 import flight from '../Data/Flight-Section/flight';
 
 import { useDataContext } from '../context/useDataContext';
@@ -13,6 +13,7 @@ const Flights = () => {
   // const [currentDestinationFilter, setCurrentDestinationFilter] = useState('');
   // const [nextDestinationFilter, setNextDestinationFilter] = useState('');
 const {currentDestinationFilter, setCurrentDestinationFilter,nextDestinationFilter, setNextDestinationFilter,flightSearch}=useDataContext();
+const [isResultHidden, setIsResultHidden] = useState(false);
 
 
   const flightData = flight
@@ -25,8 +26,8 @@ const {currentDestinationFilter, setCurrentDestinationFilter,nextDestinationFilt
       airplane.nextDestination === nextDestinationFilter
     )
     .map((airplane, index) => {
-      return (<>
-      <FlightCover key={airplane.flightID} {...airplane} />
+      return (<> {flightSearch &&
+      <FlightCover key={airplane.flightID} {...airplane} />}
       </>
       );
     });
@@ -48,6 +49,7 @@ const {currentDestinationFilter, setCurrentDestinationFilter,nextDestinationFilt
         </div>
       </div> */}
       <FlightSearch
+      setIsResultHidden={setIsResultHidden}
         currentDestinationFilter={currentDestinationFilter}
         nextDestinationFilter={nextDestinationFilter}
         setCurrentDestinationFilter={setCurrentDestinationFilter}
@@ -58,7 +60,7 @@ const {currentDestinationFilter, setCurrentDestinationFilter,nextDestinationFilt
           Search Results
         </span> */}
         {
-          flightSearch ? ( flightData.length === 0 ? (
+          flightSearch ? (flightData.length === 0 ? (
             <center>
               <h1 className="my-5">No results found...</h1>
             </center>

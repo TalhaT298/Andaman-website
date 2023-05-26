@@ -1,13 +1,11 @@
 import React from "react";
 
-import { useState } from "react";
-import flightIcon from "../../images/flightIcon.png";
-import { format } from "date-fns";
 import "react-date-range/dist/styles.css";
 import "react-date-range/dist/theme/default.css";
 import { Link } from "react-router-dom";
-import flightLogo from "../../images/flightlogo.png";
 import { useDataContext } from "../../context/useDataContext";
+import flightIcon from "../../images/flightIcon.png";
+import flightLogo from "../../images/flightlogo.png";
 // Always remember, the data we fetch from firebase is in objects, so, we will have to convert it into an array of objects that's why we have used
 // here Object.values in flightsData
 
@@ -47,15 +45,17 @@ const FlightCover = (props) => {
           // }}
           className="flex-row bg-white rounded-xl w-auto py-8 h-auto shadow-[0px_4px_16px_rgba(17,34,17,0.05)] transition:origin-center hover:ease-in-out hover:scale-110 transition:duration-1000 transition-transform"
         >
-          <div className="text-[#112211] flex items-center gap-16  mx-auto py-auto lg:px-0 px-4 text-center px-auto w-full xs:flex-col xs:py-2 xs:gap-y-3">
+          <div className="text-[#112211] flex items-center gap-16  mx-auto py-auto md:px-4 px-10 text-center  w-full xs:flex-col xs:py-2 xs:gap-y-3">
             <div className="">
-              <img src={flightLogo} alt="flight-logo" className="w-32 h-24" />{" "}
-              <h4 className="text-xl font-semibold">Emirates</h4>{" "}
-              <p className="text-[#112211]">{props.flightName}</p>
+              <img src={flightLogo} alt="flight-logo" className="w-20 h-14" />{" "}
+              <h4 className="text-lg font-semibold">Emirates</h4>{" "}
+              <p className="text-[#112211] text-sm">{props.flightName}</p>
             </div>
             <div className="w-full">
               <div className="flex justify-between">
-                <div className="self-end">{date[0].startDate.toDateString()}</div>
+                <div className="self-end">
+                  {date[0].startDate.toDateString()}
+                </div>
                 <div className="flex flex-col items-end gap-4">
                   <p>
                     Starting from{" "}
@@ -79,7 +79,7 @@ const FlightCover = (props) => {
                     {" "}
                     <img
                       src={flightIcon}
-                      className="w-full h-8"
+                      className="w-full md:h-8 h-12"
                       alt="flightIcon"
                     />{" "}
                   </span>
@@ -89,10 +89,7 @@ const FlightCover = (props) => {
                   <span className="ml-2">{props.nextDestination}</span>
                 </div>
               </div>
-              <Link
-                to={"/FlightPreview"}
-                className="flex justify-end mt-3"
-              >
+              <Link to={"/FlightPreview"} className="flex justify-end mt-3">
                 <button className="bg-[#FF8682] font-semibold rounded p-[8px_16px]">
                   Book Now
                 </button>

@@ -5,19 +5,22 @@ import { DateRange } from "react-date-range";
 
 import { useDataContext } from "../../context/useDataContext";
 
-const DepartDate = ({startingDateState,setStartingDateState}) => {
+const DepartDate = () => {
   const [openDeptDate, setOpenDeptDate] = useState(false);
 
-  // const {startingDate, setStartingDate} = useDataContext();
+  const {startingDate, setStartingDate} = useDataContext();
 
   return (
     <>
       <div
         onClick={() => setOpenDeptDate(!openDeptDate)}
-        className="relative h-auto w-full mx-auto px-auto flex flex-col gap-y-3  ml:w-auto airbnbml:w-96  xs:w-64 py-2 airbnbml:items-center airbnbml:border-b-transparent"
+        className="relative h-auto w-full flex flex-col gap-y-3  mx-auto px-auto py-2 airbnbml:items-center airbnbml:border-b-transparent"
       >
-        <span className="flex items-center space-x-2 cursor-pointer border p-2 bottom-1">
-        <FontAwesomeIcon icon={faCalendarDays} className="text-slate-400 mr-2" />
+        <span className="flex items-center space-x-2 cursor-pointer border w-full p-2 bottom-1">
+          <FontAwesomeIcon
+            icon={faCalendarDays}
+            className="text-slate-400 mr-2"
+          />
           DEPART
         </span>
         {/* <span className=" text-slate-400 font-bold text-lg mx-auto">
@@ -37,15 +40,15 @@ const DepartDate = ({startingDateState,setStartingDateState}) => {
             className={`${classes.responsivee} absolute -bottom-[6.8rem] -mx- left-[39%]  lg:-bottom-[8.45rem] lg:left-[30%]  md:-bottom-[20rem] md:left-[12.5rem] sm:bottom-4 sm:left-2 responsivee`}
           />
         </Modal> */}
-           {openDeptDate &&
+        {openDeptDate && (
           <DateRange
             editableDateInputs={true}
-            onChange={(item) =>setStartingDateState([item.selection])}
+            onChange={(item) => setStartingDate([item.selection])}
             moveRangeOnFirstSelection={false}
-            ranges={startingDateState}
+            ranges={startingDate}
             className={`absolute z-10 top-20 right-[-2.5rem]`}
           />
-        }
+        )}
         {/* airbnbml:left-56 airbnbml:-bottom-10  */}
       </div>
     </>

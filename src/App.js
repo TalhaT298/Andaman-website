@@ -1,70 +1,80 @@
 import { lazy, Suspense } from "react";
-import { ScaleLoader } from 'react-spinners';
+import { ScaleLoader } from "react-spinners";
 // import { RingLoader } from 'react-spinners';
 
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import TravellersDetailsFlight from "./ServiceMenu/Flight/TravellersDetailsFlight.js";
 import ReviewBookingFlight from "./ServiceMenu/Flight/ReviewBookingFlight.js";
 import FlightPreview from "./ServiceMenu/Flight/FlightPreview.js";
-import ShipOverviewBooking from './ServiceMenu/Ship/ShipBookingPreview.js';
-import TravellerDetailsShip from './ServiceMenu/Ship/TravelarDetailsShip.js';
+import ShipOverviewBooking from "./ServiceMenu/Ship/ShipBookingPreview.js";
+import TravellerDetailsShip from "./ServiceMenu/Ship/TravelarDetailsShip.js";
 
-const Explore = lazy(() => import('./NavMenu/Explore.js'));
-const Fun = lazy(() => import('./NavMenu/Fun.js'));
-const Stay = lazy(() => import('./NavMenu/Stay.js'));
-const Nav = lazy(() => import('./Nav'));
+const Explore = lazy(() => import("./NavMenu/Explore.js"));
+const Fun = lazy(() => import("./NavMenu/Fun.js"));
+const Stay = lazy(() => import("./NavMenu/Stay.js"));
+const Nav = lazy(() => import("./Nav"));
 const SingleInland = lazy(() =>
-  import('./ServiceMenu/Ship/SingleInland/SingleInland.js')
+  import("./ServiceMenu/Ship/SingleInland/SingleInland.js")
 );
 
-const ShipBooking = lazy(() => import('./ServiceMenu/Ship/Booking/ShipBooking.js'));
-const ShipResults = lazy(() => import('./ServiceMenu/Ship/Booking/ShipResults.js'));
-const TravellerDetails = lazy(() => import('./ServiceMenu/Ship/Booking/TravellerDetails.js'));
-const ReviewBooking = lazy(() => import('./ServiceMenu/Ship/Booking/ReviewBooking.js'));
+const ShipBooking = lazy(() =>
+  import("./ServiceMenu/Ship/Booking/ShipBooking.js")
+);
+const ShipResults = lazy(() =>
+  import("./ServiceMenu/Ship/Booking/ShipResults.js")
+);
+const TravellerDetails = lazy(() =>
+  import("./ServiceMenu/Ship/Booking/TravellerDetails.js")
+);
+const ReviewBooking = lazy(() =>
+  import("./ServiceMenu/Ship/Booking/ReviewBooking.js")
+);
 
 const MakkruzGoldDetails = lazy(() =>
   import(
-    './ServiceMenu/Ship/SingleInland/SingleInlandDetailsPage/MakkruzGoldDetails'
+    "./ServiceMenu/Ship/SingleInland/SingleInlandDetailsPage/MakkruzGoldDetails"
   )
 );
-const ContactForm = lazy(() => import('./Component/ContactForm.js'));
-const CabContactForm = lazy(() => import('./Component/CabContactForm.js'));
+const ContactForm = lazy(() => import("./Component/ContactForm.js"));
+const CabContactForm = lazy(() => import("./Component/CabContactForm.js"));
 const FlightContactForm = lazy(() =>
-  import('./Component/FlightContactForm.js')
+  import("./Component/FlightContactForm.js")
 );
 const ActivityContactForm = lazy(() =>
-  import('./Component/ActivityContactForm.js')
+  import("./Component/ActivityContactForm.js")
 );
-const PgContactForm = lazy(() => import('./Component/PgContactForm.js'));
-const TravelPackageContactForm = lazy(() => import('./Component/TravelPackageContactForm.js'));
-const TrekContactForm = lazy(() => import('./Component/TrekContactForm.js'));
+const PgContactForm = lazy(() => import("./Component/PgContactForm.js"));
+const TravelPackageContactForm = lazy(() =>
+  import("./Component/TravelPackageContactForm.js")
+);
+const TrekContactForm = lazy(() => import("./Component/TrekContactForm.js"));
 
 const SingleHotel = lazy(() =>
-  import('./ServiceMenu/Hotel/SingleHotel/SingleHotel.js')
+  import("./ServiceMenu/Hotel/SingleHotel/SingleHotel.js")
 );
 
 const PgHotel = lazy(() =>
-  import('./ServiceMenu/Pg/SingleHotel/SinglePgHotel')
+  import("./ServiceMenu/Pg/SingleHotel/SinglePgHotel")
 );
 
-const Tandoor = lazy(() => import('./ServiceMenu/Dining/hotel-pages/Tandoor'));
-const Trio = lazy(() => import('./ServiceMenu/Dining/hotel-pages/Trio'));
-const Tillai = lazy(() => import('./ServiceMenu/Dining/hotel-pages/Tillai'));
+const Tandoor = lazy(() => import("./ServiceMenu/Dining/hotel-pages/Tandoor"));
+const Trio = lazy(() => import("./ServiceMenu/Dining/hotel-pages/Trio"));
+const Tillai = lazy(() => import("./ServiceMenu/Dining/hotel-pages/Tillai"));
 const Icyspicy = lazy(() =>
-  import('./ServiceMenu/Dining/hotel-pages/Icyspicy')
+  import("./ServiceMenu/Dining/hotel-pages/Icyspicy")
 );
 const Annapurna = lazy(() =>
-  import('./ServiceMenu/Dining/hotel-pages/Annapurna')
+  import("./ServiceMenu/Dining/hotel-pages/Annapurna")
 );
 const Brewbeans = lazy(() =>
-  import('./ServiceMenu/Dining/hotel-pages/Brewbeans')
+  import("./ServiceMenu/Dining/hotel-pages/Brewbeans")
 );
 const Chaisuttabar = lazy(() =>
-  import('./ServiceMenu/Dining/hotel-pages/Chaisuttabar')
+  import("./ServiceMenu/Dining/hotel-pages/Chaisuttabar")
 );
-const Rooftop = lazy(() => import('./ServiceMenu/Dining/hotel-pages/Rooftop'));
+const Rooftop = lazy(() => import("./ServiceMenu/Dining/hotel-pages/Rooftop"));
 const Cardamom = lazy(() =>
-  import('./ServiceMenu/Dining/hotel-pages/Cardamom')
+  import("./ServiceMenu/Dining/hotel-pages/Cardamom")
 );
 
 export default function App() {
@@ -121,15 +131,21 @@ export default function App() {
 
             <Route path="/FlightPreview" element={<FlightPreview />} />
             <Route path="/ReviewFlight" element={<TravellersDetailsFlight />} />
-            <Route path="/FlightReviewBooking" element={<ReviewBookingFlight />} />
+            <Route
+              path="/FlightReviewBooking"
+              element={<ReviewBookingFlight />}
+            />
 
             {/* Ship Booking */}
             <Route path="/ShipBooking" element={<ShipBooking />} />
-            <Route path="/ShipBookingPreview" element={<ShipOverviewBooking />} />
+            <Route
+              path="/ShipBookingPreview"
+              element={<ShipOverviewBooking />}
+            />
             <Route path="/selectFerry" element={<ShipResults />} />
             <Route path="/travellerDetails" element={<TravellerDetails />} />
             <Route path="/ReviewBooking" element={<ReviewBooking />} />
-            <Route path="/travellerShip" element={< TravellerDetailsShip />} />
+            <Route path="/travellerShip" element={<TravellerDetailsShip />} />
 
             <Route path="/CabContactForm" element={<CabContactForm />} />
             <Route path="/FlightContactForm" element={<FlightContactForm />} />
@@ -138,7 +154,10 @@ export default function App() {
               element={<ActivityContactForm />}
             />
             <Route path="/PgContactForm" element={<PgContactForm />} />
-            <Route path="/TravelPackageContactForm" element={<TravelPackageContactForm />} />
+            <Route
+              path="/TravelPackageContactForm"
+              element={<TravelPackageContactForm />}
+            />
             <Route path="/TrekContactForm" element={<TrekContactForm />} />
             <Route path="*" element={<Nav />} />
           </Routes>
