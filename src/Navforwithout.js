@@ -1,7 +1,7 @@
-import { Navbar, Text, Avatar, Dropdown } from "@nextui-org/react";
-import { Link } from "react-router-dom";
+import { Navbar, Text } from "@nextui-org/react";
 import { BiHomeAlt } from "react-icons/bi";
 import { HiOutlineMail } from "react-icons/hi";
+import { Link } from "react-router-dom";
 
 const collapseItems = ["Connect With Us", "Contact Us", "About Us"];
 
@@ -9,7 +9,7 @@ const HeadColor = "#3f51b5"; //'#2f4f4f';
 
 export default function Navforwithout() {
   return (
-    <Navbar isBordered variant="static" style={{backgroundColor:"white"}}>
+    <Navbar isBordered variant="static" style={{ backgroundColor: "white" }}>
       <Navbar.Content activeColor={"primary"} hideIn="md" variant={"underline"}>
         <Navbar.Link isActive href="/">
           <BiHomeAlt className="w-6 h-6 mr-2" /> Home
@@ -38,12 +38,12 @@ export default function Navforwithout() {
           <a href="/">
             <span
               style={{ fontFamily: "IBM Plex Serif", letterSpacing: "0.15em" }}
-              className="text-[40px]"
+              className="lexs:text-[9vw] text-[40px]"
             >
               Sublime
             </span>
             <span
-              className="block text-center -mt-4"
+              className="block lexs:text-[12px] text-center -mt-4"
               style={{
                 fontFamily: "Aeonik Pro TRIAL",
                 letterSpacing: "0.6rem",

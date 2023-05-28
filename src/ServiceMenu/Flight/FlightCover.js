@@ -11,8 +11,8 @@ import flightLogo from "../../images/flightlogo.png";
 // here Object.values in flightsData
 
 const FlightCover = (props) => {
-  const { startingDate: date, travellerInfo } = useDataContext();
-
+  const { startingDate: date, travellerInfo, setCoverData } = useDataContext();
+  setCoverData(props);
   return (
     <>
       <Link to={"/FlightPreview"} className="py-3 flex-col  mx-auto my-auto ">

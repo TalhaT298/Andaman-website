@@ -1,0 +1,15 @@
+.bg__container {
+  position: relative;
+  height: 340px;
+  width: 100%;
+  background-color: green;
+}
+.bg__overly {
+  position: absolute;
+  margin: 0 30px;
+  top: 230px;
+  left: 0;
+  right: 0;
+  background-color: rgba(88, 74, 74);
+  z-index: 100;
+}
