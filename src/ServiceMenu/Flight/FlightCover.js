@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "react-date-range/dist/styles.css";
 import "react-date-range/dist/theme/default.css";
 import { IoIosAirplane } from "react-icons/io";
@@ -12,7 +12,9 @@ import flightLogo from "../../images/flightlogo.png";
 
 const FlightCover = (props) => {
   const { startingDate: date, travellerInfo, setCoverData } = useDataContext();
-  setCoverData(props);
+  useEffect(() => {
+    setCoverData({ ...props });
+  }, [props, setCoverData]);
   return (
     <>
       <Link to={"/FlightPreview"} className="py-3 flex-col  mx-auto my-auto ">

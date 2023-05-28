@@ -72,13 +72,15 @@ const FlightSearch = (props) => {
 
   return (
     <div className="flex flex-col h-full w-full lg:py-0 relative py-6 z-50">
-      <div className='absolute -top-10 left-[-4vw] right-[-4vw] h-[340px] z-[-1] ms:bg-[#FF8682]'/>
+      <div className="absolute -top-10 left-[-4vw] right-[-4vw] h-[340px] z-[-1] ms:bg-[#FF8682]" />
       <div className="flex gap-6 mx-auto">
         <span
           onClick={() => {
             setTwoWay(false);
           }}
-          className={`${!twoWay && 'ms:text-slate-800 text-slate-800 font-[500] bg-white'} font-lg text-slate-400 ms:text-slate-100 font-mono border-2 ms:rounded-3xl px-4 py-2 hover:bg-white  hover:text-slate-800 cursor-pointer`}
+          className={`${
+            !twoWay && "ms:text-slate-800 text-slate-800 font-[500] bg-white"
+          } font-lg text-slate-400 ms:text-slate-100 font-mono border-2 ms:rounded-3xl px-4 py-2 hover:bg-white  hover:text-slate-800 cursor-pointer`}
         >
           One Way
         </span>
@@ -86,7 +88,9 @@ const FlightSearch = (props) => {
           onClick={() => {
             setTwoWay(true);
           }}
-          className={`${twoWay && 'text-slate-800 ms:text-slate-800 font-[500] bg-white'} font-lg text-slate-400 ms:text-slate-100 font-mono border-2 ms:rounded-3xl px-4 py-2 hover:bg-white  hover:text-slate-800 cursor-pointer`}
+          className={`${
+            twoWay && "text-slate-800 ms:text-slate-800 font-[500] bg-white"
+          } font-lg text-slate-400 ms:text-slate-100 font-mono border-2 ms:rounded-3xl px-4 py-2 hover:bg-white  hover:text-slate-800 cursor-pointer`}
         >
           Two Way
         </span>
@@ -96,7 +100,7 @@ const FlightSearch = (props) => {
       </div>
       <div>
         <form onSubmit={handleSubmit}>
-          <div className="font-medium text-slate-800 flex h-auto w-full bg-white z-50 px-4 my-4 py-4 mx-auto ms:rounded-md flex-row lg:flex-col shadow-[0px_4px_16px_rgba(17,34,17,0.05)]">
+          <div className="font-medium text-slate-800 flex h-auto w-full bg-white z-50 px-4 my-4 py-4 mx-auto ms:rounded-md flex-row sxl:flex-col shadow-[0px_4px_16px_rgba(17,34,17,0.05)]">
             <Locations
               {...props}
               setDepartDate={setDepartDate}
@@ -110,9 +114,9 @@ const FlightSearch = (props) => {
             <button
               onClick={() => setFlightSearch(true)}
               type="submit"
-              className="bg-[#FF8682] lg:flex lg:items-center lg:justify-center h-auto  my-2 lg:py-3 px-2 text-white lg:rounded-md rounded-r"
+              className="bg-[#FF8682] sxl:flex sxl:items-center sxl:justify-center h-auto  my-2 sxl:py-3 px-2 text-white sxl:rounded-md rounded-r"
             >
-              <img src={mail} alt="" className="hidden lg:block mr-3" />
+              <img src={mail} alt="" className="hidden sxl:block mr-3" />
               Search
             </button>
           </div>

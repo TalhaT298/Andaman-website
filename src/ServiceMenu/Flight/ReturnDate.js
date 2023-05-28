@@ -19,7 +19,7 @@ const ReturnDate = () => {
   return (
     <>
       <div
-        onClick={() => setOpenArrDate(prev=>!prev)}
+        onClick={() => setOpenArrDate((prev) => !prev)}
         className="relative h-auto w-full mx-auto px-auto flex flex-col gap-y-3 py-2 airbnbml:items-center airbnbml:border-b-transparent"
       >
         <span className="flex items-center space-x-2 cursor-pointer border w-full p-2 bottom-1">
@@ -28,6 +28,11 @@ const ReturnDate = () => {
             className="text-slate-400 mr-2"
           />
           RETURN
+          {endingDate && (
+            <small className="whitespace-nowrap">
+              - {endingDate[0]?.endDate.toDateString()}
+            </small>
+          )}
         </span>
         {/* <span className='font-medium text-black text-lg mx-auto'>{`${format(
           endingDate[0].endDate,
@@ -53,7 +58,7 @@ const ReturnDate = () => {
             onChange={(item) => setEndingDate([item.selection])}
             moveRangeOnFirstSelection={false}
             ranges={endingDate}
-            className={`absolute z-10 top-20 right-[-2.5rem]`}
+            className={`absolute z-10 top-20 left-0`}
           />
         )}
         {/* <FontAwesomeIcon icon={faCalendarDays} className='text-slate-400' /> */}

@@ -8,7 +8,7 @@ import { useDataContext } from "../../context/useDataContext";
 const DepartDate = () => {
   const [openDeptDate, setOpenDeptDate] = useState(false);
 
-  const {startingDate, setStartingDate} = useDataContext();
+  const { startingDate, setStartingDate } = useDataContext();
 
   return (
     <>
@@ -21,7 +21,12 @@ const DepartDate = () => {
             icon={faCalendarDays}
             className="text-slate-400 mr-2"
           />
-          DEPART
+          DEPART{" "}
+          {startingDate && (
+            <small className="whitespace-nowrap">
+              - {startingDate[0]?.startDate.toDateString()}
+            </small>
+          )}
         </span>
         {/* <span className=" text-slate-400 font-bold text-lg mx-auto">
           {`${format(startingDate[0].startDate, "dd/MM/yyyy")}`}
@@ -46,7 +51,7 @@ const DepartDate = () => {
             onChange={(item) => setStartingDate([item.selection])}
             moveRangeOnFirstSelection={false}
             ranges={startingDate}
-            className={`absolute z-10 top-20 right-[-2.5rem]`}
+            className={`absolute z-10 top-20 left-0`}
           />
         )}
         {/* airbnbml:left-56 airbnbml:-bottom-10  */}
