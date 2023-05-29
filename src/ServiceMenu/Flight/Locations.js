@@ -16,6 +16,7 @@ const Locations = ({
   // setSearchDestTerm(destination)
   const [isVisible, setIsVisible] = useState(false);
   const [isVisible2, setIsVisible2] = useState(false);
+  const [isReverse, setIsReverse] = useState(false);
   const currentDestinationOptions = Array.from(
     new Set(flight.map((airplane) => airplane.currentDestination))
   );
@@ -25,50 +26,66 @@ const Locations = ({
 
   return (
     <>
-      <div className="relative h-auto w-full flex flex-col gap-y-3  mx-auto px-auto py-2 airbnbml:items-center airbnbml:border-b-transparent">
-        <fieldset
-          className="flex items-center space-x-2 cursor-pointer border w-full p-2 bottom-1"
-          onClick={() => setIsVisible((prev) => !prev)}
-        >
-          <legend className="hidden lg:block">From</legend>
-          <img src={arrow} alt="" height={16} width={16} />
-          <span className="whitespace-nowrap">
-            {" "}
-            <span className="inline lg:hidden">FROM - </span>
-            {departDate && <span className="">{departDate}</span>}
-          </span>
-        </fieldset>
-        <div className="hidden lg:flex justify-center items-center place-content-center border border-slate-700 rounded-full w-12 h-12 pl-3 absolute top-16 right-10 z-10 bg-white">
-          <img class="max-w-none mr-3" src={topbottomArrow} alt="..." />
+      <div className=" relative">
+        <div className="hidden sxl:flex justify-center items-center place-content-center border border-slate-700 rounded-full w-12 h-12 pl-3 absolute top-16 right-10 z-10 bg-white">
+          <img
+            className="max-w-none mr-3"
+            src={topbottomArrow}
+            alt="..."
+            onClick={() => setIsReverse((prev) => !prev)}
+          />
         </div>
-        {isVisible && (
-          <div
-            // key={destination}
-            className=" bg-white w-56 col-span-1 rounded absolute top-20 left-0 z-10 
-              py-3 text-start px-5  space-y-2 border-solid border-2"
-            // onClick={() => setNextDestinationFilter(destination)}
+        <div
+          className={`${
+            isReverse && "transform sxl:translate-y-20"
+          } transition-transform duration-300 ease-linear h-auto sxl:w-full w-48  flex flex-col gap-y-3 mx-auto px-auto py-2 airbnbml:items-center airbnbml:border-b-transparent`}
+        >
+          <fieldset
+            className="flex items-center space-x-2 cursor-pointer border w-full p-2 bottom-1"
+            onClick={() => setIsVisible((prev) => !prev)}
           >
-            {currentDestinationOptions.map((destination) => (
-              <button
-                className="hover:bg-[#FF8682] hover:text-white w-full text-start block cursor-pointer p-1 rounded"
-                onClick={() =>
-                  setIsVisible((prev) => !prev, setDepartDate(destination))
-                }
-              >
-                {destination}
-              </button>
-            ))}
-          </div>
-        )}
+            <legend className="hidden sxl:block">From</legend>
+            <img src={arrow} alt="" height={16} width={16} />
+            <span className="whitespace-nowrap">
+              {" "}
+              <span className="inline sxl:hidden">FROM - </span>
+              {departDate && <span className="">{departDate}</span>}
+            </span>
+          </fieldset>
+
+          {isVisible && (
+            <div
+              // key={destination}
+              className=" bg-white w-56 col-span-1 rounded absolute top-20 left-0 z-10 
+              py-3 text-start px-5  space-y-2 border-solid border-2"
+              // onClick={() => setNextDestinationFilter(destination)}
+            >
+              {currentDestinationOptions.map((destination) => (
+                <button
+                  className="hover:bg-[#FF8682] hover:text-white w-full text-start block cursor-pointer p-1 rounded"
+                  onClick={() =>
+                    setIsVisible((prev) => !prev, setDepartDate(destination))
+                  }
+                >
+                  {destination}
+                </button>
+              ))}
+            </div>
+          )}
+        </div>
       </div>
-      <div className="relative h-auto w-full flex flex-col gap-y-3  mx-auto px-auto py-2 airbnbml:items-center airbnbml:border-b-transparent">
+      <div
+        className={`${
+          isReverse && "transform sxl:-translate-y-20"
+        } transition-transform duration-300 ease-linear h-auto w-full flex flex-col gap-y-3 relative mx-auto px-auto py-2 airbnbml:items-center airbnbml:border-b-transparent`}
+      >
         <fieldset
           className="flex items-center space-x-2 cursor-pointer border w-full p-2 bottom-1"
           onClick={() => setIsVisible2((prev) => !prev)}
         >
-          <legend className="hidden lg:block">To</legend>
+          <legend className="hidden sxl:block">To</legend>
           <img src={arrow} alt="" height={16} width={16} />
-          <span className="inline lg:hidden"> TO - </span>{" "}
+          <span className="inline sxl:hidden"> TO - </span>{" "}
           {returnDate && <span> {returnDate}</span>}
         </fieldset>
 

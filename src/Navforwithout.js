@@ -38,12 +38,12 @@ export default function Navforwithout() {
           <a href="/">
             <span
               style={{ fontFamily: "IBM Plex Serif", letterSpacing: "0.15em" }}
-              className="lexs:text-[9vw] text-[40px]"
+              className="lexs:text-[10vw] text-[40px]"
             >
               Sublime
             </span>
             <span
-              className="block lexs:text-[12px] text-center -mt-4"
+              className="block  lexs:text-[12px] text-center -mt-4"
               style={{
                 fontFamily: "Aeonik Pro TRIAL",
                 letterSpacing: "0.6rem",

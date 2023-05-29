@@ -1,9 +1,8 @@
 import React, { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import flight from "../../Data/Flight-Section/flight";
+import Footer from "../../Component/Footer/Footer";
 import Navforwithout from "../../Navforwithout";
 import { useDataContext } from "../../context/useDataContext";
-import Footer from "../../Component/Footer/Footer";
 // import { useLocation, useNavigate } from 'react-router-dom';
 
 const TravellersDetailsFlight = () => {
@@ -169,7 +168,7 @@ const TravellersDetailsFlight = () => {
             name="name"
             value={adult.name}
             onChange={(event) => adultChangeHandler(event, index)}
-            className="h-[38px] outline-none p-4 rounded-md border border-gray-300 focus:border-2 focus:border-slate-400 ml-[16px]"
+            className="h-[38px] w-full outline-none p-4 rounded-md border border-gray-300 focus:border-2 focus:border-slate-400"
             required
           />
         </div>
@@ -182,7 +181,7 @@ const TravellersDetailsFlight = () => {
             name="age"
             value={adult.age}
             onChange={(event) => adultChangeHandler(event, index)}
-            className="h-[38px] outline-none p-4 rounded-md border border-gray-300 focus:border-2 focus:border-slate-400 ml-[55px]"
+            className="h-[38px] w-full outline-none p-4 rounded-md border border-gray-300 focus:border-2 focus:border-slate-400"
             required
           />
         </div>
@@ -1218,30 +1217,30 @@ const TravellersDetailsFlight = () => {
         </div>
 
         <hr className="my-5" />
-      <div className="flex flex-col gap-4">
-        <h1 className="font-bold">Price Details</h1>
-        <div className="flex justify-between">
-          <p className="font-[500] text-md">Base Fare</p>
-          <p className="font-[600] text-md">₹ {totalFare}</p>
+        <div className="flex flex-col gap-4">
+          <h1 className="font-bold">Price Details</h1>
+          <div className="flex justify-between">
+            <p className="font-[500] text-md">Base Fare</p>
+            <p className="font-[600] text-md">₹ {totalFare}</p>
+          </div>
+          <div className="flex justify-between">
+            <p className="font-[500] text-md">Discount</p>
+            <p className="font-[600] text-md">₹ {discount}</p>
+          </div>
+          <div className="flex justify-between">
+            <p className="font-[500] text-md">Taxes</p>
+            <p className="font-[600] text-md">₹ {taxes}</p>
+          </div>
+          <div className="flex justify-between">
+            <p className="font-[500] text-md">Service Fee</p>
+            <p className="font-[600] text-md">₹ {fee}</p>
+          </div>
         </div>
+        <hr className="my-4" />
         <div className="flex justify-between">
-          <p className="font-[500] text-md">Discount</p>
-          <p className="font-[600] text-md">₹ {discount}</p>
+          <p className="font-[500] text-md">Total</p>
+          <p className="font-[600] text-md">₹ {netTotal}</p>
         </div>
-        <div className="flex justify-between">
-          <p className="font-[500] text-md">Taxes</p>
-          <p className="font-[600] text-md">₹ {taxes}</p>
-        </div>
-        <div className="flex justify-between">
-          <p className="font-[500] text-md">Service Fee</p>
-          <p className="font-[600] text-md">₹ {fee}</p>
-        </div>
-      </div>
-      <hr className="my-4" />
-      <div className="flex justify-between">
-        <p className="font-[500] text-md">Total</p>
-        <p className="font-[600] text-md">₹ {netTotal}</p>
-      </div>
       </div>
     </div>
   ));
@@ -1281,9 +1280,9 @@ const TravellersDetailsFlight = () => {
       <Navforwithout />
       <div className="h-full w-auto mb-5" style={{ fontFamily: "Montserrat" }}>
         <div>
-          <div className="w-[90%] flex gap-3 xl:flex-col justify-center mx-auto mt-12 mb-8">
+          <div className="w-[95%] lg:w-10/12 flex gap-3 lg:flex-wrap justify-center mx-auto mt-12 mb-8">
             <div className="w-[50%] lg:w-full shadow rounded bg-white xl:w-[50%] px-8 py-8">
-              <h1 className="text-[#699c78] text-[26px] md:text-2xl font-[Montserrat] font-semibold ">
+              <h1 className="text-[#699c78] whitespace-nowrap lexs:text-[5.8vw] text-[26px] md:text-2xl font-[Montserrat] font-semibold ">
                 Add Traveller(s) Details
               </h1>
 
@@ -1294,11 +1293,11 @@ const TravellersDetailsFlight = () => {
             </div>
 
             <form
-              className="w-[50%] xs:w-full lg:w-[60%] xl:w-[50%] shadow rounded bg-white overflow-hidden 
+              className="w-[50%] lg:w-full shadow rounded bg-white overflow-hidden 
                     p-8 "
               onSubmit={handleSubmit}
             >
-              <h1 className="text-[#699c78] text-[26px] md:text-2xl font-[Montserrat] font-bold mb-6 md:mb-3 tracking-wide">
+              <h1 className="text-[#699c78] whitespace-nowrap lexs:text-[5.8vw] text-[26px] md:text-2xl font-[Montserrat] font-bold mb-6 md:mb-3 tracking-wide">
                 Add Contact Details
               </h1>
               <div className="flex flex-col gap-1">
@@ -1375,8 +1374,8 @@ const TravellersDetailsFlight = () => {
               </button>
             </form>
 
-            <div className="w-[50%] shadow rounded bg-white md:w-full lg:w-[45%] xl:w-[50%] p-8 ">
-              <h1 className="text-[26px] text-[#699c78] md:text-2xl font-[Montserrat] font-semibold">
+            <div className="w-[50%] shadow rounded bg-white lg:w-full  p-8 ">
+              <h1 className="whitespace-nowrap lexs:text-[5.8vw] text-[26px] text-[#699c78] md:text-2xl font-[Montserrat] font-semibold">
                 Trip Summary
               </h1>
               {tripData.length === 0 ? (

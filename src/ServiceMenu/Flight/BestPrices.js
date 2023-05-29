@@ -29,7 +29,7 @@ const BestPrices = () => {
               className="py-3 flex-col  mx-auto my-auto "
             >
               {/* flight ? <div>{JSON.stringify(flight)}</div> : <div>Loading...</div> */}
-              <div className="flex-row bg-white rounded-xl w-auto py-8 h-auto shadow-[0px_4px_16px_rgba(17,34,17,0.05)] transition:origin-center hover:ease-in-out hover:scale-110 transition:duration-1000 transition-transform">
+              <div className="flex-row bg-white rounded-xl w-auto py-8 h-auto shadow-[0px_4px_16px_rgba(17,34,17,0.05)] transition:origin-center hover:ease-in-out hover:scale-105 transition:duration-1000 transition-transform">
                 <div className="text-[#112211] flex items-center md:gap-5 gap-16  mx-auto py-auto md:px-8 px-10 text-center  w-full xs:flex-col xs:py-2 xs:gap-y-3">
                   <div className="ms:hidden">
                     <img

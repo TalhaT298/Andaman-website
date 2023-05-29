@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { IoIosAirplane } from "react-icons/io";
 import { MdKeyboardArrowRight, MdLocationPin } from "react-icons/md";
 import { RiDoorLockFill } from "react-icons/ri";
@@ -28,16 +28,28 @@ const FlightPreview = () => {
   const flightData = flight.find(
     (airplane) => airplane.currentDestination === currentDestinationFilter
   );
-  setFlightDataState(flightData);
+  const totalAdultFare = travellerInfo.adult * flightDataState.adultPrice;
+  const totalInfantFare = travellerInfo.infant * flightDataState.infantPrice;
+  const totalChildrenFare =
+    travellerInfo.children * flightDataState.childrenPrice;
+  const totalFare = totalAdultFare + totalInfantFare + totalChildrenFare;
+  const discount = 200;
+  const taxes = totalFare * (3 / 100);
+  const fee = 400;
+  const netTotal = totalFare + discount + taxes + fee;
+  useEffect(() => {
+    setFlightDataState(flightData);
+  }, [flightData, setFlightDataState]);
+
   const handleInput = (e) => {
     setPassengerClass(e.target.value);
   };
   return (
     <div style={{ fontFamily: "Montserrat" }}>
       <Navforwithout />
-      <div className="ms:mx-0 ms:mt-0 lg:mx-6   mx-20 mt-10 mb-16">
+      <div className="ms:mx-0 ms:mt-0  lg:mx-6   mx-20 mt-10 ms:mb-5 mb-16">
         {/* <div className="absolute -top-10 left-[-4vw] right-[-4vw] h-[340px] z-[-1] ms:bg-[#FF8682]" /> */}
-        <div className="ms:bg-[#FF8682] ms:pt-10 ms:px-6 ms:h-[240px]">
+        <div className="ms:bg-[#FF8682] ms:pt-10 lexs:px-2 ms:px-6 ms:h-[240px]">
           <div className="ms:hidden flex items-center gap-2 z-50">
             <span className="text-[#FF8682] ">Flight</span>
             <span>
@@ -63,7 +75,7 @@ const FlightPreview = () => {
             </div>
             <div className="">
               <div className="flex items-center gap-5">
-                <div class="flex items-center justify-center gap-2">
+                <div className="flex items-center justify-center gap-2">
                   {/* <label htmlFor="economy"> */}
                   <input
                     type="checkbox"
@@ -80,7 +92,7 @@ const FlightPreview = () => {
                     Economy
                   </label>
                 </div>
-                <div class="flex items-center justify-center gap-2">
+                <div className="flex items-center justify-center gap-2">
                   <>
                     <input
                       type="checkbox"
@@ -97,7 +109,7 @@ const FlightPreview = () => {
                     Business Class
                   </label>
                 </div>
-                <div class="flex items-center justify-center gap-2">
+                <div className="flex items-center justify-center gap-2">
                   {/* <label htmlFor="first"> */}
                   <input
                     type="checkbox"
@@ -118,7 +130,7 @@ const FlightPreview = () => {
           </div>
         </div>
         <div className="ms:mx-2">
-          <div className="ms:mt-28 mt-10 bg-[rgba(255,134,130,0.6)] rounded-lg p-6">
+          <div className="lexs:mt-52 ms:mt-36 mt-10 bg-[rgba(255,134,130,0.6)] rounded-lg p-6">
             <h2 className="text-2xl font-bold">Emirates Airlines Policies</h2>
             <div className="flex lg:flex-col lg:gap-5 gap-20 mt-3">
               <div className="flex items-center gap-1">
@@ -185,25 +197,28 @@ const FlightPreview = () => {
               </div>
             </div>
           </div>
-          <div className="ms:flex flex-row hidden bg-white rounded-xl absolute top-52 mx-3 inset-x-0  w-auto py-8 h-auto shadow-[0px_4px_16px_rgba(17,34,17,0.05)] transition:origin-center hover:ease-in-out hover:scale-110 transition:duration-1000 transition-transform">
+          <div className="ms:flex flex-row hidden bg-white rounded-xl absolute top-52 mx-3 inset-x-0  w-auto py-8 h-auto shadow-[0px_4px_16px_rgba(17,34,17,0.05)]">
             <div className="text-[#112211] flex items-center md:gap-5 gap-16  mx-auto py-auto md:px-8 px-10 text-center  w-full xs:flex-col xs:py-2 xs:gap-y-3">
               <div className="w-full">
-                <div className="flex justify-between">
-                  <div className="self-end">
-                    {date[0].startDate.toDateString()}
+                <div className="flex lexs:flex-col justify-between items-center md:gap-5">
+                  <div className="flex items-center md:w-56 w-auto justify-center bg-[#FFFFFF] gap-5  border-[0.5px] border-[0.5px_solid_#8DD3BB] rounded-lg px-8 py-4 ">
+                    <img
+                      src={flightLogoMini}
+                      alt="flightLogoMini"
+                      className=""
+                    />
+                    <div className="">
+                      <h2 className="font-semibold text-2xl">Emirates</h2>
+                      <p className="text-[#112211] opacity-[0.6] font-[500]">
+                        {flightDataState.flightName}
+                      </p>
+                    </div>
                   </div>
-                  <div className="ms:block hidden">
-                    <p>
-                      {`${
-                        travellerInfo.adult +
-                        travellerInfo.children +
-                        travellerInfo.infant
-                      }`}{" "}
-                      Seat
-                    </p>
+                  <div className="text-xl whitespace-nowrap text-blue-500 font-bold">
+                    ₹ {netTotal}{" "}
                   </div>
                 </div>
-                <hr className="ms:block hidden my-3" />
+                {/* <hr className="ms:block hidden my-3" /> */}
                 <div className="flex justify-between items-center ">
                   <div className="ms:block hidden text-start">
                     <div>
@@ -220,7 +235,7 @@ const FlightPreview = () => {
                     <span className="border border-[#FF8682] border-dashed w-[11vw]"></span>
                   </div>
                   <div className="ms:block hidden">
-                    <span className="text-[3.72vw]">
+                    <span className="text-[3.72vw] whitespace-nowrap">
                       {flightData.nextDestination}
                     </span>
                   </div>
