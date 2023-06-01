@@ -1,21 +1,31 @@
 import { Navbar, Text } from "@nextui-org/react";
-import { BiHomeAlt } from "react-icons/bi";
-import { HiOutlineMail } from "react-icons/hi";
 import { Link } from "react-router-dom";
 
-const collapseItems = ["Connect With Us", "Contact Us", "About Us"];
+const collapseItems = ["Connect With Us", "Blogs", "Contact Us", "About Us"];
 
 const HeadColor = "#3f51b5"; //'#2f4f4f';
 
 export default function Navforwithout() {
   return (
-    <Navbar isBordered variant="static" style={{ backgroundColor: "white" }}>
-      <Navbar.Content activeColor={"primary"} hideIn="md" variant={"underline"}>
-        <Navbar.Link isActive href="/">
-          <BiHomeAlt className="w-6 h-6 mr-2" /> Home
-        </Navbar.Link>
+    <Navbar
+      isBordered
+      variant="static"
+      style={{
+        backgroundColor: "white",
+        fontFamily: "Montserrat",
+        fontWeight: "600",
+        fontSize: "14px",
+      }}
+    >
+      <Navbar.Content hideIn="md" variant={"underline"}>
+        <Navbar.Link href="/">Home</Navbar.Link> |
         <Navbar.Link b href="/">
-          <HiOutlineMail className="w-6 h-6 mr-2" /> Contact Us
+          {" "}
+          Blogs
+        </Navbar.Link>{" "}
+        |
+        <Navbar.Link b href="/">
+          Contact Us
         </Navbar.Link>
         {/* <Navbar.Link isActive href="#">Customers</Navbar.Link> */}
       </Navbar.Content>
@@ -38,12 +48,12 @@ export default function Navforwithout() {
           <a href="/">
             <span
               style={{ fontFamily: "IBM Plex Serif", letterSpacing: "0.15em" }}
-              className="lexs:text-[10vw] text-[40px]"
+              className="lexs:text-[10vw] text-[32px]"
             >
               Sublime
             </span>
             <span
-              className="block  lexs:text-[12px] text-center -mt-4"
+              className="block  lexs:text-[10px]  text-[14px] text-center -mt-4"
               style={{
                 fontFamily: "Aeonik Pro TRIAL",
                 letterSpacing: "0.6rem",

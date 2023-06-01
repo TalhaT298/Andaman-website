@@ -1,13 +1,11 @@
-import React, { useState } from 'react';
+import "react-date-range/dist/styles.css";
+import "react-date-range/dist/theme/default.css";
+import mail from "../../images/image_source_for_shiptab/mail_arrow.png";
 
-import 'react-date-range/dist/styles.css';
-import 'react-date-range/dist/theme/default.css';
-import mail from '../../images/image_source_for_shiptab/mail_arrow.png'
-
-import Locations from './Locations';
-import DepartDate from './DepartDate';
+import DepartDate from "./DepartDate";
+import Locations from "./Locations";
 // import ReturnDate from './ReturnDate';
-import Options from './Options';
+import Options from "./Options";
 
 // This below code is for fetching data from local storage for json file
 // function searchFlights(origin, destination, departureDate) {
@@ -51,51 +49,28 @@ import Options from './Options';
 // }
 
 const ShipSearch = (props) => {
-  const { handleSearch } = props
+  const { handleSearch } = props;
 
   const handleSubmit = (event) => {
     event.preventDefault();
   };
 
-  // const [twoWay, setTwoWay] = useState(false);
-
   return (
-    <div className='py-5 mb-3 mt-12 drop-shadow-xl bg-white rounded-lg  w-11/12 mx-auto px-6'>
-      {/* <div className='flex gap-6 mx-auto'>
-        <span
-          onClick={() => {
-            setTwoWay(false);
-          }}
-          className='font-medium border-solid border-2 px-1 py-1 hover:bg-rose-500 rounded-md hover:border-none'
-        >
-          One Way
-        </span>
-        <span
-          onClick={() => {
-            setTwoWay(true);
-          }}
-          className='font-medium border-solid border-2 px-1 py-1 hover:bg-rose-500 rounded-md hover:border-none'
-        >
-          Two Way
-        </span>
-        <span className='font-medium border-solid border-2 px-1 py-1 hover:bg-rose-500 rounded-md hover:border-none'>
-          Multi-City
-        </span>
-      </div> */}
-      <form onSubmit={handleSubmit} className=''>
-        <div className='flex flex-row lg:flex-col justify-center'>
+    <div className="flex flex-col h-full w-full lg:py-0 relative py-6 z-50">
+      <div className="absolute top-0 left-[-4vw] right-[-4vw] h-[340px] z-[-1] ms:bg-[#FF8682]" />
+      <form onSubmit={handleSubmit} className="">
+        <div className="font-medium text-slate-800 flex h-auto w-full bg-white z-50 px-4 my-4 py-4 mx-auto ms:rounded-md flex-row sxl:flex-col shadow-[0px_4px_16px_rgba(17,34,17,0.05)]">
           <Locations {...props} />
 
           <DepartDate />
-          {/* {twoWay && <ReturnDate />} */}
 
           <Options />
           <button
-            type='submit'
-            className='lg:flex lg:items-center lg:justify-center w-20 bg-rose-400 px-3 py-3 text-white rounded-md lg:w-full'
+            type="submit"
+            className="bg-[#FF8682] sxl:flex sxl:items-center sxl:justify-center h-auto  my-2 sxl:py-3 px-2 text-white sxl:rounded-md rounded-r"
             onClick={handleSearch}
           >
-            <img src={mail} alt=""  className='hidden lg:block mr-3'/>
+            <img src={mail} alt="" className="hidden lg:block mr-3" />
             <span>Search</span>
           </button>
         </div>

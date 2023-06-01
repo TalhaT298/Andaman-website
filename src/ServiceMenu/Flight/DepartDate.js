@@ -23,7 +23,7 @@ const DepartDate = () => {
           />
           DEPART{" "}
           {startingDate && (
-            <small className="whitespace-nowrap">
+            <small className="lexs:whitespace-normal whitespace-nowrap">
               - {startingDate[0]?.startDate.toDateString()}
             </small>
           )}

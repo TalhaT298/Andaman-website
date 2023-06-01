@@ -1,13 +1,11 @@
-import React from "react";
-import { useState } from "react";
-import classes from './options.module.css'
-import Modal from "react-modal";
-import person from '../../images/image_source_for_shiptab/person.png';
+import React, { useState } from "react";
+import { AiOutlineMinus, AiOutlinePlus } from "react-icons/ai";
+import { FaUser } from "react-icons/fa";
 import { useDataContext } from "../../context/useDataContext";
 
 const Options = () => {
   const [openTravellerInfo, setOpenTravellerInfo] = useState(false);
-  const {travellerInfo, setTravellerInfo} = useDataContext()
+  const { travellerInfo, setTravellerInfo } = useDataContext();
 
   const handleTravellerInfo = (category, arithmetricOperation) => {
     setTravellerInfo((prev) => {
@@ -22,25 +20,22 @@ const Options = () => {
   };
 
   return (
-    <div className="w-52 lg:w-full flex items-center  border border-slate-300 py-3 px-3 hover:border-2 hover:border-rose-400 hover:rounded-md lg:mb-3">
-      <img class="max-w-none mr-3" src={person} alt="..." />
+    <div className="relative h-auto w-full mx-auto px-auto flex flex-col gap-y-3 py-2 airbnbml:items-center airbnbml:border-b-transparent">
       <span
         onClick={() => setOpenTravellerInfo(!openTravellerInfo)}
-        className="font-medium text-black text-lg"
+        className=" flex items-center space-x-2 cursor-pointer border w-full p-2 bottom-1"
       >
+        <FaUser className="mr-2" />
         {`${
           travellerInfo.adult + travellerInfo.children + travellerInfo.infant
-        }`}{" "} Travelers
+        }`}{" "}
+        Traveller(s)
       </span>
 
-      <Modal
-        isOpen={openTravellerInfo}
-        overlayClassName="modal-overlay bg-black opacity"
-        className="modal-content w-auto h-auto ml-96"
-      >
+      {openTravellerInfo && (
         <div
-          className={`${classes.responsive} flex flex-col absolute bg-white -bottom-[-12rem] lg:right-[8rem] md:bottom-[27rem] sm:bottom-[20rem] 
-         lexs:right-20  lexs:-bottom-24 w-auto h-auto py-3 mx-auto px-auto space-x-4 border-solid border-2 border-rose-400 rounded-md shadow-md shadow-black drop-shadow-md`}
+          className={`bg-white rounded absolute top-20 right-0 z-10 w-auto
+            py-3 mx-auto px-auto space-x-4 border-solid border-2 `}
         >
           <div className="flex flex-row gap-6 px-6">
             <div className="flex flex-col gap-y-5 py-2">
@@ -48,65 +43,77 @@ const Options = () => {
               <span className="optionText">Children</span>
               <span className="optionText">Infant</span>
             </div>
-            <div className="text-center">
-              <div className="mx-auto px-auto space-x-6">
+            <div className="text-start flex flex-col justify-between">
+              <div className="space-x-6">
                 <button
                   disabled={travellerInfo.adult <= 1}
                   onClick={() => handleTravellerInfo("adult", "d")}
-                  className="disabled:cursor-not-allowed text-rose-400 text-2xl w-6 h-8 my-1.5"
+                  className="disabled:cursor-not-allowed  w-6 h-8"
                 >
-                  <span className="">-</span>
+                  <span className="">
+                    <AiOutlineMinus />
+                  </span>
                 </button>
                 <span className="optionCounterNumber">
                   {travellerInfo.adult}
                 </span>
                 <button
                   onClick={() => handleTravellerInfo("adult", "i")}
-                  className="text-rose-400 text-2xl w-6 h-8 my-1.5"
+                  className="  w-6 h-8"
                 >
-                  <span className="">+</span>
+                  <span className="">
+                    <AiOutlinePlus />
+                  </span>
                 </button>
               </div>
-              <div className="mx-auto px-auto space-x-6">
+              <div className="space-x-6">
                 <button
                   disabled={travellerInfo.children <= 0}
                   onClick={() => handleTravellerInfo("children", "d")}
-                  className="disabled:cursor-not-allowed text-rose-400 text-2xl w-6 h-8 my-1.5"
+                  className="disabled:cursor-not-allowed "
                 >
-                  <span className="">-</span>
+                  <span className="">
+                    <AiOutlineMinus />
+                  </span>
                 </button>
                 <span className="optionCounterNumber">
                   {travellerInfo.children}
                 </span>
                 <button
                   onClick={() => handleTravellerInfo("children", "i")}
-                  className="text-rose-400 text-2xl w-6 h-8 my-1.5"
+                  className=" "
                 >
-                  <span className="">+</span>
+                  <span className="">
+                    <AiOutlinePlus />
+                  </span>
                 </button>
               </div>
-              <div className="mx-auto px-auto space-x-6">
+              <div className="space-x-6">
                 <button
                   disabled={travellerInfo.infant <= 0}
                   onClick={() => handleTravellerInfo("infant", "d")}
-                  className="disabled:cursor-not-allowed text-rose-400 text-2xl w-6 h-8 my-1.5"
+                  className="disabled:cursor-not-allowed "
                 >
-                  <span className="">-</span>
+                  <span className="">
+                    <AiOutlineMinus />
+                  </span>
                 </button>
                 <span className="optionCounterNumber">
                   {travellerInfo.infant}
                 </span>
                 <button
                   onClick={() => handleTravellerInfo("infant", "i")}
-                  className="text-rose-400 text-2xl w-6 h-8 my-1.5"
+                  className="  w-6 h-8"
                 >
-                  <span className="">+</span>
+                  <span className="">
+                    <AiOutlinePlus />
+                  </span>
                 </button>
               </div>
             </div>
           </div>
         </div>
-      </Modal>
+      )}
     </div>
   );
 };

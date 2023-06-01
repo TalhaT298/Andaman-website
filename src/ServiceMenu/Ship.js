@@ -1,47 +1,49 @@
-import React, { useRef } from "react";
-import { useState } from "react";
+import React, { useState } from "react";
 // import ShipSearch from "./Ship/ShipSearch";
 // import Mainland from "./Ship/Mainland";
 // import Inland from "./Ship/Inland";
 import ship from "../Data/Ship-Section/ship";
-import ShipOverview from './Ship/Shipoverview';
+import ShipOverview from "./Ship/Shipoverview";
 // import ShipCover from "./Ship/ShipCover";
 // import ImageSection from "./Ship/ImageSection";
 import ShipSearch from "./Ship/ShipSearch";
 // import MainlandDetails from "./Ship/MainlandDetails";
 // import SecondSchedule from "./Ship/SecondSchedule";
-import { useDataContext } from '../context/useDataContext';
-
+import { useDataContext } from "../context/useDataContext";
 
 const Ship = () => {
   //search feature
   // const [searchOriginTerm, setSearchOriginTerm] = useState("");
   // const [searchDestTerm, setSearchDestTerm] = useState("");
-    const [showResults, setShowResults] = useState(false);
+  const [showResults, setShowResults] = useState(false);
 
-  const { 
-    currentDestinationFilterShip, 
+  const {
+    currentDestinationFilterShip,
     nextDestinationFilterShip,
     setcurrentDestinationFilterShip,
-    setnextDestinationFilterShip,} =  useDataContext();
+    setnextDestinationFilterShip,
+  } = useDataContext();
 
-    const handleSearch = () => {
-      setShowResults(true);
-    };
+  const handleSearch = () => {
+    setShowResults(true);
+  };
 
-    const shipData = ship
-    .filter((getShip) =>
-    currentDestinationFilterShip === '' ||
-      getShip.currentDestination === currentDestinationFilterShip
+  const shipData = ship
+    .filter(
+      (getShip) =>
+        currentDestinationFilterShip === "" ||
+        getShip.currentDestination === currentDestinationFilterShip
     )
-    .filter((getShip) =>
-    nextDestinationFilterShip === '' ||
-      getShip.nextDestination === nextDestinationFilterShip
+    .filter(
+      (getShip) =>
+        nextDestinationFilterShip === "" ||
+        getShip.nextDestination === nextDestinationFilterShip
     )
     .map((getShip, index) => {
-      return (<>
-      <ShipOverview key={index} {...getShip} />
-      </>
+      return (
+        <>
+          <ShipOverview key={index} {...getShip} />
+        </>
       );
     });
 
@@ -70,9 +72,9 @@ const Ship = () => {
   // };
 
   return (
-    <div  style={{fontFamily:"Montserrat"}}>
+    <div style={{ fontFamily: "Montserrat" }}>
       {/* <ImageSection handleClick={handleClick} /> */}
-      <ShipSearch 
+      <ShipSearch
         currentDestinationFilterShip={currentDestinationFilterShip}
         nextDestinationFilterShip={nextDestinationFilterShip}
         setcurrentDestinationFilterShip={setcurrentDestinationFilterShip}
@@ -80,18 +82,6 @@ const Ship = () => {
         handleSearch={handleSearch}
       />
       <div className="pt-2 w-full text-center">
-        <div className="flex justify-between mb-5 mt-11">
-          <div className="font-bold">
-            <p>Showing 4 of <span className="text-rose-400">10 Ships</span></p>
-          </div>
-          <div className="flex">
-            <p>sort by</p>
-            <select className="font-bold" name="" id="">
-              <option value="">Recommended</option>
-              <option value="">Boatmap</option>
-            </select>
-          </div>
-        </div>
         {showResults ? (
           shipData.length === 0 ? (
             <center>
@@ -102,7 +92,9 @@ const Ship = () => {
           )
         ) : (
           <center>
-            <h1 className="mt-28 text-3xl font bold">Search your destination</h1>
+            <h1 className="mt-28 text-3xl font bold">
+              Search your destination
+            </h1>
           </center>
         )}
       </div>
