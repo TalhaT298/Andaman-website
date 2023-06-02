@@ -4,7 +4,7 @@ import React, { createContext, useContext, useState } from "react";
 const DataContext = createContext();
 
 // Create the DataProvider component
-export const DataProvider = ({ children }) => {
+export const ShipDataProvider = ({ children }) => {
   // Location State
   const [currentDestinationFilter, setCurrentDestinationFilter] =
     useState("Chennai");
@@ -42,14 +42,7 @@ export const DataProvider = ({ children }) => {
   ]);
 
   // Flight Search State
-  const [twoWay, setTwoWay] = useState(false);
   const [passengerClass, setPassengerClass] = useState("ECONOMY");
-  let wayType = "";
-  if (twoWay) {
-    wayType = "Two Way";
-  } else {
-    wayType = "One Way";
-  }
   const [flightSearch, setFlightSearch] = useState(false);
 
   // TripSummary
@@ -78,11 +71,8 @@ export const DataProvider = ({ children }) => {
     nextDestinationFilterShip,
     setcurrentDestinationFilterShip,
     setnextDestinationFilterShip,
-    twoWay,
-    setTwoWay,
     endingDate,
     setEndingDate,
-    wayType,
     flightDataState,
     setFlightDataState,
     adultDetails,
@@ -95,10 +85,8 @@ export const DataProvider = ({ children }) => {
     setContactDetails,
     passengerClass,
     setPassengerClass,
-
     flightSearch,
     setFlightSearch,
-
     coverData,
     setCoverData,
   };
@@ -106,5 +94,5 @@ export const DataProvider = ({ children }) => {
   return <DataContext.Provider value={state}>{children}</DataContext.Provider>;
 };
 
-// Create the useDataContext hook to access the context
-export const useDataContext = () => useContext(DataContext);
+// Create the useShipDataContext hook to access the context
+export const useShipDataContext = () => useContext(DataContext);

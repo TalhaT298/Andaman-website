@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+import { MdKeyboardArrowRight } from "react-icons/md";
+import { Link, useNavigate } from "react-router-dom";
 import Footer from "../../Component/Footer/Footer";
 import Navforwithout from "../../Navforwithout";
 import { useDataContext } from "../../context/useDataContext";
@@ -46,6 +47,11 @@ const TravellersDetailsFlight = () => {
     // setFlightDataState,
     flightDataState,
   } = useDataContext();
+  console.log(
+    "🚀 ~ file: TravellersDetailsFlight.js:50 ~ TravellersDetailsFlight ~ adultDetails:",
+    adultDetails
+  );
+
   const totalAdultFare = travellerInfo.adult * flightDataState.adultPrice;
   const totalInfantFare = travellerInfo.infant * flightDataState.infantPrice;
   const totalChildrenFare =
@@ -147,7 +153,7 @@ const TravellersDetailsFlight = () => {
           <select
             id="title"
             name="title"
-            value={adultDetails.title}
+            value={adult.title}
             onChange={(event) => adultChangeHandler(event, index)}
             className="p-1 border border-gray-300 ml-[55px]"
             required
@@ -1269,7 +1275,7 @@ const TravellersDetailsFlight = () => {
     }
 
     if (!checkEmptyField) {
-      navigate("/FlightReviewBooking");
+      navigate("/FlightPayment");
     } else {
       alert("Please fill all the details!");
     }
@@ -1280,6 +1286,21 @@ const TravellersDetailsFlight = () => {
       <Navforwithout />
       <div className="h-full w-auto mb-5" style={{ fontFamily: "Montserrat" }}>
         <div>
+          <div className="ms:hidden flex items-center mt-5 ml-10 gap-2 z-50">
+            <Link to={"/Flight"} className="text-[#FF8682] ">
+              Flight
+            </Link>
+            <span>
+              <MdKeyboardArrowRight />
+            </span>
+            <Link to={"/FlightPreview"} className="text-[#FF8682] ">
+              {flightDataState.flightName}
+            </Link>
+            <span>
+              <MdKeyboardArrowRight />
+            </span>
+            <span>Travelers Details</span>
+          </div>
           <div className="w-[95%] lg:w-10/12 flex gap-3 lg:flex-wrap justify-center mx-auto mt-12 mb-8">
             <div className="w-[50%] lg:w-full shadow rounded bg-white xl:w-[50%] px-8 py-8">
               <h1 className="text-[#699c78] whitespace-nowrap lexs:text-[5.8vw] text-[26px] md:text-2xl font-[Montserrat] font-semibold ">

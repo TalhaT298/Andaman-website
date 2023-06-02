@@ -1,11 +1,11 @@
 import React, { useState } from "react";
 import { AiOutlineMinus, AiOutlinePlus } from "react-icons/ai";
 import { FaUser } from "react-icons/fa";
-import { useDataContext } from "../../context/useDataContext";
+import { useShipDataContext } from "../../context/useShipDataContext";
 
 const Options = () => {
   const [openTravellerInfo, setOpenTravellerInfo] = useState(false);
-  const { travellerInfo, setTravellerInfo } = useDataContext();
+  const { travellerInfo, setTravellerInfo } = useShipDataContext();
 
   const handleTravellerInfo = (category, arithmetricOperation) => {
     setTravellerInfo((prev) => {

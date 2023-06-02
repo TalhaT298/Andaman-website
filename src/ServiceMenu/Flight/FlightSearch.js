@@ -8,46 +8,6 @@ import ReturnDate from "./ReturnDate";
 const Locations = lazy(() => import("./Locations"));
 const DepartDate = lazy(() => import("./DepartDate"));
 const Options = lazy(() => import("./Options"));
-// This below code is for fetching data from local storage for json file
-// function searchFlights(origin, destination, departureDate) {
-//   // Use the file:// protocol to read the local JSON file
-//   return fetch('file:///path/to/flights.json')
-//     .then(response => response.json())
-//     .then(data => {
-//       // Filter the flights by the specified origin, destination, and departure date
-//       const filteredFlights = data.flights.filter(flight => {
-//         return flight.origin === origin && flight.destination === destination && flight.departure_date === departureDate;
-//       });
-
-//       return filteredFlights;
-//     })
-//     .catch(error => {
-//       console.error(error);
-//     });
-// }
-
-// This below code is for fetching data from local storage for javascript file
-// import fs from 'fs';
-// function searchFlights(origin, destination, departureDate) {
-//   // Use the file:// protocol and the fs module to read the local JavaScript file
-//   return new Promise((resolve, reject) => {
-//     fs.readFile('file:///path/to/flights.js', 'utf8', (error, data) => {
-//       if (error) {
-//         reject(error);
-//       } else {
-//         // Parse the data from the file as JSON
-//         const flights = JSON.parse(data);
-
-//         // Filter the flights by the specified origin, destination, and departure date
-//         const filteredFlights = flights.filter(flight => {
-//           return flight.origin === origin && flight.destination === destination && flight.departure_date === departureDate;
-//         });
-
-//         resolve(filteredFlights);
-//       }
-//     });
-//   });
-// }
 
 const FlightSearch = (props) => {
   // const [origin, setOrigin] = useState("Port Blair");

@@ -1,12 +1,41 @@
 import React, { useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+import { MdKeyboardArrowRight } from "react-icons/md";
+import { Link, useNavigate } from "react-router-dom";
+import Footer from "../../Component/Footer/Footer";
 import Navforwithout from "../../Navforwithout";
-// import { useDataContext } from "../../context/useDataContext";
 import { useShipDataContext } from "../../context/useShipDataContext";
+// import { useLocation, useNavigate } from 'react-router-dom';
 
-const TravelarDetailsShip = () => {
+const TravellersDetailsShip = () => {
+  const navigate = useNavigate();
+  // const location = useLocation();
+  // const { state } = location
+  // const {
+  //   travellerInfo,
+  //   currentDestinationFilter,
+  //   startingDate,
+  //   nextDestinationFilter,
+  //   twoWay,
+  //   endingDate,
+  //   adultDetails,
+  //   setAdultDetails,
+  //   childrenDetails,
+  //   setChildrenDetails,
+  //   infantDetails,
+  //   setInfantDetails,
+  //   contactDetails,
+  //   setContactDetails,
+  //   setFlightDataState,
+  //   flightDataState
+  // } = state
+
   const {
     travellerInfo,
+    currentDestinationFilter,
+    startingDate,
+    nextDestinationFilter,
+    twoWay,
+    endingDate,
     adultDetails,
     setAdultDetails,
     childrenDetails,
@@ -15,8 +44,33 @@ const TravelarDetailsShip = () => {
     setInfantDetails,
     contactDetails,
     setContactDetails,
+    // setFlightDataState,
+    flightDataState,
   } = useShipDataContext();
-  const navigate = useNavigate();
+  const totalAdultFare = travellerInfo.adult * flightDataState.adultPrice;
+  const totalInfantFare = travellerInfo.infant * flightDataState.infantPrice;
+  const totalChildrenFare =
+    travellerInfo.children * flightDataState.childrenPrice;
+  const totalFare = totalAdultFare + totalInfantFare + totalChildrenFare;
+  let totalTripFare = totalFare;
+  const discount = 200;
+  const taxes = totalFare * (3 / 100);
+  const fee = 400;
+  const netTotal = totalFare + discount + taxes + fee;
+  let num = 1;
+  if (twoWay) num = 2;
+
+  // const flightData = flight.find(
+  //   (airplane) => airplane.currentDestination === currentDestinationFilter
+  // );
+  // setFlightDataState(flightData)
+  //calculating fares
+  // const totalAdultFare = travellerInfo.adult * 1400;
+  // const totalInfantFare = travellerInfo.adult * 200;
+  // const totalFare = totalAdultFare + totalInfantFare;
+
+  //adult details
+  // const [adultDetails, setAdultDetails] = useState([]);
   useEffect(() => {
     const tempAdultDetails = [];
     for (let i = 0; i < travellerInfo.adult; i++) {
@@ -115,7 +169,7 @@ const TravelarDetailsShip = () => {
             name="name"
             value={adult.name}
             onChange={(event) => adultChangeHandler(event, index)}
-            className="h-[38px] outline-none p-4 rounded-md border border-gray-300 focus:border-2 focus:border-slate-400 ml-[16px]"
+            className="h-[38px] w-full outline-none p-4 rounded-md border border-gray-300 focus:border-2 focus:border-slate-400"
             required
           />
         </div>
@@ -128,7 +182,7 @@ const TravelarDetailsShip = () => {
             name="age"
             value={adult.age}
             onChange={(event) => adultChangeHandler(event, index)}
-            className="h-[38px] outline-none p-4 rounded-md border border-gray-300 focus:border-2 focus:border-slate-400 ml-[55px]"
+            className="h-[38px] w-full outline-none p-4 rounded-md border border-gray-300 focus:border-2 focus:border-slate-400"
             required
           />
         </div>
@@ -1118,6 +1172,79 @@ const TravelarDetailsShip = () => {
     object[e.target.name] = e.target.value;
     setContactDetails(object);
   };
+
+  const tripData = [...Array(num)].reverse().map((_, index) => (
+    <div key={index}>
+      {" "}
+      <div className="flex gap-3 mt-4 mb-2 text-[15px]">
+        <h1 className="border-b border-black font-bold">Trip-:</h1>
+        <h1 className="font-bold">
+          {index === 1 ? currentDestinationFilter : nextDestinationFilter} -&gt;{" "}
+          {index === 1 ? nextDestinationFilter : currentDestinationFilter}
+        </h1>
+      </div>
+      <div className="flex flex-col gap-1 text-sm ml-1">
+        <div className="flex gap-2">
+          <h1>Date: </h1>
+          <h1 className="font-bold">
+            {index === 1
+              ? endingDate[0].endDate.toDateString()
+              : startingDate[0].startDate.toDateString()}
+          </h1>
+        </div>
+
+        <div className="flex gap-2">
+          <h1>Time: </h1>
+          <h1 className="font-bold">
+            {index === 1
+              ? flightDataState.departureTime
+              : flightDataState.arrivalTime}{" "}
+            to{" "}
+            {index === 1
+              ? flightDataState.arrivalTime
+              : flightDataState.departureTime}
+          </h1>
+        </div>
+
+        <div className="flex gap-2">
+          <h1>Ship: </h1>
+          <h1 className="font-bold">
+            {flightDataState.flightName}(
+            <span className="italic font-normal">
+              {flightDataState.travelRoute} Class
+            </span>
+            )
+          </h1>
+        </div>
+
+        <hr className="my-5" />
+        <div className="flex flex-col gap-4">
+          <h1 className="font-bold">Price Details</h1>
+          <div className="flex justify-between">
+            <p className="font-[500] text-md">Base Fare</p>
+            <p className="font-[600] text-md">₹ {totalFare}</p>
+          </div>
+          <div className="flex justify-between">
+            <p className="font-[500] text-md">Discount</p>
+            <p className="font-[600] text-md">₹ {discount}</p>
+          </div>
+          <div className="flex justify-between">
+            <p className="font-[500] text-md">Taxes</p>
+            <p className="font-[600] text-md">₹ {taxes}</p>
+          </div>
+          <div className="flex justify-between">
+            <p className="font-[500] text-md">Service Fee</p>
+            <p className="font-[600] text-md">₹ {fee}</p>
+          </div>
+        </div>
+        <hr className="my-4" />
+        <div className="flex justify-between">
+          <p className="font-[500] text-md">Total</p>
+          <p className="font-[600] text-md">₹ {netTotal}</p>
+        </div>
+      </div>
+    </div>
+  ));
   //handle submit
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -1135,6 +1262,10 @@ const TravelarDetailsShip = () => {
     }
     for (let i = 0; i < infantDetails.length; i++) {
       const values = Object.values(infantDetails[i]);
+      console.log(
+        "🚀 ~ file: TravellersDetailsShip.js:1265 ~ handleSubmit ~ values:",
+        values
+      );
       for (let j = 0; j < values.length; j++) {
         if (values[j] === null || values[j] === "") {
           checkEmptyField = true;
@@ -1143,8 +1274,7 @@ const TravelarDetailsShip = () => {
     }
 
     if (!checkEmptyField) {
-      alert("Payment Complete");
-      navigate("/Ships");
+      navigate("/ReviewBooking");
     } else {
       alert("Please fill all the details!");
     }
@@ -1153,11 +1283,26 @@ const TravelarDetailsShip = () => {
   return (
     <>
       <Navforwithout />
-      <div className="h-full w-auto" style={{ fontFamily: "Montserrat" }}>
+      <div className="h-full w-auto mb-5" style={{ fontFamily: "Montserrat" }}>
         <div>
-          <div className="w-[90%] flex xl:flex-col justify-center mx-auto mt-12 mb-8">
-            <div className="w-[50%] lg:w-full bg-white shadow xl:w-[50%] px-8 py-8">
-              <h1 className="text-[#699c78] text-[26px] md:text-2xl font-[Montserrat] font-semibold ">
+          <div className="ms:hidden flex items-center mt-5 ml-10 gap-2 z-50">
+            <Link to={"/Ship"} className="text-[#FF8682] ">
+              Flight
+            </Link>
+            <span>
+              <MdKeyboardArrowRight />
+            </span>
+            <Link to={"/ShipPreview"} className="text-[#FF8682] ">
+              {flightDataState.flightName}
+            </Link>
+            <span>
+              <MdKeyboardArrowRight />
+            </span>
+            <span>Travelers Details</span>
+          </div>
+          <div className="w-[95%] lg:w-10/12 flex gap-3 lg:flex-wrap justify-center mx-auto mt-12 mb-8">
+            <div className="w-[50%] lg:w-full shadow rounded bg-white xl:w-[50%] px-8 py-8">
+              <h1 className="text-[#699c78] whitespace-nowrap lexs:text-[5.8vw] text-[26px] md:text-2xl font-[Montserrat] font-semibold ">
                 Add Traveller(s) Details
               </h1>
 
@@ -1168,11 +1313,11 @@ const TravelarDetailsShip = () => {
             </div>
 
             <form
-              className="w-[50%] xs:w-full lg:w-[60%] xl:w-[50%] bg-white overflow-hidden 
+              className="w-[50%] lg:w-full shadow rounded bg-white overflow-hidden 
                     p-8 "
               onSubmit={handleSubmit}
             >
-              <h1 className="text-[#699c78] text-[26px] md:text-2xl font-[Montserrat] font-bold mb-6 md:mb-3 tracking-wide">
+              <h1 className="text-[#699c78] whitespace-nowrap lexs:text-[5.8vw] text-[26px] md:text-2xl font-[Montserrat] font-bold mb-6 md:mb-3 tracking-wide">
                 Add Contact Details
               </h1>
               <div className="flex flex-col gap-1">
@@ -1245,14 +1390,151 @@ const TravelarDetailsShip = () => {
                   p-2 w-full mt-8"
               >
                 {/* {status} */}
-                Proceed your Payment
+                Proceed
               </button>
             </form>
+
+            <div className="w-[50%] shadow rounded bg-white lg:w-full  p-8 ">
+              <h1 className="whitespace-nowrap lexs:text-[5.8vw] text-[26px] text-[#699c78] md:text-2xl font-[Montserrat] font-semibold">
+                Trip Summary
+              </h1>
+              {tripData.length === 0 ? (
+                <h1>Please select seats to proceed with booking.</h1>
+              ) : (
+                tripData
+              )}
+              {/* <div className="flex gap-3 mt-4 mb-2 text-[15px]">
+                <h1 className="border-b border-black font-bold">Trip-:1</h1>
+                <h1 className="font-bold">
+                  {currentDestinationFilter} -&gt; {nextDestinationFilter}
+                </h1>
+              </div>
+
+              <div className="flex flex-col gap-1 text-sm ml-1">
+                <div className="flex gap-2">
+                  <h1>Date: </h1>
+                  <h1 className="font-bold">
+                    {startingDate[0].startDate.toDateString()}
+                  </h1>
+                </div>
+
+                <div className="flex gap-2">
+                  <h1>Time: </h1>
+                  <h1 className="font-bold">
+                    {flightDataState.departureTime} to {flightDataState.arrivalTime}
+                  </h1>
+                </div>
+
+                <div className="flex gap-2">
+                  <h1>Ferry: </h1>
+                  <h1 className="font-bold">
+                    {flightDataState.flightName}(
+                    <span className="italic font-normal">
+                      {flightDataState.travelRoute} Class
+                    </span>
+                    )
+                  </h1>
+                </div>
+
+                <div className="flex flex-wrap gap-x-2">
+                  <h1>Total Fare: </h1>
+                  <h1 className="font-bold">
+                    {travellerInfo.adult} x Adult(₹ {flightDataState.adultPrice})
+                    {travellerInfo.infant !== 0 ? (
+                      <span>
+                        {" "}
+                        + {travellerInfo.infant} x Infant(₹{" "}
+                        {flightDataState.infantPrice})
+                      </span>
+                    ) : (
+                      ""
+                    )}
+                    {travellerInfo.children !== 0 ? (
+                      <span>
+                        {" "}
+                        + {travellerInfo.children} x children(₹{" "}
+                        {flightDataState.childrenPrice})
+                      </span>
+                    ) : (
+                      ""
+                    )}
+                    <span>
+                      {" "}
+                      = ₹{" "}
+                      {travellerInfo.adult * flightDataState.adultPrice +
+                        travellerInfo.children * flightDataState.childrenPrice}
+                    </span>
+                  </h1>
+                </div>
+              </div> */}
+
+              {/* <div className="flex gap-3 mt-4 mb-2 text-[15px]">
+                <h1 className="border-b border-black font-bold">
+                  Trip-{index + 1}:
+                </h1>
+                <h1 className="font-bold">
+                  {index === 1 ? trip.returnOrigin : trip.origin} -&gt;{" "}
+                  {index === 1 ? trip.returnDestination : trip.destination}
+                </h1>
+              </div> */}
+
+              {/* <div className="flex flex-col gap-1 text-sm ml-1">
+                <div className="flex gap-2">
+                  <h1>Date: </h1>
+                  <h1 className="font-bold">
+                    {index === 1
+                      ? trip.returnDate.slice(3)
+                      : trip.departDate.slice(3)}
+                  </h1>
+                </div>
+
+                <div className="flex gap-2">
+                  <h1>Time: </h1>
+                  <h1 className="font-bold">
+                    {trip.departTime} to {trip.arrivalTime}
+                  </h1>
+                </div>
+
+                <div className="flex gap-2">
+                  <h1>Ferry: </h1>
+                  <h1 className="font-bold">
+                    {trip.shipName}(
+                    <span className="italic font-normal">
+                      {trip.shipClass} Class
+                    </span>
+                    )
+                  </h1>
+                </div>
+
+                <div className="flex flex-wrap gap-x-2">
+                  <h1>Total Fare: </h1>
+                  <h1 className="font-bold">
+                    {trip.travellerDetails.adult} x Adult(₹ {trip.adultFare})
+                    {trip.travellerDetails.infant !== 0 ? (
+                      <span>
+                        {" "}
+                        + {trip.travellerDetails.infant} x Infant(₹{" "}
+                        {trip.infantFare})
+                      </span>
+                    ) : (
+                      ""
+                    )}
+                    <span>
+                      {" "}
+                      = ₹{" "}
+                      {trip.travellerDetails.adult * trip.adultFare +
+                        trip.travellerDetails.adult * trip.infantFare}
+                    </span>
+                  </h1>
+                </div>
+              </div> */}
+            </div>
           </div>
         </div>
       </div>
+      <Footer />
     </>
   );
 };
 
-export default TravelarDetailsShip;
+export default TravellersDetailsShip;

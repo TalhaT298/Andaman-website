@@ -1,18 +1,18 @@
 import React, { useEffect } from "react";
-import { IoIosAirplane } from "react-icons/io";
-import { MdKeyboardArrowRight } from "react-icons/md";
+import { MdKeyboardArrowRight, MdLocationPin } from "react-icons/md";
 import { RiDoorLockFill } from "react-icons/ri";
 import { Link } from "react-router-dom";
 import Footer from "../../Component/Footer/Footer";
 import flight from "../../Data/Flight-Section/flight";
 import Navforwithout from "../../Navforwithout";
-import { useDataContext } from "../../context/useDataContext";
+import { useShipDataContext } from "../../context/useShipDataContext";
 import flightFeature from "../../images/flightFeature.png";
-import flightIcon from "../../images/flightIcon.png";
 import flightLogoMini from "../../images/flightLogoMini.png";
 import flightLogo from "../../images/flightlogo.png";
+import shipIcon from "../../images/image_source_for_shiptab/Groupboat.png";
+import shipIconMini from "../../images/image_source_for_shiptab/icon.png";
 
-const FlightPreview = () => {
+const ShipPreview = () => {
   const {
     currentDestinationFilter,
     nextDestinationFilter,
@@ -23,7 +23,7 @@ const FlightPreview = () => {
     flightDataState,
     travellerInfo,
     startingDate: date,
-  } = useDataContext();
+  } = useShipDataContext();
 
   const flightData = flight.find(
     (airplane) => airplane.currentDestination === currentDestinationFilter
@@ -48,16 +48,24 @@ const FlightPreview = () => {
     <div style={{ fontFamily: "Montserrat" }}>
       <Navforwithout />
       <div className="ms:mx-0 ms:mt-0  lg:mx-6   mx-20 mt-10 ms:mb-5 mb-16">
-        {/* <div className="absolute -top-10 left-[-4vw] right-[-4vw] h-[340px] z-[-1] ms:bg-[#FF8682]" /> */}
         <div className="ms:bg-[#FF8682] ms:pt-10 lexs:px-2 ms:px-6 ms:h-[240px]">
-          <div className="ms:hidden flex items-center mt-5 gap-2 z-50">
-            <Link to={"/Flight"} className="text-[#FF8682] ">
-              Flight
-            </Link>
+          <div className="ms:hidden flex items-center gap-2 z-50">
+            <span className="text-[#FF8682] ">Flight</span>
             <span>
               <MdKeyboardArrowRight />
             </span>
             <span>{flightDataState.flightName}</span>
+          </div>
+          <div>
+            <span className="text-2xl font-bold my-4">
+              {flightDataState.flightName}
+            </span>
+          </div>
+          <div className="flex gap-1 items-center z-50">
+            <span>
+              <MdLocationPin />
+            </span>
+            <span>{flightDataState.flightLocation}</span>
           </div>
           <div className="ms:hidden flex lg:flex-col lg:gap-3 justify-between mt-6">
             <div className="">
@@ -121,7 +129,7 @@ const FlightPreview = () => {
           </div>
         </div>
         <div className="ms:mx-2">
-          <div className="lexs:mt-52 ms:mt-36 mt-10 bg-[rgba(255,134,130,0.6)] rounded-lg p-6">
+          <div className="lexs:mt-52 ms:mt-40 mt-10 bg-[rgba(255,134,130,0.6)] rounded-lg p-6">
             <h2 className="text-2xl font-bold">Emirates Airlines Policies</h2>
             <div className="flex lg:flex-col lg:gap-5 gap-20 mt-3">
               <div className="flex items-center gap-1">
@@ -176,9 +184,9 @@ const FlightPreview = () => {
                 <span>
                   {" "}
                   <img
-                    src={flightIcon}
+                    src={shipIcon}
                     className="w-full h-8"
-                    alt="flightIcon"
+                    alt="shipIcon"
                   />{" "}
                 </span>
               </div>
@@ -188,7 +196,7 @@ const FlightPreview = () => {
               </div>
             </div>
           </div>
-          <div className="ms:flex flex-row hidden bg-white rounded-xl absolute top-52 mx-3 inset-x-0  w-auto py-8 h-auto shadow-[0px_4px_16px_rgba(17,34,17,0.05)]">
+          <div className="ms:flex flex-row hidden bg-white rounded-xl absolute top-48 mx-3 inset-x-0  w-auto py-8 h-auto shadow-[0px_4px_16px_rgba(17,34,17,0.05)]">
             <div className="text-[#112211] flex items-center md:gap-5 gap-16  mx-auto py-auto md:px-8 px-10 text-center  w-full xs:flex-col xs:py-2 xs:gap-y-3">
               <div className="w-full">
                 <div className="flex lexs:flex-col justify-between items-center md:gap-5">
@@ -210,7 +218,7 @@ const FlightPreview = () => {
                   </div>
                 </div>
                 {/* <hr className="ms:block hidden my-3" /> */}
-                <div className="flex justify-between items-center ">
+                <div className="flex justify-between ms:mt-3 items-center ">
                   <div className="ms:block hidden text-start">
                     <div>
                       <span className="text-[3.72vw]">
@@ -218,10 +226,15 @@ const FlightPreview = () => {
                       </span>
                     </div>
                   </div>
-                  <div className="ms:flex hidden items-center text-[#FF8682]">
+                  <div className="ms:flex hidden  items-center text-[#FF8682]">
                     <span className="border border-[#FF8682] border-dashed w-[11vw]"></span>
                     <span>
-                      <IoIosAirplane className="w-6 h-6" />
+                      {/* <IoIosAirplane className="w-6 h-6" /> */}
+                      <img
+                        src={shipIconMini}
+                        className="w-full md:h-6 h-12"
+                        alt="shipIcon"
+                      />
                     </span>
                     <span className="border border-[#FF8682] border-dashed w-[11vw]"></span>
                   </div>
@@ -273,7 +286,7 @@ const FlightPreview = () => {
                     ₹ {flightDataState.adultPrice}
                   </h5>
                 </div>
-                <Link to={"/ReviewFlight"}>
+                <Link to={"/ReviewShip"}>
                   <button className=" w-full flex justify-center items-center bg-[#27273F] text-white py-2 rounded mt-5">
                     Confirm Booking
                   </button>
@@ -288,4 +301,4 @@ const FlightPreview = () => {
   );
 };
 
-export default FlightPreview;
+export default ShipPreview;

@@ -1,20 +1,21 @@
 import React from "react";
-import { IoIosAirplane } from "react-icons/io";
 import { MdAdd, MdKeyboardArrowRight } from "react-icons/md";
 import { Link, useNavigate } from "react-router-dom";
 import Footer from "../../Component/Footer/Footer";
 import flight from "../../Data/Flight-Section/flight";
 import Navforwithout from "../../Navforwithout";
-import { useDataContext } from "../../context/useDataContext";
+
+import { useShipDataContext } from "../../context/useShipDataContext";
 import flightFeature from "../../images/flightFeature.png";
-import flightIcon from "../../images/flightIcon.png";
 import flightLogoMini from "../../images/flightLogoMini.png";
 import flightMobile from "../../images/flightMobile.png";
 import flightLogo from "../../images/flightlogo.png";
+import shipIcon from "../../images/image_source_for_shiptab/Groupboat.png";
+import shipIconMini from "../../images/image_source_for_shiptab/icon.png";
 import master from "../../images/image_source_for_shiptab/mastercard.png";
 import visa from "../../images/image_source_for_shiptab/visa.png";
 
-const ReviewBookingFlight = () => {
+const ReviewBookingShip = () => {
   //scroll to policies
   // const policiesRef = useRef(null);
   // const scrollToPolicies = (ref) => {
@@ -24,7 +25,7 @@ const ReviewBookingFlight = () => {
   // const { state } = location
   // const {
   //   travellerInfo,
-  //   currentDestinationFilter,
+  //   travellerInfocurrentDestinationFilter,
   //   startingDate,
   //   nextDestinationFilter,
   //   twoWay,
@@ -43,12 +44,13 @@ const ReviewBookingFlight = () => {
   const {
     travellerInfo,
     currentDestinationFilter,
+    startingDate: date,
     nextDestinationFilter,
     passengerClass,
     endingDate,
     flightDataState,
-  } = useDataContext();
-
+  } = useShipDataContext();
+  //   console.log("🚀 ~ file: ReviewBookingFlight.js:22 ~ ReviewBookingFlight ~ flightDataState:", flightDataState)
   // calculating fares
   const flightData = flight.find(
     (airplane) => airplane.currentDestination === currentDestinationFilter
@@ -120,63 +122,6 @@ const ReviewBookingFlight = () => {
       </button>
     </div>
   ));
-  // const paymentData = [...Array(num)].reverse().map((_, index) => (
-  //   <div key={index}>
-  //     {" "}
-  //     <div className="text-sm mt-4">
-  //       <h1 className="font-bold">
-  //         Trip-:{index + 1} [
-  //         {index === 1 ? currentDestinationFilter : nextDestinationFilter} -&gt;{" "}
-  //         {index === 1 ? nextDestinationFilter : currentDestinationFilter}]
-  //       </h1>
-  //       <h1 className="font-bold">
-  //         {index === 1 ? currentDestinationFilter : nextDestinationFilter} -&gt;{" "}
-  //         {index === 1 ? nextDestinationFilter : currentDestinationFilter}
-  //       </h1>
-  //       <h1 className="font-bold">
-  //         {flightData.flightName}(
-  //         <span className="italic font-normal">
-  //           {flightData.travelRoute} Class
-  //         </span>
-  //         )
-  //       </h1>
-  //       <h1 className="font-bold">
-  //         {flightData.departureTime} |{" "}
-  //         {index === 1
-  //           ? endingDate[0].endDate.toDateString()
-  //           : startingDate[0].startDate.toDateString()}
-  //       </h1>
-  //     </div>
-  //     <div className="flex justify-between flex-wrap gap-y-2 mt-1">
-  //       <div>
-  //         <h1>Passengers </h1>
-  //         <h1>Adult -&gt; {travellerInfo.adult}</h1>
-  //         <h1>Children -&gt; {travellerInfo.children}</h1>
-  //         <h1>Infant -&gt; {travellerInfo.infant} </h1>
-  //       </div>
-
-  //       <div>
-  //         <h1 className="font-semibold">Price</h1>
-  //         <h1>₹{flightData.adultPrice}</h1>
-  //         <h1>₹{flightData.childrenPrice}</h1>
-  //         <h1>₹{flightData.infantPrice}</h1>
-  //       </div>
-  //       <div>
-  //         <h1 className="font-semibold">Convenience Fee</h1>
-  //         <h1>₹0</h1>
-  //         <h1>₹0</h1>
-  //         <h1>₹0</h1>
-  //       </div>
-  //       <div>
-  //         <h1 className="font-semibold">Sum</h1>
-  //         <h1>₹{totalAdultFare}</h1>
-  //         <h1>₹{totalInfantFare}</h1>
-  //         <h1>₹{totalChildrenFare}</h1>
-  //       </div>
-  //     </div>
-  //     {/* </div> */}
-  //   </div>
-  // ));
 
   return (
     <>
@@ -184,21 +129,21 @@ const ReviewBookingFlight = () => {
       <div className="h-full w-auto" style={{ fontFamily: "Montserrat" }}>
         <div className="ms:bg-[#FF8682]  ms:px-2 ms:h-[390px]">
           <div className="w-[90%] mx-auto ms:mt-0 ms:pt-10 mt-12 mb-8">
-            <div className="ms:hidden flex items-center mt-5  gap-2 z-50">
-              <Link to={"/Flight"} className="text-[#FF8682] ">
+            <div className="ms:hidden flex items-center mt-5 ml-10 gap-2 z-50">
+              <Link to={"/Ship"} className="text-[#FF8682] ">
                 Flight
               </Link>
               <span>
                 <MdKeyboardArrowRight />
               </span>
-              <Link to={"/FlightPreview"} className="text-[#FF8682] ">
+              <Link to={"/ShipPreview"} className="text-[#FF8682] ">
                 {flightDataState.flightName}
               </Link>
               <span>
                 <MdKeyboardArrowRight />
               </span>
-              <Link to={"/ReviewFlight"} className="text-[#FF8682] ">
-                Travellers Details
+              <Link to={"/ReviewShip"} className="text-[#FF8682]">
+                Travelers Details
               </Link>
               <span>
                 <MdKeyboardArrowRight />
@@ -249,9 +194,9 @@ const ReviewBookingFlight = () => {
                       <span>
                         {" "}
                         <img
-                          src={flightIcon}
+                          src={shipIcon}
                           className="w-full h-8"
-                          alt="flightIcon"
+                          alt="shipIcon"
                         />{" "}
                       </span>
                     </div>
@@ -293,10 +238,15 @@ const ReviewBookingFlight = () => {
                             </span>
                           </div>
                         </div>
-                        <div className="ms:flex hidden items-center text-[#FF8682]">
+                        <div className="ms:flex hidden ms:mt-3 items-center text-[#FF8682]">
                           <span className="border border-[#FF8682] border-dashed w-[11vw]"></span>
                           <span>
-                            <IoIosAirplane className="w-6 h-6" />
+                            {/* <IoIosAirplane className="w-6 h-6" /> */}
+                            <img
+                              src={shipIconMini}
+                              className="w-full md:h-6 h-12"
+                              alt="shipIcon"
+                            />
                           </span>
                           <span className="border border-[#FF8682] border-dashed w-[11vw]"></span>
                         </div>
@@ -470,4 +420,4 @@ const ReviewBookingFlight = () => {
   );
 };
 
-export default ReviewBookingFlight;
+export default ReviewBookingShip;

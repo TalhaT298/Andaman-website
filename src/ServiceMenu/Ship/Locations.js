@@ -5,28 +5,26 @@ import allArrow from "../../images/image_source_for_shiptab/arrow_all.png";
 import topbottomArrow from "../../images/image_source_for_shiptab/up-and-downarrow.png";
 
 const Locations = ({
-  currentDestinationFilterShip,
-  nextDestinationFilterShip,
-  setcurrentDestinationFilterShip,
-  setnextDestinationFilterShip,
+  returnDate,
+  departDate,
+  setDepartDate,
+  setReturnDate,
 }) => {
   // const [openOrigin, setOpenOrigin] = useState(false);
   // const [openDestination, setOpenDestination] = useState(false);
-  // const [origin, setOrigin] = useState('Port Blair');
-  // const [destination, setDestination] = useState('Chennai');
 
-  const currentDestinationOptions = Array.from(
-    new Set(ship.map((ship) => ship.currentDestination))
-  );
-  const nextDestinationOptions = Array.from(
-    new Set(ship.map((ship) => ship.nextDestination))
-  );
+  // //search feature
+  // setSearchOriginTerm(origin)
+  // setSearchDestTerm(destination)
   const [isVisible, setIsVisible] = useState(false);
   const [isVisible2, setIsVisible2] = useState(false);
   const [isReverse, setIsReverse] = useState(false);
-  //search feature
-  //  setSearchOriginTerm(origin)
-  //  setSearchDestTerm(destination)
+  const currentDestinationOptions = Array.from(
+    new Set(ship.map((airplane) => airplane.currentDestination))
+  );
+  const nextDestinationOptions = Array.from(
+    new Set(ship.map((airplane) => airplane.nextDestination))
+  );
 
   return (
     <>
@@ -42,7 +40,7 @@ const Locations = ({
         <div
           className={`${
             isReverse && "transform sxl:translate-y-20"
-          } transition-transform duration-300 transition:origin-center ease-linear h-auto sxl:w-full w-56  flex flex-col gap-y-3 mx-auto px-auto py-2 airbnbml:items-center airbnbml:border-b-transparent`}
+          } transition-transform duration-300 ease-linear h-auto sxl:w-full w-48  flex flex-col gap-y-3 mx-auto px-auto py-2 airbnbml:items-center airbnbml:border-b-transparent`}
         >
           <fieldset
             className="flex items-center space-x-2 cursor-pointer border w-full p-2 bottom-1"
@@ -53,9 +51,7 @@ const Locations = ({
             <span className="whitespace-nowrap">
               {" "}
               <span className="inline sxl:hidden">FROM - </span>
-              {currentDestinationFilterShip && (
-                <span className="">{currentDestinationFilterShip}</span>
-              )}
+              {departDate && <span className="">{departDate}</span>}
             </span>
           </fieldset>
 
@@ -70,10 +66,7 @@ const Locations = ({
                 <button
                   className="hover:bg-[#FF8682] hover:text-white w-full text-start block cursor-pointer p-1 rounded"
                   onClick={() =>
-                    setIsVisible(
-                      (prev) => !prev,
-                      setcurrentDestinationFilterShip(destination)
-                    )
+                    setIsVisible((prev) => !prev, setDepartDate(destination))
                   }
                 >
                   {destination}
@@ -95,9 +88,7 @@ const Locations = ({
           <legend className="hidden sxl:block">To</legend>
           <img src={allArrow} alt="" height={16} width={16} />
           <span className="inline sxl:hidden"> TO - </span>{" "}
-          {nextDestinationFilterShip && (
-            <span> {nextDestinationFilterShip}</span>
-          )}
+          {returnDate && <span> {returnDate}</span>}
         </fieldset>
 
         {isVisible2 && (
@@ -111,10 +102,7 @@ const Locations = ({
               <button
                 className="hover:bg-[#FF8682] hover:text-white w-full text-start block cursor-pointer p-1 rounded"
                 onClick={() =>
-                  setIsVisible2(
-                    (prev) => !prev,
-                    setnextDestinationFilterShip(destination)
-                  )
+                  setIsVisible2((prev) => !prev, setReturnDate(destination))
                 }
               >
                 {destination}

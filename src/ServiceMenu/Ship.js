@@ -1,133 +1,94 @@
-import React, { useState } from "react";
-// import ShipSearch from "./Ship/ShipSearch";
-// import Mainland from "./Ship/Mainland";
-// import Inland from "./Ship/Inland";
+import React from "react";
 import ship from "../Data/Ship-Section/ship";
-import ShipOverview from "./Ship/Shipoverview";
-// import ShipCover from "./Ship/ShipCover";
-// import ImageSection from "./Ship/ImageSection";
+
+// import { useDataContext } from "../context/useDataContext";
+// import FlightSearch from "./Flight/FlightSearch";
+// const FlightCover = lazy(() => import('./Flight/FlightCover'));
+import { useShipDataContext } from "../context/useShipDataContext";
+import ShipCover from "./Ship/ShipCover";
 import ShipSearch from "./Ship/ShipSearch";
-// import MainlandDetails from "./Ship/MainlandDetails";
-// import SecondSchedule from "./Ship/SecondSchedule";
-import { useDataContext } from "../context/useDataContext";
 
-const Ship = () => {
-  //search feature
-  // const [searchOriginTerm, setSearchOriginTerm] = useState("");
-  // const [searchDestTerm, setSearchDestTerm] = useState("");
-  const [showResults, setShowResults] = useState(false);
+// const BestPrices = lazy(() => import("./Ship/BestPrices"));
 
+const Ships = () => {
+  //Filter feature
+  // const [currentDestinationFilter, setCurrentDestinationFilter] = useState('');
+  // const [nextDestinationFilter, setNextDestinationFilter] = useState('');
   const {
-    currentDestinationFilterShip,
-    nextDestinationFilterShip,
-    setcurrentDestinationFilterShip,
-    setnextDestinationFilterShip,
-  } = useDataContext();
-
-  const handleSearch = () => {
-    setShowResults(true);
-  };
-
-  const shipData = ship
+    currentDestinationFilter,
+    setCurrentDestinationFilter,
+    nextDestinationFilter,
+    setNextDestinationFilter,
+    flightSearch,
+  } = useShipDataContext();
+  const flightData = ship
     .filter(
-      (getShip) =>
-        currentDestinationFilterShip === "" ||
-        getShip.currentDestination === currentDestinationFilterShip
+      (airplane) =>
+        currentDestinationFilter === "" ||
+        airplane.currentDestination === currentDestinationFilter
     )
     .filter(
-      (getShip) =>
-        nextDestinationFilterShip === "" ||
-        getShip.nextDestination === nextDestinationFilterShip
+      (airplane) =>
+        nextDestinationFilter === "" ||
+        airplane.nextDestination === nextDestinationFilter
     )
-    .map((getShip, index) => {
+    .map((airplane, index) => {
       return (
         <>
-          <ShipOverview key={index} {...getShip} />
+          {" "}
+          {flightSearch && <ShipCover key={airplane.flightID} {...airplane} />}
         </>
       );
     });
 
-  // const mainlandRef = useRef(null);
-  // const inlandRef = useRef(null);
-
-  // const shipData = ship
-  //   .filter((ship) =>
-  //     ship.currentDestination
-  //       .toLowerCase()
-  //       .includes(searchOriginTerm.toLowerCase())
-  //   )
-  //   .filter((ship) =>
-  //     ship.nextDestination.toLowerCase().includes(searchDestTerm.toLowerCase())
-  //   )
-  //   .map((ship, index) => {
-  //     return <ShipCover key={index} {...ship} />;
-  //   });
-
-  // const handleClick = (id) => {
-  //   if (id === "mainland" && mainlandRef.current) {
-  //     mainlandRef.current.scrollIntoView({ behavior: "smooth" });
-  //   } else if (id === "inland" && inlandRef.current) {
-  //     inlandRef.current.scrollIntoView({ behavior: "smooth" });
-  //   }
-  // };
-
   return (
-    <div style={{ fontFamily: "Montserrat" }}>
-      {/* <ImageSection handleClick={handleClick} /> */}
+    <div
+      className="pt-10 h-full w-full relative"
+      style={{ fontFamily: "Montserrat" }}
+    >
+      {/* <div className="flex">
+        <div className="flex-col mx-auto mt-5 mb-10 space-y-5">
+          <p className="lg:text-2xl text-3xl font-Nunito_Sans font-semibold text-slate-400">
+            🤫 Lowest Prices Here 🚀
+          </p>
+          <Link to="/FlightContactForm" target="_blank">
+            <div>
+              <p className="lg:text-xs text-base font-Nunito_Sans font-semibold text-slate-300 hover:underline hover:italic">
+                If you don't find the flight you're looking for, then click here
+              </p>
+            </div>
+          </Link>
+        </div>
+      </div> */}
       <ShipSearch
-        currentDestinationFilterShip={currentDestinationFilterShip}
-        nextDestinationFilterShip={nextDestinationFilterShip}
-        setcurrentDestinationFilterShip={setcurrentDestinationFilterShip}
-        setnextDestinationFilterShip={setnextDestinationFilterShip}
-        handleSearch={handleSearch}
+        currentDestinationFilter={currentDestinationFilter}
+        nextDestinationFilter={nextDestinationFilter}
+        setCurrentDestinationFilter={setCurrentDestinationFilter}
+        setNextDestinationFilter={setNextDestinationFilter}
       />
       <div className="pt-2 w-full text-center">
-        {showResults ? (
-          shipData.length === 0 ? (
+        {/* <span className="text-slate-400 text-3xl font-bold font-mono mb-6 mx-auto w-full">
+          Search Results
+        </span> */}
+        {flightSearch ? (
+          flightData.length === 0 ? (
             <center>
               <h1 className="my-5">No results found...</h1>
             </center>
           ) : (
-            shipData
+            flightData
           )
         ) : (
           <center>
-            <h1 className="mt-28 text-3xl font bold">
+            <h1 className="my-32 text-3xl font bold">
               Search your destination
             </h1>
           </center>
         )}
       </div>
-      <div className="pt-10 h-full w-auto cursor-pointer">
-        {/* <div className="flex">
-          <div className="flex mx-auto mt-10 mb-10">
-            <span className="text-3xl font-Nunito_Sans font-semibold text-slate-800 ">
-              😎 Comfortable Reliable Experience 😁 🚢
-            </span>
-          </div>
-        </div>
-
-        <ShipSearch
-          setSearchOriginTerm={setSearchOriginTerm}
-          setSearchDestTerm={setSearchDestTerm}
-        />
-        <span className="text-2xl font-normal mb-3 mx-2">Featured Ships</span>
-        <div className="pt-2">
-          {shipData.length === 0 ? (
-            <center>
-              <h1>No results found...</h1>
-            </center>
-          ) : (
-            shipData
-          )}
-        </div> */}
-        {/* <Mainland ref={mainlandRef} />
-        <SecondSchedule />
-        <MainlandDetails /> */}
-        {/* <Inland ref={inlandRef} /> */}
-      </div>
+      {/* <BestPrices /> */}
     </div>
   );
 };
 
-export default Ship;
+export default Ships;

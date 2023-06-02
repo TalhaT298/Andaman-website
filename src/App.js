@@ -2,17 +2,18 @@ import { lazy, Suspense } from "react";
 import { ScaleLoader } from "react-spinners";
 // import { RingLoader } from 'react-spinners';
 
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import TravellersDetailsFlight from "./ServiceMenu/Flight/TravellersDetailsFlight.js";
-import ReviewBookingFlight from "./ServiceMenu/Flight/ReviewBookingFlight.js";
+import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
 import FlightPreview from "./ServiceMenu/Flight/FlightPreview.js";
-import ShipOverviewBooking from "./ServiceMenu/Ship/ShipBookingPreview.js";
-import TravellerDetailsShip from "./ServiceMenu/Ship/TravelarDetailsShip.js";
+import ReviewBookingFlight from "./ServiceMenu/Flight/ReviewBookingFlight.js";
+import TravellersDetailsFlight from "./ServiceMenu/Flight/TravellersDetailsFlight.js";
+import ReviewBookingShip from "./ServiceMenu/Ship/ReviewBookingShip.js";
+import ShipPreview from "./ServiceMenu/Ship/ShipPreview.js";
+import TravellerDetailsShip from "./ServiceMenu/Ship/TravellersDetailsShip.js";
 
 // const Explore = lazy(() => import('./NavMenu/Explore.js'));
 // const Fun = lazy(() => import('./NavMenu/Fun.js'));
 // const Stay = lazy(() => import('./NavMenu/Stay.js'));
-const Nav = lazy(() => import('./Nav'));
+const Nav = lazy(() => import("./Nav"));
 const SingleInland = lazy(() =>
   import("./ServiceMenu/Ship/SingleInland/SingleInland.js")
 );
@@ -131,21 +132,17 @@ export default function App() {
 
             <Route path="/FlightPreview" element={<FlightPreview />} />
             <Route path="/ReviewFlight" element={<TravellersDetailsFlight />} />
-            <Route
-              path="/FlightReviewBooking"
-              element={<ReviewBookingFlight />}
-            />
+            <Route path="/FlightPayment" element={<ReviewBookingFlight />} />
 
             {/* Ship Booking */}
             <Route path="/ShipBooking" element={<ShipBooking />} />
-            <Route
-              path="/ShipBookingPreview"
-              element={<ShipOverviewBooking />}
-            />
-            <Route path="/selectFerry" element={<ShipResults />} />
-            <Route path="/travellerDetails" element={<TravellerDetails />} />
-            <Route path="/ReviewBooking" element={<ReviewBooking />} />
-            <Route path="/travellerShip" element={<TravellerDetailsShip />} />
+            <Route path="/ShipPreview" element={<ShipPreview />} />
+            {/* <Route path="/ShipPayment" element={<ShipBookingPreview />} /> */}
+            {/* <Route path="/selectFerry" element={<ShipResults />} /> */}
+            {/* <Route path="/travellerDetails" element={<TravellerDetails />} /> */}
+            {/* <Route path="/ReviewBooking" element={<ReviewBooking />} /> */}
+            <Route path="/ReviewBooking" element={<ReviewBookingShip />} />
+            <Route path="/ReviewShip" element={<TravellerDetailsShip />} />
 
             <Route path="/CabContactForm" element={<CabContactForm />} />
             <Route path="/FlightContactForm" element={<FlightContactForm />} />

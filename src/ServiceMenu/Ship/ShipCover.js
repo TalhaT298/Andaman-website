@@ -1,109 +1,133 @@
-import React from "react";
-import { useState } from "react";
-
+import React, { useEffect } from "react";
 import "react-date-range/dist/styles.css";
 import "react-date-range/dist/theme/default.css";
-import { format } from "date-fns";
-import { useDataContext } from "../../context/useDataContext";
+import { Link } from "react-router-dom";
+import { useShipDataContext } from "../../context/useShipDataContext";
+import flightLogo from "../../images/flightlogo.png";
+import shipIcon from "../../images/image_source_for_shiptab/Groupboat.png";
+import shipIconMini from "../../images/image_source_for_shiptab/icon.png";
 
-const ActivityCover = (props) => {
-  const [date, setDate] = useState([
-    {
-      startDate: new Date(),
-      endDate: new Date(),
-      key: "selection",
-    },
-  ]);
-  const { travellerInfo, setTravellerInfo } = useDataContext();
-  const [showFlightInfo, setShowFlightInfo] = useState(false);
+// Always remember, the data we fetch from firebase is in objects, so, we will have to convert it into an array of objects that's why we have used
+// here Object.values in flightsData
+
+const ShipCover = (props) => {
+  const {
+    startingDate: date,
+    travellerInfo,
+    setCoverData,
+  } = useShipDataContext();
+
+  useEffect(() => {
+    setCoverData({ ...props });
+  }, []);
 
   return (
-    <div className="py-3 flex-col w-5/6 mx-auto my-auto ">
-      <div
-        onClick={() => {
-          setShowFlightInfo(!showFlightInfo);
-        }}
-        className="flex-row rounded-lg bg-slate-900 w-auto py-8 h-auto drop-shadow-2xl shadow-black shadow-lg transition:origin-center hover:ease-in-out hover:scale-110 transition:duration-1000 transition-transform"
-      >
-        <div className="text-slate-200 flex items-center justify-between mx-auto py-auto px-4 text-center px-auto w-auto xs:flex-col xs:py-2 xs:gap-y-3">
-          <span className="uppercase">{props.flightName}</span>
-          <span>{props.travelRoute}</span>
-          <span>{`${format(date[0].startDate, "dd/MM/yyyy")}`}</span>
+    <div key={props.flightID}>
+      <Link to={"/ShipPreview"} className="py-3 flex-col  mx-auto my-auto ">
+        {/* flight ? <div>{JSON.stringify(flight)}</div> : <div>Loading...</div> */}
+        <div className="flex-row bg-white rounded-xl w-auto py-8 h-auto shadow-[0px_4px_16px_rgba(17,34,17,0.05)] transition:origin-center hover:ease-in-out hover:scale-105 transition:duration-1000 transition-transform">
+          <div className="text-[#112211] flex items-center md:gap-5 gap-16  mx-auto py-auto md:px-8 px-10 text-center  w-full xs:flex-col xs:py-2 xs:gap-y-3">
+            <div className="ms:hidden">
+              <img src={flightLogo} alt="flight-logo" className="w-20 h-14" />{" "}
+              <h4 className="text-lg font-semibold">Emirates</h4>{" "}
+              <p className="text-[#112211] text-sm">{props.flightName}</p>
+            </div>
+            <div className="w-full">
+              <div className="flex justify-between">
+                <div className="self-end">
+                  {date[0].startDate.toDateString()}
+                </div>
+                <div className="ms:block hidden">
+                  <p>
+                    {`${
+                      travellerInfo.adult +
+                      travellerInfo.children +
+                      travellerInfo.infant
+                    }`}{" "}
+                    Seat
+                  </p>
+                </div>
+                <div className="ms:hidden flex flex-col items-end gap-4">
+                  <p>
+                    Starting from{" "}
+                    <span className="block text-right text-[#425D97] text-xl font-bold">
+                      ₹ {props.adultPrice}
+                    </span>{" "}
+                  </p>
+                  <p>{props.flightDuration} </p>
+                </div>
+              </div>
+              <hr className="ms:block hidden my-3" />
+              <div className="flex justify-between items-center ">
+                <div className="ms:block hidden text-start">
+                  <div>
+                    <span className="text-[3.72vw]">
+                      {props.currentDestination}
+                    </span>
+                  </div>
+                </div>
+                <div className="ms:hidden">
+                  <div>
+                    <span className="font-bold">{props.departureTime}</span>
 
-          <div className="flex gap-2">
-            <div>
-              <span>{props.departureTime}</span>
-            </div>
-            <span> - </span>
-            <div>
-              <span>{props.arrivalTime}</span>
-            </div>
-          </div>
-          <span>₹ {props.adultPrice}</span>
-        </div>
-      </div>
-      {showFlightInfo && (
-        <div className="mx-auto h-60 w-auto bg-slate-900 my-6 text-white px-auto rounded-lg">
-          <div className="h-60 w-auto bg-slate-900 mx-auto px-auto rounded-lg">
-            <div className="flex flex-col h-60 w-full justify-between mx-auto py-3 p-1 text-center px-auto">
-              <div className="flex flex-row px-auto">
-                <div className="flex flex-col mx-auto py-1 w-36 px-auto">
-                  <span className="text-lg uppercase font-thin py-1 my-auto">
-                    {props.flightName}
-                  </span>
-                  <span className="text-sm uppercase font-thin py-1 my-auto">
-                    {props.flightGateway}
+                    <span className="ml-2">{props.currentDestination}</span>
+                  </div>
+                </div>
+                <div className="flex gap-2 ms:hidden">
+                  <span>
+                    {" "}
+                    <img
+                      src={shipIcon}
+                      className="w-full md:h-8 h-12"
+                      alt="shipIcon"
+                    />{" "}
                   </span>
                 </div>
-                <div className="flex flex-col mx-auto py-2 w-36">
-                  <span className="text-base uppercase font-thin my-auto">
-                    {props.travelRoute}
+                <div className="ms:flex hidden items-center text-[#FF8682]">
+                  <span className="border border-[#FF8682] border-dashed w-[11vw]"></span>
+                  <span>
+                    {/* <IoIosAirplane className="w-6 h-6" /> */}
+                    <img
+                      src={shipIconMini}
+                      className="w-full md:h-8 h-12"
+                      alt="shipIcon"
+                    />
                   </span>
+                  <span className="border border-[#FF8682] border-dashed w-[11vw]"></span>
                 </div>
-                <div className="flex flex-col mx-auto py-2 w-36">
-                  <span className="text-xl uppercase font-bold my-auto">
-                    ₹ {props.adultPrice}
-                  </span>
-                  {/* <span>₹ {props.childrenPrice}</span> */}
+                <div className="ms:block hidden">
+                  {/* <span className="font-bold">{props.arrivalTime}</span> */}
+                  <span className="text-[3.72vw]">{props.nextDestination}</span>
+                </div>
+                <div className="ms:hidden">
+                  <span className="font-bold">{props.arrivalTime}</span>
+                  <span className="ml-2">{props.nextDestination}</span>
                 </div>
               </div>
-              <div className="flex flex-row px-auto">
-                <div className="flex flex-col mx-auto py-2 w-32">
-                  <span className="text-xl uppercase font-medium py-1 my-auto">
-                    {props.departureTime}
-                  </span>
-                  <span className="text-sm uppercase font-thin py-1">
-                    {props.currentDestination}
-                  </span>
+              <div className="ms:flex justify-between items-center mt-3 hidden">
+                <div className="font-bold text-[#BDBDC2]">
+                  {props.departureTime}
                 </div>
-                <div className="flex flex-col mx-auto py-2 w-32">
-                  <span className="text-base uppercase font-thin py-1">
-                    {props.flightDuration}
-                  </span>
-                  <span className="text-xs uppercase font-thin py-1">
-                    {props.flightInterval}
-                  </span>
-                </div>
-                <div className="flex flex-col mx-auto py-2 w-32">
-                  <span className="text-xl uppercase font-medium py-1 my-auto">
-                    {props.arrivalTime}
-                  </span>
-                  <span className="text-sm uppercase font-thin py-1">
-                    {props.nextDestination}
-                  </span>
+                <div className="font-bold">{props.flightDuration}</div>
+                <div className="font-bold text-[#BDBDC2]">
+                  {props.arrivalTime}
                 </div>
               </div>
-              <div className="flex flex-col mx-auto py-2 w-32">
-                <button className="h-10 bg-gradient-to-br to-amber-400 from-pink-500 hover:bg-gradient-to-br hover:to-amber-600 hover:from-pink-600">
+              <Link
+                to={"/ShipPreview"}
+                className="ms:hidden flex justify-end mt-3"
+              >
+                <button className="bg-[#FF8682] font-semibold rounded p-[8px_16px]">
                   Book Now
                 </button>
-              </div>
+              </Link>
             </div>
           </div>
         </div>
-      )}
+      </Link>
+      <br />
     </div>
   );
 };
 
-export default ActivityCover;
+export default ShipCover;
