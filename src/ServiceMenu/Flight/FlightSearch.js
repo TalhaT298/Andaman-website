@@ -27,7 +27,7 @@ const FlightSearch = (props) => {
     event.preventDefault();
     props.setCurrentDestinationFilter(departDate);
     props.setNextDestinationFilter(returnDate);
-    setStartingDate(startingDateState);
+    setStartingDateState(startingDateState);
   };
 
   return (

@@ -2,9 +2,10 @@ import React, { useState } from "react";
 
 import { faCalendarDays } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { DateRange } from "react-date-range";
-
+import { format } from "date-fns";
+import "react-day-picker/dist/style.css";
 import { useDataContext } from "../../context/useDataContext";
+import { DayPicker } from "react-day-picker";
 
 const ReturnDate = () => {
   const [openArrDate, setOpenArrDate] = useState(false);
@@ -16,6 +17,14 @@ const ReturnDate = () => {
   //   },
   // ]);
   const { endingDate, setEndingDate } = useDataContext();
+  let footer = <p>Please pick a day.</p>;
+  if (endingDate[0]?.endDate) {
+    footer = <p>You picked {format(endingDate[0]?.endDate, "PP")}.</p>;
+  }
+  const handleDateChange = (date) => {
+    setEndingDate([{ startDate: date, key: "selection" }]);
+    setOpenArrDate((prev) => !prev);
+  };
   return (
     <>
       <div
@@ -53,12 +62,19 @@ const ReturnDate = () => {
           />
         </Modal> */}
         {openArrDate && (
-          <DateRange
-            editableDateInputs={true}
-            onChange={(item) => setEndingDate([item.selection])}
-            moveRangeOnFirstSelection={false}
-            ranges={endingDate}
-            className={`absolute z-10 top-20 left-0`}
+          // <DateRange
+          //   editableDateInputs={true}
+          //   onChange={(item) => setEndingDate([item.selection])}
+          //   moveRangeOnFirstSelection={false}
+          //   ranges={endingDate}
+          //   className={`absolute z-10 top-20 left-0`}
+          // />
+          <DayPicker
+            mode="single"
+            selected={endingDate[0].endDate}
+            onDayClick={handleDateChange}
+            footer={footer}
+            className={`absolute z-50 top-16 left-0 bg-white px-2 py-2 rounded shadow`}
           />
         )}
         {/* <FontAwesomeIcon icon={faCalendarDays} className='text-slate-400' /> */}

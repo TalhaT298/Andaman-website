@@ -14,7 +14,8 @@ import Options from "./Options";
 // const Options = lazy(() => import("./Options"));
 
 const ShipSearch = (props) => {
-  const { setStartingDate, setFlightSearch } = useShipDataContext();
+  const { setStartingDate, startingDate, setFlightSearch } =
+    useShipDataContext();
   const [departDate, setDepartDate] = useState("Chennai");
   const [returnDate, setReturnDate] = useState("Port Blair");
   const [startingDateState, setStartingDateState] = useState([
@@ -28,7 +29,7 @@ const ShipSearch = (props) => {
     event.preventDefault();
     props.setCurrentDestinationFilter(departDate);
     props.setNextDestinationFilter(returnDate);
-    setStartingDate(startingDateState);
+    setStartingDate(startingDate);
   };
 
   return (

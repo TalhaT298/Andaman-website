@@ -1,22 +1,30 @@
 import { faCalendarDays } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { format } from "date-fns";
 import React, { useState } from "react";
-import { DateRange } from "react-date-range";
+import { DayPicker } from "react-day-picker";
+import "react-day-picker/dist/style.css";
 
 import { useDataContext } from "../../context/useDataContext";
 
 const DepartDate = () => {
   const [openDeptDate, setOpenDeptDate] = useState(false);
-
   const { startingDate, setStartingDate } = useDataContext();
-
+  let footer = <p>Please pick a day.</p>;
+  if (startingDate[0]?.startDate) {
+    footer = <p>You picked {format(startingDate[0]?.startDate, "PP")}.</p>;
+  }
+  const handleDateChange = (date) => {
+    setStartingDate([{ startDate: date, key: "selection" }]);
+    setOpenDeptDate(!openDeptDate);
+  };
   return (
     <>
-      <div
-        onClick={() => setOpenDeptDate(!openDeptDate)}
-        className="relative h-auto w-full flex flex-col gap-y-3  mx-auto px-auto py-2 airbnbml:items-center airbnbml:border-b-transparent"
-      >
-        <span className="flex items-center space-x-2 cursor-pointer border w-full p-2 bottom-1">
+      <div className="relative h-auto w-full flex flex-col gap-y-3  mx-auto px-auto py-2 airbnbml:items-center airbnbml:border-b-transparent">
+        <span
+          onClick={() => setOpenDeptDate(!openDeptDate)}
+          className="flex items-center space-x-2 cursor-pointer border w-full p-2 bottom-1"
+        >
           <FontAwesomeIcon
             icon={faCalendarDays}
             className="text-slate-400 mr-2"
@@ -46,12 +54,19 @@ const DepartDate = () => {
           />
         </Modal> */}
         {openDeptDate && (
-          <DateRange
-            editableDateInputs={true}
-            onChange={(item) => setStartingDate([item.selection])}
-            moveRangeOnFirstSelection={false}
-            ranges={startingDate}
-            className={`absolute z-10 top-20 left-0`}
+          // <DateRange
+          //   editableDateInputs={true}
+          //   onChange={(item) => setStartingDate([item.selection])}
+          //   moveRangeOnFirstSelection={false}
+          //   ranges={startingDate}
+          //   className={`absolute z-10 top-20 left-0`}
+          // />
+          <DayPicker
+            mode="single"
+            selected={startingDate[0].startDate}
+            onDayClick={handleDateChange}
+            footer={footer}
+            className={`absolute z-50 top-16 left-0 bg-white px-2 py-2 rounded shadow`}
           />
         )}
         {/* airbnbml:left-56 airbnbml:-bottom-10  */}
