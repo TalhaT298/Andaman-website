@@ -1,6 +1,4 @@
-import React, { lazy, useState } from "react";
-import "react-date-range/dist/styles.css";
-import "react-date-range/dist/theme/default.css";
+import { lazy, useState } from "react";
 import { useDataContext } from "../../context/useDataContext";
 import mail from "../../images/image_source_for_shiptab/mail_arrow.png";
 import "./FlightSearch.css";

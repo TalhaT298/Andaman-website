@@ -1287,7 +1287,7 @@ const TravellersDetailsFlight = () => {
       <div className="h-full w-auto mb-5" style={{ fontFamily: "Montserrat" }}>
         <div>
           <div className="ms:hidden flex items-center mt-5 ml-10 gap-2 z-50">
-            <Link to={"/Flight"} className="text-[#FF8682] ">
+            <Link to="/Flights" className="text-[#FF8682] ">
               Flight
             </Link>
             <span>
