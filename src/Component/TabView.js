@@ -9,7 +9,7 @@ import Flights from "../ServiceMenu/Flights";
 import Ship from "../ServiceMenu/Ship";
 import Hotel from "../ServiceMenu/Hotel";
 import Cab from "../ServiceMenu/Cab";
-import Bus from "../ServiceMenu/Bus";
+// import Bus from "../ServiceMenu/Bus";
 import Ferry from "../ServiceMenu/Ferry.js";
 import Activity from "../ServiceMenu/Activity";
 import Dinning from "../ServiceMenu/Dinning";
@@ -33,6 +33,7 @@ import * as TrekkingData from "../Icons/trekking.json";
 import * as ShopData from "../Icons/shop.json";
 
 import { fire } from "../fire";
+import BusBanner from "../ServiceMenu/Bus/Bus/BusBanner/BusBanner";
 
 // let card = []
 // let flightcard = []
@@ -364,7 +365,8 @@ const TabView = () => {
           <Ship />
         </TabPanel>
         <TabPanel value={value} index={3}>
-          <Bus />
+          {/* <Bus /> */}
+          <BusBanner />
         </TabPanel>
         <TabPanel value={value} index={4}>
           <Cab />
