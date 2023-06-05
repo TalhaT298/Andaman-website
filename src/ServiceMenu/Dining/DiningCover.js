@@ -4,7 +4,7 @@ import { LazyLoadImage } from 'react-lazy-load-image-component';
 // import Modal from 'react-modal';
 // import Options from './Options';
 
-const TrekkingCover = (props) => {
+const DiningCover = (props) => {
   const [openreserveInfo, setOpenReserveInfo] = useState(false);
 
   return (
@@ -77,4 +77,4 @@ const TrekkingCover = (props) => {
   );
 };
 
-export default TrekkingCover;
+export default DiningCover;

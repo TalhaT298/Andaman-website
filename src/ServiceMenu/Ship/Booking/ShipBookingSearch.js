@@ -1,6 +1,4 @@
 import React, { useState,lazy } from "react";
-import "react-date-range/dist/styles.css";
-import "react-date-range/dist/theme/default.css";
 import { useNavigate } from "react-router-dom";
 
 import ReturnDate from "./ReturnDate";

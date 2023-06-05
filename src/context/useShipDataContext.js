@@ -58,6 +58,10 @@ export const ShipDataProvider = ({ children }) => {
     phone: "",
     altPhone: "",
   });
+  console.log(
+    "🚀 ~ file: useShipDataContext.js:61 ~ ShipDataProvider ~ contactDetails:",
+    contactDetails
+  );
   const state = {
     travellerInfo,
     setTravellerInfo,

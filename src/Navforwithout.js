@@ -19,12 +19,12 @@ export default function Navforwithout() {
     >
       <Navbar.Content hideIn="md" variant={"underline"}>
         <Navbar.Link href="/">Home</Navbar.Link> |
-        <Navbar.Link b href="/">
+        <Navbar.Link b href="https://www.sublimeislands.com/blogs/Blogs">
           {" "}
           Blogs
         </Navbar.Link>{" "}
         |
-        <Navbar.Link b href="/">
+        <Navbar.Link b href="https://www.sublimeislands.com/contact/Contact">
           Contact Us
         </Navbar.Link>
         {/* <Navbar.Link isActive href="#">Customers</Navbar.Link> */}
@@ -77,7 +77,7 @@ export default function Navforwithout() {
         variant={"underline"}
       >
         <Navbar.Link href="/">Connect With Us</Navbar.Link> |
-        <Navbar.Link href="/">About Us</Navbar.Link>
+        <Navbar.Link href="https://www.sublimeislands.com/about/About">About Us</Navbar.Link>
       </Navbar.Content>
       <Navbar.Collapse>
         {collapseItems.map((item, index) => (

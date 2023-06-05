@@ -1,6 +1,4 @@
-import React, { useEffect } from "react";
-import "react-date-range/dist/styles.css";
-import "react-date-range/dist/theme/default.css";
+import { useEffect } from "react";
 import { IoIosAirplane } from "react-icons/io";
 import { Link } from "react-router-dom";
 import { useDataContext } from "../../context/useDataContext";

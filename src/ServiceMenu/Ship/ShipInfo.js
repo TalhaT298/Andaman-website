@@ -1,9 +1,9 @@
-import React from 'react';
+// import React from 'react';
 
-const FlightInfo = (props) => {
-  return (
-    <div></div>
-  );
-};
+// const FlightInfo = (props) => {
+//   return (
+//     <div></div>
+//   );
+// };
 
-export default FlightInfo;
+// export default FlightInfo;

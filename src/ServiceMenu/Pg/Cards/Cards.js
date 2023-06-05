@@ -1,7 +1,7 @@
 import StarRateRoundedIcon from "@mui/icons-material/StarRateRounded";
 import React from "react";
 import { LazyLoadImage } from "react-lazy-load-image-component";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { Navigation, Pagination } from "swiper";
 import "swiper/css";
 import "swiper/css/navigation";
@@ -10,6 +10,10 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import pgCardIcon from "../../../images/pg-card-icon.png";
 import "./styles.css";
 function Card({ card }) {
+  const navigate = useNavigate();
+  const handleClick = (id) => {
+    navigate("/pg-details", { state: { id } });
+  };
   return (
     <div className="card-box ">
       <Swiper
@@ -83,7 +87,12 @@ function Card({ card }) {
           className="flex justify-center my-4 bg-white"
         />
         <div className=" w-full flex justify-center mb-6 ">
-          <button className="pg_card_btn">Book Now</button>
+          <button
+            onClick={() => handleClick(card.link)}
+            className="pg_card_btn"
+          >
+            Book Now
+          </button>
         </div>
       </div>
     </div>

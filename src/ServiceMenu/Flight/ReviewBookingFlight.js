@@ -3,6 +3,7 @@ import { IoIosAirplane } from "react-icons/io";
 import { MdAdd, MdKeyboardArrowRight } from "react-icons/md";
 import { Link, useNavigate } from "react-router-dom";
 import Footer from "../../Component/Footer/Footer";
+import { useScrollRestoration } from "../../Component/Hooks/ScrollRestoration";
 import flight from "../../Data/Flight-Section/flight";
 import Navforwithout from "../../Navforwithout";
 import { useDataContext } from "../../context/useDataContext";
@@ -177,7 +178,7 @@ const ReviewBookingFlight = () => {
   //     {/* </div> */}
   //   </div>
   // ));
-
+  useScrollRestoration();
   return (
     <>
       <Navforwithout />

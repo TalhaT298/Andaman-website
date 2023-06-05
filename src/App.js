@@ -1,4 +1,4 @@
-import { lazy, Suspense } from "react";
+import { lazy, Suspense, useEffect } from "react";
 import { ScaleLoader } from "react-spinners";
 // import { RingLoader } from 'react-spinners';
 
@@ -31,15 +31,15 @@ const SingleInland = lazy(() =>
 const ShipBooking = lazy(() =>
   import("./ServiceMenu/Ship/Booking/ShipBooking.js")
 );
-const ShipResults = lazy(() =>
-  import("./ServiceMenu/Ship/Booking/ShipResults.js")
-);
-const TravellerDetails = lazy(() =>
-  import("./ServiceMenu/Ship/Booking/TravellerDetails.js")
-);
-const ReviewBooking = lazy(() =>
-  import("./ServiceMenu/Ship/Booking/ReviewBooking.js")
-);
+// const ShipResults = lazy(() =>
+//   import("./ServiceMenu/Ship/Booking/ShipResults.js")
+// );
+// const TravellerDetails = lazy(() =>
+//   import("./ServiceMenu/Ship/Booking/TravellerDetails.js")
+// );
+// const ReviewBooking = lazy(() =>
+//   import("./ServiceMenu/Ship/Booking/ReviewBooking.js")
+// );
 
 const MakkruzGoldDetails = lazy(() =>
   import(
@@ -80,6 +80,7 @@ const Annapurna = lazy(() =>
 const Brewbeans = lazy(() =>
   import("./ServiceMenu/Dining/hotel-pages/Brewbeans")
 );
+const PgCard = lazy(() => import("./ServiceMenu/Pg/Card/Card.js"));
 const Chaisuttabar = lazy(() =>
   import("./ServiceMenu/Dining/hotel-pages/Chaisuttabar")
 );
@@ -89,13 +90,29 @@ const Cardamom = lazy(() =>
 );
 
 export default function App() {
-  // useEffect(() => {
-  //   if (window.performance) {
-  //     if (performance.navigation.type === 1) {
-  //       window.location.href = "/";
-  //     }
-  //   }
-  // }, []);
+  useEffect(() => {
+    switch (window.location.pathname) {
+      case "/FlightPreview":
+      case "/ReviewFlight":
+      case "/FlightPayment":
+        window.location.href = "/";
+        break;
+      case "/ShipPreview":
+      case "/ReviewBooking":
+      case "/ReviewShip":
+        window.location.href = "/Ships";
+        break;
+      default:
+        break;
+    }
+    if (
+      window.location.pathname === "/FlightPreview" ||
+      window.location.pathname === "/ReviewFlight"
+    ) {
+      // Redirect to /home
+      window.location.href = "/";
+    }
+  }, []);
 
   return (
     <div className="bg-[#FAFBFC] text-slate-800 font-Ubuntu_Mono h-full m-0 p-0">
@@ -145,7 +162,7 @@ export default function App() {
             <Route path="/FlightPayment" element={<ReviewBookingFlight />} />
 
             {/* Ship Booking */}
-            <Route path="/ShipBooking" element={<ShipBooking />} />
+            {/* <Route path="/ShipBooking" element={<ShipBooking />} /> */}
             <Route path="/ShipPreview" element={<ShipPreview />} />
             {/* <Route path="/ShipPayment" element={<ShipBookingPreview />} /> */}
             {/* <Route path="/selectFerry" element={<ShipResults />} /> */}
@@ -161,6 +178,7 @@ export default function App() {
               element={<ActivityContactForm />}
             />
             <Route path="/PgContactForm" element={<PgContactForm />} />
+            <Route path="/pg-details" element={<PgCard />} />
             <Route
               path="/TravelPackageContactForm"
               element={<TravelPackageContactForm />}
