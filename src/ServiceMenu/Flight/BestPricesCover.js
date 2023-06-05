@@ -2,8 +2,6 @@ import React from "react";
 
 import { useState } from "react";
 
-import "react-date-range/dist/styles.css";
-import "react-date-range/dist/theme/default.css";
 // import { format } from 'date-fns';
 
 // Always remember, the data we fetch from firebase is in objects, so, we will have to convert it into an array of objects that's why we have used

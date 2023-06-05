@@ -51,7 +51,7 @@ const FlightPreview = () => {
         {/* <div className="absolute -top-10 left-[-4vw] right-[-4vw] h-[340px] z-[-1] ms:bg-[#FF8682]" /> */}
         <div className="ms:bg-[#FF8682] ms:pt-10 lexs:px-2 ms:px-6 ms:h-[240px]">
           <div className="ms:hidden flex items-center mt-5 gap-2 z-50">
-            <Link to={"/Flight"} className="text-[#FF8682] ">
+            <Link to={"/Flights"} className="text-[#FF8682] ">
               Flight
             </Link>
             <span>
