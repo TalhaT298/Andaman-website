@@ -17,7 +17,7 @@ import Trekking from "../ServiceMenu/Trekking.js";
 import Pg from "../ServiceMenu/Pg.js";
 import Travelpackage from "../ServiceMenu/Travelpackage";
 import Shop from "../ServiceMenu/Shop.js";
-import { Container } from "@nextui-org/react";
+// import { Container } from "@nextui-org/react";
 import Lottie from "react-lottie";
 import * as FlightData from "../Icons/flight.json";
 import * as HotelData from "../Icons/hotel.json";
