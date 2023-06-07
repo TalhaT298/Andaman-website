@@ -5,6 +5,9 @@ module.exports = {
     fontFamily: {
       Nunito_Sans: ["Nunito Sans", "sans-serif"],
       Ubuntu_Mono: ["Ubuntu Mono", "monospace"],
+      'ibm': ['IBM Plex Sans', 'sans-serif'],
+      'montserrat': ['Montserrat', 'sans-serif'],
+      'popins': ['Poppins', 'sans-serif']
     },
     screens: {
       xxl: { max: "1535px" },

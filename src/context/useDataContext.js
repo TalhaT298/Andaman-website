@@ -57,6 +57,7 @@ export const DataProvider = ({ children }) => {
   const [coverData, setCoverData] = useState({});
 
   const [adultDetails, setAdultDetails] = useState([]);
+  console.log(adultDetails);
 
   const [childrenDetails, setChildrenDetails] = useState([]);
   const [infantDetails, setInfantDetails] = useState([]);

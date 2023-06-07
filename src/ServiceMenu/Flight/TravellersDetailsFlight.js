@@ -47,6 +47,10 @@ const TravellersDetailsFlight = () => {
     // setFlightDataState,
     flightDataState,
   } = useDataContext();
+  // console.log(
+  //   "🚀 ~ file: TravellersDetailsFlight.js:50 ~ TravellersDetailsFlight ~ adultDetails:",
+  //   adultDetails
+  // );
 
   const totalAdultFare = travellerInfo.adult * flightDataState.adultPrice;
   const totalInfantFare = travellerInfo.infant * flightDataState.infantPrice;
