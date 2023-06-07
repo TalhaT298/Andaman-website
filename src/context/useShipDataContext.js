@@ -1,7 +1,7 @@
 import React, { createContext, useContext, useState } from "react";
 
 // Create the DataContext
-const DataContext = createContext();
+const DataContext = createContext(null);
 
 // Create the DataProvider component
 export const ShipDataProvider = ({ children }) => {
@@ -58,10 +58,7 @@ export const ShipDataProvider = ({ children }) => {
     phone: "",
     altPhone: "",
   });
-  console.log(
-    "🚀 ~ file: useShipDataContext.js:61 ~ ShipDataProvider ~ contactDetails:",
-    contactDetails
-  );
+
   const state = {
     travellerInfo,
     setTravellerInfo,

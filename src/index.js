@@ -13,13 +13,13 @@ const queryClient = new QueryClient();
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <QueryClientProvider client={queryClient}>
-    <DataProvider>
-      <ShipDataProvider>
-        <React.StrictMode>
+    <React.StrictMode>
+      <DataProvider>
+        <ShipDataProvider>
           <App />
-        </React.StrictMode>
-      </ShipDataProvider>
-    </DataProvider>
+        </ShipDataProvider>
+      </DataProvider>
+    </React.StrictMode>
   </QueryClientProvider>
 );
 

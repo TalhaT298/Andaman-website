@@ -81,11 +81,9 @@ function Card({ card }) {
             </div>
           </div>
         </div>
-        <img
-          src={pgCardIcon}
-          alt="icon"
-          className="flex justify-center my-4 bg-white"
-        />
+        <div className="w-full flex  justify-center">
+          <img src={pgCardIcon} alt="icon" className=" my-4 bg-white" />
+        </div>
         <div className=" w-full flex justify-center mb-6 ">
           <button
             onClick={() => handleClick(card.link)}

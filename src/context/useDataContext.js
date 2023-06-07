@@ -1,7 +1,7 @@
 import React, { createContext, useContext, useState } from "react";
 
 // Create the DataContext
-const DataContext = createContext();
+const DataContext = createContext(null);
 
 // Create the DataProvider component
 export const DataProvider = ({ children }) => {
@@ -57,6 +57,7 @@ export const DataProvider = ({ children }) => {
   const [coverData, setCoverData] = useState({});
 
   const [adultDetails, setAdultDetails] = useState([]);
+
   const [childrenDetails, setChildrenDetails] = useState([]);
   const [infantDetails, setInfantDetails] = useState([]);
   const [contactDetails, setContactDetails] = useState({

@@ -57,6 +57,8 @@ const SingleHotel = lazy(() =>
 const PgHotel = lazy(() =>
   import("./ServiceMenu/Pg/SingleHotel/SinglePgHotel")
 );
+const HotelCard = lazy(() => import("./ServiceMenu/Hotel/Card/HotelCard.js"));
+const HotelPayment = lazy(() => import("./ServiceMenu/Hotel/HotelPayment.js"));
 
 const Tandoor = lazy(() => import("./ServiceMenu/Dining/hotel-pages/Tandoor"));
 const Trio = lazy(() => import("./ServiceMenu/Dining/hotel-pages/Trio"));
@@ -70,7 +72,9 @@ const Annapurna = lazy(() =>
 const Brewbeans = lazy(() =>
   import("./ServiceMenu/Dining/hotel-pages/Brewbeans")
 );
-const PgCard = lazy(() => import("./ServiceMenu/Pg/Card/Card.js"));
+const PgCard = lazy(() => import("./ServiceMenu/Pg/Card/PgCard.js"));
+const PgPayment = lazy(() => import("./ServiceMenu/Pg/PgPayment.js"));
+
 const Chaisuttabar = lazy(() =>
   import("./ServiceMenu/Dining/hotel-pages/Chaisuttabar")
 );
@@ -145,6 +149,9 @@ export default function App() {
             <Route path="/SingleInland/:id" element={<SingleInland />} />
             <Route path="/MakkruzGold" element={<MakkruzGoldDetails />} />
             <Route path="/PgSingleHotel" element={<PgHotel />} />
+            <Route path="/hotel-details" element={<HotelCard />} />
+            <Route path="/hotel-payment" element={<HotelPayment />} />
+
             <Route path="/ContactForm" element={<ContactForm />} />
 
             <Route path="/FlightPreview" element={<FlightPreview />} />
@@ -169,6 +176,7 @@ export default function App() {
             />
             <Route path="/PgContactForm" element={<PgContactForm />} />
             <Route path="/pg-details" element={<PgCard />} />
+            <Route path="/pg-payment" element={<PgPayment />} />
             <Route
               path="/TravelPackageContactForm"
               element={<TravelPackageContactForm />}

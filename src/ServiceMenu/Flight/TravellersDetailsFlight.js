@@ -47,10 +47,6 @@ const TravellersDetailsFlight = () => {
     // setFlightDataState,
     flightDataState,
   } = useDataContext();
-  console.log(
-    "🚀 ~ file: TravellersDetailsFlight.js:50 ~ TravellersDetailsFlight ~ adultDetails:",
-    adultDetails
-  );
 
   const totalAdultFare = travellerInfo.adult * flightDataState.adultPrice;
   const totalInfantFare = travellerInfo.infant * flightDataState.infantPrice;
@@ -1242,7 +1238,7 @@ const TravellersDetailsFlight = () => {
             <p className="font-[600] text-md">₹ {fee}</p>
           </div>
         </div>
-        <hr className="my-4" />
+        <hr className="mt-4 mb-8" />
         <div className="flex justify-between">
           <p className="font-[500] text-md">Total</p>
           <p className="font-[600] text-md">₹ {netTotal}</p>
@@ -1314,7 +1310,7 @@ const TravellersDetailsFlight = () => {
             </div>
 
             <form
-              className="w-[50%] lg:w-full shadow rounded bg-white overflow-hidden 
+              className="w-[50%] lg:w-full h-fit shadow rounded bg-white overflow-hidden 
                     p-8 "
               onSubmit={handleSubmit}
             >
@@ -1395,7 +1391,7 @@ const TravellersDetailsFlight = () => {
               </button>
             </form>
 
-            <div className="w-[50%] shadow rounded bg-white lg:w-full  p-8 ">
+            <div className="w-[50%] h-fit shadow rounded bg-white lg:w-full  p-8 ">
               <h1 className="whitespace-nowrap lexs:text-[5.8vw] text-[26px] text-[#699c78] md:text-2xl font-[Montserrat] font-semibold">
                 Trip Summary
               </h1>

@@ -2,42 +2,31 @@ import React from "react";
 import { BsFlagFill } from "react-icons/bs";
 import { ImLocation2 } from "react-icons/im";
 import { IoIosStar } from "react-icons/io";
-import { MdKeyboardArrowRight } from "react-icons/md";
-import { useLocation } from "react-router-dom";
-import Footer from "../../../Component/Footer/Footer";
-import { list } from "../../../Data/Pg-Section/cards-list";
-import Navforwithout from "../../../Navforwithout";
-import img1 from "../../../images/bad (1).png";
-import pgIcon1 from "../../../images/pg-icon1.png";
-import pgIcon2 from "../../../images/pg-icon2.png";
-import pgIcon3 from "../../../images/pg-icon3.png";
-import pgIcon4 from "../../../images/pg-icon4.png";
-import pgIcon5 from "../../../images/pg-icon5.png";
-import pgIcon6 from "../../../images/pg-icon6.png";
-import pgIcon7 from "../../../images/pg-icon7.png";
-import pgIcon8 from "../../../images/pg-icon8.png";
-import user1 from "../../../images/user1.png";
-import user2 from "../../../images/user2.png";
-import user3 from "../../../images/user3.png";
-import user4 from "../../../images/user4.png";
-import "../Cards/styles.css";
-import BookButton from "../Components/BookButton";
-const CardCompo = ({ singleData }) => {
+import { PhotoProvider, PhotoView } from "react-photo-view";
+import "react-photo-view/dist/react-photo-view.css";
+import { useNavigate } from "react-router-dom";
+import img1 from "../images/bad (1).png";
+import pgIcon1 from "../images/pg-icon1.png";
+import pgIcon2 from "../images/pg-icon2.png";
+import pgIcon3 from "../images/pg-icon3.png";
+import pgIcon4 from "../images/pg-icon4.png";
+import pgIcon5 from "../images/pg-icon5.png";
+import pgIcon6 from "../images/pg-icon6.png";
+import pgIcon7 from "../images/pg-icon7.png";
+import pgIcon8 from "../images/pg-icon8.png";
+import user1 from "../images/user1.png";
+import user2 from "../images/user2.png";
+import user3 from "../images/user3.png";
+import user4 from "../images/user4.png";
+import BookButton from "./BookButton";
+const CardCompo = ({ singleData, linkUrl }) => {
+  const navigate = useNavigate();
+  const handleClick = () => {
+    navigate(linkUrl, { state: { singleData } });
+  };
+
   return (
-    <section
-      className="lg:mx-10 sm:mx-3 mx-[104px] sm:my-5 my-[60px] text-[#112211]"
-      style={{ fontFamily: "Montserrat" }}
-    >
-      {/* -------------------Navigation---------------- */}
-      <div className=" flex items-center  mb-[30px] gap-2">
-        <a href={"/Paying-Guest"} className="text-[#FF8682] ">
-          Paying Guest
-        </a>
-        <span>
-          <MdKeyboardArrowRight />
-        </span>
-        <span className="text-[#112211] ">{singleData?.title}</span>
-      </div>
+    <>
       {/* -----------------Title & Price--------------- */}
       <div className="flex justify-between items-center">
         <div className="flex md:flex-col md:items-start items-center">
@@ -71,35 +60,65 @@ const CardCompo = ({ singleData }) => {
             </p>
           </div>
         </div>
-        <div>
-          <BookButton>Book Now</BookButton>
-        </div>
+        <div>{/* <BookButton Click={handleClick}>Book Now</BookButton> */}</div>
       </div>
       {/*------------------ Room Images---------------- */}
-      <div className=" grid grid-cols-2 gap-2  rounded-xl mt-8 overflow-hidden">
-        <img
-          src={singleData.imgSrc[2]}
-          alt="Paying-Guest"
-          className="col-span-1 w-full h-auto"
-        />
-        <div className="col-span-1">
-          <div className="grid grid-cols-2 gap-2 ">
-            {singleData.imgSrc.map((pic) => (
-              <img
-                src={pic}
-                alt="Paying-Guest"
-                className="w-auto h-[15.63vw] "
-              />
-            ))}
+      <PhotoProvider>
+        <div className=" grid grid-cols-2 gap-2  rounded-xl mt-8 overflow-hidden">
+          <PhotoView src={singleData?.imgSrc[2]}>
+            <img
+              src={singleData?.imgSrc[2]}
+              alt="Paying-Guest"
+              className="col-span-1 w-full h-full object-cover cursor-pointer"
+              loading="lazy"
+            />
+          </PhotoView>
+          <div className="col-span-1">
+            <div className="grid grid-cols-2 gap-2 ">
+              {singleData?.imgSrc.slice(0, 4).map((pic, i) => (
+                <PhotoView key={i} src={pic}>
+                  <img
+                    key={i}
+                    tabIndex={i}
+                    src={pic}
+                    alt="Paying-Guest"
+                    className="w-full max-h-[16.67vw] h-[100vh] object-cover cursor-pointer"
+                    loading="lazy"
+                  />
+                </PhotoView>
+              ))}
+            </div>
           </div>
-        </div>
-      </div>{" "}
+        </div>{" "}
+      </PhotoProvider>
       <hr className="w-full my-16 md:my-10 ms:my-5 bg-[#112211]/25" />
       {/*------------- Available Room --------- */}
       <h2 className="text-[#112211] text-xl mb-8 ms:mb-4 font-bold">
         Available Room
       </h2>
-      <div className="flex justify-between items-center border-b-[0.5px] pb-4">
+      {[...Array(3)].map((_, i, array) => (
+        <div
+          key={i}
+          className={`flex airbnbml:flex-col airbnbml:gap-2 justify-between airbnbml:items-start items-center pb-4 mb-4 ${
+            i === array.length - 1 ? "border-none" : "border-b-[0.5px]"
+          }`}
+        >
+          <div className="flex justify-between gap-4 items-center">
+            <img src={img1} alt="bad1" />
+            <p>Superior room - 1 double bed or 2 twin beds</p>
+          </div>
+
+          <div className="flex justify-between airbnbml:w-full airbnbml:gap-1 gap-[4.17vw] items-center">
+            <div className="text-[#27273F] text-[24px] font-[600]">
+              ₹{singleData?.price}
+              <sub className="text-md">/night</sub>
+            </div>
+            <BookButton Click={handleClick}>Book Now</BookButton>
+          </div>
+        </div>
+      ))}
+
+      {/* <div className="flex justify-between gap-2 items-center py-4">
         <div className="flex justify-between gap-4 items-center">
           <img src={img1} alt="bad1" />
           <p>Superior room - 1 double bed or 2 twin beds</p>
@@ -110,23 +129,9 @@ const CardCompo = ({ singleData }) => {
             ₹{singleData?.price}
             <sub className="text-md">/night</sub>
           </div>
-          <BookButton>Book Now</BookButton>
+          <BookButton onClick={handleClick}>Book Now</BookButton>
         </div>
-      </div>
-      <div className="flex justify-between gap-2 items-center py-4">
-        <div className="flex justify-between gap-4 items-center">
-          <img src={img1} alt="bad1" />
-          <p>Superior room - 1 double bed or 2 twin beds</p>
-        </div>
-
-        <div className="flex justify-between airbnbml:flex-col airbnbml:gap-1 gap-[4.17vw] items-center">
-          <div className="text-[#27273F] text-[24px] font-[600]">
-            ₹{singleData?.price}
-            <sub className="text-md">/night</sub>
-          </div>
-          <BookButton>Book Now</BookButton>
-        </div>
-      </div>
+      </div> */}
       <hr className="my-20 md:my-10 ms:my-5" />
       {/*------------------ Room Facilities---------------- */}
       <div className="">
@@ -305,7 +310,7 @@ const CardCompo = ({ singleData }) => {
           </article>
         </div>
       </div>
-    </section>
+    </>
   );
 };
 
