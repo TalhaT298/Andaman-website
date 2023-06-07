@@ -54,7 +54,7 @@ const BusBookingSeats = () => {
             alert('you have to select a seat first')
             return;
         }
-        navigate('/bus/payment')
+        navigate('/bus/traveler/details')
     }
 
     useEffect(() => {
@@ -67,20 +67,26 @@ const BusBookingSeats = () => {
             <div className='w-full max-w-[1244px] h-[697px] mt-20 mx-auto flex items-center justify-between mb-11'>
                 <div className='w-full max-w-[792px]'>
                     {/* bus info breadcumb starts here  */}
-                    <div className='w-[285px] h-[17px] flex items-center justify-between mb-6 font-montserrat'>
+                    <div className='w-[405px] h-[17px] flex items-center justify-between mb-6 font-montserrat'>
                         <p className='font-medium text-sm text-[#FF8682]'>
                             <Link to='/Bus'>Bus</Link>
                         </p>
-                        <HiOutlineChevronRight className='text-black-200 mx-[14px]'></HiOutlineChevronRight>
+                        <HiOutlineChevronRight className='text-[#112211] mx-[14px]'></HiOutlineChevronRight>
                         <p className='font-medium text-sm text-[#FF8682]'>
-                            <Link to={`/bus/details/${bookingInfo?.busId}`}>{bookingInfo?.busName}</Link>
+                            <Link to={`/Bus`}>{bookingInfo?.busName}</Link>
                         </p>
-                        <HiOutlineChevronRight className='text-black-200 mx-[14px]'></HiOutlineChevronRight>
+                        <HiOutlineChevronRight className='text-[#112211] mx-[14px]'></HiOutlineChevronRight>
+                        <p className='font-medium text-sm text-[#FF8682] whitespace-nowrap'>
+                            <Link to={`/bus/details/${bookingInfo?.busId}`}>
+                                {bookingInfo?.busCompanyName}
+                            </Link>
+                        </p>
+                        <HiOutlineChevronRight className='text-[#112211] mx-[14px]'></HiOutlineChevronRight>
                         <p className='font-medium text-sm text-[#000000] text-opacity-60'>Seats</p>
                     </div>
                     {/* bus info breadcumb finish here  */}
                     {/* bus detail card starts here  */}
-                    <div className='w-full max-w-[792px] bg-white-100 h-[349px] rounded-xl px-6-6 pt-8 pb-9 mb-[25px]' style={{
+                    <div className='w-full max-w-[792px] bg-[#FFFFFF] h-[349px] rounded-xl px-6 pt-8 pb-9 mb-[25px]' style={{
                         boxShadow: '0px 4px 16px rgba(17, 34, 17, 0.05)'
                     }}>
                         <div className='w-full max-w-[742px] h-[39px] font-montserrat flex items-center justify-between mx-auto mb-[29px]'>

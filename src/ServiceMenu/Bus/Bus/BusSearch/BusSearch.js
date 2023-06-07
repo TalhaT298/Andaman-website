@@ -76,7 +76,7 @@ const Search = ({ bus: category }) => {
                 >
                     {/* location from  */}
                     <div
-                        className='w-full max-w-[324px] h-12 relative'>
+                        className='w-full max-w-[300px] h-12 relative'>
 
                         <input
                             value={locationFrom}
@@ -114,7 +114,7 @@ const Search = ({ bus: category }) => {
                     {/* location from finish */}
 
                     {/* location to start  */}
-                    <div className='w-full max-w-[324px] h-12 relative'>
+                    <div className='w-full max-w-[300px] h-12 relative'>
                         <label htmlFor="To"
                             onClick={() => setClickTo(!clickTo)}
                             className='font-montserrat text-lg font-normal text-[#000000] flex items-center absolute top-3 left-5 cursor-pointer'>
@@ -280,7 +280,7 @@ const Search = ({ bus: category }) => {
                         }
 
 
-                        <input className='w-24 h-12 rounded-r-[4px] bg-[#FF8682] text-white-400 font-normal text-lg cursor-pointer leading-6 absolute top-0 -right-[40px]' type="submit" value="Search" />
+                        <input className='w-24 h-12 rounded-r-[4px] bg-[#FF8682] text-white-400 font-normal text-lg cursor-pointer leading-6 absolute top-0 -right-[60px]' type="submit" value="Search" />
                     </div>
                     {/* total traveller ends here  */}
                 </form >

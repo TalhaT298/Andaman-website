@@ -36,7 +36,11 @@ const BusDetailsCard = () => {
                         <Link to={'/Bus'}>Bus</Link>
                     </p>
                     <HiOutlineChevronRight className='text-[#112211] mx-[14px]'></HiOutlineChevronRight>
-                    <p className='font-medium text-sm  whitespace-nowrap text-[#FF8682]'>{bookingInfo?.busName}</p>
+                    <p className='font-medium text-sm  whitespace-nowrap text-[#FF8682]'>
+                        <Link to={'/Bus'}>
+                            {bookingInfo?.busName}
+                        </Link>
+                    </p>
                     <HiOutlineChevronRight className='text-[#112211] mx-[14px]'></HiOutlineChevronRight>
                     <p className='font-medium text-sm text-[#112211] whitespace-nowrap'>{bookingInfo?.busCompanyName}</p>
 
@@ -142,7 +146,7 @@ const BusDetailsCard = () => {
                         </div>
                     </div>
                 </div>
-            </div>
+            </div >
             <Footer></Footer>
         </>
     );

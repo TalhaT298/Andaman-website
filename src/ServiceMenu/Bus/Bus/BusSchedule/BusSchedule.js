@@ -8,9 +8,9 @@ import Footer from '../../../../Component/Footer/Footer';
 
 const BusSchedule = () => {
     const params = useParams()
-    // console.log(params)
+    console.log(params)
     let pathName = ''
-    if (params.name === 'Government Bus') {
+    if (params?.name === 'Government-Bus') {
         pathName = 'Government Inter-Island Seater Bus Schedule'
     }
     else {

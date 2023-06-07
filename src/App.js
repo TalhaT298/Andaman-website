@@ -17,6 +17,7 @@ import BusSchedule from "./ServiceMenu/Bus/Bus/BusSchedule/BusSchedule.js";
 import BusDetailsCard from "./ServiceMenu/Bus/Bus/BusDetailsCard/BusDetailsCard.js";
 import BusBookingSeats from "./ServiceMenu/Bus/Bus/BusBookingSeats/BusBookingSeats.js";
 import BusPayment from "./ServiceMenu/Bus/Bus/BusPayment/BusPaymet.js";
+import BusTravellerDetails from "./ServiceMenu/Bus/Bus/BusTravellerDetails/BusTravellerDetails.js";
 // anik import 
 
 
@@ -195,6 +196,11 @@ export default function App() {
             <Route path="bus/booking/seats"
               element={<BusBookingSeats></BusBookingSeats>}
             ></Route>
+
+            <Route path="/bus/traveler/details"
+              element={<BusTravellerDetails></BusTravellerDetails>}
+            ></Route>
+
             <Route path="/bus/payment"
               element={<BusPayment></BusPayment>}
             ></Route>

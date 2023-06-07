@@ -10,6 +10,7 @@ import banner from '../../images/Rectangle 3.png'
 import { BusContext } from '../../../../context/UseBusDataContext';
 import Navforwithout from '../../../../Navforwithout';
 import Footer from '../../../../Component/Footer/Footer';
+import { Link } from 'react-router-dom';
 
 
 const BusPayment = () => {
@@ -26,10 +27,37 @@ const BusPayment = () => {
             <div className='w-full max-w-[1327px] h-[657px] mt-20 mx-auto mb-[84px] flex items-center justify-between'>
                 <div>
                     <div className='w-full max-w-[820px] font-montserrat'>
-                        <div className='w-[311px] h-[17px] flex items-center justify-between mb-6'>
-                            <p className='font-medium text-sm text-[#FF8682]'>Bus</p>
+                        <div className='w-[600px] h-[17px] flex items-center justify-between mb-6'>
+                            <p className='font-medium text-sm text-[#FF8682]'>
+                                <Link to={'/Bus'}>
+                                    Bus
+                                </Link>
+                            </p>
                             <HiOutlineChevronRight className='text-[#112211] mx-[14px]'></HiOutlineChevronRight>
-                            <p className='font-medium text-sm text-[#FF8682]'>{bookingInfo?.busName}</p>
+                            <p className='font-medium text-sm text-[#FF8682]'>
+                                <Link to={'/Bus'}>
+                                    {bookingInfo?.busName}
+                                </Link>
+                            </p>
+                            <HiOutlineChevronRight className='text-[#112211] mx-[14px]'></HiOutlineChevronRight>
+
+                            <p className='font-medium text-sm text-[#FF8682] whitespace-nowrap'>
+                                <Link to={`/bus/details/${bookingInfo?.busId}`}>
+                                    {bookingInfo?.busCompanyName}
+                                </Link>
+                            </p>
+                            <HiOutlineChevronRight className='text-[#112211] mx-[14px]'></HiOutlineChevronRight>
+                            <p className='font-medium text-sm text-[#FF8682]'>
+                                <Link to={'/bus/booking/seats'}>
+                                    Seats
+                                </Link>
+                            </p>
+                            <HiOutlineChevronRight className='text-[#112211] mx-[14px]'></HiOutlineChevronRight>
+                            <p className='font-medium text-sm text-[#FF8682]'>
+                                <Link to={'/bus/traveler/details'}>
+                                    Details
+                                </Link>
+                            </p>
                             <HiOutlineChevronRight className='text-[#112211] mx-[14px]'></HiOutlineChevronRight>
                             <p className='font-medium text-sm text-[#112211] text-opacity-70'>Payment</p>
                         </div>
@@ -204,7 +232,7 @@ const BusPayment = () => {
                     </div>
 
                 </div>
-            </div>
+            </div >
             <Footer></Footer>
         </>
     );
