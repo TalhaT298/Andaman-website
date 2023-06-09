@@ -27,7 +27,7 @@ const BusBanner = () => {
     return (
         <div className='my-20'>
             <h3 className='font-montserrat text-2xl text-center font-bold mb-5'>Inter Island Bus Service</h3>
-            <div className={`w-full max-w-[1232px] h-[550px] flex ms:flex-col sm:flex-col flex-row items-center justify-between mx-auto gap-6 ms:px-6 sm:px-6 ${show ? 'block' : 'hidden'}`
+            <div className={`w-full max-w-[1232px] h-[550px] flex items-center justify-between mx-auto gap-6 ${show ? 'block' : 'hidden'}`
             }>
 
                 {
@@ -36,14 +36,20 @@ const BusBanner = () => {
                         className='w-full max-w-[604px] h-[550px] relative rounded-[20px] overflow-hidden mx-auto'>
                         <button
                             onClick={() => handleNaviateSchedule(bus?.schedule)}
-                            className='w-full max-w-[300px] text-xl font-montserrat text-[#112211] bg-[#FF8682] h-12 ml-5 rounded-md mb-5'>
+                            className='w-full max-w-[300px] text-xl font-montserrat text-[#112211] bg-red-500 h-12 ml-5 rounded-md mb-5'>
                             {bus?.title} Schedule
                         </button>
+                        {/* <Link className='w-full max-w-[300px] text-xl font-montserrat text-[#112211] bg-red-500 h-12' to={`/bus/schedules/${bus?.schedule}`}>
+                            {bus?.title} Schedule</Link> */}
+                        {/* <p className='text-center mb-5 text-xl text-[#112211] font-montserrat'>
+                            Check The Schedule Of {bus?.title}
+                            <Link className=' font-montserrat text-xl underline text-blue-600 ml-2' to={`/bus/schedules/${bus?.schedule}`}>
+                                Click Here</Link>
+                        </p> */}
 
                         <img className='w-full max-w-[604px] h-[550px]' src={govt} alt="" />
-                        <div className='w-full max-w-[604px] h-[280px] absolute 
-                        xl:top-[280px] rounded-bl-lg rounded-br-lg custom'>
-                            <div className='w-full max-w-[389px] h-[161px] absolute xl:left-[98px] xl:top-[93px] text-center flex flex-col items-center justify-center'>
+                        <div className='w-full max-w-[604px] h-[280px] absolute top-[280px] rounded-bl-lg rounded-br-lg custom'>
+                            <div className='w-full max-w-[389px] h-[161px] absolute left-[98px] top-[93px] text-center flex flex-col items-center justify-center'>
                                 {/* bus name */}
                                 <h1 className='font-montserrat font-bold text-[40px] text-[#FFFFFF] leading-[49px]'>{bus?.title}</h1>
                                 {/* bus Schedule */}
