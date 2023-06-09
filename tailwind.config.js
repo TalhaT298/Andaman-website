@@ -5,9 +5,9 @@ module.exports = {
     fontFamily: {
       Nunito_Sans: ["Nunito Sans", "sans-serif"],
       Ubuntu_Mono: ["Ubuntu Mono", "monospace"],
-      'ibm': ['IBM Plex Sans', 'sans-serif'],
-      'montserrat': ['Montserrat', 'sans-serif'],
-      'popins': ['Poppins', 'sans-serif']
+      ibm: ["IBM Plex Sans", "sans-serif"],
+      montserrat: ["Montserrat", "sans-serif"],
+      popins: ["Poppins", "sans-serif"],
     },
     screens: {
       xxl: { max: "1535px" },
@@ -37,6 +37,8 @@ module.exports = {
       // => @media (max-width: 568px) { ... }
 
       xs: { max: "540px" },
+      // => @media (max-width: 540px) { ... }
+      sxs: { max: "480px" },
       // => @media (max-width: 540px) { ... }
 
       lexs: { max: "440px" },

@@ -1,22 +1,26 @@
-import React from 'react';
-import { useState } from 'react';
+import React from "react";
+import { useState } from "react";
 
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-import { faLocationDot } from '@fortawesome/free-solid-svg-icons';
+import { faLocationDot } from "@fortawesome/free-solid-svg-icons";
 
 const SearchInput = () => {
-  const [destination, setDestination] = useState('');
+  const [destination, setDestination] = useState("");
 
   return (
-    <div className='flex items-center justify-center gap-2 xs:pl-20'>
-      <FontAwesomeIcon icon={faLocationDot} style={{paddingLeft:"5px"}} className='text-black' />
-      <span className='text-black font-extralight cursor-pointer w-auto'>
+    <div className="flex items-center justify-center gap-2 xs:pl-20">
+      <FontAwesomeIcon
+        icon={faLocationDot}
+        style={{ paddingLeft: "5px" }}
+        className="text-black"
+      />
+      <span className="text-black font-extralight cursor-pointer w-auto">
         <input
-          type='text'
-          placeholder='Search here...'
+          type="text"
+          placeholder="Search here..."
           value={destination}
-          className='border-none outline-none w-auto text-md font-bold text-blue-500' 
+          className="border-none outline-none w-auto text-md font-bold text-blue-500"
           onChange={(event) => {
             setDestination(event.target.value);
           }}
@@ -25,6 +29,5 @@ const SearchInput = () => {
     </div>
   );
 };
-
 
 export default SearchInput;

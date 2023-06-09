@@ -2,13 +2,13 @@
 // internal do not, so instead of <img src={"/images/resto.png"} /> you need to use <img src={require('/images/image-name.png')} /> replacing
 // image-name.png with the correct image name for each of them. That way Webpack is able to process and replace the source img.
 
-import React, { useState, lazy } from "react";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import React, { lazy, useState } from "react";
 
-const Options = lazy(() => import('./Options'))
-const Dates = lazy(() => import('./Dates'))
-const SearchInput = lazy(() => import('./SearchInput'))
+const Options = lazy(() => import("./Options"));
+const Dates = lazy(() => import("./Dates"));
+const SearchInput = lazy(() => import("./SearchInput"));
 
 const Header = () => {
   const [toggleSearchBar, setToggleSearchBar] = useState(false);
