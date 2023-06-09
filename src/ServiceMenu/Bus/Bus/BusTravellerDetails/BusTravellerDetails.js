@@ -1,6 +1,6 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { HiOutlineChevronRight } from 'react-icons/hi';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, json, useNavigate } from 'react-router-dom';
 import { BusContext } from '../../../../context/UseBusDataContext';
 import Footer from '../../../../Component/Footer/Footer';
 import Navforwithout from '../../../../Navforwithout';
@@ -85,11 +85,24 @@ const BusTravellerDetails = () => {
     };
 
     // console.log(adult)
+    const copyAdultSeat = [...bookingInfo?.selectedSeat]
+    // console.log(copyAdultSeat, '88')
+    const adultSeat = copyAdultSeat?.slice(0, `${bookingInfo?.travellersInfo?.adult}`)
+    // console.log(adultSeat, '91')
+    // console.log(bookingInfo?.selectedSeat)
+    const restSeat = copyAdultSeat.filter((seat) => !adultSeat.includes(seat))
+    // console.log(restSeat, '94')
+    const childrenSeat = restSeat?.slice(0, `${bookingInfo?.travellersInfo?.children}`)
+    // console.log(childrenSeat, '96')
+    const infantSeat = restSeat.filter((seat) => !childrenSeat.includes(seat))
+    // console.log(infantSeat)
     // display adults starts here
+
     const adultsData = adultArr?.map((adult, index) => (
         <div key={index}>
             <h1 className="font-bold mt-5 mb-3">Adult {index + 1}</h1>
 
+            <h1 className="font-bold mt-5 mb-3">seat {adultSeat[index]}</h1>
             <div className="flex flex-col gap-3 text-sm">
                 <div>
                     <label htmlFor="title">Title</label>
@@ -432,6 +445,7 @@ const BusTravellerDetails = () => {
     const childrenData = childrenArr?.map((children, index) => (
         <div key={index}>
             <h1 className="font-bold mt-5 mb-3">Children {index + 1}</h1>
+            <h1 className="font-bold mt-5 mb-3">seat {childrenSeat[index]}</h1>
 
             <div className="flex flex-col gap-3 text-sm">
                 <div>
@@ -778,7 +792,7 @@ const BusTravellerDetails = () => {
     const infantsData = infantArr?.map((infant, index) => (
         <div key={index}>
             <h1 className="font-bold mt-5 mb-3">Infant {index + 1}</h1>
-
+            <h1 className="font-bold mt-5 mb-3">seat {infantSeat[index]}</h1>
             <div className="flex flex-col gap-3 text-sm">
                 <div>
                     <label htmlFor="title">Title</label>
@@ -1114,29 +1128,34 @@ const BusTravellerDetails = () => {
     ));
     // display infant ends here
     // contact details event handler
-
+    console.log(bookingInfo)
     const navigate = useNavigate();
 
-    const adultEmailContent = adultArr?.map((adult) => {
+    const adultEmailContent = adultArr?.map((adult, index) => {
         return `Title: ${adult?.title}
       Name: ${adult?.name}
       Gender: ${adult?.gender}
       Age: ${adult?.age}
-      Nationality: ${adult?.nationality}`;
+      Nationality: ${adult?.nationality}
+      Seat: ${adultSeat[index]}`
     }).join('\n\n');
-    const childrenEmailContent = childrenArr?.map((children) => {
+    const childrenEmailContent = childrenArr?.map((children, index) => {
         return `Title: ${children?.title}
       Name: ${children?.name}
       Gender: ${children?.gender}
       Age: ${children?.age}
-      Nationality: ${children?.nationality}`;
+      Nationality: ${children?.nationality}
+      Seat: ${childrenSeat[index]}
+      `;
     }).join('\n\n');
-    const infantEmailContent = infantArr?.map((infant) => {
+    const infantEmailContent = infantArr?.map((infant, index) => {
         return ` Title: ${infant?.title}
         Name: ${infant?.name}
         Gender: ${infant?.gender}
         Age: ${infant?.age}
-        Nationality: ${infant?.nationality}`;
+        Nationality: ${infant?.nationality}
+        Seat: ${infantSeat[index]}
+        `;
     }).join('\n\n');
 
     const contactEmailContent = [contactDetails]?.map(contact => {
@@ -1320,7 +1339,7 @@ const BusTravellerDetails = () => {
             <Navforwithout />
             <div className="w-full max-w-[1232px] mx-auto mb-5 font-montserrat">
                 <div className='mt-20'>
-                    <div className='w-[500px] h-[17px] flex items-center justify-between mb-6 font-montserrat'>
+                    <div className='w-full max-w-[500px] h-[17px] flex items-center justify-center lg:justify-between mb-6 font-montserrat flex-wrap'>
                         <p className='font-medium text-sm text-[#FF8682]'>
                             <Link to='/Bus'>
                                 Bus

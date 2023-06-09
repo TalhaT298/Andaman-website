@@ -13,7 +13,7 @@ import Footer from '../../../../Component/Footer/Footer';
 const BusBookingSeats = () => {
     const [selectedSeat, setSelectedSeat] = useState([]);
     const [refresh, setRefresh] = useState(false);
-    const { bookingInfo, setBookingInfo } = useContext(BusContext)
+    const { bookingInfo, setBookingInfo, adult, children, infant } = useContext(BusContext)
     const navigate = useNavigate();
     const seats = [
         '1', '2', '17', '18', '19',
@@ -40,18 +40,21 @@ const BusBookingSeats = () => {
         }
 
     }
-    console.log(bookingInfo)
+
+    // console.log(bookingInfo.selectedSeat?.length)
 
     const totalSeat = selectedSeat?.length;
     const newPrice = totalSeat * bookingInfo?.price;
 
     const { price, ...rest } = bookingInfo;
     const updatedPrice = { price: newPrice, ...rest };
+    const totalPassenger = adult + children + infant
 
     const handleConfirmBooking = () => {
         // console.log(selectedSeat.length)
-        if (selectedSeat.length === 0) {
-            alert('you have to select a seat first')
+        if (selectedSeat.length === 0 || selectedSeat.length !== totalPassenger) {
+
+            alert(`You have to select ${totalPassenger} seat`)
             return;
         }
         navigate('/bus/traveler/details')
@@ -67,7 +70,7 @@ const BusBookingSeats = () => {
             <div className='w-full max-w-[1244px] h-[697px] mt-20 mx-auto flex items-center justify-between mb-11'>
                 <div className='w-full max-w-[792px]'>
                     {/* bus info breadcumb starts here  */}
-                    <div className='w-[405px] h-[17px] flex items-center justify-between mb-6 font-montserrat'>
+                    <div className='w-[405px] h-[17px] flex items-center justify-between mb-6 font-montserrat flex-wrap'>
                         <p className='font-medium text-sm text-[#FF8682]'>
                             <Link to='/Bus'>Bus</Link>
                         </p>

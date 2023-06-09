@@ -21,7 +21,7 @@ const BusSchedule = () => {
         <>
             <Navforwithout></Navforwithout>
             <div className='w-full max-w-[1225px] h-[1521px] my-[85px] mx-auto font-montserrat'>
-                <div className='w-[433px] h-5 flex items-center mb-[51px]'>
+                <div className='w-[433px] h-5 flex items-center mb-[51px] flex-wrap'>
                     <p className='font-medium text-sm text-[#FF8682]'>
                         <Link to={'/Bus'}>Bus</Link>
                     </p>
