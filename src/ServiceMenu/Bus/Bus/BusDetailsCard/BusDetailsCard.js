@@ -31,7 +31,7 @@ const BusDetailsCard = () => {
             <Navforwithout></Navforwithout>
             <div className='w-full max-w-[1232px] mx-auto font-montserrat my-20'>
                 {/* bus information breadcumb start here*/}
-                <div className='w-[300px] h-4 flex items-center justify-between mb-[22px]'>
+                <div className='w-[300px] h-4 flex items-center justify-between mb-[22px] flex-wrap'>
                     <p className='font-medium text-sm text-[#FF8682]'>
                         <Link to={'/Bus'}>Bus</Link>
                     </p>

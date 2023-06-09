@@ -27,7 +27,7 @@ const BusPayment = () => {
             <div className='w-full max-w-[1327px] h-[657px] mt-20 mx-auto mb-[84px] flex items-center justify-between'>
                 <div>
                     <div className='w-full max-w-[820px] font-montserrat'>
-                        <div className='w-[600px] h-[17px] flex items-center justify-between mb-6'>
+                        <div className='w-[600px] h-[17px] flex items-center justify-between mb-6 flex-wrap'>
                             <p className='font-medium text-sm text-[#FF8682]'>
                                 <Link to={'/Bus'}>
                                     Bus
