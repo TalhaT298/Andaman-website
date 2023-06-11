@@ -1,3 +1,5 @@
+.rdp-months {}
+
 .rdp-caption {
     background-color: white;
 }
@@ -6,7 +8,6 @@
     width: 100%;
     max-width: 252px;
     background-color: white;
-    /* margin-left: 200px; */
     padding-right: 100px;
 }
 

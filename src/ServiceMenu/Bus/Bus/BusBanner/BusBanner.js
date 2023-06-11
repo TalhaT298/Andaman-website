@@ -25,8 +25,10 @@ const BusBanner = () => {
         { title: 'Private Bus', subTitle: 'Search Private Inter-Island Seater Bus Schedule', buttonTitle: 'Show bus', schedule: 'Private-Bus' }
     ]
     return (
-        <div className='my-20'>
-            <h3 className='font-montserrat text-2xl text-center font-bold mb-5'>Inter Island Bus Service</h3>
+        <div className='mt-10 mb-20'>
+            {
+                show && <h3 className='font-montserrat text-4xl text-center font-bold mb-5'>Inter Island Bus Service</h3>
+            }
             <div className={`w-full max-w-[1232px] h-[550px] flex items-center justify-between mx-auto gap-6 ${show ? 'block' : 'hidden'}`
             }>
 
@@ -36,7 +38,7 @@ const BusBanner = () => {
                         className='w-full max-w-[604px] h-[550px] relative rounded-[20px] overflow-hidden mx-auto'>
                         <button
                             onClick={() => handleNaviateSchedule(bus?.schedule)}
-                            className='w-full max-w-[300px] text-xl font-montserrat text-[#112211] bg-red-500 h-12 ml-5 rounded-md mb-5'>
+                            className='w-full block mx-auto max-w-[300px] text-xl font-montserrat text-[#112211] bg-[#FF8682] h-12 rounded-md mb-5'>
                             {bus?.title} Schedule
                         </button>
                         {/* <Link className='w-full max-w-[300px] text-xl font-montserrat text-[#112211] bg-red-500 h-12' to={`/bus/schedules/${bus?.schedule}`}>
