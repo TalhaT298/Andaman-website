@@ -18,6 +18,7 @@ import BusDetailsCard from "./ServiceMenu/Bus/Bus/BusDetailsCard/BusDetailsCard.
 import BusBookingSeats from "./ServiceMenu/Bus/Bus/BusBookingSeats/BusBookingSeats.js";
 import BusPayment from "./ServiceMenu/Bus/Bus/BusPayment/BusPaymet.js";
 import BusTravellerDetails from "./ServiceMenu/Bus/Bus/BusTravellerDetails/BusTravellerDetails.js";
+
 // anik import
 
 // const Explore = lazy(() => import('./NavMenu/Explore.js'));
@@ -66,6 +67,13 @@ const SingleHotel = lazy(() =>
 
 const PgHotel = lazy(() =>
   import("./ServiceMenu/Pg/SingleHotel/SinglePgHotel")
+);
+
+const HotelSearchResult = lazy(() =>
+  import("./ServiceMenu/Hotel/Search/HotelSearchResult.js")
+);
+const HotelSearchDetailsCard = lazy(() =>
+  import("./ServiceMenu/Hotel/Search/HotelSearchDetailsCard.js")
 );
 const HotelCard = lazy(() => import("./ServiceMenu/Hotel/Card/HotelCard.js"));
 const HotelPayment = lazy(() => import("./ServiceMenu/Hotel/HotelPayment.js"));
@@ -159,6 +167,15 @@ export default function App() {
             <Route path="/SingleInland/:id" element={<SingleInland />} />
             <Route path="/MakkruzGold" element={<MakkruzGoldDetails />} />
             <Route path="/PgSingleHotel" element={<PgHotel />} />
+            <Route
+              path="/hotel-search-result"
+              element={<HotelSearchResult />}
+            />
+            <Route
+              path="/hotel-search-details"
+              element={<HotelSearchDetailsCard />}
+            />
+
             <Route path="/hotel-details" element={<HotelCard />} />
             <Route path="/hotel-payment" element={<HotelPayment />} />
 

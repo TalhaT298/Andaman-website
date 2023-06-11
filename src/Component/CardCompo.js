@@ -19,10 +19,10 @@ import user2 from "../images/user2.png";
 import user3 from "../images/user3.png";
 import user4 from "../images/user4.png";
 import BookButton from "./BookButton";
-const CardCompo = ({ singleData, linkUrl }) => {
+const CardCompo = ({ singleData, searchState, linkUrl , hotelUrl}) => {
   const navigate = useNavigate();
   const handleClick = () => {
-    navigate(linkUrl, { state: { singleData } });
+    navigate(linkUrl, { state: { singleData, searchState , hotelUrl} });
   };
 
   return (

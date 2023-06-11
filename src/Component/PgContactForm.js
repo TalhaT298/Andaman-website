@@ -12,11 +12,7 @@ const ContactForm = () => {
   const form = useRef();
   const location = useLocation();
   const { state } = location;
-  const { singleData } = state;
-  console.log(
-    "🚀 ~ file: PgContactForm.js:15 ~ ContactForm ~ singleData:",
-    singleData
-  );
+  const { singleData, searchState, hotelUrl } = state;
 
   // const handleSubmit = async (e) => {
   //   e.preventDefault();
@@ -53,9 +49,9 @@ const ContactForm = () => {
       .then(
         (result) => {
           console.log(result.text);
-          // alert(
-          //   "Thank you for taking your time. Sublime Island will reach out to you in 2-3 hours or as soon as possible 😁✌🏻"
-          // );
+          //       // alert(
+          //       //   "Thank you for taking your time. Sublime Island will reach out to you in 2-3 hours or as soon as possible 😁✌🏻"
+          //       // );
 
           const formValues = {};
           const formRef = form.current;
@@ -67,7 +63,7 @@ const ContactForm = () => {
             }
           }
           setStatus("Submit");
-          navigate("/pg-payment", { state: { singleData, formValues } });
+          navigate("/hotel-payment", { state: { singleData, formValues } });
         },
         (error) => {
           console.log(error.text);
@@ -77,6 +73,23 @@ const ContactForm = () => {
       );
   };
 
+  const date = new Date(searchState?.checkInDate || searchState?.checkOutDate);
+
+  // Extract the date and time components
+  const year = date.getFullYear();
+  const month = (date.getMonth() + 1).toString().padStart(2, "0");
+  const day = date.getDate().toString().padStart(2, "0");
+  const hours = date.getHours().toString().padStart(2, "0");
+  const minutes = date.getMinutes().toString().padStart(2, "0");
+
+  const formattedDate = `${year}-${month}-${day}T${hours}:${minutes}`;
+  const timeDiff =
+    searchState?.checkOutDate.getTime() - searchState?.checkInDate.getTime();
+
+  // Convert milliseconds to days (change the conversion factor as needed)
+  const daysDiff = Math.round(timeDiff / (1000 * 60 * 60 * 24));
+
+  console.log(daysDiff);
   return (
     <>
       <Navforwithout />
@@ -85,14 +98,30 @@ const ContactForm = () => {
           {/* -------------------Navigation---------------- */}
 
           <div className=" flex  items-center mt-5 ml-[5%] ms:mb-2 mb-[30px] ms:gap-0.5 gap-2">
-            <a href={"/Paying-Guest"} className="text-[#FF8682] ms:text-sm">
-              Paying Guest
+            {/* {hotelUrl?.hotel ? (
+              <>
+                <a href={hotelUrl?.hotel} className="text-[#FF8682] ms:text-sm">
+                  Paying Guest
+                </a>
+              </>
+            ) : (
+              <>
+                <a href={"/Paying-Guest"} className="text-[#FF8682] ms:text-sm">
+                  Paying Guest
+                </a>
+              </>
+            )} */}
+            <a
+              href={hotelUrl?.hotel || "/Paying-Guest"}
+              className="text-[#FF8682] ms:text-sm"
+            >
+              {hotelUrl ? "Hotels" : "Paying Guest"}
             </a>
             <span>
               <MdKeyboardArrowRight />
             </span>
             <Link
-              to={"/pg-details"}
+              to={hotelUrl?.details || "/pg-details"}
               state={{ id: singleData.link }}
               className="text-[#FF8682] ms:text-sm"
             >
@@ -171,50 +200,121 @@ const ContactForm = () => {
                   required
                 />
               </div>
-              <div className="flex flex-col gap-1 mt-5">
-                <input
-                  type="number"
-                  id="room"
-                  name="room"
-                  value={singleData?.room}
-                  placeholder="No. of Room"
-                  className="h-[45px] outline-none p-4 rounded-md border border-gray-300 focus:border-2 focus:border-slate-400"
-                  required
-                />
-              </div>
-              <div className="flex flex-col gap-1 mt-5">
-                <input
-                  type="number"
-                  id="people"
-                  name="user_people"
-                  value={singleData?.user_people}
-                  placeholder="No. of People"
-                  className="h-[45px] outline-none p-4 rounded-md border border-gray-300 focus:border-2 focus:border-slate-400"
-                  required
-                />
-              </div>
-              <div className="flex flex-col gap-1 mt-5">
-                <input
-                  type="datetime-local"
-                  id="arrival"
-                  name="user_arrival"
-                  value={singleData?.user_arrival}
-                  placeholder="Expected Arrival"
-                  className="h-[45px] font-thin outline-none p-4 rounded-md border border-gray-300 focus:border-2 focus:border-slate-400"
-                  required
-                />
-              </div>
-              <div className="flex flex-col gap-1 mt-5">
-                <input
-                  type="number"
-                  id="staying"
-                  name="staying"
-                  value={singleData?.staying}
-                  placeholder="No. of Days Staying"
-                  className="h-[45px] outline-none p-4 rounded-md border border-gray-300 focus:border-2 focus:border-slate-400"
-                  required
-                />
-              </div>
+              {searchState?.checkInDate ? (
+                <>
+                  <fieldset className="flex flex-col gap-1 mt-5 border border-gray-300 focus:border-2 focus:border-slate-400">
+                    <legend className="">No. of Room</legend>
+
+                    <input
+                      type="number"
+                      id="room"
+                      name="room"
+                      value={
+                        singleData?.room || searchState?.travellerInfo?.room
+                      }
+                      placeholder="No. of Room"
+                      className="h-[45px] outline-none px-4 rounded-md"
+                      required
+                    />
+                  </fieldset>
+                  <fieldset className="flex flex-col gap-1 mt-5 border border-gray-300 focus:border-2 focus:border-slate-400">
+                    <legend className="">No. of People</legend>
+
+                    <input
+                      type="number"
+                      id="people"
+                      name="user_people"
+                      value={
+                        singleData?.user_people ||
+                        searchState?.travellerInfo.adult +
+                          searchState?.travellerInfo?.children +
+                          searchState?.travellerInfo?.infant ||
+                        null
+                      }
+                      placeholder="No. of People"
+                      className="h-[45px] outline-none px-4 rounded-md"
+                      required
+                    />
+                  </fieldset>{" "}
+                  <div className="flex flex-col gap-1 mt-5">
+                    <input
+                      type="datetime-local"
+                      id="arrival"
+                      name="user_arrival"
+                      value={formattedDate}
+                      placeholder="Expected Arrival"
+                      className="h-[45px] font-thin outline-none p-4 rounded-md border border-gray-300 focus:border-2 focus:border-slate-400"
+                      required
+                    />
+                  </div>
+                  <fieldset className="flex flex-col gap-1 mt-5">
+                    <legend>No. of Days Staying</legend>
+                    <input
+                      type="number"
+                      id="staying"
+                      name="staying"
+                      value={singleData?.staying || daysDiff}
+                      placeholder="No. of Days Staying"
+                      className="h-[45px] outline-none p-4 rounded-md border border-gray-300 focus:border-2 focus:border-slate-400"
+                      required
+                    />
+                  </fieldset>
+                </>
+              ) : (
+                <>
+                  <div className="flex flex-col gap-1 mt-5">
+                    <input
+                      type="number"
+                      id="room"
+                      name="room"
+                      value={singleData?.room}
+                      placeholder="No. of Room"
+                      className="h-[45px] outline-none px-4 rounded-md border border-gray-300 focus:border-2 focus:border-slate-400"
+                      required
+                    />
+                  </div>
+                  <div className="flex flex-col gap-1 mt-5 ">
+                    <input
+                      type="number"
+                      id="people"
+                      name="user_people"
+                      value={
+                        singleData?.user_people ||
+                        searchState?.travellerInfo.adult +
+                          searchState?.travellerInfo?.children +
+                          searchState?.travellerInfo?.infant ||
+                        null
+                      }
+                      placeholder="No. of People"
+                      className="h-[45px] outline-none px-4 rounded-md border border-gray-300 focus:border-2 focus:border-slate-400"
+                      required
+                    />
+                  </div>{" "}
+                  <div className="flex flex-col gap-1 mt-5">
+                    <input
+                      type="datetime-local"
+                      id="arrival"
+                      name="user_arrival"
+                      value={singleData?.user_arrival}
+                      placeholder="Expected Arrival"
+                      className="h-[45px] font-thin outline-none p-4 rounded-md border border-gray-300 focus:border-2 focus:border-slate-400"
+                      required
+                    />
+                  </div>
+                  <div className="flex flex-col gap-1 mt-5">
+                    <input
+                      type="number"
+                      id="staying"
+                      name="staying"
+                      value={singleData?.staying}
+                      placeholder="No. of Days Staying"
+                      className="h-[45px] outline-none p-4 rounded-md border border-gray-300 focus:border-2 focus:border-slate-400"
+                      required
+                    />
+                  </div>
+                </>
+              )}
+
               <div className="flex flex-col gap-1 mt-5">
                 <span className="font-bold ml-3">* optional *</span>
                 <textarea

@@ -7,27 +7,24 @@ import Navforwithout from "../../Navforwithout";
 const HotelPayment = () => {
   const location = useLocation();
   const { state } = location;
-  const { singleData } = state;
+  const { singleData, formValues } = state;
   return (
     <>
       <Navforwithout />
-      <section
-        className="xl:px-10 sm:px-3 px-[104px] ms:h-96 ms:bg-[#FF8682] sm:py-5 py-[60px] text-[#112211]"
-        style={{ fontFamily: "Montserrat" }}
-      >
+      <section className="xl:px-10 sm:px-3 px-[104px] ms:h-96 ms:bg-[#FF8682] sm:py-5 py-[60px] text-[#112211] font-montserrat">
         {/* -------------------Navigation---------------- */}
         <div className=" flex items-center ms:mb-2 mb-[30px] ms:gap-0.5 gap-2">
           <a
-            href={"/Paying-Guest"}
+            href={"/Hotels"}
             className="text-[#FF8682] ms:text-slate-100 ms:text-sm"
           >
-            Paying Guest
+            Hotels
           </a>
           <span>
             <MdKeyboardArrowRight />
           </span>
           <Link
-            to={"/pg-details"}
+            to={"/hotel-details"}
             state={{ id: singleData.link }}
             className="text-[#FF8682] ms:text-slate-100 ms:text-sm"
           >
@@ -36,10 +33,20 @@ const HotelPayment = () => {
           <span>
             <MdKeyboardArrowRight />
           </span>
+          <Link
+            to={"/PgContactForm"}
+            state={{ singleData: { ...singleData, ...formValues } }}
+            className="text-[#FF8682] ms:text-slate-100 ms:text-sm"
+          >
+            Contact Form
+          </Link>
+          <span>
+            <MdKeyboardArrowRight />
+          </span>
           <span className="text-[#112211]  ms:text-sm">payment</span>
         </div>
         {/* Main Layout */}
-        <PaymentCard singleData={singleData} />
+        <PaymentCard singleData={singleData} formValues={formValues} />
       </section>
       <Footer />
     </>
