@@ -34,13 +34,16 @@ const CardCompo = ({ singleData, linkUrl }) => {
             {singleData?.title}{" "}
           </h1>
           <span className="md:ml-0 ml-4 flex items-center">
-            {[...Array(5)].map((_) => (
-              <IoIosStar className="inline  fill-[#FF8682]" />
+            {[...Array(5)].map((_, i) => (
+              <IoIosStar
+                key={i}
+                className="inline  fill-[#FF8682] ms:fill-white"
+              />
             ))}
             <span className="text-xs font-semibold ml-1">5 Star Hotel</span>
           </span>
         </div>
-        <div className="text-[#27273F] sm:text-xl text-[32px] font-[900]">
+        <div className="text-[#27273F] sm:hidden sm:text-xl text-[32px] font-[900]">
           ₹{singleData?.price}
           <sub className="text-md">/night</sub>
         </div>
@@ -48,15 +51,18 @@ const CardCompo = ({ singleData, linkUrl }) => {
       {/*----------------- Location------------------- */}
       <div className="flex items-center gap-1">
         <ImLocation2 />
-        <p class>{singleData?.location}</p>
+        <p className="ms:text-sm text-justify">{singleData?.location}</p>
       </div>
       {/* ---------------Sub Review------------ */}
       <div className="flex justify-between items-center">
         <div className="">
           <div className="flex items-center gap-1">
-            <div className="px-2 rounded-md border">{singleData?.rating}</div>
-            <p className="text-sm">
-              <span className="font-bold">Very Good</span> 371 reviews
+            <div className="px-2 ms:border-none ms:font-medium rounded-md border">
+              {singleData?.rating}
+            </div>
+            <p className="text-sm ms:font-medium">
+              <span className="font-bold ms:font-medium">Very Good</span> 371
+              reviews
             </p>
           </div>
         </div>
@@ -64,7 +70,7 @@ const CardCompo = ({ singleData, linkUrl }) => {
       </div>
       {/*------------------ Room Images---------------- */}
       <PhotoProvider>
-        <div className=" grid grid-cols-2 gap-2  rounded-xl mt-8 overflow-hidden">
+        <div className=" grid grid-cols-2 gap-2  rounded-xl ms:mt-5 mt-8 overflow-hidden">
           <PhotoView src={singleData?.imgSrc[2]}>
             <img
               src={singleData?.imgSrc[2]}
@@ -91,25 +97,25 @@ const CardCompo = ({ singleData, linkUrl }) => {
           </div>
         </div>{" "}
       </PhotoProvider>
-      <hr className="w-full my-16 md:my-10 ms:my-5 bg-[#112211]/25" />
+      <hr className="w-full ms:hidden my-16 md:my-10  bg-[#112211]/25" />
       {/*------------- Available Room --------- */}
-      <h2 className="text-[#112211] text-xl mb-8 ms:mb-4 font-bold">
+      <h2 className="text-[#112211] ms:text-lg ms:mt-10 text-xl mb-8 ms:mb-4 font-bold">
         Available Room
       </h2>
       {[...Array(3)].map((_, i, array) => (
         <div
           key={i}
-          className={`flex airbnbml:flex-col airbnbml:gap-2 justify-between airbnbml:items-start items-center pb-4 mb-4 ${
+          className={`flex airbnbml:flex-col w-full sm:max-w-md airbnbml:gap-2 justify-between airbnbml:items-start items-center pb-4 mb-4 ${
             i === array.length - 1 ? "border-none" : "border-b-[0.5px]"
           }`}
         >
-          <div className="flex justify-between gap-4 items-center">
-            <img src={img1} alt="bad1" />
+          <div className="flex justify-between ms:text-sm gap-4 items-center">
+            <img src={img1} alt="bad" loading="lazy" />
             <p>Superior room - 1 double bed or 2 twin beds</p>
           </div>
 
           <div className="flex justify-between airbnbml:w-full airbnbml:gap-1 gap-[4.17vw] items-center">
-            <div className="text-[#27273F] text-[24px] font-[600]">
+            <div className="text-[#27273F] ms:text-lg text-[24px] font-medium">
               ₹{singleData?.price}
               <sub className="text-md">/night</sub>
             </div>
@@ -135,7 +141,7 @@ const CardCompo = ({ singleData, linkUrl }) => {
       <hr className="my-20 md:my-10 ms:my-5" />
       {/*------------------ Room Facilities---------------- */}
       <div className="">
-        <h2 className="font-bold text-xl">Amenities</h2>
+        <h2 className="font-bold ms:text-lg text-xl">Amenities</h2>
         <div className="w-full max-w-[720px]  mt-8">
           <div className="flex justify-between mb-7">
             <div
@@ -145,16 +151,16 @@ const CardCompo = ({ singleData, linkUrl }) => {
             >
               <div className="flex">
                 <img src={pgIcon1} alt="icon" />
-                <p className="ml-2">Outdoor pool</p>
+                <p className="ml-2 ms:text-sm">Outdoor pool</p>
               </div>
               <div className="flex">
                 <img src={pgIcon1} alt="icon" />
-                <p className="ml-2">Indoor pool</p>
+                <p className="ml-2 ms:text-sm">Indoor pool</p>
               </div>
               <div className="flex justify-between">
                 <div className="flex">
                   <img src={pgIcon4} alt="icon" />
-                  <p className="ml-2 whitespace-nowrap">
+                  <p className="ml-2 whitespace-nowrap ms:text-sm">
                     Spa and wellness center
                   </p>
                 </div>
@@ -162,13 +168,17 @@ const CardCompo = ({ singleData, linkUrl }) => {
               <div className="flex justify-between">
                 <div className="flex">
                   <img src={pgIcon6} alt="icon" />
-                  <p className="ml-2 whitespace-nowrap">Restaurant</p>
+                  <p className="ml-2 whitespace-nowrap ms:text-sm">
+                    Restaurant
+                  </p>
                 </div>
               </div>
               <div className="flex justify-between">
                 <div className="flex items-center">
                   <img src={pgIcon8} className="w-[20px] h-[15px]" alt="icon" />
-                  <p className="ml-2 whitespace-nowrap">Room service</p>
+                  <p className="ml-2 whitespace-nowrap ms:text-sm">
+                    Room service
+                  </p>
                 </div>
               </div>
             </div>
@@ -179,16 +189,16 @@ const CardCompo = ({ singleData, linkUrl }) => {
                   alt="icon"
                   className="w-[22.4px] h-[11.2px]"
                 />
-                <p className="ml-2">Outdoor pool</p>
+                <p className="ml-2 ms:text-sm">Outdoor pool</p>
               </div>
               <div className="flex items-center">
                 <img src={pgIcon3} alt="icon" className="w-[15px] h-[18px]" />
-                <p className="ml-2">Bar/Lounge</p>
+                <p className="ml-2 ms:text-sm">Bar/Lounge</p>
               </div>
               <div className="flex justify-between">
                 <div className="flex items-center">
                   <img src={pgIcon5} alt="icon" className="w-6 h-6" />
-                  <p className="ml-2">Free Wi-Fi</p>
+                  <p className="ml-2 ms:text-sm">Free Wi-Fi</p>
                 </div>
               </div>
               <div className="flex justify-between">
@@ -198,10 +208,10 @@ const CardCompo = ({ singleData, linkUrl }) => {
                     alt="icon"
                     className="w-[19.5px] h-[17.25]"
                   />
-                  <p className="ml-2">Tea/coffee machine</p>
+                  <p className="ml-2 ms:text-sm">Tea/coffee machine</p>
                 </div>
               </div>
-              <div className="flex justify-between">
+              <div className="flex justify-between ms:text-sm">
                 <p className="text-[#FF8682]">+24 more</p>
               </div>
             </div>
@@ -212,7 +222,7 @@ const CardCompo = ({ singleData, linkUrl }) => {
       {/* ----------------- Users Review--------------- */}
       <div className="mt-3">
         <div className="flex justify-between">
-          <h3 className="font-bold text-xl">Reviews</h3>
+          <h3 className="font-bold ms:text-lg text-xl">Reviews</h3>
           {/* <BookButton>Give your review</BookButton> */}
         </div>
 
@@ -232,7 +242,7 @@ const CardCompo = ({ singleData, linkUrl }) => {
               </div>
               <BsFlagFill className="fill-[#4c584c]" />
             </div>
-            <p className="text-justify">
+            <p className="text-justify ms:text-sm">
               Lorem ipsum dolor sit amet consectetur, adipisicing elit. Cum,
               enim harum ipsa labore voluptatem sit laborum voluptatibus,
               reiciendis dignissimos reprehenderit provident exercitationem fuga
@@ -255,7 +265,7 @@ const CardCompo = ({ singleData, linkUrl }) => {
               </div>
               <BsFlagFill className="fill-[#4c584c]" />
             </div>
-            <p class>
+            <p className="ms:text-sm text-justify">
               Lorem ipsum dolor sit amet consectetur, adipisicing elit. Cum,
               enim harum ipsa labore voluptatem sit laborum voluptatibus,
               reiciendis dignissimos reprehenderit provident exercitationem fuga
@@ -278,7 +288,7 @@ const CardCompo = ({ singleData, linkUrl }) => {
               </div>
               <BsFlagFill className="fill-[#4c584c]" />
             </div>
-            <p class>
+            <p className="ms:text-sm text-justify">
               Lorem ipsum dolor sit amet consectetur, adipisicing elit. Cum,
               enim harum ipsa labore voluptatem sit laborum voluptatibus,
               reiciendis dignissimos reprehenderit provident exercitationem fuga
@@ -301,7 +311,7 @@ const CardCompo = ({ singleData, linkUrl }) => {
               </div>
               <BsFlagFill className="fill-[#4c584c]" />
             </div>
-            <p class>
+            <p className="ms:text-sm text-justify">
               Lorem ipsum dolor sit amet consectetur, adipisicing elit. Cum,
               enim harum ipsa labore voluptatem sit laborum voluptatibus,
               reiciendis dignissimos reprehenderit provident exercitationem fuga

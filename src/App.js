@@ -12,14 +12,13 @@ import TravellerDetailsShip from "./ServiceMenu/Ship/TravellersDetailsShip.js";
 // anik comment
 // import BusSchedule from "./ServiceMenu/Bus/BusSchedule.js";
 // anik comment
-// anik import 
+// anik import
 import BusSchedule from "./ServiceMenu/Bus/Bus/BusSchedule/BusSchedule.js";
 import BusDetailsCard from "./ServiceMenu/Bus/Bus/BusDetailsCard/BusDetailsCard.js";
 import BusBookingSeats from "./ServiceMenu/Bus/Bus/BusBookingSeats/BusBookingSeats.js";
 import BusPayment from "./ServiceMenu/Bus/Bus/BusPayment/BusPaymet.js";
 import BusTravellerDetails from "./ServiceMenu/Bus/Bus/BusTravellerDetails/BusTravellerDetails.js";
-// anik import 
-
+// anik import
 
 // const Explore = lazy(() => import('./NavMenu/Explore.js'));
 // const Fun = lazy(() => import('./NavMenu/Fun.js'));
@@ -29,9 +28,9 @@ const SingleInland = lazy(() =>
   import("./ServiceMenu/Ship/SingleInland/SingleInland.js")
 );
 
-const ShipBooking = lazy(() =>
-  import("./ServiceMenu/Ship/Booking/ShipBooking.js")
-);
+// const ShipBooking = lazy(() =>
+// import("./ServiceMenu/Ship/Booking/ShipBooking.js")
+// );
 // const ShipResults = lazy(() =>
 //   import("./ServiceMenu/Ship/Booking/ShipResults.js")
 // );
@@ -195,21 +194,28 @@ export default function App() {
             <Route path="/TrekContactForm" element={<TrekContactForm />} />
 
             {/* anik routes */}
-            <Route path="/bus/schedules/:name" element={<BusSchedule></BusSchedule>} />
+            <Route
+              path="/bus/schedules/:name"
+              element={<BusSchedule></BusSchedule>}
+            />
 
-            <Route path="/bus/details/:id"
+            <Route
+              path="/bus/details/:id"
               element={<BusDetailsCard></BusDetailsCard>}
             ></Route>
 
-            <Route path="bus/booking/seats"
+            <Route
+              path="bus/booking/seats"
               element={<BusBookingSeats></BusBookingSeats>}
             ></Route>
 
-            <Route path="/bus/traveler/details"
+            <Route
+              path="/bus/traveler/details"
               element={<BusTravellerDetails></BusTravellerDetails>}
             ></Route>
 
-            <Route path="/bus/payment"
+            <Route
+              path="/bus/payment"
               element={<BusPayment></BusPayment>}
             ></Route>
             {/* anik routes */}

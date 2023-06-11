@@ -16,13 +16,13 @@ const PgCard = () => {
   return (
     <>
       <Navforwithout />
-      <section
-        className="lg:mx-10 sm:mx-3 mx-[104px] sm:my-5 my-[60px] text-[#112211]"
-        style={{ fontFamily: "Montserrat" }}
-      >
+      <section className="lg:px-10 sm:px-5 px-[104px] ms:h-96 xs:h-[360px] sxs:h-[340px] ms:bg-[#FF8682] sm:py-5 py-[60px] text-[#112211] font-montserrat">
         {/* -------------------Navigation---------------- */}
-        <div className=" flex items-center  mb-[30px] gap-2">
-          <a href={"/Paying-Guest"} className="text-[#FF8682] ">
+        <div className=" flex items-center ms:mb-3 mb-[30px] gap-2">
+          <a
+            href={"/Paying-Guest"}
+            className="text-[#FF8682] ms:text-slate-100"
+          >
             Paying Guest
           </a>
           <span>
@@ -31,7 +31,7 @@ const PgCard = () => {
           <span className="text-[#112211] ">{singleData?.title}</span>
         </div>
 
-        <CardCompo singleData={singleData} linkUrl={"/pg-payment"} />
+        <CardCompo singleData={singleData} linkUrl={"/PgContactForm"} />
       </section>
 
       <Footer />

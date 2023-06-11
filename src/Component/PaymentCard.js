@@ -2,25 +2,30 @@ import { format } from "date-fns";
 import React from "react";
 import { ImLocation2 } from "react-icons/im";
 import { MdAdd } from "react-icons/md";
-import pgImg from "../images/pg-book.png";
-import pgGroupLogo from "../images/pg-group-logo.png";
 import pgHomeIcon from "../images/pg-home-icon.png";
-import pgImgMini from "../images/pgLogomini.png";
 import pgIcon from "../images/pglogo.png";
-const PaymentCard = ({ singleData }) => {
-  const handleSubmit = () => {};
-  const date = new Date();
-
-  const anotherDate = date.setDate(date.getDate() + 1);
+const PaymentCard = ({ singleData, formValues }) => {
+  const { user_arrival, staying, user_people, user_name } = formValues;
+  const baseFare =
+    parseInt(singleData?.price.replace(/,/g, ""), 10) *
+    parseInt(user_people) *
+    parseInt(staying);
+  const handleSubmit = () => {
+    alert(
+      "Thank you for taking your time. Sublime Island will reach out to you in 2-3 hours or as soon as possible 😁✌🏻"
+    );
+  };
+  const date = new Date(user_arrival);
+  const anotherDate = date.setDate(date.getDate() + Number(staying));
   return (
     <div className=" flex lg:flex-col  ">
       <div className="w-full">
         <div className="mt-10 ms:mt-5 bg-[#FFFFFF] py-8 px-6 shadow-[0px_4px_16px_rgba(17,34,17,0.05)] rounded-xl">
           <div className="flex justify-between items-center font-bold">
-            <h5 className="text-2xl ml:text-[2.5vw] w-full max-w-[491px] text-[#112211]">
+            <h5 className="text-2xl ml:text-lg leading-none w-full ms:max-w-[300px] max-w-[491px] text-[#112211]">
               Superior room - 1 double bed or 2 twin beds
             </h5>
-            <div className="text-[#27273F] ml:text-[2.5vw] text-[32px] font-[900]">
+            <div className="text-[#27273F] ml:text-lg  text-[32px] font-[900]">
               ₹{singleData?.price}
               <sub className="text-md">/night</sub>
             </div>
@@ -28,25 +33,25 @@ const PaymentCard = ({ singleData }) => {
           <div className="flex justify-between md:gap-5 md:flex-col mt-5">
             <div className="flex items-center  w-full ms:justify-center justify-start bg-[#FFFFFF] gap-5  border-[0.5px] border-[0.5px_solid_#8DD3BB] rounded-lg px-8 py-4 ">
               <img
-                src={pgImg}
+                src={singleData?.imgSrc[2]}
                 alt="flightLogo"
-                className="block ms:hidden"
+                className="block ms:hidden w-20 h-20 rounded object-cover"
                 loading="lazy"
               />
               <img
-                src={pgImgMini}
+                src={singleData?.imgSrc[2]}
                 alt="flightLogoMini"
-                className="ms:block hidden w-16 h-16"
+                className="ms:block hidden w-16 h-16 rounded"
                 loading="lazy"
               />
 
               <div className="">
-                <h2 className="font-semibold ml:text-[3vw] text-2xl">
+                <h2 className="font-semibold ml:text-lg text-2xl">
                   {singleData?.title}
                 </h2>
                 <div className="flex items-center">
                   <ImLocation2 className="ms:w-3 ms:h-4" />
-                  <p className="text-[#112211] ml:text-[2vw] opacity-[0.6] font-[500]">
+                  <p className="text-[#112211] ml:text-md opacity-[0.6] font-[500]">
                     {singleData?.location}
                   </p>
                 </div>
@@ -56,12 +61,12 @@ const PaymentCard = ({ singleData }) => {
           <div className="flex justify-between items-center  lg:w-full w-[52vw] lg:mx-0 mx-auto mt-5">
             <div className="">
               <div>
-                <p className="font-semibold text-xl ms:text-[#BDBDC2] ms:text-[2vw] ms:translate-y-8 transition-transform duration-200">
+                <p className="font-semibold text-xl ms:text-[#BDBDC2] ms:text-lg ms:translate-y-8 transition-transform duration-200">
                   {" "}
-                  {format(new Date(), "EEE, MMM d")}
+                  {format(new Date(user_arrival), "EEE, MMM d")}
                 </p>
 
-                <p className="font-[500] ms:text-[2vw] transform ms:-translate-y-4 transition-transform duration-200">
+                <p className="font-[500] ms:text-md transform ms:-translate-y-4 transition-transform duration-200">
                   Check-In
                 </p>
               </div>
@@ -89,22 +94,19 @@ const PaymentCard = ({ singleData }) => {
             </div>
             <div className="">
               <div>
-                <p className="font-semibold text-xl ms:text-[#BDBDC2] ms:text-[2vw] ms:translate-y-8 transition-transform duration-200">
+                <p className="font-semibold text-xl ms:text-[#BDBDC2] ms:text-lg ms:translate-y-8 transition-transform duration-200">
                   {format(anotherDate, "EEE, MMM d")}
                 </p>
 
-                <p className="font-[500] ms:text-[2vw] ms:text-end ms:-translate-y-4 transition-transform duration-200">
+                <p className="font-[500] ms:text-md ms:text-end ms:-translate-y-4 transition-transform duration-200">
                   Check-Out
                 </p>
               </div>
             </div>
           </div>
         </div>
-        <div className="bg-white px-5 py-3 ms:block hidden mt-11 overflow-hidden rounded-xl rounded-t">
-          <img src={pgGroupLogo} alt="Fight-logo" className=" w-full" />
-        </div>
         <div>
-          <p className="text-xl font-bold text-[#17183B]  my-4">
+          <p className="text-xl font-bold text-[#17183B]  my-4 ms:mt-8">
             Payment Method
           </p>
           <div>
@@ -137,8 +139,12 @@ const PaymentCard = ({ singleData }) => {
       <div className="w-[50%] lg:w-full lg:mt-0 mt-10 lg:pl-0 pl-8">
         <div className="p-4 lg:w-full  bg-white">
           {" "}
-          <div className=" flex sxl:flex-wrap items-center sxl:gap-1 gap-5 ">
-            <img src={pgImg} alt="flightLogo" className="w-24 h-24" />
+          <div className=" flex sxl:flex-wrap items-center sxl:gap-3 gap-5 ">
+            <img
+              src={singleData?.imgSrc[2]}
+              alt="flightLogo"
+              className="w-24 h-24 rounded"
+            />
             <div>
               <p className="font-[500] text-black/75">{singleData?.title}</p>
               <p className="font-semibold text-lg">{singleData?.location}</p>
@@ -150,10 +156,26 @@ const PaymentCard = ({ singleData }) => {
           </p>
           <hr className="my-5" />
           <div className="flex flex-col gap-4">
+            <h1 className="font-bold">Booking Details</h1>
+            <div className="flex justify-between">
+              <p className="font-[500] text-md">Name</p>
+              <p className="font-[600] text-md">{user_name}</p>
+            </div>
+            <div className="flex justify-between">
+              <p className="font-[500] text-md">No. Of Person</p>
+              <p className="font-[600] text-md">{user_people}</p>
+            </div>
+            <div className="flex justify-between">
+              <p className="font-[500] text-md">No. Of Days Staying</p>
+              <p className="font-[600] text-md">{staying}</p>
+            </div>
+          </div>
+          <hr className="my-5" />
+          <div className="flex flex-col gap-4">
             <h1 className="font-bold">Price Details</h1>
             <div className="flex justify-between">
               <p className="font-[500] text-md">Base Fare</p>
-              <p className="font-[600] text-md">₹ {singleData?.price}</p>
+              <p className="font-[600] text-md">₹ {baseFare}</p>
             </div>
             <div className="flex justify-between">
               <p className="font-[500] text-md">Discount</p>
@@ -171,7 +193,7 @@ const PaymentCard = ({ singleData }) => {
           <hr className="my-4" />
           <div className="flex justify-between">
             <p className="font-[500] text-md">Total</p>
-            <p className="font-[600] text-md">₹ {singleData?.price}</p>
+            <p className="font-[600] text-md">₹ {baseFare}</p>
           </div>
           <button
             onClick={handleSubmit}

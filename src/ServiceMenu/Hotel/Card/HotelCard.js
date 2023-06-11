@@ -22,7 +22,7 @@ const HotelCard = () => {
       >
         {/* -------------------Navigation---------------- */}
         <div className=" flex items-center  mb-[30px] gap-2">
-          <a href={"/hotels"} className="text-[#FF8682] ">
+          <a href={"/Hotels"} className="text-[#FF8682] ">
             Hotels
           </a>
           <span>

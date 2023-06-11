@@ -1,14 +1,22 @@
-import React, { useRef, useState } from 'react';
-import emailjs from '@emailjs/browser';
-import CallIcon from '@mui/icons-material/Call';
-import EmailIcon from '@mui/icons-material/Email';
-
-import { LazyLoadImage } from 'react-lazy-load-image-component';
-import Navforwithout from '../Navforwithout';
+import emailjs from "@emailjs/browser";
+import CallIcon from "@mui/icons-material/Call";
+import EmailIcon from "@mui/icons-material/Email";
+import React, { useRef, useState } from "react";
+import { MdKeyboardArrowRight } from "react-icons/md";
+import { LazyLoadImage } from "react-lazy-load-image-component";
+import { Link, useLocation, useNavigate } from "react-router-dom";
+import Navforwithout from "../Navforwithout";
 
 const ContactForm = () => {
-  const [status, setStatus] = useState('Submit');
+  const [status, setStatus] = useState("Submit");
   const form = useRef();
+  const location = useLocation();
+  const { state } = location;
+  const { singleData } = state;
+  console.log(
+    "🚀 ~ file: PgContactForm.js:15 ~ ContactForm ~ singleData:",
+    singleData
+  );
 
   // const handleSubmit = async (e) => {
   //   e.preventDefault();
@@ -30,39 +38,72 @@ const ContactForm = () => {
   //   let result = await response.json();
   //   alert(result.status);
   // };
-
+  const navigate = useNavigate();
   const handleSubmit = async (e) => {
     e.preventDefault();
-    setStatus('Sending...');
+    setStatus("Sending...");
 
     await emailjs
       .sendForm(
-        'service_j38h615',
-        'template_im7qgz9',
+        "service_j38h615",
+        "template_im7qgz9",
         form.current,
-        'vVfAy9O62laKEC_Em'
+        "vVfAy9O62laKEC_Em"
       )
       .then(
         (result) => {
           console.log(result.text);
-          alert(
-            'Thank you for taking your time. Sublime Island will reach out to you in 2-3 hours or as soon as possible 😁✌🏻'
-          );
+          // alert(
+          //   "Thank you for taking your time. Sublime Island will reach out to you in 2-3 hours or as soon as possible 😁✌🏻"
+          // );
+
+          const formValues = {};
+          const formRef = form.current;
+
+          for (let name in formRef.elements) {
+            const element = formRef.elements[name];
+            if (element.name) {
+              formValues[element.name] = element.value;
+            }
+          }
+          setStatus("Submit");
+          navigate("/pg-payment", { state: { singleData, formValues } });
         },
         (error) => {
           console.log(error.text);
           alert(error.text);
+          setStatus("Submit");
         }
       );
-
-    setStatus('Submit');
   };
 
   return (
     <>
       <Navforwithout />
       <div className="h-full w-auto">
-        <div className="font-Nunito_Sans">
+        <div className="font-montserrat">
+          {/* -------------------Navigation---------------- */}
+
+          <div className=" flex  items-center mt-5 ml-[5%] ms:mb-2 mb-[30px] ms:gap-0.5 gap-2">
+            <a href={"/Paying-Guest"} className="text-[#FF8682] ms:text-sm">
+              Paying Guest
+            </a>
+            <span>
+              <MdKeyboardArrowRight />
+            </span>
+            <Link
+              to={"/pg-details"}
+              state={{ id: singleData.link }}
+              className="text-[#FF8682] ms:text-sm"
+            >
+              {singleData.title}
+            </Link>
+            <span>
+              <MdKeyboardArrowRight />
+            </span>
+            <span className=" ms:text-sm">Contact Form</span>
+          </div>
+
           <div className="w-[90%] flex md:flex-col justify-center items-stretch mx-auto my-6 shadow-xl rounded-lg">
             <form
               ref={form}
@@ -70,7 +111,7 @@ const ContactForm = () => {
                     p-12 md:p-6 lg:p-8 "
               onSubmit={handleSubmit}
             >
-              <h1 className="text-[#699c78] text-[26px] md:text-2xl md:text-center font-Ubuntu_Mono font-bold mb-6 md:mb-3 tracking-wide">
+              <h1 className="text-[#699c78] text-[26px] md:text-2xl md:text-center font-montserrat font-bold mb-6 md:mb-3 tracking-wide">
                 Book your PG
               </h1>
               <div className="flex flex-col gap-1">
@@ -78,6 +119,7 @@ const ContactForm = () => {
                   type="text"
                   id="name"
                   name="user_name"
+                  value={singleData?.user_name}
                   placeholder="Name"
                   className="h-[40px] outline-none p-4 rounded-md border border-gray-300 focus:border-2 focus:border-slate-400"
                   required
@@ -88,6 +130,7 @@ const ContactForm = () => {
                   type="email"
                   id="email"
                   name="user_email"
+                  value={singleData?.user_email}
                   placeholder="Email"
                   className="h-[40px] outline-none p-4 rounded-md border border-gray-300 focus:border-2 focus:border-slate-400"
                   required
@@ -98,6 +141,7 @@ const ContactForm = () => {
                   type="number"
                   id="phone"
                   name="user_phone"
+                  value={singleData?.user_phone}
                   placeholder="Phone number"
                   className="h-[45px] outline-none p-4 rounded-md border border-gray-300 focus:border-2 focus:border-slate-400"
                   required
@@ -108,9 +152,11 @@ const ContactForm = () => {
                   type="text"
                   id="pg"
                   name="user_pg_name"
+                  value={singleData?.title}
                   placeholder="Pg name"
                   className="h-[45px] outline-none p-4 rounded-md border border-gray-300 focus:border-2 focus:border-slate-400"
                   required
+                  disabled
                 />
               </div>
               <div className="flex flex-col gap-1 mt-5">
@@ -118,7 +164,20 @@ const ContactForm = () => {
                   type="text"
                   id="destination"
                   name="user_destination_location"
+                  value={singleData?.location}
+                  disabled
                   placeholder="Destination location"
+                  className="h-[45px] outline-none p-4 rounded-md border border-gray-300 focus:border-2 focus:border-slate-400"
+                  required
+                />
+              </div>
+              <div className="flex flex-col gap-1 mt-5">
+                <input
+                  type="number"
+                  id="room"
+                  name="room"
+                  value={singleData?.room}
+                  placeholder="No. of Room"
                   className="h-[45px] outline-none p-4 rounded-md border border-gray-300 focus:border-2 focus:border-slate-400"
                   required
                 />
@@ -128,6 +187,7 @@ const ContactForm = () => {
                   type="number"
                   id="people"
                   name="user_people"
+                  value={singleData?.user_people}
                   placeholder="No. of People"
                   className="h-[45px] outline-none p-4 rounded-md border border-gray-300 focus:border-2 focus:border-slate-400"
                   required
@@ -138,13 +198,25 @@ const ContactForm = () => {
                   type="datetime-local"
                   id="arrival"
                   name="user_arrival"
+                  value={singleData?.user_arrival}
                   placeholder="Expected Arrival"
                   className="h-[45px] font-thin outline-none p-4 rounded-md border border-gray-300 focus:border-2 focus:border-slate-400"
                   required
                 />
               </div>
               <div className="flex flex-col gap-1 mt-5">
-                <span className='font-bold ml-3'>* optional *</span>
+                <input
+                  type="number"
+                  id="staying"
+                  name="staying"
+                  value={singleData?.staying}
+                  placeholder="No. of Days Staying"
+                  className="h-[45px] outline-none p-4 rounded-md border border-gray-300 focus:border-2 focus:border-slate-400"
+                  required
+                />
+              </div>
+              <div className="flex flex-col gap-1 mt-5">
+                <span className="font-bold ml-3">* optional *</span>
                 <textarea
                   id="message"
                   name="message"
@@ -155,7 +227,7 @@ const ContactForm = () => {
               <button
                 type="submit"
                 className="bg-[#408c57] shadow-2xl hover:bg-[#51795d]
-                  text-white text-[21px] md:text-[16px] tracking-wider font-Ubuntu_Mono font-semibold rounded-full
+                  text-white text-[21px] md:text-[16px] tracking-wider font-montserrat font-semibold rounded-full
                   p-2 w-full mt-6"
               >
                 {status}
@@ -163,22 +235,25 @@ const ContactForm = () => {
             </form>
 
             <div className="w-[50%] md:w-full lg:w-[45%] xl:w-[50%] text-center  bg-gradient-to-tl from-[#408c57] to-[#91c4a0] text-white border-l-0 border border-gray-300 ">
-              <h1 className="mt-12 md:mt-8 text-[26px] md:text-2xl font-Ubuntu_Mono font-semibold">
+              <h1 className="mt-12 md:mt-8 text-[26px] md:text-2xl  font-montserrat font-semibold">
                 Call us
               </h1>
               <p className="bg-white text-black w-[80%] mx-auto py-2 rounded-lg mt-4">
-                <CallIcon className="text-white bg-[#699c78] rounded-2xl p-1 mr-1" />{' '}
+                <CallIcon className="text-white bg-[#699c78] rounded-2xl p-1 mr-1" />{" "}
                 +918787883421
               </p>
               <p className="bg-white text-black w-[80%] ml:w-[90%] md:w-[80%] mx-auto py-2 rounded-lg mt-4 mb-12">
-                <EmailIcon className="text-white bg-[#699c78] rounded-2xl p-1 mr-1 " />{' '}
+                <EmailIcon className="text-white bg-[#699c78] rounded-2xl p-1 mr-1 " />{" "}
                 travel@sublimeislands.com
               </p>
-              <p className="bg-white text-base font-semibold font-Ubuntu_Mono px-2 text-slate-900 w-[80%] ml:w-[90%] md:w-[80%] mx-auto py-3 rounded-lg mt-10 md:mt-4 mb-12">
+              <p className="bg-white text-base font-semibold font-montserrat px-2 text-slate-900 w-[80%] ml:w-[90%] md:w-[80%] mx-auto py-3 rounded-lg mt-10 md:mt-4 mb-12">
                 Thank you for submitting your details. Sublime Island will reach
                 out to you in 2-3 hours or as soon as possible 😁✌🏻
               </p>
-              <LazyLoadImage src="" />
+              <LazyLoadImage
+                src={singleData?.imgSrc[2]}
+                className="px-5 rounded-md w-full h-fit object-cover"
+              />
             </div>
           </div>
         </div>
