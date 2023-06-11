@@ -39,9 +39,8 @@ const BusBanner = () => {
         Inter Island Bus Service
       </h3>
       <div
-        className={`w-full max-w-[1232px] h-[550px] flex items-center justify-between mx-auto gap-6 ${
-          show ? "block" : "hidden"
-        }`}
+        className={`w-full max-w-[1232px] h-[550px] flex items-center justify-between mx-auto gap-6 ${show ? "block" : "hidden"
+          }`}
       >
         {buses?.map((bus) => (
           <div
@@ -71,9 +70,8 @@ const BusBanner = () => {
                 </h1>
                 {/* bus Schedule */}
                 <p
-                  className={`font-montserrat font-normal text-base text-[#FFFFFF] mb-4 leading-5 w-[350px] mx-auto ${
-                    bus.title === "Private Bus" ? "w-[290px]" : "w-[350px]"
-                  }`}
+                  className={`font-montserrat font-normal text-base text-[#FFFFFF] mb-4 leading-5 w-[350px] mx-auto ${bus.title === "Private Bus" ? "w-[290px]" : "w-[350px]"
+                    }`}
                 >
                   {bus?.subTitle}
                 </p>

@@ -67,10 +67,10 @@ const BusBookingSeats = () => {
     return (
         <>
             <Navforwithout></Navforwithout>
-            <div className='w-full max-w-[1244px] h-[697px] mt-20 mx-auto flex items-center justify-between mb-11'>
+            <div className='w-full max-w-[1244px] h-[697px] mt-20 mx-auto flex items-center justify-between mb-11 sm:gap-6 md:flex-col airbnbml:gap-6 ml:gap-6 lg:gap-6 sxl:gap-6'>
                 <div className='w-full max-w-[792px]'>
                     {/* bus info breadcumb starts here  */}
-                    <div className='w-[405px] h-[17px] flex items-center justify-between mb-6 font-montserrat flex-wrap'>
+                    <div className='w-[405px] h-[17px] flex items-center justify-between mb-6 font-montserrat flex-wrap ms:hidden'>
                         <p className='font-medium text-sm text-[#FF8682]'>
                             <Link to='/Bus'>Bus</Link>
                         </p>
@@ -89,7 +89,7 @@ const BusBookingSeats = () => {
                     </div>
                     {/* bus info breadcumb finish here  */}
                     {/* bus detail card starts here  */}
-                    <div className='w-full max-w-[792px] bg-[#FFFFFF] h-[349px] rounded-xl px-6 pt-8 pb-9 mb-[25px]' style={{
+                    <div className='w-full max-w-[792px] bg-[#FFFFFF] h-[349px] rounded-xl px-6 pt-8 pb-9 mb-[25px] ms:hidden' style={{
                         boxShadow: '0px 4px 16px rgba(17, 34, 17, 0.05)'
                     }}>
                         <div className='w-full max-w-[742px] h-[39px] font-montserrat flex items-center justify-between mx-auto mb-[29px]'>
@@ -148,7 +148,7 @@ const BusBookingSeats = () => {
                         </div>
                         {/* bus details card ends here  */}
                     </div>
-                    <div className='w-full max-w-[790px] bg-[#FF8682] bg-opacity-60 h-[135px] rounded-lg px-4 font-montserrat mb-[25px]'>
+                    <div className='w-full max-w-[790px] bg-[#FF8682] bg-opacity-60 h-[135px] rounded-lg px-4 font-montserrat mb-[25px] ms:hidden'>
                         <p className='font-bold text-2xl text-[#112211] font-montserrat pt-4 mb-4 leading-7'>Emirates Airlines Policies</p>
                         <div className='flex flex-col items-center justify-start'>
                             <div className='flex items-center w-full mb-4 leading-5'>
@@ -167,11 +167,14 @@ const BusBookingSeats = () => {
                     </div>
                     <button
                         onClick={handleConfirmBooking}
-                        className='w-full bg-[#27273F] font-montserrat font-semibold text-sm h-12 rounded text-[#FFFFFF] max-w-[786px]'>Checkout</button>
+                        className='w-full bg-[#27273F] font-montserrat font-semibold text-sm h-12 rounded text-[#FFFFFF] max-w-[786px]
+                        block ms:hidden md:hidden
+                        '>Checkout
+                    </button>
                 </div>
 
                 {/* seats starts here  */}
-                <div className='w-full max-w-[327px] h-[694px]'
+                <div className='w-full max-w-[327px] h-[694px] mx-auto ms:hidden'
                 >
                     <div className='flex items-center justify-between w-full max-w-[327px] h-[34px] mb-[18px] font-popins'>
                         <p className='font-popins font-semibold text-2xl text-[#262630]'>
@@ -186,7 +189,7 @@ const BusBookingSeats = () => {
                             </button>
                         </div>
                     </div>
-                    <div className='w-full max-w-[327px] h-5 flex items-center justify-between mb-[22px]'>
+                    <div className='w-full max-w-[327px] h-5 flex items-center justify-between mb-[22px] ms:max-w-[568px]'>
                         <div className='flex items-center justify-center w-[92px] h-5'>
                             <p className='mr-3 w-[20px] h-[20px] rounded-full bg-[#BDBDC2] bg-opacity-20'></p>
                             <p className='font-popins font-normal text-[13px] text-[#262630]'>Reserved</p>
@@ -223,6 +226,72 @@ const BusBookingSeats = () => {
                         }
 
                     </div>
+                    <button
+                        onClick={handleConfirmBooking}
+                        className='w-[345px] bg-[#27273F] font-montserrat font-semibold text-sm h-12 rounded text-[#FFFFFF] mx-auto
+                        block ms:hidden lg:hidden md:block
+                        '>Checkout
+                    </button>
+                </div>
+                {/* seats ends here  */}
+                {/* seats starts here  */}
+                <div className='ms:block hidden'
+                >
+                    <div className='flex items-center justify-between w-full max-w-[567px] h-[34px] mb-[18px] font-popins mt-40'>
+                        <p className='font-popins font-semibold text-2xl text-[#262630]'>
+                            Choose Seats
+                        </p>
+                        <div className='flex items-center justify-between gap-3'>
+                            <button className='w-8 h-8 rounded-full border border-[#BDBDC2] border-opacity-20 flex items-center justify-center'>
+                                <HiOutlinePlus className='text-base'></HiOutlinePlus>
+                            </button>
+                            <button className='w-8 h-8 rounded-full border border-[#BDBDC2] border-opacity-20 flex items-center justify-center'>
+                                <HiMinus className='text-base'></HiMinus>
+                            </button>
+                        </div>
+                    </div>
+                    {/* mobile seats here  */}
+                    <div className='w-full max-w-[327px] h-5 flex items-center justify-between mb-[22px]'>
+                        <div className='flex items-center justify-center w-[92px] h-5'>
+                            <p className='mr-3 w-[20px] h-[20px] rounded-full bg-[#BDBDC2] bg-opacity-20'></p>
+                            <p className='font-popins font-normal text-[13px] text-[#262630]'>Reserved</p>
+                        </div>
+                        <div className='flex items-center justify-center w-[92px] h-5'>
+                            <p className='mr-3 w-[20px] h-[20px] rounded-full border border-[#BDBDC2] border-opacity-20'></p>
+                            <p className='font-popins font-normal text-[13px] text-[#262630]'>Available</p>
+                        </div>
+
+                        <div className='flex items-center justify-center w-[92px] h-5'>
+                            <p className='mr-3 w-[20px] h-[20px] rounded-full bg-[#FF8682]'></p>
+                            <p className='font-popins font-normal text-[13px] text-[#262630]'>Selected</p>
+                        </div>
+                    </div>
+                    <div className='w-[510px] bg-[#F2F2F3] h-auto border border-dashed border-[#F2F2F3] rounded-xl ml-3'
+                        style={{
+                            boxShadow: '0px 4px 4px 0px #00000040'
+                        }}
+                    >
+
+                        {
+                            seats?.map((seat) => (
+                                <button
+                                    onClick={() => handleSelectSeat(seat)}
+                                    className={`w-[70px] h-[70px] font-popins text-sm text-[#262630] border border-[#BDBDC2] border-opacity-20 rounded-xl 
+                                    ${['41', '42', '43', '44', '45', '46'].includes(seat) ? 'ml-[13.7px]' : 'mb-3 ml-5 mt-4'}
+                                    ${selectedSeat.includes(seat) ? 'bg-[#FF8682] text-[#FFFFFF]' : 'bg-[#BDBDC2]'}
+                                    ${['2', '4', '6', '8', '10', '12', '14', '16'].includes(seat) ? 'mr-10' : ''}`}
+                                    key={seat}
+                                >
+                                    {seat}
+                                </button>
+                            ))
+                        }
+
+                    </div>
+                    <button
+                        onClick={handleConfirmBooking}
+                        className='w-[510px] ml-3 bg-[#27273F] font-montserrat font-semibold text-sm h-12 rounded text-[#FFFFFF] hidden ms:block'>Checkout
+                    </button>
                 </div>
                 {/* seats ends here  */}
             </div>
