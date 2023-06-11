@@ -38,39 +38,49 @@ const ContactForm = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setStatus("Sending...");
+    const formValues = {};
+    const formRef = form.current;
 
-    await emailjs
-      .sendForm(
-        "service_j38h615",
-        "template_im7qgz9",
-        form.current,
-        "vVfAy9O62laKEC_Em"
-      )
-      .then(
-        (result) => {
-          console.log(result.text);
-          //       // alert(
-          //       //   "Thank you for taking your time. Sublime Island will reach out to you in 2-3 hours or as soon as possible 😁✌🏻"
-          //       // );
+    for (let name in formRef.elements) {
+      const element = formRef.elements[name];
+      if (element.name) {
+        formValues[element.name] = element.value;
+      }
+    }
+    setStatus("Submit");
+    navigate("/hotel-payment", { state: { singleData, formValues } });
+    // await emailjs
+    //   .sendForm(
+    //     "service_j38h615",
+    //     "template_im7qgz9",
+    //     form.current,
+    //     "vVfAy9O62laKEC_Em"
+    //   )
+    //   .then(
+    //     (result) => {
+    //       console.log(result.text);
+    //       //       // alert(
+    //       //       //   "Thank you for taking your time. Sublime Island will reach out to you in 2-3 hours or as soon as possible 😁✌🏻"
+    //       //       // );
 
-          const formValues = {};
-          const formRef = form.current;
+    //       const formValues = {};
+    //       const formRef = form.current;
 
-          for (let name in formRef.elements) {
-            const element = formRef.elements[name];
-            if (element.name) {
-              formValues[element.name] = element.value;
-            }
-          }
-          setStatus("Submit");
-          navigate("/hotel-payment", { state: { singleData, formValues } });
-        },
-        (error) => {
-          console.log(error.text);
-          alert(error.text);
-          setStatus("Submit");
-        }
-      );
+    //       for (let name in formRef.elements) {
+    //         const element = formRef.elements[name];
+    //         if (element.name) {
+    //           formValues[element.name] = element.value;
+    //         }
+    //       }
+    //       setStatus("Submit");
+    //       navigate("/hotel-payment", { state: { singleData, formValues } });
+    //     },
+    //     (error) => {
+    //       console.log(error.text);
+    //       alert(error.text);
+    //       setStatus("Submit");
+    //     }
+    //   );
   };
 
   const date = new Date(searchState?.checkInDate || searchState?.checkOutDate);
