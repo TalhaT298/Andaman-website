@@ -3,16 +3,18 @@ import { MdKeyboardArrowRight } from "react-icons/md";
 import { useLocation } from "react-router-dom";
 import CardCompo from "../../../Component/CardCompo";
 import Footer from "../../../Component/Footer/Footer";
-import { list } from "../../../Data/Hotel-Section/cards-list";
+import { datas } from "../../../Data/Hotel-Section/HotelsData/hotelsData";
 import Navforwithout from "../../../Navforwithout";
-import "../Cards/styles.css";
 
-const HotelCard = () => {
+const HotelSearchDetailsCard = () => {
   const location = useLocation();
   const { state } = location;
-  const { id } = state;
-  const singleData = list.find((item) => item.link === id);
-
+  const { id, searchState } = state;
+  const singleData = datas?.find((item) => item.id === id);
+  console.log(
+    "🚀 ~ file: HotelSearchDetailsCard.js:8 ~ HotelSearchDetailsCard ~ state:",
+    singleData
+  );
   return (
     <>
       <Navforwithout />
@@ -30,6 +32,7 @@ const HotelCard = () => {
 
         <CardCompo
           singleData={singleData}
+          searchState={searchState}
           linkUrl={"/PgContactForm"}
           hotelUrl={{ hotel: "/Hotels", details: "/hotel-details" }}
         />
@@ -40,4 +43,4 @@ const HotelCard = () => {
   );
 };
 
-export default HotelCard;
+export default HotelSearchDetailsCard;

@@ -154,7 +154,7 @@ export const list = [
       "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/1d/87/88/e0/the-bed-sit-out.jpg?w=1200&h=-1&s=1",
     ],
     link: "/SingleHotel/8",
-    price: "20000",
+    price: "20,000",
     location: "15-20 May",
     title: "The Kingdom",
   },

@@ -5,11 +5,20 @@ import { MdAdd } from "react-icons/md";
 import pgHomeIcon from "../images/pg-home-icon.png";
 import pgIcon from "../images/pglogo.png";
 const PaymentCard = ({ singleData, formValues }) => {
-  const { user_arrival, staying, user_people, user_name } = formValues;
-  const baseFare =
-    parseInt(singleData?.price.replace(/,/g, ""), 10) *
-    parseInt(user_people) *
-    parseInt(staying);
+  const { user_arrival, staying, user_people, user_name, room } = formValues;
+  // let baseFare; // Declare baseFare variable outside the if statement
+  let people = parseInt(user_people);
+  if (parseInt(user_people) % 2 !== 0) {
+    people += 1;
+  }
+
+  let baseFare =
+    (parseInt(singleData.price.replace(/,/g, ""), 10) *
+      people *
+      parseInt(staying) *
+      parseInt(room)) / 2;
+
+  console.log(singleData?.price);
   const handleSubmit = () => {
     alert(
       "Thank you for taking your time. Sublime Island will reach out to you in 2-3 hours or as soon as possible 😁✌🏻"
@@ -41,7 +50,7 @@ const PaymentCard = ({ singleData, formValues }) => {
               <img
                 src={singleData?.imgSrc[2]}
                 alt="flightLogoMini"
-                className="ms:block hidden w-16 h-16 rounded"
+                className="ms:block hidden w-16 h-16 rounded object-cover"
                 loading="lazy"
               />
 
@@ -85,7 +94,7 @@ const PaymentCard = ({ singleData, formValues }) => {
                 <span>
                   <img
                     src={pgHomeIcon}
-                    className=" w-full h-8"
+                    className=" w-full h-8 object-cover"
                     alt="flightIcon"
                   />
                 </span>
@@ -143,7 +152,7 @@ const PaymentCard = ({ singleData, formValues }) => {
             <img
               src={singleData?.imgSrc[2]}
               alt="flightLogo"
-              className="w-24 h-24 rounded"
+              className="w-24 h-24 rounded object-cover"
             />
             <div>
               <p className="font-[500] text-black/75">{singleData?.title}</p>
@@ -164,6 +173,10 @@ const PaymentCard = ({ singleData, formValues }) => {
             <div className="flex justify-between">
               <p className="font-[500] text-md">No. Of Person</p>
               <p className="font-[600] text-md">{user_people}</p>
+            </div>
+            <div className="flex justify-between">
+              <p className="font-[500] text-md">No. Of Room </p>
+              <p className="font-[600] text-md">{room}</p>
             </div>
             <div className="flex justify-between">
               <p className="font-[500] text-md">No. Of Days Staying</p>
