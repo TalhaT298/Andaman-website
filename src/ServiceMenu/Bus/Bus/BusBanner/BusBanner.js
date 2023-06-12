@@ -34,8 +34,8 @@ const BusBanner = () => {
     },
   ];
   return (
-    <div className="my-20">
-      <h3 className="font-montserrat text-2xl text-center font-bold mb-5">
+    <div className="my-20 ms:my-0 w-full relative">
+      <h3 className={`font-montserrat text-2xl text-center font-bold mb-5 ${show ? 'block' : 'hidden'}`}>
         Inter Island Bus Service
       </h3>
       <div
