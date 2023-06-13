@@ -36,11 +36,27 @@ const BusDetailsCard = () => {
             <div className='w-full max-w-[1232px] mx-auto font-montserrat my-20 ms:my-0'>
 
                 <div className='ms:bg-[#FF8682] ms:px-6 h-[330px] ms:block hidden pt-9'>
-                    <div className='font-montserrat ms:flex items-center justify-between hidden pb-9'>
+                    {/* mobile process bar navigation  */}
+                    <div className='w-full max-w-[300px] h-4 ms:flex items-center justify-between mb-[22px] hidden'>
+                        <p className='font-medium text-sm text-black'>
+                            <Link to={'/Bus'}>Bus</Link>
+                        </p>
+                        <HiOutlineChevronRight className='text-[#112211] mx-[14px]'></HiOutlineChevronRight>
+                        <p className='font-medium text-sm  whitespace-nowrap text-black'>
+                            <Link to={'/Bus'}>
+                                {bookingInfo?.busName}
+                            </Link>
+                        </p>
+                        <HiOutlineChevronRight className='text-[#112211] mx-[14px]'></HiOutlineChevronRight>
+                        <p className='font-medium text-sm text-[#112211] whitespace-nowrap'>{bookingInfo?.busCompanyName}</p>
+
+                    </div>
+
+                    {/* <div className='font-montserrat ms:flex items-center justify-between hidden pb-9'>
                         <AiOutlineLeftCircle className='text-2xl'></AiOutlineLeftCircle>
                         <p className='text-lg text-black font-medium'>Bus</p>
                         <TbDotsCircleHorizontal className='text-2xl'></TbDotsCircleHorizontal>
-                    </div>
+                    </div> */}
                     <h1 className='text-2xl text-[#112211] font-bold ms:text-sm ms:leading-4'>
                         Emirates A380 Airbus - Seater</h1>
                     <p className='font-medium flex items-center mb-2 text-[10px] ms:mb-0 ms:leading-3'>
@@ -164,8 +180,8 @@ const BusDetailsCard = () => {
                     {/* responsive seats starts here */}
                 </div>
                 {/* bus information breadcumb start here*/}
-                <div className='w-[300px] h-4 flex items-center justify-between mb-[22px] sm:hidden'>
-                    <p className='font-medium text-sm text-[#FF8682]'>
+                <div className='w-full max-w-[300px] h-4 flex items-center justify-between mb-[22px] sm:hidden'>
+                    <p className='font-medium text-sm text-black'>
                         <Link to={'/Bus'}>Bus</Link>
                     </p>
                     <HiOutlineChevronRight className='text-[#112211] mx-[14px]'></HiOutlineChevronRight>

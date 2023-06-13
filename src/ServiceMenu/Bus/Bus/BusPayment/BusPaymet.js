@@ -285,11 +285,41 @@ const BusPayment = () => {
             <Navforwithout />
             <div className="h-full w-auto" style={{ fontFamily: "Montserrat" }}>
                 <div className="ms:bg-[#FF8682]  ms:px-2 ms:h-[450px]">
-                    <div className='font-montserrat ms:flex items-center justify-between hidden pt-11 px-5'>
+                    {/* mobile  process navigation bar starts here  */}
+                    <div className='w-full max-w-[500px] h-[17px] ms:flex items-center justify-center lg:justify-between mb-6 font-montserrat flex-wrap hidden pt-11'>
+                        <p className='font-medium text-sm text-white'>
+                            <Link to='/Bus'>
+                                Bus
+                            </Link></p>
+                        <HiOutlineChevronRight className='text-[#112211] mx-[14px]'></HiOutlineChevronRight>
+                        <p className='font-medium text-sm text-white'>
+                            <Link to={'/Bus'}>
+                                {bookingInfo?.busName}
+                            </Link>
+                        </p>
+                        <HiOutlineChevronRight className='text-[#112211] mx-[14px]'></HiOutlineChevronRight>
+
+                        <p className='font-medium text-sm whitespace-nowrap text-white'>
+                            <Link to={`/bus/details/${bookingInfo?.busId}`}>
+                                {bookingInfo?.busCompanyName}
+                            </Link>
+                        </p>
+                        <HiOutlineChevronRight className='text-[#112211] mx-[14px]'></HiOutlineChevronRight>
+                        <p className='font-medium text-sm text-white'>
+                            <Link to={'/bus/booking/seats'}>
+                                Seats
+                            </Link>
+                        </p>
+                        <HiOutlineChevronRight className='text-[#112211] mx-[14px]'></HiOutlineChevronRight>
+                        <p className='font-medium text-sm text-[#112211] text-opacity-70'>Details</p>
+                    </div>
+
+
+                    {/* <div className='font-montserrat ms:flex items-center justify-between hidden pt-11 px-5'>
                         <AiOutlineLeftCircle className='text-2xl'></AiOutlineLeftCircle>
                         <p className='text-lg text-black font-medium'>Bus</p>
                         <TbDotsCircleHorizontal className='text-2xl'></TbDotsCircleHorizontal>
-                    </div>
+                    </div> */}
                     <div className="w-[90%] mx-auto ms:mt-0 ms:pt-10 mt-12 mb-8">
                         <div className="ms:hidden flex items-center mt-5 gap-2 z-50">
 

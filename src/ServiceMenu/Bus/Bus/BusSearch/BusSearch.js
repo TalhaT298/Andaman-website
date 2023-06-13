@@ -28,7 +28,7 @@ import mail from "../../../../images/image_source_for_shiptab/mail_arrow.png";
 
 const Search = ({ bus: category }) => {
     // const [buses] = UseHook()
-    // console.log(buses)
+    console.log(category)
     const filterBus = bus?.filter((bus) => bus?.category === category)
 
     const { searchResults, setSearchResults, adult, setAdult, children, setChildren, infant, setInfant } = useContext(BusContext)

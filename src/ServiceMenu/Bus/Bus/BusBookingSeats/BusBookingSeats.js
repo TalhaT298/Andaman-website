@@ -179,12 +179,29 @@ const BusBookingSeats = () => {
                 {/*responsive seats starts here  */}
                 <div className='h-[694px] mx-auto mb-5'
                 >
-
-                    <div className='font-montserrat ms:flex items-center justify-between hidden'>
+                    {/* mobile process navigation starts here  */}
+                    <div className='w-full max-w-[405px] h-[17px] ms:flex items-center justify-between mb-5 font-montserrat flex-wrap hidden'>
+                        <p className='font-medium text-sm text-[#FF8682]'>
+                            <Link to='/Bus'>Bus</Link>
+                        </p>
+                        <HiOutlineChevronRight className='text-[#112211] mx-[14px]'></HiOutlineChevronRight>
+                        <p className='font-medium text-sm text-[#FF8682]'>
+                            <Link to={`/Bus`}>{bookingInfo?.busName}</Link>
+                        </p>
+                        <HiOutlineChevronRight className='text-[#112211] mx-[14px]'></HiOutlineChevronRight>
+                        <p className='font-medium text-sm text-[#FF8682] whitespace-nowrap'>
+                            <Link to={`/bus/details/${bookingInfo?.busId}`}>
+                                {bookingInfo?.busCompanyName}
+                            </Link>
+                        </p>
+                        <HiOutlineChevronRight className='text-[#112211] mx-[14px]'></HiOutlineChevronRight>
+                        <p className='font-medium text-sm text-[#000000] text-opacity-60'>Seats</p>
+                    </div>
+                    {/* <div className='font-montserrat ms:flex items-center justify-between hidden'>
                         <AiOutlineLeftCircle className='text-2xl'></AiOutlineLeftCircle>
                         <p className='text-lg text-black font-medium'>Bus</p>
                         <TbDotsCircleHorizontal className='text-2xl'></TbDotsCircleHorizontal>
-                    </div>
+                    </div> */}
 
                     <div className='flex items-center justify-between w-full max-w-[327px] h-[34px] mb-[18px] font-popins'>
                         <p className='font-popins font-semibold text-2xl text-[#262630]'>
