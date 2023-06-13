@@ -61,9 +61,9 @@ const TravelPackageContactForm = lazy(() =>
 );
 const TrekContactForm = lazy(() => import("./Component/TrekContactForm.js"));
 
-const SingleHotel = lazy(() =>
-  import("./ServiceMenu/Hotel/SingleHotel/SingleHotel.js")
-);
+// const SingleHotel = lazy(() =>
+//   import("./ServiceMenu/Hotel/SingleHotel/SingleHotel.js")
+// );
 
 const PgHotel = lazy(() =>
   import("./ServiceMenu/Pg/SingleHotel/SinglePgHotel")
@@ -163,7 +163,7 @@ export default function App() {
             <Route path="/Chaisuttabar1" element={<Chaisuttabar1 />} />
             <Route path="/Rooftop1" element={<Rooftop1 />} />
             <Route path="/Cardamom1" element={<Cardamom1 />} /> */}
-            <Route path="/SingleHotel/:id" element={<SingleHotel />} />
+            {/* <Route path="/SingleHotel/:id" element={<SingleHotel />} /> */}
             <Route path="/SingleInland/:id" element={<SingleInland />} />
             <Route path="/MakkruzGold" element={<MakkruzGoldDetails />} />
             <Route path="/PgSingleHotel" element={<PgHotel />} />
