@@ -8,20 +8,17 @@ const PaymentCard = ({ singleData, formValues }) => {
   const { user_arrival, staying, user_people, user_name, room } = formValues;
   // let baseFare; // Declare baseFare variable outside the if statement
   let people = parseInt(user_people);
-  if (parseInt(user_people) % 2 === 0) {
-    people /= 2;
-  }
-
-  let baseFare =
-    parseInt(singleData.price.replace(/,/g, ""), 10) *
-    people *
-    parseInt(staying) *
-    parseInt(room);
 
   if (parseInt(user_people) % 2 !== 0) {
-    baseFare /= 2;
+    people += 1;
   }
-  console.log(singleData?.price);
+  let baseFare =
+    (parseInt(singleData.price.replace(/,/g, ""), 10) *
+      people *
+      parseInt(staying) *
+      parseInt(room)) /
+    2;
+
   const handleSubmit = () => {
     alert(
       "Thank you for taking your time. Sublime Island will reach out to you in 2-3 hours or as soon as possible 😁✌🏻"

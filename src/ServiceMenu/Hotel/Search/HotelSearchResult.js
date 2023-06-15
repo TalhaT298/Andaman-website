@@ -19,42 +19,44 @@ const HotelSearchResult = ({ searchState }) => {
     <div className="min-h-[50vh] h-full">
       {filteredData?.map((item) => (
         <div key={item?.id}>
-          <Link to={"/FlightPreview"} className=" flex-col  mx-auto my-auto ">
+          <div
+            // to={"/hotel-search-details"}
+            // state={{ hotelId: item?.id, searchState }}
+            className=" flex-col  mx-auto my-auto "
+          >
+            {/* Large Device min width -480px */}
             {/* flight ? <div>{JSON.stringify(flight)}</div> : <div>Loading...</div> */}
-            <div className="flex-row bg-white rounded-xl w-auto  h-auto shadow-[0px_4px_16px_rgba(17,34,17,0.05)] transition:origin-center hover:ease-in-out hover:scale-105 transition:duration-1000 transition-transform">
-              <div className="text-[#112211] flex items-center gap-5  mx-auto py-auto md:px-8  text-center  w-full xs:flex-col xs:py-2 xs:gap-y-3">
-                <div className="ms:hidden">
+            <div className="sxs:hidden flex-row bg-white rounded-xl w-auto  h-auto shadow-[0px_4px_16px_rgba(17,34,17,0.05)] transition:origin-center hover:ease-in-out hover:scale-105 transition:duration-1000 transition-transform">
+              <div className="text-[#112211] flex md:flex-wrap items-center md:gap-0 gap-5  mx-auto py-auto   text-center  w-full xs:flex-col ">
+                <div className="md:w-full">
                   <img
                     src={item.imgSrc[0]}
                     alt="flight-logo"
-                    className="max-w-[334px] w-full rounded-l-md h-[318px] object-cover"
+                    className="md:max-w-full md:rounded-md max-w-[334px] w-full rounded-l-md h-[318px] object-cover"
                   />{" "}
                   {/* <h4 className="text-lg font-semibold">Emirates</h4>{" "}
                   <p className="text-[#112211] text-sm">{item.title}</p> */}
                 </div>
-                <div className="w-full py-[30px] pr-8">
-                  <div className="flex justify-between">
+                <div className="w-full lg:py-3 py-[30px] lg:pl-4 lg:pr-4 pr-8">
+                  <div className="flex  gap-3 justify-between">
                     <div className="self-start">
                       {/* -----------------Title & Price--------------- */}
-                      <div className="flex justify-between items-center">
-                        <div className="flex md:flex-col md:items-start items-center">
-                          <h1 className="text-2xl sm:text-xl font-bold">
-                            {item?.title}{" "}
-                          </h1>
-                        </div>
-                      </div>
+                      <h1 className="text-2xl md:text-xl font-bold text-start">
+                        {item?.title}{" "}
+                      </h1>
+
                       {/*----------------- Location------------------- */}
                       <div className="flex items-center gap-1">
                         <ImLocation2 />
-                        <p className="ms:text-sm text-justify">
+                        <p className="md:text-sm text-justify">
                           {item?.location}
                         </p>
                       </div>
-                      <div className="flex items-center my-2">
+                      <div className="flex sm:items-start items-center my-2">
                         {[...Array(5)].map((_, i) => (
                           <IoIosStar
                             key={i}
-                            className="inline  fill-[#FF8682] ms:fill-white"
+                            className="inline  fill-[#FF8682]"
                           />
                         ))}
                         <span className="text-xs font-semibold ml-1">
@@ -64,8 +66,8 @@ const HotelSearchResult = ({ searchState }) => {
                       {/* ---------------Sub Review------------ */}
                       <div className="flex justify-between items-center">
                         <div className="">
-                          <div className="flex items-center gap-1">
-                            <div className="px-2 ms:border-none ms:font-medium rounded-md border">
+                          <div className="flex ms:flex-wrap ms:items-start items-center gap-1">
+                            <div className="px-2 whitespace-nowrap ms:border-none ms:font-medium rounded-md border">
                               {item?.Rating}
                             </div>
                             <p className="text-sm ms:font-medium">
@@ -83,7 +85,7 @@ const HotelSearchResult = ({ searchState }) => {
                     </div>
                     <div className="">
                       <p className="text-start">starting from</p>
-                      <div className="text-[#FF8682] sm:hidden sm:text-xl text-[24px] font-[700]">
+                      <div className="text-[#FF8682] md:text-xl text-[24px] font-[700] whitespace-nowrap">
                         ₹ {item?.price}
                         <sub className="text-md">/night</sub>
                       </div>
@@ -91,7 +93,7 @@ const HotelSearchResult = ({ searchState }) => {
                     </div>
                   </div>
                   {/* check in and check out */}
-                  <div className="flex justify-between items-center  w-full  mx-auto mt-5">
+                  <div className="flex justify-between items-center  w-full  mx-auto ms:mt-2 mt-5">
                     <div className="">
                       <div>
                         <p className="font-semibold text-xl ms:text-[#BDBDC2] ms:text-lg ms:translate-y-8 transition-transform duration-200">
@@ -109,11 +111,11 @@ const HotelSearchResult = ({ searchState }) => {
                         {" "}
                         <img
                           src={pglogo}
-                          className="block ms:hidden w-full h-8"
+                          className="block  w-full h-8"
                           alt="flightIcon"
                         />{" "}
                       </span>
-                      <div className="ms:flex items-center hidden">
+                      {/* <div className="ms:flex items-center hidden">
                         <span className="border border-[#cccccc] border-dashed w-[12vw]"></span>
                         <span>
                           <img
@@ -123,7 +125,7 @@ const HotelSearchResult = ({ searchState }) => {
                           />
                         </span>
                         <span className="border border-[#cccccc] border-dashed w-[12vw]"></span>
-                      </div>
+                      </div> */}
                     </div>
                     <div className="">
                       <div>
@@ -139,11 +141,52 @@ const HotelSearchResult = ({ searchState }) => {
                   </div>
                   <Link
                     to={"/hotel-search-details"}
-                    state={{ id: item?.id, searchState }}
-                    className="flex justify-end mt-6"
+                    state={{ hotelId: item?.id, searchState }}
+                    className="flex justify-end mt-6 xsx:hidden"
                   >
                     <BookButton>Book Now</BookButton>
                   </Link>
+                </div>
+              </div>
+            </div>
+            {/* Mobile Device max with -480 */}
+          </div>
+          <Link
+            to={"/hotel-search-details"}
+            state={{ hotelId: item?.id, searchState }}
+            className="sxs:block hidden bg-white px-4 py-5 rounded-xl"
+          >
+            <div className="flex justify-between w-full">
+              <div className="">
+                <h1 className="text-[2.857vw] font-semibold text-start">
+                  {item?.title}{" "}
+                </h1>
+              </div>
+              <div className="text-[2.857vw] font-bold whitespace-nowrap">
+                ₹ {item?.price}
+              </div>
+            </div>
+            <div className="flex w-full gap-6 justify-between items-center mt-3">
+              <img
+                src={item?.imgSrc[0]}
+                alt="hotel"
+                className="max-w-[32.857vw] h-[100px] w-full object-cover rounded-xl"
+              />
+
+              <div className="">
+                <h5 className="text-[#112211] text-[2.857vw] font-bold">
+                  {item?.title}
+                </h5>
+                <h2 className="text-[#000000] text-[3.429vw] mt-1 font-bold">
+                  {item?.location}
+                </h2>
+                <div className="flex items-center gap-1 mt-[6px]">
+                  <div className="p-[6.5px] whitespace-nowrap text-[6px] rounded-md border border-[#FF8682]">
+                    {item?.Rating}
+                  </div>
+                  <p className="text-[7px]">
+                    <span className="">Very Good</span> {item?.Reviews}
+                  </p>
                 </div>
               </div>
             </div>

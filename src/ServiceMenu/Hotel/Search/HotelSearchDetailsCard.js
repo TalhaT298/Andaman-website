@@ -9,19 +9,17 @@ import Navforwithout from "../../../Navforwithout";
 const HotelSearchDetailsCard = () => {
   const location = useLocation();
   const { state } = location;
-  const { id, searchState } = state;
-  const singleData = datas?.find((item) => item.id === id);
-  console.log(
-    "🚀 ~ file: HotelSearchDetailsCard.js:8 ~ HotelSearchDetailsCard ~ state:",
-    singleData
-  );
+  const { hotelId, searchState } = state;
+
+  const singleData = datas?.find((item) => item.id === hotelId);
+
   return (
     <>
       <Navforwithout />
-      <section className="lg:mx-10 sm:mx-3 mx-[104px] sm:my-5 my-[60px] text-[#112211] font-montserrat">
+      <section className="lg:px-10 ms:h-96 xs:h-[360px] sxs:h-[340px] lexs:h-[320px] ms:bg-[#FF8682] sm:px-3 px-[104px] sm:py-5 py-[60px] text-[#112211] font-montserrat">
         {/* -------------------Navigation---------------- */}
-        <div className=" flex items-center  mb-[30px] gap-2">
-          <a href={"/Hotels"} className="text-[#FF8682] ">
+        <div className=" flex items-center ms:mb-4 ms:text-xs mb-[30px] gap-2">
+          <a href={"/Hotels"} className="text-[#FF8682] ms:text-slate-100">
             Hotels
           </a>
           <span>
@@ -32,9 +30,10 @@ const HotelSearchDetailsCard = () => {
 
         <CardCompo
           singleData={singleData}
+          payLink={"/hotel-payment"}
           searchState={searchState}
           linkUrl={"/PgContactForm"}
-          hotelUrl={{ hotel: "/Hotels", details: "/hotel-details" }}
+          hotelUrl={{ hotel: "/Hotels", details: "/hotel-search-details" }}
         />
       </section>
 

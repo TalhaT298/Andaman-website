@@ -19,10 +19,19 @@ import user2 from "../images/user2.png";
 import user3 from "../images/user3.png";
 import user4 from "../images/user4.png";
 import BookButton from "./BookButton";
-const CardCompo = ({ singleData, searchState, linkUrl , hotelUrl}) => {
+const CardCompo = ({
+  singleData,
+  searchState,
+  payLink,
+  linkUrl,
+  hotelId,
+  hotelUrl,
+}) => {
   const navigate = useNavigate();
   const handleClick = () => {
-    navigate(linkUrl, { state: { singleData, searchState , hotelUrl} });
+    navigate(linkUrl, {
+      state: { singleData, hotelId, searchState, linkUrl, hotelUrl, payLink },
+    });
   };
 
   return (
@@ -30,7 +39,7 @@ const CardCompo = ({ singleData, searchState, linkUrl , hotelUrl}) => {
       {/* -----------------Title & Price--------------- */}
       <div className="flex justify-between items-center">
         <div className="flex md:flex-col md:items-start items-center">
-          <h1 className="text-2xl sm:text-xl font-bold">
+          <h1 className="text-2xl lexs:text-sm sm:text-xl font-bold">
             {singleData?.title}{" "}
           </h1>
           <span className="md:ml-0 ml-4 flex items-center">

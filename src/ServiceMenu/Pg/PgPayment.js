@@ -8,8 +8,7 @@ const PgPayment = () => {
   const location = useLocation();
   const { state } = location;
   const { singleData, formValues } = state;
-  const copyData = { ...singleData, ...formValues };
-  console.log("🚀 ~ file: PgPayment.js:12 ~ PgPayment ~ copyData:", copyData);
+
   return (
     <>
       <Navforwithout />
@@ -37,7 +36,10 @@ const PgPayment = () => {
           </span>
           <Link
             to={"/PgContactForm"}
-            state={{ singleData: { ...singleData, ...formValues } }}
+            state={{
+              singleData: { ...singleData, ...formValues },
+              payLink: "/pg-payment",
+            }}
             className="text-[#FF8682] ms:text-slate-100 ms:text-sm"
           >
             Contact Form

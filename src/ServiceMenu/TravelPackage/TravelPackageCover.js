@@ -1,5 +1,9 @@
-import React, { useState } from 'react';
-import { LazyLoadImage } from 'react-lazy-load-image-component';
+import React, { useState } from "react";
+import { LazyLoadImage } from "react-lazy-load-image-component";
+import vector1 from "../../images/package/Vector-1.svg";
+import vector2 from "../../images/package/Vector-2.svg";
+import vector3 from "../../images/package/Vector-3.svg";
+import vector from "../../images/package/Vector.svg";
 // import TravelPackagePage from './TravelPackagePage';
 import {
   Button,
@@ -10,12 +14,16 @@ import {
   StepLabel,
   Stepper,
   Typography,
-} from '@material-ui/core';
-import Modal from 'react-modal';
+} from "@material-ui/core";
+import Modal from "react-modal";
 
-import { Link } from 'react-router-dom';
+import { Link } from "react-router-dom";
 
 const TravelPackageCover = (props) => {
+  console.log(
+    "🚀 ~ file: TravelPackageCover.js:19 ~ TravelPackageCover ~ props:",
+    props
+  );
 
   const [openTripDetails, setOpenTripDetails] = useState(false);
 
@@ -46,7 +54,7 @@ const TravelPackageCover = (props) => {
   };
 
   return (
-    <div className="m-2 py-3 p-2 flex flex-col w-88">
+    <div className="bg-white rounded-lg  p-4 flex flex-col  w-[342px] shadow-[0px_4px_16px_rgba(158,158,158,0.25)]">
       <div
         onClick={() => {
           setOpenTripDetails(!openTripDetails);
@@ -56,21 +64,59 @@ const TravelPackageCover = (props) => {
         <LazyLoadImage
           src={props.imageLink}
           alt={props.name}
-          className="flex rounded-md w-88 h-64 transition:origin-center hover:ease-in-out hover:scale-110 transition:duration-1000 transition-transform"
+          className="flex rounded-md w-[310px] h-52 transition:origin-center hover:ease-in-out hover:scale-110 transition:duration-1000 transition-transform"
         />
       </div>
-      <div className="flex flex-col py-3 p-1 gap-1">
+      <div className="flex flex-col pt-4">
+        <p
+          className={`text-2xl text-start text-slate-900 ${
+            props.name.length > 20 && "text-lg"
+          }`}
+        >
+          {props.name}
+        </p>
         <div className="flex justify-between">
-          <p className="text-sm font-bold text-start text-slate-900">
-            {props.name}
+          <p className="">
+            {props.duration.replace(/\//g, "").replace(/\s+/g, " ")}
           </p>
-          <p className="text-sm font-semibold text-end">{props.duration}</p>
         </div>
-        <div className="flex justify-between mx-auto">
+        <div className="mt-7 flex justify-between items-end">
+          <div className="grid justify-items-center gap-y-3">
+            <img src={vector} alt="vector" className="border-[#b7b7b7]" />
+            <p className="text-xs whitespace-nowrap">2 Flights</p>
+          </div>
+          <div className="grid justify-items-center gap-y-3">
+            <img src={vector1} alt="vector1" className="border-[#b7b7b7]" />
+            <p className="text-xs whitespace-nowrap">1 Hotel</p>
+          </div>
+          <div className="grid justify-items-center gap-y-3">
+            <img src={vector2} alt="vector2" className="border-[#b7b7b7]" />
+            <p className="text-xs whitespace-nowrap">2 Transfers</p>
+          </div>
+          <div className="grid justify-items-center gap-y-3">
+            <img src={vector3} alt="vector3" className="border-[#b7b7b7]" />
+            <p className="text-xs whitespace-nowrap">4 Activities</p>
+          </div>
+        </div>
+        <ul className="list-disc list-inside mt-6 text-sm text-black/50">
+          <li>Tour combo with return airport transfer</li>
+          <li>City Tour</li>
+          <li>Curious Corner</li>
+        </ul>
+        <div className="mt-7 flex gap-4">
+          <p className="line-through">₹88,952</p>
+          <h1 className="font-bold text-2xl">
+            ₹88,952{" "}
+            <sub className="font-normal text-xs -ml-1 whitespace-nowrap">
+              per person
+            </sub>
+          </h1>
+        </div>
+        {/* <div className="flex justify-between mx-auto">
           <p className="text-sm font-semibold text-center">
             {props.description}
           </p>
-        </div>
+        </div> */}
       </div>
       {/* <TravelPackagePage2 /> */}
 
@@ -108,7 +154,7 @@ const TravelPackageCover = (props) => {
           <Stepper
             orientation="vertical"
             activeStep={activeStep}
-            style={{ backgroundColor: 'inherit' }}
+            style={{ backgroundColor: "inherit" }}
           >
             <Step>
               <StepLabel>DAY 1</StepLabel>
@@ -119,14 +165,14 @@ const TravelPackageCover = (props) => {
                   </span>
                   <LazyLoadImage
                     className="h-80 w-1/3 lg:w-5/12 airbnbml:w-2/3 airbnbml:mx-auto sm:h-52 sm:w-auto"
-                    src={props.imageLink1 ? props.imageLink1 : '-'}
+                    src={props.imageLink1 ? props.imageLink1 : "-"}
                     alt="."
                   />
                 </div>
                 <Button
                   disabled={activeStep === 0}
                   onClick={backHandler}
-                  style={{ marginRight: '5px' }}
+                  style={{ marginRight: "5px" }}
                 >
                   Back
                 </Button>
@@ -149,11 +195,11 @@ const TravelPackageCover = (props) => {
                   </span>
                   <LazyLoadImage
                     className="h-80 w-1/3 lg:w-5/12 airbnbml:w-2/3 airbnbml:mx-auto sm:h-40"
-                    src={props.imageLink2 ? props.imageLink2 : '-'}
+                    src={props.imageLink2 ? props.imageLink2 : "-"}
                     alt="."
                   />
                 </div>
-                <Button style={{ marginRight: '5px' }} onClick={backHandler}>
+                <Button style={{ marginRight: "5px" }} onClick={backHandler}>
                   Back
                 </Button>
                 <Button
@@ -175,11 +221,11 @@ const TravelPackageCover = (props) => {
                   </span>
                   <LazyLoadImage
                     className="h-80 w-1/3 lg:w-5/12 airbnbml:w-2/3 airbnbml:mx-auto sm:h-40"
-                    src={props.imageLink3 ? props.imageLink3 : '-'}
+                    src={props.imageLink3 ? props.imageLink3 : "-"}
                     alt="."
                   />
                 </div>
-                <Button style={{ marginRight: '5px' }} onClick={backHandler}>
+                <Button style={{ marginRight: "5px" }} onClick={backHandler}>
                   Back
                 </Button>
                 <Button
@@ -201,11 +247,11 @@ const TravelPackageCover = (props) => {
                   </span>
                   <LazyLoadImage
                     className="h-80 w-1/3 lg:w-5/12 airbnbml:w-2/3 airbnbml:mx-auto sm:h-40"
-                    src={props.imageLink4 ? props.imageLink4 : '-'}
+                    src={props.imageLink4 ? props.imageLink4 : "-"}
                     alt="."
                   />
                 </div>
-                <Button style={{ marginRight: '5px' }} onClick={backHandler}>
+                <Button style={{ marginRight: "5px" }} onClick={backHandler}>
                   Back
                 </Button>
                 <Button
@@ -228,11 +274,11 @@ const TravelPackageCover = (props) => {
                     </span>
                     <LazyLoadImage
                       className="h-80 w-1/3 lg:w-5/12 airbnbml:w-2/3 airbnbml:mx-auto sm:h-40"
-                      src={props.imageLink5 ? props.imageLink5 : '-'}
+                      src={props.imageLink5 ? props.imageLink5 : "-"}
                       alt="."
                     />
                   </div>
-                  <Button style={{ marginRight: '5px' }} onClick={backHandler}>
+                  <Button style={{ marginRight: "5px" }} onClick={backHandler}>
                     Back
                   </Button>
                   <Button
@@ -258,11 +304,11 @@ const TravelPackageCover = (props) => {
                     </span>
                     <LazyLoadImage
                       className="h-80 w-1/3 lg:w-5/12 airbnbml:w-2/3 airbnbml:mx-auto sm:h-40"
-                      src={props.imageLink6 ? props.imageLink6 : '-'}
+                      src={props.imageLink6 ? props.imageLink6 : "-"}
                       alt="."
                     />
                   </div>
-                  <Button style={{ marginRight: '5px' }} onClick={backHandler}>
+                  <Button style={{ marginRight: "5px" }} onClick={backHandler}>
                     Back
                   </Button>
                   <Button
@@ -288,11 +334,11 @@ const TravelPackageCover = (props) => {
                     </span>
                     <LazyLoadImage
                       className="h-80 w-1/3 lg:w-5/12 airbnbml:w-2/3 airbnbml:mx-auto sm:h-40"
-                      src={props.imageLink7 ? props.imageLink7 : '-'}
+                      src={props.imageLink7 ? props.imageLink7 : "-"}
                       alt="."
                     />
                   </div>
-                  <Button style={{ marginRight: '5px' }} onClick={backHandler}>
+                  <Button style={{ marginRight: "5px" }} onClick={backHandler}>
                     Back
                   </Button>
                   <Button
@@ -318,11 +364,11 @@ const TravelPackageCover = (props) => {
                     </span>
                     <LazyLoadImage
                       className="h-80 w-1/3 lg:w-5/12 airbnbml:w-2/3 airbnbml:mx-auto sm:h-40"
-                      src={props.imageLink8 ? props.imageLink8 : '-'}
+                      src={props.imageLink8 ? props.imageLink8 : "-"}
                       alt="."
                     />
                   </div>
-                  <Button style={{ marginRight: '5px' }} onClick={backHandler}>
+                  <Button style={{ marginRight: "5px" }} onClick={backHandler}>
                     Back
                   </Button>
                   <Button
@@ -348,11 +394,11 @@ const TravelPackageCover = (props) => {
                     </span>
                     <LazyLoadImage
                       className="h-80 w-1/3 lg:w-5/12 airbnbml:w-2/3 airbnbml:mx-auto sm:h-40"
-                      src={props.imageLink9 ? props.imageLink9 : '-'}
+                      src={props.imageLink9 ? props.imageLink9 : "-"}
                       alt="."
                     />
                   </div>
-                  <Button style={{ marginRight: '5px' }} onClick={backHandler}>
+                  <Button style={{ marginRight: "5px" }} onClick={backHandler}>
                     Back
                   </Button>
                   <Button
@@ -378,11 +424,11 @@ const TravelPackageCover = (props) => {
                     </span>
                     <LazyLoadImage
                       className="h-80 w-1/3 lg:w-5/12 airbnbml:w-2/3 airbnbml:mx-auto sm:h-40"
-                      src={props.imageLink10 ? props.imageLink10 : '-'}
+                      src={props.imageLink10 ? props.imageLink10 : "-"}
                       alt="."
                     />
                   </div>
-                  <Button style={{ marginRight: '5px' }} onClick={backHandler}>
+                  <Button style={{ marginRight: "5px" }} onClick={backHandler}>
                     Back
                   </Button>
                   <Button
@@ -408,11 +454,11 @@ const TravelPackageCover = (props) => {
                     </span>
                     <LazyLoadImage
                       className="h-80 w-1/3 lg:w-5/12 airbnbml:w-2/3 airbnbml:mx-auto sm:h-40"
-                      src={props.imageLink11 ? props.imageLink11 : '-'}
+                      src={props.imageLink11 ? props.imageLink11 : "-"}
                       alt="."
                     />
                   </div>
-                  <Button style={{ marginRight: '5px' }} onClick={backHandler}>
+                  <Button style={{ marginRight: "5px" }} onClick={backHandler}>
                     Back
                   </Button>
                   <Button
@@ -434,15 +480,15 @@ const TravelPackageCover = (props) => {
               square
               elevation={0}
               style={{
-                padding: '10px',
-                marginLeft: '10px',
-                backgroundColor: 'inherit',
+                padding: "10px",
+                marginLeft: "10px",
+                backgroundColor: "inherit",
               }}
             >
               <Typography>Your Journey Completes Here</Typography>
               <Button
                 onClick={handleReset}
-                style={{ marginTop: '5px' }}
+                style={{ marginTop: "5px" }}
                 color="primary"
               >
                 Get Back
@@ -454,7 +500,7 @@ const TravelPackageCover = (props) => {
             nonLinear
             orientation="vertical"
             activeStep={activeStepFooter}
-            style={{ marginTop: '20px', backgroundColor: 'inherit' }}
+            style={{ marginTop: "20px", backgroundColor: "inherit" }}
           >
             <Step>
               <StepButton onClick={() => handleActiveFooter(0)}>
@@ -487,7 +533,7 @@ const TravelPackageCover = (props) => {
                 <li>Any items or services not specified in the cost</li>
                 <li>Any Travel Insurance Premium</li>
                 <li>
-                  {' '}
+                  {" "}
                   Any additional expenses incurred due to any technical fault
                 </li>
                 <li>

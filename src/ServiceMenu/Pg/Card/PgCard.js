@@ -31,7 +31,11 @@ const PgCard = () => {
           <span className="text-[#112211] ">{singleData?.title}</span>
         </div>
 
-        <CardCompo singleData={singleData} linkUrl={"/PgContactForm"} />
+        <CardCompo
+          singleData={singleData}
+          payLink={"/pg-payment"}
+          linkUrl={"/PgContactForm"}
+        />
       </section>
 
       <Footer />
