@@ -1,4 +1,4 @@
-[
+export const bus = [
     {
         "busId": "1",
         "price": 10,

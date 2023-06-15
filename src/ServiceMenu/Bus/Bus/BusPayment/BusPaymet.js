@@ -2,435 +2,718 @@ import React, { useContext } from 'react';
 import { HiOutlineChevronRight } from 'react-icons/hi2';
 import { FaBus, FaStopwatch, FaWifi } from 'react-icons/fa';
 import { IoFastFoodSharp } from 'react-icons/io5';
-import { MdAirlineSeatReclineExtra } from 'react-icons/md';
+import { MdAdd, MdAirlineSeatReclineExtra, MdKeyboardArrowRight } from 'react-icons/md';
 import bus from '../../images/bus.png';
 import visa from '../../images/visa.png'
-import { AiOutlinePlus } from 'react-icons/ai'
+import { AiOutlineLeftCircle, AiOutlinePlus } from 'react-icons/ai'
 import banner from '../../images/Rectangle 3.png'
 import { BusContext } from '../../../../context/UseBusDataContext';
 import Navforwithout from '../../../../Navforwithout';
 import Footer from '../../../../Component/Footer/Footer';
 import { Link } from 'react-router-dom';
+import { TbDotsCircleHorizontal } from 'react-icons/tb';
+import { IoIosAirplane } from 'react-icons/io';
+import { RiDoorLockFill } from 'react-icons/ri';
 
+import feature from "../../images/flightFeature.png";
+import flightLogo from "../../images/flightLogoMini.png"
+import busicon from '../../images/Vector.png'
+import featureShadow from '../../images/Frame 143.png'
 
 const BusPayment = () => {
     const { bookingInfo } = useContext(BusContext)
     // console.log(bookingInfo)
     const totalPrice = bookingInfo?.updatedPrice?.price;
+    console.log(bookingInfo)
 
     const handleShowAlert = () => {
         alert('Payment recived')
     }
     return (
+
+        // <div style={{ fontFamily: "Montserrat" }}>
+        //     <Navforwithout />
+        //     <div className="ms:mx-0 ms:mt-0  lg:mx-6   mx-20 mt-10 ms:mb-5 mb-16">
+        //         {/* <div className="absolute -top-10 left-[-4vw] right-[-4vw] h-[340px] z-[-1] ms:bg-[#FF8682]" /> */}
+        //         <div className="ms:bg-[#FF8682] ms:pt-10 lexs:px-2 ms:px-6 ms:h-[240px]">
+        //             <div className="ms:hidden flex items-center mt-5 gap-2 z-50">
+        //                 <Link to={"/Flights"} className="text-[#FF8682] ">
+        //                     Flight
+        //                 </Link>
+        //                 <span>
+        //                     <MdKeyboardArrowRight />
+        //                 </span>
+        //                 <span>
+        //                     {/* {flightDataState.flightName} */}
+        //                 </span>
+        //             </div>
+        //             <div className="ms:hidden flex lg:flex-col lg:gap-3 justify-between mt-6">
+        //                 <div className="">
+        //                     <h2 className="text-2xl font-bold">Basic Economy Feature</h2>
+        //                     {/* <img src={flightFeature} alt="" /> */}
+        //                 </div>
+        //                 <div className="">
+        //                     <div className="flex items-center gap-5">
+        //                         <div className="flex items-center justify-center gap-2">
+        //                             {/* <label htmlFor="economy"> */}
+        //                             <input
+        //                                 type="checkbox"
+        //                                 name="economy"
+        //                                 id="economy"
+        //                                 value={"ECONOMY"}
+        //                                 // checked={passengerClass === "ECONOMY"}
+        //                                 // onChange={handleInput}
+        //                                 className="inline-block h-6 w-6"
+        //                             />
+        //                             {/* </label> */}
+
+        //                             <label htmlFor="economy" className="font-bold">
+        //                                 Economy
+        //                             </label>
+        //                         </div>
+        //                         <div className="flex items-center justify-center gap-2">
+        //                             <>
+        //                                 <input
+        //                                     type="checkbox"
+        //                                     name="business"
+        //                                     id="business"
+        //                                     value={"BUSINESS"}
+        //                                     // checked={passengerClass === "BUSINESS"}
+        //                                     // onChange={handleInput}
+        //                                     className="inline-block h-6 w-6"
+        //                                 />
+        //                             </>
+
+        //                             <label htmlFor="business" className="font-bold">
+        //                                 Business Class
+        //                             </label>
+        //                         </div>
+        //                         <div className="flex items-center justify-center gap-2">
+        //                             {/* <label htmlFor="first"> */}
+        //                             <input
+        //                                 type="checkbox"
+        //                                 name="first"
+        //                                 id="first"
+        //                                 value={"FIRST"}
+        //                                 // checked={passengerClass === "FIRST"}
+        //                                 // onChange={handleInput}
+        //                                 className="inline-block h-6 w-6"
+        //                             />
+        //                             {/* </label> */}
+        //                             <label htmlFor="first" className="font-bold">
+        //                                 First Class
+        //                             </label>
+        //                         </div>
+        //                     </div>
+        //                 </div>
+        //             </div>
+        //         </div>
+        //         <div className="ms:mx-2">
+        //             <div className="lexs:mt-52 ms:mt-36 mt-10 bg-[rgba(255,134,130,0.6)] rounded-lg p-6">
+        //                 <h2 className="text-2xl font-bold">Emirates Airlines Policies</h2>
+        //                 <div className="flex lg:flex-col lg:gap-5 gap-20 mt-3">
+        //                     <div className="flex items-center gap-1">
+        //                         <RiDoorLockFill className="w-8 h-8" />
+        //                         <span>
+        //                             Pre-flight cleaning, installation of cabin HEPA filters.
+        //                         </span>
+        //                     </div>
+        //                     <div className="flex items-center gap-1">
+        //                         <RiDoorLockFill className="w-8 h-8" />
+        //                         <span>
+        //                             Pre-flight cleaning, installation of cabin HEPA filters.
+        //                         </span>
+        //                     </div>
+        //                 </div>
+        //             </div>
+        //             <div className="mt-10 ms:mt-5 ms:hidden block bg-[#FFFFFF] py-8 px-6 shadow-[0px_4px_16px_rgba(17,34,17,0.05)] rounded-xl">
+        //                 <div className="flex justify-between">
+        //                     <h5 className="text-xl text-[#112211]">
+        //                         {/* Return {endingDate[0].endDate.toDateString()} */}
+        //                     </h5>
+        //                     <h5 className="text-xl text-[#112211]">
+        //                         {/* {flightDataState.flightDuration} */}
+        //                     </h5>
+        //                 </div>
+        //                 <div className="flex justify-between md:gap-5 md:flex-col mt-5">
+        //                     <div className="flex items-center md:w-56 w-auto justify-center bg-[#FFFFFF] gap-5  border-[0.5px] border-[0.5px_solid_#8DD3BB] rounded-lg px-8 py-4 ">
+        //                         {/* <img src={flightLogoMini} alt="flightLogoMini" className="" /> */}
+        //                         <div className="">
+        //                             <h2 className="font-semibold text-2xl">Emirates</h2>
+        //                             <p className="text-[#112211] opacity-[0.6] font-[500]">
+        //                                 {/* {flightDataState.flightName} */}
+        //                             </p>
+        //                         </div>
+        //                     </div>
+        //                     <div className="">
+        //                         {" "}
+        //                         {/* <img src={flightFeature} alt="" /> */}
+        //                     </div>
+        //                 </div>
+        //                 <div className="flex justify-between items-center lg:w-[70vw] w-[52vw] mx-auto mt-5">
+        //                     <div className="">
+        //                         <div>
+        //                             <span className="font-bold">
+        //                                 {/* {flightDataState.departureTime} */}
+        //                             </span>
+
+        //                             <span className="ml-2">
+        //                                 {/* {currentDestinationFilter} */}
+        //                             </span>
+        //                         </div>
+        //                     </div>
+        //                     <div className="flex gap-2">
+        //                         <span>
+        //                             {" "}
+        //                             {/* <img
+        //                                 src={flightIcon}
+        //                                 className="w-full h-8"
+        //                                 alt="flightIcon"
+        //                             />{" "} */}
+        //                         </span>
+        //                     </div>
+        //                     <div>
+        //                         <span className="font-bold">
+        //                             {/* {flightDataState.arrivalTime} */}
+        //                         </span>
+        //                         <span className="ml-2">
+
+        //                             {/* {nextDestinationFilter} */}
+
+        //                         </span>
+        //                     </div>
+        //                 </div>
+        //             </div>
+        //             <div className="ms:flex flex-row hidden bg-white rounded-xl absolute top-52 mx-3 inset-x-0  w-auto py-8 h-auto shadow-[0px_4px_16px_rgba(17,34,17,0.05)]">
+        //                 <div className="text-[#112211] flex items-center md:gap-5 gap-16  mx-auto py-auto md:px-8 px-10 text-center  w-full xs:flex-col xs:py-2 xs:gap-y-3">
+        //                     <div className="w-full">
+        //                         <div className="flex lexs:flex-col justify-between items-center md:gap-5">
+        //                             <div className="flex items-center md:w-56 w-auto justify-center bg-[#FFFFFF] gap-5  border-[0.5px] border-[0.5px_solid_#8DD3BB] rounded-lg px-8 py-4 ">
+        //                                 {/* <img
+        //                                     src={flightLogoMini}
+        //                                     alt="flightLogoMini"
+        //                                     className=""
+        //                                 /> */}
+        //                                 <div className="">
+        //                                     <h2 className="font-semibold text-2xl">Emirates</h2>
+        //                                     <p className="text-[#112211] opacity-[0.6] font-[500]">
+        //                                         {/* {flightDataState.flightName} */}
+        //                                     </p>
+        //                                 </div>
+        //                             </div>
+        //                             <div className="text-xl whitespace-nowrap text-blue-500 font-bold">
+        //                                 {/* ₹ {netTotal}{" "} */}
+        //                             </div>
+        //                         </div>
+        //                         {/* <hr className="ms:block hidden my-3" /> */}
+        //                         <div className="flex justify-between items-center ">
+        //                             <div className="ms:block hidden text-start">
+        //                                 <div>
+        //                                     <span className="text-[3.72vw]">
+        //                                         {/* {flightData.currentDestination} */}
+        //                                     </span>
+        //                                 </div>
+        //                             </div>
+        //                             <div className="ms:flex hidden items-center text-[#FF8682]">
+        //                                 <span className="border border-[#FF8682] border-dashed w-[11vw]"></span>
+        //                                 <span>
+        //                                     <IoIosAirplane className="w-6 h-6" />
+        //                                 </span>
+        //                                 <span className="border border-[#FF8682] border-dashed w-[11vw]"></span>
+        //                             </div>
+        //                             <div className="ms:block hidden">
+        //                                 <span className="text-[3.72vw] whitespace-nowrap">
+        //                                     {/* {flightData.nextDestination} */}
+        //                                 </span>
+        //                             </div>
+        //                         </div>
+        //                         <div className="ms:flex justify-between items-center mt-3 hidden">
+        //                             <div className="font-bold text-[#BDBDC2]">
+        //                                 {/* {flightData.departureTime} */}
+        //                             </div>
+        //                             {/* <div className="font-bold">{flightData.flightDuration}</div> */}
+        //                             <div className="font-bold text-[#BDBDC2]">
+        //                                 {/* {flightData.arrivalTime} */}
+        //                             </div>
+        //                         </div>
+        //                     </div>
+        //                 </div>
+        //             </div>
+        //             <div className="mt-10 bg-[#FFFFFF] py-8 px-6 shadow-[0px_4px_16px_rgba(17,34,17,0.05)] rounded-xl flex flex-wrap lg:gap-5 justify-between">
+        //                 <div className=" flex justify-start md:w-full md:justify-between items-center gap-3">
+        //                     {/* <img src={flightLogo} alt="flightLogo" className="w-24 h-24" /> */}
+        //                     <div>
+        //                         {/* <p>{passengerClass}</p> */}
+        //                         {/* <p>{flightDataState.flightName}</p> */}
+        //                     </div>
+        //                 </div>
+        //                 <div className="lg:flex justify-between md:w-full items-center flex-col">
+        //                     <div className="md:w-full w-96 ">
+        //                         {" "}
+        //                         <div className="flex justify-between">
+        //                             <h5 className="text-xl font-[500] text-[#000000]">
+        //                                 {/* {endingDate[0].endDate.toDateString()} */}
+        //                             </h5>
+        //                             <h5 className="text-xl font-[500] text-[#000000]">
+        //                                 {/* {flightDataState.flightDuration} */}
+        //                             </h5>
+        //                         </div>
+        //                         <h6 className="text-lg font-[700] text-[#112211]">
+        //                             Price Details
+        //                         </h6>
+        //                         <div className="flex justify-between md:w-full w-96 ">
+        //                             <h5 className="text-xl font-[500] text-[#112211]">
+        //                                 Base Fare
+        //                             </h5>
+        //                             <h5 className="text-xl font-[700] text-[#425D97]">
+        //                                 {/* ₹ {flightDataState.adultPrice} */}
+        //                             </h5>
+        //                         </div>
+        //                         <Link to={"/ReviewFlight"}>
+        //                             <button className=" w-full flex justify-center items-center bg-[#27273F] text-white py-2 rounded mt-5">
+        //                                 Confirm Booking
+        //                             </button>
+        //                         </Link>
+        //                     </div>
+        //                 </div>
+        //             </div>
+        //         </div>
+        //     </div>
+        //     <Footer />
+        // </div >
         <>
-            <Navforwithout></Navforwithout>
-            <div className='w-full max-w-[1327px] h-[657px] mt-20 mx-auto mb-[84px] flex items-center justify-between ms:flex-col'>
-                <div className='ms:hidden'>
-                    <div className='w-full max-w-[820px] font-montserrat'>
-                        <div className='w-[600px] h-[17px] flex items-center justify-between mb-6 flex-wrap'>
-                            <p className='font-medium text-sm text-[#FF8682]'>
-                                <Link to={'/Bus'}>
-                                    Bus
-                                </Link>
-                            </p>
-                            <HiOutlineChevronRight className='text-[#112211] mx-[14px]'></HiOutlineChevronRight>
-                            <p className='font-medium text-sm text-[#FF8682]'>
-                                <Link to={'/Bus'}>
-                                    {bookingInfo?.busName}
-                                </Link>
-                            </p>
-                            <HiOutlineChevronRight className='text-[#112211] mx-[14px]'></HiOutlineChevronRight>
+            <Navforwithout />
+            <div className="h-full w-auto" style={{ fontFamily: "Montserrat" }}>
+                <div className="ms:bg-[#FF8682]  ms:px-2 ms:h-[450px]">
+                    {/* mobile  process navigation bar starts here  */}
+                    <div className='w-full max-w-[500px] h-[17px] ms:flex items-center justify-center lg:justify-between mb-6 font-montserrat flex-wrap hidden pt-11'>
+                        <p className='font-medium text-sm text-white'>
+                            <Link to='/Bus'>
+                                Bus
+                            </Link></p>
+                        <HiOutlineChevronRight className='text-[#112211] mx-[14px]'></HiOutlineChevronRight>
+                        <p className='font-medium text-sm text-white'>
+                            <Link to={'/Bus'}>
+                                {bookingInfo?.busName}
+                            </Link>
+                        </p>
+                        <HiOutlineChevronRight className='text-[#112211] mx-[14px]'></HiOutlineChevronRight>
 
-                            <p className='font-medium text-sm text-[#FF8682] whitespace-nowrap'>
-                                <Link to={`/bus/details/${bookingInfo?.busId}`}>
-                                    {bookingInfo?.busCompanyName}
-                                </Link>
-                            </p>
-                            <HiOutlineChevronRight className='text-[#112211] mx-[14px]'></HiOutlineChevronRight>
-                            <p className='font-medium text-sm text-[#FF8682]'>
-                                <Link to={'/bus/booking/seats'}>
-                                    Seats
-                                </Link>
-                            </p>
-                            <HiOutlineChevronRight className='text-[#112211] mx-[14px]'></HiOutlineChevronRight>
-                            <p className='font-medium text-sm text-[#FF8682]'>
-                                <Link to={'/bus/traveler/details'}>
-                                    Details
-                                </Link>
-                            </p>
-                            <HiOutlineChevronRight className='text-[#112211] mx-[14px]'></HiOutlineChevronRight>
-                            <p className='font-medium text-sm text-[#112211] text-opacity-70'>Payment</p>
-                        </div>
-                        <div className='w-full max-w-[792px] bg-[#FFFFFF] h-[349px] rounded-xl px-6 pt-8 pb-9 mb-[25px]' style={{
-                            boxShadow: '0px 4px 16px rgba(17, 34, 17, 0.05)'
-                        }}>
-                            <div className='w-full max-w-[742px] h-[39px] font-montserrat flex items-center justify-between mx-auto mb-[29px]'>
-                                <h1 className='font-bold text-2xl text-[#000000] leading-6'>{bookingInfo?.busName}</h1>
-                                <h1 className='font-bold text-[32px] text-[#062F7D] leading-6'>${bookingInfo?.updatedPrice?.price}</h1>
-                            </div>
-                            <div className='flex items-center justify-between mx-6 w-full max-w-[742px] h-6 mb-7'>
-                                <p className='font-montserrat font-normal text-[#112211] text-xl'>
-                                    {bookingInfo?.formatedDate}
+                        <p className='font-medium text-sm whitespace-nowrap text-white'>
+                            <Link to={`/bus/details/${bookingInfo?.busId}`}>
+                                {bookingInfo?.busCompanyName}
+                            </Link>
+                        </p>
+                        <HiOutlineChevronRight className='text-[#112211] mx-[14px]'></HiOutlineChevronRight>
+                        <p className='font-medium text-sm text-white'>
+                            <Link to={'/bus/booking/seats'}>
+                                Seats
+                            </Link>
+                        </p>
+                        <HiOutlineChevronRight className='text-[#112211] mx-[14px]'></HiOutlineChevronRight>
+                        <p className='font-medium text-sm text-[#112211] text-opacity-70'>Details</p>
+                    </div>
+
+
+                    {/* <div className='font-montserrat ms:flex items-center justify-between hidden pt-11 px-5'>
+                        <AiOutlineLeftCircle className='text-2xl'></AiOutlineLeftCircle>
+                        <p className='text-lg text-black font-medium'>Bus</p>
+                        <TbDotsCircleHorizontal className='text-2xl'></TbDotsCircleHorizontal>
+                    </div> */}
+                    <div className="w-[90%] mx-auto ms:mt-0 ms:pt-10 mt-12 mb-8">
+                        <div className="ms:hidden flex items-center mt-5 gap-2 z-50">
+
+                            <div className='w-full max-w-[500px] h-[17px] flex items-center justify-center lg:justify-between mb-6 font-montserrat flex-wrap'>
+                                <p className='font-medium text-sm text-[#FF8682]'>
+                                    <Link to='/Bus'>
+                                        Bus
+                                    </Link></p>
+                                <HiOutlineChevronRight className='text-[#112211] mx-[14px]'></HiOutlineChevronRight>
+                                <p className='font-medium text-sm text-[#FF8682]'>
+                                    <Link to={'/Bus'}>
+                                        {bookingInfo?.busName}
+                                    </Link>
                                 </p>
-                                <p className='font-montserrat font-medium text-[#112211] text-xl'>{bookingInfo?.busDuration}</p>
-                            </div>
-                            <div className='w-full max-w-[742px] h-[86px] flex items-center justify-between mx-auto mb-11'>
-                                <div className='w-full max-w-[262px] h-[86px] flex items-center justify-center rounded-lg border-[0.5px] border-[#FF8682] gap-6 px-8 py-4'>
-                                    <img className='w-16 h-11' src={bookingInfo?.busLogo} alt="" />
-                                    <div>
-                                        <p className='font-semibold font-montserrat text-2xl mt-[10px] leading-7 mb-2'>{bookingInfo?.category}</p>
-                                        <p className='font-montserrat font-medium text-[#112211] text-opacity-60 text-sm leading-4'>{bookingInfo?.busName}</p>
-                                    </div>
-                                </div>
-                                <div className='flex items-center justify-between w-full max-w-[312px] h-12 '>
-                                    <FaBus className='text-xl text-[#112211]'></FaBus>
-                                    <p className='h-12 border border-[#D7E2EE] mx-[27px]'></p>
-                                    <FaWifi className='text-xl text-[#112211]'></FaWifi>
-                                    <p className='h-12 border border-[#D7E2EE] mx-[27px]'></p>
-                                    <FaStopwatch className='text-xl text-[#112211]'></FaStopwatch>
-                                    <p className='h-12 border border-[#D7E2EE] mx-[27px]'></p>
-                                    <IoFastFoodSharp className='text-xl text-[#112211]'></IoFastFoodSharp>
-                                    <p className='h-12 border border-[#D7E2EE] mx-[27px]'></p>
-                                    <MdAirlineSeatReclineExtra className='text-xl text-[#112211]'></MdAirlineSeatReclineExtra>
-                                </div>
-                            </div>
-                            <div className='flex items-center justify-center w-full max-w-[742px] h-[48px] mx-auto'>
-                                <div className='flex items-center justify-between w-[240px] h-7'>
+                                <HiOutlineChevronRight className='text-[#112211] mx-[14px]'></HiOutlineChevronRight>
 
-                                    <p className='font-montserrat font-semibold text-[#112211] text-2xl'>
-                                        {bookingInfo?.departureTime}
-                                    </p>
-                                    <p className='font-montserrat text-base font-medium text-[#112211] text-opacity-60'>
-                                        {bookingInfo?.routeNameFrom}
-                                    </p>
-                                </div>
-                                <div className='mx-[47px]'>
-                                    <img src={bus} alt="" />
-                                </div>
-                                <div className='flex items-center justify-between w-[240px] h-7'>
-                                    <p className='font-montserrat text-[#112211] font-semibold text-2xl mr-5 whitespace-nowrap'>
-                                        {bookingInfo?.arrivalTime}
-                                    </p>
-                                    <p className='font-montserrat text-base font-medium text-[#112211] text-opacity-60 whitespace-nowrap'>
-                                        {bookingInfo?.routeNameTo}
-                                    </p>
-                                </div>
+                                <p className='font-medium text-sm whitespace-nowrap text-[#FF8682]'>
+                                    <Link to={`/bus/details/${bookingInfo?.busId}`}>
+                                        {bookingInfo?.busCompanyName}
+                                    </Link>
+                                </p>
+                                <HiOutlineChevronRight className='text-[#112211] mx-[14px]'></HiOutlineChevronRight>
+                                <p className='font-medium text-sm text-[#FF8682]'>
+                                    <Link to={'/bus/booking/seats'}>
+                                        Seats
+                                    </Link>
+                                </p>
+                                <HiOutlineChevronRight className='text-[#112211] mx-[14px]'></HiOutlineChevronRight>
+                                <p className='font-medium text-sm text-[#112211] text-opacity-70'>Details</p>
                             </div>
-
                         </div>
-                    </div>
-                    <div className='w-[820px] h-[250px]'>
-                        <p className='font-montserrat text-xl font-bold mb-6'>Payment Method</p>
-                        <div className='w-full max-w-[820px] h-[120px] rounded-[2px] border border-[#062F7D] border-opacity-20'>
-                            <div className='w-full max-w-[820px] h-14 bg-[#FFFFFF] flex items-center justify-center'>
-                                <div className='w-[779px] h-6 flex items-center justify-between mx-auto'>
-                                    <div className='flex items-center justify-between'>
-                                        <div className='w-5 h-5 mr-[14px] rounded-full border-2 border-[#3AA39F] flex items-center justify-center bg-[#FFFFFF]'>
-                                            <p className='w-[10px] h-[10px] rounded-[10px] bg-[#3AA39F] border border-[#3AA39F]'></p>
+                        <div className=" flex lg:flex-col  ">
+                            <div className="w-full">
+                                <div className="mt-10 ms:mt-5 ms:hidden block bg-[#FFFFFF] py-8 px-6 shadow-[0px_4px_16px_rgba(17,34,17,0.05)] rounded-xl">
+                                    <div className="flex justify-between">
+                                        <h5 className="text-xl text-[#112211]">
+                                            {/* Return {endingDate[0].endDate.toDateString()} */}
+                                            {bookingInfo?.formatedDate}
+                                        </h5>
+                                        <h5 className="text-xl text-[#112211]">
+                                            {/* {flightDataState.flightDuration} */}
+                                            {bookingInfo?.busDuration}
+                                        </h5>
+                                    </div>
+                                    <div className="flex justify-between md:gap-5 md:flex-col mt-5">
+                                        <div className="flex items-center md:w-56 w-auto justify-center bg-[#FFFFFF] gap-5  border-[0.5px] border-[0.5px_solid_#8DD3BB] rounded-lg px-8 py-4 ">
+                                            <img
+                                                src={flightLogo}
+                                                alt="flightLogoMini"
+                                                className=""
+                                            />
+                                            <div className="">
+                                                <h2 className="font-semibold text-2xl">Emirates</h2>
+                                                <p className="text-[#112211] opacity-[0.6] font-[500]">
+                                                    {/* {flightDataState.flightName} */}
+                                                    {bookingInfo?.busName}
+                                                </p>
+                                            </div>
                                         </div>
-                                        <img className='w-6 h-6' src={visa} alt="" />
-                                        <p className='font-montserrat italic text-[#A2A3B1] text-base ml-4'>•••• 6754</p>
-                                        <p className='font-montserrat font-normal text-base text-[#A2A3B1] ml-[46px]'>Expires 06/2021</p>
-                                    </div>
-                                    <div>
-                                        <p className='text-[#FF8682] text-base font-montserrat italic '>Remove</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div className='w-full max-w-[820px] h-[1px] rounded-[2px] border border-[#062F7D] border-opacity-20'>
-                            </div>
-                            <div className='w-full max-w-[820px] h-14 bg-[#FFFFFF] flex items-center justify-center'>
-                                <div className='w-[779px] h-6 flex items-center justify-between mx-auto'>
-                                    <div className='flex items-center justify-between'>
-                                        <div className='w-5 h-5 mr-[14px] rounded-full border-2 border-[#3AA39F] flex items-center justify-center bg-[#FFFFFF]'>
-
+                                        <div className="">
+                                            {" "}
+                                            <img src={feature} alt="" />
                                         </div>
-                                        <img className='w-6 h-6' src={visa} alt="" />
-                                        <p className='font-montserrat italic text-[#A2A3B1] text-base ml-4'>•••• 5643</p>
-                                        <p className='font-montserrat font-normal text-base text-[#A2A3B1] ml-[46px]'>Expires 11/2025</p>
                                     </div>
-                                    <div>
-                                        <p className='text-[#FF8682] text-base font-montserrat italic '>Remove</p>
-                                    </div>
-                                </div>
+                                    <div className="flex justify-between items-center lg:w-[70vw] w-[52vw] mx-auto mt-5">
+                                        <div className="">
+                                            <div>
+                                                <span className="font-bold">
+                                                    {/* {flightDataState.departureTime} */}
+                                                    {
+                                                        bookingInfo?.departureTime
+                                                    }
+                                                </span>
 
-                            </div>
-                            <div className='w-full max-w-[820px] h-[1px] rounded-[2px] border border-[#062F7D] border-opacity-20 mt-8'>
-                            </div>
-                            <p className='text-[#3AA39F] font-montserrat text-base font-semibold mt-[34px] flex items-center'>
-                                <AiOutlinePlus className='text-sm mr-5'></AiOutlinePlus>
-                                Add Payment method</p>
-                        </div>
-
-                    </div>
-                </div>
-                <div className='w-full ms:hidden max-w-[450px] h-[609px] bg-[#FFFFFF] rounded-lg mx-6'
-                    style={{
-                        boxShadow: '0px 4px 16px 0px #1122110D'
-                    }}
-                >
-                    <div className='w-full max-w-[367px] h-[120px] flex items-center justify-center mx-6 my-6 gap-6'>
-                        <div className=''>
-                            <img className='w-[120px] h-[120px] rounded-lg' src={banner} alt="" />
-                        </div>
-                        <div className='flex items-center justify-between w-full max-w-[223px] h-[120px] text-[#112211]'>
-
-                            <div>
-                                <p className='font-montserrat font-medium text-[#000000] text-base leading-5'>Economy</p>
-                                <p className='font-montserrat font-semibold text-[#000000] leading-6 text-xl'>{bookingInfo?.busName}</p>
-                                <div className='w-[181px] h-8 flex items-center justify-between mt-5'>
-                                    <p className='w-10 h-8 border border-[#FF8682] rounded flex items-center justify-center font-montserrat text-xs font-medium mr-2'>4.2</p>
-                                    <p className='font-montserrat font-medium text-xs leading-5'><span className='font-montserrat font-bold text-xs'>very good</span> 54 reviews</p>
-                                </div>
-                            </div>
-
-                        </div>
-                    </div>
-
-                    <div className='w-[402px] h-[0.5px] bg-[#000000] bg-opacity-25 mx-auto mb-6'>
-                    </div>
-                    <p className='font-montserrat font-medium text-base text-[#000000] leading-5 mx-6 mb-4'>Your booking is protected by <span className='font-bold'>golobe</span> </p>
-                    <div className='w-[402px] h-[0.5px] bg-[#000000] bg-opacity-25 mx-auto'>
-                    </div>
-
-                    <div className='font-montserrat w-[402px] h-[164px] mx-6'>
-
-                        <p className='font-bold text-[#000000] mb-4 mt-4 leading-5'>Price Details</p>
-                        <div className='flex items-center justify-between'>
-                            <p className='font-medium text-base leading-5 mb-4'>Base Fare </p>
-                            <p className='text-[#000000] text-base leading-5 font-semibold'>${bookingInfo?.updatedPrice?.price || '100'}</p>
-                        </div>
-                        <div className='flex items-center justify-between'>
-                            <p className='font-medium text-base leading-5 mb-4'>Discounts</p>
-                            <p className='text-[#000000] text-base leading-5 font-semibold'>$100</p>
-                        </div>
-                        <div className='flex items-center justify-between'>
-                            <p className='font-medium text-base leading-5 mb-4'>Taxes</p>
-                            <p className='text-[#000000] text-base leading-5 font-semibold'>$100</p>
-                        </div>
-                        <div className='flex items-center justify-between'>
-                            <p className='font-medium text-base leading-5 mb-4'>Service Fee</p>
-                            <p className='text-[#000000] text-base leading-5 font-semibold'>$100</p>
-                        </div>
-                        <div className='w-[402px] h-[0.5px] bg-[#000000] bg-opacity-225 mx-auto mb-4'>
-                        </div>
-                        <div className='flex items-center justify-between'>
-                            <p className='font-medium text-base leading-5 mb-4'>Total </p>
-                            <p className='text-[#000000] text-base leading-5 font-semibold'>$
-                                {100 + 100 + 100 + totalPrice}
-
-                            </p>
-                        </div>
-                        <input
-                            placeholder='Cupon Code'
-                            className='w-full h-14 mb-4 font-montserrat text-base font-semibold rounded border border-[#BDBDC2] placeholder:pl-4'
-                            type="text" name="" id="" />
-                        <button
-                            onClick={() => handleShowAlert()}
-                            className='w-full max-w-[402px] h-[52px] font-montserrat text-base font-semibold bg-[#FF8682] rounded text-white-100 leading-5'>Confirm and Pay</button>
-                    </div>
-
-                </div>
-
-                {/*responsive mobile total calculation card  */}
-                <div className='ms:bg-[#FF8682] ms:px-6 h-[330px] ms:block hidden ms:pt-20 mb-5'>
-
-                    {/*card for mobile responsive */}
-                    <div className='ms:h-[179px] w-full max-w-[1220px] h-[338px] mx-auto ms:mx-0 bg-[#FFFFFF] shadow-md rounded-xl flex items-center justify-between px-11 ms:px-6 mb-5 ms:flex-col' style={{
-                        boxShadow: '0px 4px 16px rgba(17, 34, 17, 0.05)'
-                    }}>
-                        {/* for mobile date responsive */}
-                        <div className='w-[103px] h-[22px] mt-11 mb-6 ms:block hidden ms:mt-5 ms:mb-2 ms:mr-64'>
-                            <p className='font-montserrat font-normal ms:text-[10px] ms:text-start ms:font-bold ms:leading-3 text-lg text-[#112211] whitespace-nowrap'>{"formatedDate"}</p>
-                        </div>
-                        {/* for mobile responsive bus logo name category and price*/}
-                        <div className='ms:w-full ms:h-12 ms:flex ms:items-center ms:justify-between ms:mb-3 hidden'>
-                            <div className='ms:w-40 ms:h-12 ms:border-[0.5px] ms:border-[#FF8682] ms:rounded-lg ms:flex ms:items-center ms:justify-center'>
-                                <div className='w-full max-w-[188px] h-[187px] text-center ms:flex ms:items-center items-center ms:justify-center justify-between hidden ms:w-24 ms:h-7 ms:gap-[10px]'>
-                                    <img className='ms:w-10 ms:h-7' src={bookingInfo?.busLogo} alt="" />
-                                    <div className='flex flex-col items-center justify-center'>
-                                        <p className='font-bold font-montserrat text-2xl mt-[10px] leading-7 ms:font-semibold ms:leading-3 ms:text-[10px] ms:mt-0'>{bookingInfo?.category}</p>
-                                        <p className='font-montserrat font-medium text-[#112211] text-opacity-60 text-sm leading-6 ms:font-medium ms:text-[8px] ms:leading-[9px] ms:whitespace-nowrap'>{bookingInfo?.busName}</p>
+                                                <span className="ml-2">
+                                                    {/* {currentDestinationFilter} */}
+                                                    {
+                                                        bookingInfo?.currentDestination
+                                                    }
+                                                </span>
+                                            </div>
+                                        </div>
+                                        <div className="flex gap-2">
+                                            <span>
+                                                {" "}
+                                                <img
+                                                    src={bus}
+                                                    className="w-full h-8"
+                                                    alt="shipIcon"
+                                                />{" "}
+                                            </span>
+                                        </div>
+                                        <div>
+                                            <span className="font-bold">
+                                                {/* {flightDataState.arrivalTime} */}
+                                                {bookingInfo?.arrivalTime}
+                                            </span>
+                                            <span className="ml-2">
+                                                {/* {nextDestinationFilter} */}
+                                                {bookingInfo?.nextDestination}
+                                            </span>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                            {/* review and price  */}
-                            <div className='ms:flex ms:flex-col items-center justify-between w-full max-w-[181px] ms:w-[100px] h-8 text-[#112211] hidden'>
-                                <div className='flex items-center justify-center ms:w-[101px] ms:h-5'>
-                                    <p className='w-10 h-8 border border-[#FF8682] rounded flex items-center justify-center font-montserrat text-xs font-medium mr-2 ms:w-5 ms:h-5 ms:text-[6px]'>4.2</p>
-                                    <p className='font-montserrat font-medium text-xs ms:text-[7px] ms:whitespace-nowrap'>
-                                        <span className='font-montserrat font-bold text-xs ms:text-[7px] ms:leading-[9px]'>very good</span> 54 reviews
+                                <div className="ms:flex flex-row hidden bg-white rounded-xl  inset-x-0  w-auto py-8 h-auto shadow-[0px_4px_16px_rgba(17,34,17,0.05)] ">
+                                    <div className="text-[#112211] flex items-center md:gap-5 gap-16  mx-auto py-auto md:px-8 px-10 text-center  w-full xs:flex-col xs:py-2 xs:gap-y-3">
+                                        <div className="w-full">
+                                            <div className="flex lexs:flex-col justify-between items-center md:gap-5">
+                                                <div className="flex items-center md:w-56 w-auto justify-center bg-[#FFFFFF] gap-5  border-[0.5px] border-[0.5px_solid_#8DD3BB] rounded-lg px-8 py-4 ">
+                                                    {/* <img
+                                                        src={flightLogoMini}
+                                                        alt="flightLogoMini"
+                                                        className=""
+                                                    /> */}
+                                                    <img src={flightLogo} alt="" />
+                                                    <div className="">
+                                                        <h2 className="font-semibold text-2xl">Emirates</h2>
+                                                        <p className="text-[#112211] opacity-[0.6] font-[500]">
+                                                            {/* {flightDataState.flightName} */}
+                                                            {
+                                                                bookingInfo?.busCompanyName
+                                                            }
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                                <div className="text-xl whitespace-nowrap text-blue-500 font-bold">
+                                                    {/* ₹ {netTotal}{" "} */}
+                                                    ₹{totalPrice}
+                                                </div>
+                                            </div>
+                                            {/* <hr className="ms:block hidden my-3" /> */}
+                                            <div className="flex justify-between items-center ">
+                                                <div className="ms:block hidden text-start">
+                                                    <div>
+                                                        <span className="text-[3.72vw]">
+                                                            {/* {flightData.currentDestination} */}
+                                                            {bookingInfo?.currentDestination}
+                                                        </span>
+                                                    </div>
+                                                </div>
+                                                <div className="ms:flex hidden ms:mt-3 items-center text-[#FF8682]">
+                                                    <span className="border border-[#FF8682] border-dashed w-[11vw]"></span>
+                                                    <span>
+                                                        {/* <IoIosAirplane className="w-6 h-6" /> */}
+                                                        <img
+                                                            // src={shipIconMini}
+                                                            src={busicon}
+                                                            className="w-full md:h-6 h-12"
+                                                            alt="shipIcon"
+                                                        />
+                                                    </span>
+                                                    <span className="border border-[#FF8682] border-dashed w-[11vw]"></span>
+                                                </div>
+                                                <div className="ms:block hidden">
+                                                    <span className="text-[3.72vw] whitespace-nowrap">
+                                                        {/* {flightData.nextDestination} */}
+                                                        {bookingInfo.nextDestination}
+                                                    </span>
+                                                </div>
+                                            </div>
+                                            <div className="ms:flex justify-between items-center mt-3 hidden">
+                                                <div className="font-bold text-[#BDBDC2]">
+                                                    {/* {flightData.departureTime} */}
+                                                    {bookingInfo.departureTime}
+                                                </div>
+                                                <div className="font-bold">
+                                                    {/* {flightData.flightDuration} */}
+                                                    {bookingInfo.busDuration}
+                                                </div>
+                                                <div className="font-bold text-[#BDBDC2]">
+                                                    {/* {flightData.arrivalTime} */}
+                                                    {bookingInfo.arrivalTime}
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <img
+                                    src={featureShadow}
+                                    // src={flightMobile}
+                                    alt="Fight-log"
+                                    className="ms:block hidden mt-10 w-full"
+                                />
+                                <div>
+                                    <p className="text-xl font-thin text-slate-400 italic my-4">
+                                        Payment Method
                                     </p>
+                                    <div>
+                                        <div className="flex justify-between border border-[#17183B] opacity-20 rounded-sm p-4">
+                                            <div className="flex flex-wrap">
+                                                <input type="radio" className="default:ring-2 ..." />
+                                                <img src={visa} alt="" className="mx-3" />
+                                                <p className="lexs:mr-2 mr-10">.....6754</p>
+                                                <p>Expires 06/2021</p>
+                                            </div>
+                                            <p>Remove</p>
+                                        </div>
+                                        <div className="flex justify-between border border-[#17183B] opacity-20 rounded-sm p-4">
+                                            <div className="flex flex-wrap">
+                                                <input type="radio" className="default:ring-2 ..." />
+                                                <img
+                                                    // src={master} 
+                                                    src={visa}
+                                                    alt="" className="mx-3" />
+                                                <p className="lexs:mr-2 mr-10">.....5643</p>
+                                                <p>Expires 11/2025</p>
+                                            </div>
+                                            <p>Remove</p>
+                                        </div>
+                                        <div className="flex items-center my-8">
+                                            <MdAdd className="mr-6 text-cyan-500 text-xl" />
+                                            <p>Add Payment method</p>
+                                        </div>
+                                    </div>
                                 </div>
-                                <p className='font-montserrat font-bold text-[#425D97] text-2xl ml-4 ms:font-bold ms:text-xs ms:ml-[82px]'>${bookingInfo?.price}</p>
                             </div>
-                        </div>
-                        {/* mobile responsive bus route name to and from*/}
-                        <div className='ms:flex items-center justify-between w-full hidden'>
-                            <div className='flex items-center justify-between h-8 ms:justify-start ms:w-full'>
-                                {/* <p className='font-montserrat font-semibold text-2xl text-[#112211] whitespace-nowrap hidden'>{bookingInfo?.departureTime}</p> */}
-                                <p className='font-montserrat text-base font-medium text-[#112211] text-opacity-60 ms:text-opacity-100 whitespace-nowrap ml-2 ms:ml-0 ms:text-xl'>{bookingInfo?.routeNameFrom}</p>
-                            </div>
-                            <div className='mx-20 ms:mx-auto'>
-                                <img src={bus} alt="" />
-                            </div>
-                            <div className='flex items-center justify-end ms:w-full'>
-                                {/* <p className='font-montserrat text-[#112211] font-semibold text-2xl mr-5 whitespace-nowrap hidden'>{bookingInfo?.arrivalTime}</p> */}
-                                <p className='font-montserrat text-base font-medium text-[#112211] text-opacity-60 whitespace-nowrap ms:text-opacity-100 ms:text-xl'>{bookingInfo?.routeNameTo}</p>
-                            </div>
-                        </div>
-                        {/* mobile responsive bus route name to and from*/}
-                        {/* mobile responsive bus arrival to and departure from*/}
-                        <div className='ms:flex items-center justify-between w-full hidden'>
-                            <div className='flex items-center justify-between h-8 ms:justify-start ms:w-full'>
-                                <p className='font-montserrat font-semibold text-2xl text-[#112211] whitespace-nowrap ms:text-sm ms:text-[#BDBDC2]'>{bookingInfo?.departureTime}</p>
 
-                            </div>
-                            <div className='mx-20 ms:mx-0'>
-                                <p className='font-montserrat xs:text-xs ms:whitespace-nowrap text-[#262630]'>{bookingInfo?.busDuration}</p>
-                            </div>
-                            <div className='flex items-center justify-end ms:w-full'>
-                                <p className='font-montserrat text-[#112211] font-semibold text-2xl mr-5 whitespace-nowrap ms:whitespace-nowrap ms:text-sm ms:text-[#BDBDC2] ms:mr-0'>{bookingInfo?.arrivalTime}</p>
+                            <div className="w-[50%] lg:w-full lg:mt-0 mt-10 lg:pl-0 pl-8">
+                                {/* <h1 className="text-[26px] text-[#699c78] md:text-2xl  font-semibold">
+                  Trip Summary
+                </h1> */}
+                                {/* {tripData.length === 0 ? (
+                                    <h1>Please select seats to proceed with booking.</h1>
+                                ) : (
+                                    tripData
+                                )} */}
+                                <div className="p-4 lg:w-full  bg-white" >
+                                    {" "}
+                                    <div className=" flex flex-wrap items-center gap-5 ">
+                                        {/* <img src={flightLogo} alt="flightLogo" className="w-24 h-24" /> */}
+                                        <img src={bookingInfo.busLogo} alt="" />
+                                        <div>
+                                            <p className="font-[500] text-black/75">
+                                                {/* {passengerClass} */}
+                                            </p>
+                                            <p className="font-semibold text-lg">
+                                                {/* {flightDataState.flightName} */}
+                                                {bookingInfo.busCompanyName}
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <hr className="my-5" />
+                                    <p>
+                                        Your booking is protected by <b>golobe</b>
+                                    </p>
+                                    <hr className="my-5" />
+                                    <div className="flex flex-col gap-4">
+                                        <h1 className="font-bold">Price Details</h1>
+                                        <div className="flex justify-between">
+                                            <p className="font-[500] text-md">Base Fare</p>
+                                            <p className="font-[600] text-md">₹
+
+                                                {/* {totalFare} */}
+                                                {totalPrice}
+
+                                            </p>
+                                        </div>
+                                        <div className="flex justify-between">
+                                            <p className="font-[500] text-md">Discount</p>
+                                            <p className="font-[600] text-md">₹
+
+
+                                                {/* {discount} */}
+                                            </p>
+                                        </div>
+                                        <div className="flex justify-between">
+                                            <p className="font-[500] text-md">Taxes</p>
+                                            <p className="font-[600] text-md">₹
+                                                {/* {taxes} */}
+                                            </p>
+                                        </div>
+                                        <div className="flex justify-between">
+                                            <p className="font-[500] text-md">Service Fee</p>
+                                            <p className="font-[600] text-md">₹
+                                                {/* {fee} */}
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <hr className="my-4" />
+                                    <div className="flex justify-between">
+                                        <p className="font-[500] text-md">Total</p>
+                                        <p className="font-[600] text-md">₹
+                                            {totalPrice}
+                                            {/* {netTotal} */}
+                                        </p>
+                                    </div>
+                                    <button
+                                        // onClick={handleSubmit}
+                                        className="w-full bg-[#FF8682] rounded py-4 mt-3 text-white text-md"
+                                    >
+                                        Confirm and Pay
+                                    </button>
+                                </div>
                             </div>
                         </div>
-                        {/* mobile responsive bus route name to and from*/}
-                        {/* for mobile responsive */}
                     </div>
-                    {/* card for mobile responsive */}
-                    {/* icon card mobile responsive */}
-                    <p className='text-[#17183B] font-montserrat text-[10px] mb-2'>Amenities</p>
-                    <div className='flex items-center justify-between ms:justify-center w-full h-[68px] ms:bg-white rounded-[20px]' style={{
-                        boxShadow: '0px 4px 16px rgba(17, 34, 17, 0.05)'
-                    }}>
-
-                        <FaBus className='text-[#112211] text-base'></FaBus>
-                        <p className='h-12 border border-[#D7E2EE] mx-[27px]'></p>
-                        <FaWifi className='text-base text-[#112211]'></FaWifi>
-                        <p className='h-12 border border-[#D7E2EE] mx-[27px]'></p>
-                        <FaStopwatch className='text-base text-[#112211]'></FaStopwatch>
-                        <p className='h-12 border border-[#D7E2EE] mx-[27px]'></p>
-                        <IoFastFoodSharp className='text-base text-[#112211]'></IoFastFoodSharp>
-                        <p className='h-12 border border-[#D7E2EE] mx-[27px]'></p>
-                        <MdAirlineSeatReclineExtra className='text-base text-[#112211]'></MdAirlineSeatReclineExtra>
-                    </div>
-                    {/* icon card mobile responsive */}
                 </div>
-                {/* card  */}
-                <div className='ms:block hidden w-full px-6 my-10'>
-                    <p className='font-montserrat text-xl font-bold mb-3 ms:text-[10px] ms:font-normal'>Payment Method</p>
-                    <div className='h-[120px] rounded-[2px] border border-[#062F7D] border-opacity-20'>
-                        <div className='h-14 bg-[#FFFFFF] flex items-center justify-center'>
-
-                            <div className='w-full flex items-center justify-between mx-6'>
-                                <div className='w-5 h-5 mr-[14px] rounded-full border-2 border-[#3AA39F] flex items-center justify-center bg-[#FFFFFF]'>
-                                    <p className='w-[10px] h-[10px] rounded-[10px] bg-[#3AA39F] border border-[#3AA39F]'></p>
-                                </div>
-                                <img className='w-6 h-6' src={visa} alt="" />
-                                <p className='font-montserrat italic text-[#A2A3B1] text-base ml-4'>•••• 6754</p>
-                                <p className='font-montserrat font-normal text-base text-[#A2A3B1] ml-[46px]'>Expires 06/2021</p>
-                                <p className='text-[#FF8682] text-base font-montserrat italic '>Remove</p>
-                            </div>
-
-                        </div>
-                        <div className='w-full max-w-[820px] h-[1px] rounded-[2px] border border-[#062F7D] border-opacity-20'>
-                        </div>
-                        <div className='h-14 bg-[#FFFFFF] flex items-center justify-center'>
-                            <div className='h-6 w-full flex items-center justify-between mx-6'>
-                                {/* <div className='w-full flex items-center justify-between mx-6'> */}
-                                <div className='w-5 h-5 mr-[14px] rounded-full border-2 border-[#3AA39F] flex items-center justify-center bg-[#FFFFFF]'>
-
-                                </div>
-                                <img className='w-6 h-6' src={visa} alt="" />
-                                <p className='font-montserrat italic text-[#A2A3B1] text-base ml-4'>•••• 5643</p>
-                                <p className='font-montserrat font-normal text-base text-[#A2A3B1] ml-[46px]'>Expires 11/2025</p>
-                                <p className='text-[#FF8682] text-base font-montserrat italic '>Remove</p>
-                                {/* </div> */}
-                                {/* <div>
-                                    <p className='text-[#FF8682] text-base font-montserrat italic '>Remove</p>
-                                </div> */}
-                            </div>
-
-                        </div>
-                        <div className='w-full max-w-[820px] h-[1px] rounded-[2px] border border-[#062F7D] border-opacity-20 mt-8'>
-                        </div>
-                        <p className='text-[#3AA39F] font-montserrat text-base font-semibold mt-[34px] flex items-center'>
-                            <AiOutlinePlus className='text-sm mr-5'></AiOutlinePlus>
-                            Add Payment method</p>
-                    </div>
-
-                </div>
-                {/* card  */}
-
-                <div className='w-full ms:block max-w-[490px] h-fit bg-white rounded-lg px-6'
-                    style={{
-                        boxShadow: '0px 4px 16px 0px #1122110D'
-                    }}
-                >
-                    <div className='w-full max-w-[367px] h-[120px] flex items-center justify-center mx-6 my-6 gap-6'>
-                        <div className=''>
-                            <img className='w-[120px] h-[120px] rounded-lg' src={banner} alt="" />
-                        </div>
-                        <div className='flex items-center justify-between w-full max-w-[223px] h-[120px] text-[#112211]'>
-
-                            <div>
-                                <p className='font-montserrat font-medium text-[#000000] text-base leading-5'>Economy</p>
-                                <p className='font-montserrat font-semibold text-[#000000] leading-6 text-xl'>{bookingInfo?.busName}</p>
-                                <div className='w-[181px] h-8 flex items-center justify-between mt-5'>
-                                    <p className='w-10 h-8 border border-[#FF8682] rounded flex items-center justify-center font-montserrat text-xs font-medium mr-2'>4.2</p>
-                                    <p className='font-montserrat font-medium text-xs leading-5'><span className='font-montserrat font-bold text-xs'>very good</span> 54 reviews</p>
-                                </div>
-                            </div>
-
-                        </div>
-                    </div>
-
-                    <div className='w-[402px] h-[0.5px] bg-[#000000] bg-opacity-25 mx-auto mb-6'>
-                    </div>
-                    <p className='font-montserrat font-medium text-base text-[#000000] leading-5 mx-6 mb-4'>Your booking is protected by <span className='font-bold'>golobe</span> </p>
-                    <div className='w-[402px] h-[0.5px] bg-[#000000] bg-opacity-25 mx-auto'>
-                    </div>
-
-                    <div className='font-montserrat w-[402px] h-[164px] bg-white mx-6'>
-
-                        <p className='font-bold text-[#000000] mb-4 mt-4 leading-5'>Price Details</p>
-                        <div className='flex items-center justify-between'>
-                            <p className='font-medium text-base leading-5 mb-4'>Base Fare </p>
-                            <p className='text-[#000000] text-base leading-5 font-semibold'>${bookingInfo?.updatedPrice?.price || '100'}</p>
-                        </div>
-                        <div className='flex items-center justify-between'>
-                            <p className='font-medium text-base leading-5 mb-4'>Discounts</p>
-                            <p className='text-[#000000] text-base leading-5 font-semibold'>$100</p>
-                        </div>
-                        <div className='flex items-center justify-between'>
-                            <p className='font-medium text-base leading-5 mb-4'>Taxes</p>
-                            <p className='text-[#000000] text-base leading-5 font-semibold'>$100</p>
-                        </div>
-                        <div className='flex items-center justify-between'>
-                            <p className='font-medium text-base leading-5 mb-4'>Service Fee</p>
-                            <p className='text-[#000000] text-base leading-5 font-semibold'>$100</p>
-                        </div>
-                        <div className='w-[402px] h-[0.5px] bg-[#000000] bg-opacity-225 mx-auto mb-4'>
-                        </div>
-                        <div className='flex items-center justify-between'>
-                            <p className='font-medium text-base leading-5 mb-4'>Total </p>
-                            <p className='text-[#000000] text-base leading-5 font-semibold'>$
-                                {100 + 100 + 100 + totalPrice}
-
-                            </p>
-                        </div>
-                        <input
-                            placeholder='Cupon Code'
-                            className='w-full h-14 mb-4 font-montserrat text-base font-semibold rounded border border-[#BDBDC2] placeholder:pl-4'
-                            type="text" name="" id="" />
-                        <button
-                            onClick={() => handleShowAlert()}
-                            className='w-full max-w-[402px] h-[52px] font-montserrat text-base font-semibold bg-[#FF8682] rounded text-white-100 leading-5'>Confirm and Pay</button>
-                    </div>
-
-                </div>
-                {/*responsive mobile total calculation card  */}
-            </div >
-            <Footer></Footer>
+                {/* <div className="w-[90%] mx-auto font-Nunito_Sans">
+            <h1 ref={policiesRef} className="text-3xl font-semibold my-4">
+              Read Before you Book
+            </h1>
+            <div className="flex flex-wrap gap-5 mb-10">
+              <div className="flex flex-col w-[30rem]">
+                <h1 className="text-lg font-semibold">Confirmation</h1>
+                <hr className="border-t border-gray-300 w-[95%]" />
+                <p className="mt-2">
+                  This is not a confirmed booking. This is an order to confirm the
+                  booking and SublimeIsland will confirm the booking on the best
+                  effort basis in the next 3-4 hours, maximum being 24 hours.
+                </p>
+              </div>
+  
+              <div className="flex flex-col w-[30rem]">
+                <h1 className="text-lg font-semibold">Cancellation</h1>
+                <hr className="border-t border-gray-300 w-[95%]" />
+                <p className="mt-2">
+                  48 hours before the departure, INR 250/person/ticket. 24 – 48
+                  hours before the departure 50% of the tickets. Within 24 hours,
+                  100% of the ticket.
+                </p>
+              </div>
+  
+              <div className="flex flex-col w-[30rem]">
+                <h1 className="text-lg font-semibold">Reporting Time</h1>
+                <hr className="border-t border-gray-300" />
+                <p className="mt-2">
+                  Please report at the operator’s check-in at Jetty 1 hour before
+                  the departure.
+                </p>
+              </div>
+  
+              <div className="flex flex-col w-[30rem]">
+                <h1 className="text-lg font-semibold">Rescheduling</h1>
+                <hr className="border-t border-gray-300 w-[95%]" />
+                <p className="mt-2">
+                  Rescheduling will be treated as cancellation and rebooking, will
+                  be charged as per the cancellation policy.
+                </p>
+              </div>
+  
+              <div className="flex flex-col w-[30rem]">
+                <h1 className="text-lg font-semibold">Ferry Seat Category</h1>
+                <hr className="border-t border-gray-300 w-[95%]" />
+                <p className="mt-2">
+                  The ferries will usually have 3 seat categories: Economy, Luxury
+                  and Royal. While different operators use different terms but the
+                  facilities are similar for each category, there still exist some
+                  differences between operators.
+                </p>
+              </div>
+  
+              <div className="flex flex-col w-[30rem]">
+                <h1 className="text-lg font-semibold">Luggage Policy</h1>
+                <hr className="border-t border-gray-300 w-[95%]" />
+                <p className="mt-2">
+                  25 KG/person, mostly not too strict. You’ll be able to carry
+                  more than what you can carry in a flight.
+                </p>
+              </div>
+  
+              <div className="flex flex-col w-[30rem]">
+                <h1 className="text-lg font-semibold">
+                  Reschedule/Cancellations by Operator
+                </h1>
+                <hr className="border-t border-gray-300 w-[95%]" />
+                <p className="mt-2">
+                  The operator reserves the right to change or cancel based on
+                  weather or technical issues. In that case, you’ll be endorsed to
+                  a different ferry or given a full refund.
+                </p>
+              </div>
+  
+              <div className="flex flex-col w-[30rem]">
+                <h1 className="text-lg font-semibold">Ferry Boarding Points</h1>
+                <hr className="border-t border-gray-300 w-[95%]" />
+                <p className="mt-2">
+                  Port Blair: Haddo Jetty, Havelock: Havelock Jetty (only Jetty in
+                  Havelock Island), Neil Island: Neil Jetty (only Jetty in Neil
+                  Island).
+                </p>
+              </div>
+  
+              <div className="flex flex-col w-[30rem]">
+                <h1 className="text-lg font-semibold">Infant Policy</h1>
+                <hr className="border-t border-gray-300 w-[95%]" />
+                <p className="mt-2">
+                  A child above 12 months/1 years will be charged a full ticket
+                  amount.
+                </p>
+              </div>
+            </div>
+          </div> */}
+            </div>
+            <Footer />
         </>
     );
 };

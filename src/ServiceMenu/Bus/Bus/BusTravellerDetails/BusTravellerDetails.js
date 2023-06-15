@@ -25,7 +25,7 @@ const BusTravellerDetails = () => {
 
     useEffect(() => {
         const tempAdultDetails = [];
-        for (let i = 0; i < bookingInfo?.travellersInfo?.adult; i++) {
+        for (let i = 0; i < bookingInfo?.travellerInfo?.adult; i++) {
             let object = {
                 title: "",
                 name: "",
@@ -36,11 +36,11 @@ const BusTravellerDetails = () => {
             tempAdultDetails.push(object);
         }
         setAdultArr(tempAdultDetails);
-    }, [bookingInfo?.travellersInfo?.adult, setAdultArr]);
+    }, [bookingInfo?.travellerInfo?.adult, setAdultArr]);
 
     useEffect(() => {
         const tempChildrenDetails = [];
-        for (let i = 0; i < bookingInfo?.travellersInfo?.children; i++) {
+        for (let i = 0; i < bookingInfo?.travellerInfo?.children; i++) {
             let object = {
                 title: "",
                 name: "",
@@ -51,11 +51,11 @@ const BusTravellerDetails = () => {
             tempChildrenDetails.push(object);
         }
         setChildrenArr(tempChildrenDetails);
-    }, [bookingInfo?.travellersInfo?.children, setChildrenArr]);
+    }, [bookingInfo?.travellerInfo?.children, setChildrenArr]);
 
     useEffect(() => {
         const tempInfantDetails = [];
-        for (let i = 0; i < bookingInfo?.travellersInfo?.infant; i++) {
+        for (let i = 0; i < bookingInfo?.travellerInfo?.infant; i++) {
             let object = {
                 title: "",
                 name: "",
@@ -66,7 +66,7 @@ const BusTravellerDetails = () => {
             tempInfantDetails.push(object);
         }
         setInfantArr(tempInfantDetails);
-    }, [bookingInfo?.travellersInfo?.infant, setInfantArr]);
+    }, [bookingInfo?.travellerInfo?.infant, setInfantArr]);
 
     const adultChangeHandler = (event, index) => {
         let data = [...adultArr];
@@ -87,12 +87,12 @@ const BusTravellerDetails = () => {
     // console.log(adult)
     const copyAdultSeat = [...bookingInfo?.selectedSeat]
     // console.log(copyAdultSeat, '88')
-    const adultSeat = copyAdultSeat?.slice(0, `${bookingInfo?.travellersInfo?.adult}`)
+    const adultSeat = copyAdultSeat?.slice(0, `${bookingInfo?.travellerInfo?.adult}`)
     // console.log(adultSeat, '91')
     // console.log(bookingInfo?.selectedSeat)
     const restSeat = copyAdultSeat.filter((seat) => !adultSeat.includes(seat))
     // console.log(restSeat, '94')
-    const childrenSeat = restSeat?.slice(0, `${bookingInfo?.travellersInfo?.children}`)
+    const childrenSeat = restSeat?.slice(0, `${bookingInfo?.travellerInfo?.children}`)
     // console.log(childrenSeat, '96')
     const infantSeat = restSeat.filter((seat) => !childrenSeat.includes(seat))
     // console.log(infantSeat)
@@ -1167,10 +1167,10 @@ const BusTravellerDetails = () => {
 
 
 
-    // console.log(bookingInfo)
-    const totalAdultFare = bookingInfo?.travellersInfo?.adult * bookingInfo?.adultPrice;
-    const totalInfantFare = bookingInfo?.travellersInfo?.infant * bookingInfo?.infantPrice;
-    const totalChildrenFare = bookingInfo?.travellersInfo?.children * bookingInfo?.childrenPrice;
+    console.log(bookingInfo)
+    const totalAdultFare = bookingInfo?.travellerInfo?.adult * bookingInfo?.adultPrice;
+    const totalInfantFare = bookingInfo?.travellerInfo?.infant * bookingInfo?.infantPrice;
+    const totalChildrenFare = bookingInfo?.travellerInfo?.children * bookingInfo?.childrenPrice;
     const totalFare = totalAdultFare + totalInfantFare + totalChildrenFare;
     // let totalTripFare = totalFare;
     const discount = 200;
@@ -1335,11 +1335,10 @@ const BusTravellerDetails = () => {
 
     return (
         <>
-
             <Navforwithout />
             <div className="w-full max-w-[1232px] mx-auto mb-5 font-montserrat">
-                <div className='mt-20'>
-                    <div className='w-full max-w-[500px] h-[17px] flex items-center justify-center lg:justify-between mb-6 font-montserrat flex-wrap'>
+                <div className='mt-20 ms:mt-0'>
+                    <div className='w-full max-w-[500px] h-[17px] flex items-center justify-center lg:justify-between mb-6 font-montserrat flex-wrap lg:hidden'>
                         <p className='font-medium text-sm text-[#FF8682]'>
                             <Link to='/Bus'>
                                 Bus

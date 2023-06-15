@@ -12,6 +12,9 @@ import { HiOutlineChevronRight } from 'react-icons/hi2';
 import { BusContext } from '../../../../context/UseBusDataContext';
 import Navforwithout from '../../../../Navforwithout';
 import Footer from '../../../../Component/Footer/Footer';
+import bookingBus from '../../images/unsplash_jMvF2FQcihM.png'
+import { AiOutlineLeftCircle } from 'react-icons/ai';
+import { TbDotsCircleHorizontal } from 'react-icons/tb';
 const BusDetailsCard = () => {
 
     const { bookingInfo, setBookingInfo } = useContext(BusContext)
@@ -30,20 +33,41 @@ const BusDetailsCard = () => {
     return (
         <>
             <Navforwithout></Navforwithout>
-            <div className='w-full max-w-[1232px] mx-auto font-montserrat my-20'>
+            <div className='w-full max-w-[1232px] mx-auto font-montserrat my-20 ms:my-0'>
 
-                <div className='ms:bg-[#FF8682] ms:px-6 h-[330px] ms:block hidden'>
-                    <h1 className='text-2xl text-[#112211] font-bold ms:text-sm'>
-                        Emirates A380 Airbus - Seater</h1>
-                    <p className='text-sm font-medium flex items-center mb-2 text-[10px] ms:mb-0'>
-                        <ImLocation2 className='text-xs text-[#112211] mr-2 ms:text-[8px]'></ImLocation2>
-                        North landing Guide road. No:8, Chennai 34437</p>
-                    <div className='flex items-center justify-between w-full max-w-[181px] h-8 text-[#112211] ms:justify-start'>
-                        <p className='w-10 h-8 border border-[#FF8682] rounded flex items-center justify-center font-montserrat text-xs font-medium mr-2 ms:text-[7px] ms:border-none'>4.2</p>
-                        <p className='font-montserrat font-medium text-xs ms:text-[7px] ms:font-normal'><span className='font-montserrat font-bold text-xs ms:text-[7px] ms:font-normal'>very good</span> 54 reviews</p>
+                <div className='ms:bg-[#FF8682] ms:px-6 h-[330px] ms:block hidden pt-9'>
+                    {/* mobile process bar navigation  */}
+                    <div className='w-full max-w-[300px] h-4 ms:flex items-center justify-between mb-[22px] hidden'>
+                        <p className='font-medium text-sm text-black'>
+                            <Link to={'/Bus'}>Bus</Link>
+                        </p>
+                        <HiOutlineChevronRight className='text-[#112211] mx-[14px]'></HiOutlineChevronRight>
+                        <p className='font-medium text-sm  whitespace-nowrap text-black'>
+                            <Link to={'/Bus'}>
+                                {bookingInfo?.busName}
+                            </Link>
+                        </p>
+                        <HiOutlineChevronRight className='text-[#112211] mx-[14px]'></HiOutlineChevronRight>
+                        <p className='font-medium text-sm text-[#112211] whitespace-nowrap'>{bookingInfo?.busCompanyName}</p>
+
                     </div>
-                    <div className='my-[49px] ms:my-5 ms:w-full'>
-                        <img src={banner} alt="banner" />
+
+                    {/* <div className='font-montserrat ms:flex items-center justify-between hidden pb-9'>
+                        <AiOutlineLeftCircle className='text-2xl'></AiOutlineLeftCircle>
+                        <p className='text-lg text-black font-medium'>Bus</p>
+                        <TbDotsCircleHorizontal className='text-2xl'></TbDotsCircleHorizontal>
+                    </div> */}
+                    <h1 className='text-2xl text-[#112211] font-bold ms:text-sm ms:leading-4'>
+                        Emirates A380 Airbus - Seater</h1>
+                    <p className='font-medium flex items-center mb-2 text-[10px] ms:mb-0 ms:leading-3'>
+                        <ImLocation2 className='text-xs text-[#112211] ms:mr-[6px] ms:text-[8px]'></ImLocation2>
+                        North landing Guide road. No:8, Chennai 34437</p>
+                    <div className='flex items-center justify-between w-full text-[#112211] ms:justify-start'>
+                        <p className='border border-[#FF8682] rounded flex items-center justify-center font-montserrat text-xs font-medium mr-2 ms:text-[6px] ms:border-none'>4.2</p>
+                        <p className='font-montserrat font-medium text-xs ms:text-[7px] ms:font-normal ms:leading-[9px]'><span className='font-montserrat font-medium text-xs ms:text-[7px] ms:font-normal'>very good</span> 54 reviews</p>
+                    </div>
+                    <div className='ms:mt-[12px] ms:w-full ms:rounded-[20px] ms:mb-5'>
+                        <img className='ms:rounded-[20px]' src={banner} alt="banner" />
 
                     </div>
                     {/*card for mobile responsive */}
@@ -51,9 +75,11 @@ const BusDetailsCard = () => {
                         boxShadow: '0px 4px 16px rgba(17, 34, 17, 0.05)'
                     }}>
                         {/* for mobile date responsive */}
-                        <div className='w-[103px] h-[22px] mt-11 mb-6 ms:block hidden ms:mt-5 ms:mb-2 ms:mr-64'>
-                            <p className='font-montserrat font-normal ms:text-[10px] ms:text-start ms:font-bold ms:leading-3 text-lg text-[#112211] whitespace-nowrap'>{formatedDate}</p>
+                        <div className='flex items-center justify-between w-full mt-3'>
+                            <p className='font-montserrat font-bold ms:text-[10px] ms:text-start ms:leading-3 text-lg text-[#112211] whitespace-nowrap'>{formatedDate}</p>
+                            <p className='font-montserrat font-normal ms:text-[12px] ms:text-start ms:font-medium ms:leading-3 text-lg text-[#112211] whitespace-nowrap'>{bookingInfo?.busCompanyName}</p>
                         </div>
+
                         {/* for mobile responsive bus logo name category and price*/}
                         <div className='ms:w-full ms:h-12 ms:flex ms:items-center ms:justify-between ms:mb-3 hidden'>
                             <div className='ms:w-40 ms:h-12 ms:border-[0.5px] ms:border-[#FF8682] ms:rounded-lg ms:flex ms:items-center ms:justify-center'>
@@ -109,8 +135,8 @@ const BusDetailsCard = () => {
                     </div>
                     {/* card for mobile responsive */}
                     {/* icon card mobile responsive */}
-                    <p className='text-[#17183B] font-montserrat text-[10px] mb-2'>Amenities</p>
-                    <div className='flex items-center justify-between ms:justify-center w-full h-[68px] ms:bg-white rounded-[20px]' style={{
+                    <p className='text-[#17183B] font-montserrat text-[10px]'>Amenities</p>
+                    <div className='flex items-center justify-between w-full h-[68px] ms:bg-white rounded-[20px] px-5 mb-5' style={{
                         boxShadow: '0px 4px 16px rgba(17, 34, 17, 0.05)'
                     }}>
 
@@ -125,10 +151,37 @@ const BusDetailsCard = () => {
                         <MdAirlineSeatReclineExtra className='text-base text-[#112211]'></MdAirlineSeatReclineExtra>
                     </div>
                     {/* icon card mobile responsive */}
+
+                    {/* responsive seats starts here */}
+                    <div className='w-full max-w-[1220px] mx-auto ms:mx-0 bg-[#FFFFFF] shadow-md rounded-xl py-5 ms:px-6 mb-5 ms:flex-col' style={{
+                        boxShadow: '0px 4px 16px rgba(17, 34, 17, 0.05)'
+                    }}>
+                        <p className='font-montserrat ms:text-[10px] ms:text-start ms:font-bold ms:leading-3 text-lg text-[#112211] whitespace-nowrap flex items-start justify-start mb-[10px]'>{formatedDate}</p>
+                        <div className='flex items-center justify-between'>
+                            <div className='w-full max-w-[112px] h-[85px] mb-[10px]'>
+                                <img className='rounded-xl w-full max-w-[112px] h-[85px]' src={bookingBus} alt="banner" />
+                            </div>
+                            <div>
+                                <div className='flex flex-col'>
+                                    <p className='font-montserrat font-medium text-[10px]'>seater</p>
+                                    <p className='font-montserrat font-semibold text-xs'>Emirates Airbus Z320 </p>
+                                </div>
+                                <div className='flex items-center justify-between w-full text-[#112211] ms:justify-start'>
+
+                                    <p className='w-5 h-5 border border-[#FF8682] rounded flex items-center justify-center font-montserrat font-medium mr-2 ms:text-[6px]'>4.2</p>
+                                    <p className='font-montserrat font-medium text-xs ms:text-[7px] ms:font-normal ms:leading-[9px]'><span className='font-montserrat font-medium text-xs ms:text-[7px] ms:font-normal'>very good</span> 54 reviews</p>
+                                </div>
+                            </div>
+                        </div>
+                        <button
+                            onClick={() => handleConfirmBooking()}
+                            className='w-full bg-[#27273F] font-montserrat font-semibold text-sm h-12 rounded text-[#FFFFFF] px-[110px]py-[10px]'>View Seats</button>
+                    </div>
+                    {/* responsive seats starts here */}
                 </div>
                 {/* bus information breadcumb start here*/}
-                <div className='w-[300px] h-4 flex items-center justify-between mb-[22px] sm:hidden'>
-                    <p className='font-medium text-sm text-[#FF8682]'>
+                <div className='w-full max-w-[300px] h-4 flex items-center justify-between mb-[22px] sm:hidden'>
+                    <p className='font-medium text-sm text-black'>
                         <Link to={'/Bus'}>Bus</Link>
                     </p>
                     <HiOutlineChevronRight className='text-[#112211] mx-[14px]'></HiOutlineChevronRight>

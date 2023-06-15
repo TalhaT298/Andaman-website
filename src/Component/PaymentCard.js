@@ -11,6 +11,8 @@ const PaymentCard = ({ singleData, formValues }) => {
 
   if (parseInt(user_people) % 2 !== 0) {
     people += 1;
+  if (parseInt(user_people) % 2 !== 0) {
+    people += 1;
   }
   let baseFare =
     (parseInt(singleData.price.replace(/,/g, ""), 10) *
@@ -18,7 +20,12 @@ const PaymentCard = ({ singleData, formValues }) => {
       parseInt(staying) *
       parseInt(room)) /
     2;
+    (parseInt(singleData.price.replace(/,/g, ""), 10) *
+      people *
+      parseInt(staying) *
+      parseInt(room)) / 2;
 
+  console.log(singleData?.price);
   const handleSubmit = () => {
     alert(
       "Thank you for taking your time. Sublime Island will reach out to you in 2-3 hours or as soon as possible 😁✌🏻"
