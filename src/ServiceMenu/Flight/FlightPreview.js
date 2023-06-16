@@ -1,13 +1,13 @@
 import React, { useEffect } from "react";
 import { IoIosAirplane } from "react-icons/io";
-import { MdKeyboardArrowRight } from "react-icons/md";
+import { MdKeyboardArrowRight, MdLocationPin } from "react-icons/md";
 import { RiDoorLockFill } from "react-icons/ri";
 import { Link } from "react-router-dom";
 import Footer from "../../Component/Footer/Footer";
 import flight from "../../Data/Flight-Section/flight";
 import Navforwithout from "../../Navforwithout";
 import { useDataContext } from "../../context/useDataContext";
-import flightFeature from "../../images/flightFeature.png";
+import flightFeature from "../../images/SVG/flightDetails.svg";
 import flightIcon from "../../images/flightIcon.png";
 import flightLogoMini from "../../images/flightLogoMini.png";
 import flightLogo from "../../images/flightlogo.png";
@@ -50,14 +50,25 @@ const FlightPreview = () => {
       <div className="ms:mx-0 ms:mt-0  lg:mx-6   mx-20 mt-10 ms:mb-5 mb-16">
         {/* <div className="absolute -top-10 left-[-4vw] right-[-4vw] h-[340px] z-[-1] ms:bg-[#FF8682]" /> */}
         <div className="ms:bg-[#FF8682] ms:pt-10 lexs:px-2 ms:px-6 ms:h-[240px]">
-          <div className="ms:hidden flex items-center mt-5 gap-2 z-50">
-            <Link to={"/Flights"} className="text-[#FF8682] ">
+          <div className=" flex items-center mt-5 gap-2 z-50">
+            <a href="Flights" className="ms:text-slate-100 text-[#FF8682] ">
               Flight
-            </Link>
+            </a>
             <span>
               <MdKeyboardArrowRight />
             </span>
             <span>{flightDataState.flightName}</span>
+          </div>
+          <div className="text-2xl font-bold ms:pb-1 pb-4">
+            <span>{flightDataState.flightName}</span>
+          </div>
+          <div className="flex gap-1 items-center z-50">
+            <span>
+              <MdLocationPin />
+            </span>
+            <span className="sxs:text-xs">
+              {flightDataState.flightLocation}
+            </span>
           </div>
           <div className="ms:hidden flex lg:flex-col lg:gap-3 justify-between mt-6">
             <div className="">
@@ -188,7 +199,7 @@ const FlightPreview = () => {
               </div>
             </div>
           </div>
-          <div className="ms:flex flex-row hidden bg-white rounded-xl absolute top-52 mx-3 inset-x-0  w-auto py-8 h-auto shadow-[0px_4px_16px_rgba(17,34,17,0.05)]">
+          <div className="ms:flex flex-row hidden bg-white rounded-xl absolute top-[12rem] mx-3 inset-x-0  w-auto py-8 h-auto shadow-[0px_4px_16px_rgba(17,34,17,0.05)]">
             <div className="text-[#112211] flex items-center md:gap-5 gap-16  mx-auto py-auto md:px-8 px-10 text-center  w-full xs:flex-col xs:py-2 xs:gap-y-3">
               <div className="w-full">
                 <div className="flex lexs:flex-col justify-between items-center md:gap-5">

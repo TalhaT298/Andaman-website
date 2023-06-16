@@ -30,6 +30,7 @@ const HotelCard = () => {
 
         <CardCompo
           singleData={singleData}
+          payLink={"/hotel-payment"}
           linkUrl={"/PgContactForm"}
           hotelUrl={{ hotel: "/Hotels", details: "/hotel-details" }}
         />

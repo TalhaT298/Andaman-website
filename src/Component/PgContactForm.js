@@ -1,4 +1,3 @@
-import emailjs from "@emailjs/browser";
 import CallIcon from "@mui/icons-material/Call";
 import EmailIcon from "@mui/icons-material/Email";
 import React, { useRef, useState } from "react";
@@ -12,7 +11,8 @@ const ContactForm = () => {
   const form = useRef();
   const location = useLocation();
   const { state } = location;
-  const { singleData, searchState, hotelUrl } = state;
+  const { singleData, searchState, payLink, hotelUrl } = state;
+  console.log("🚀 ~ file: PgContactForm.js:15 ~ ContactForm ~ state:", state);
 
   // const handleSubmit = async (e) => {
   //   e.preventDefault();
@@ -48,7 +48,7 @@ const ContactForm = () => {
       }
     }
     setStatus("Submit");
-    navigate("/hotel-payment", { state: { singleData, formValues } });
+    navigate(payLink, { state: { singleData, formValues, hotelUrl } });
     // await emailjs
     //   .sendForm(
     //     "service_j38h615",
@@ -99,7 +99,6 @@ const ContactForm = () => {
   // Convert milliseconds to days (change the conversion factor as needed)
   const daysDiff = Math.round(timeDiff / (1000 * 60 * 60 * 24));
 
-  console.log(daysDiff);
   return (
     <>
       <Navforwithout />
@@ -132,7 +131,7 @@ const ContactForm = () => {
             </span>
             <Link
               to={hotelUrl?.details || "/pg-details"}
-              state={{ id: singleData.link }}
+              state={{ id: singleData?.link, hotelId: singleData?.id }}
               className="text-[#FF8682] ms:text-sm"
             >
               {singleData.title}
@@ -151,7 +150,12 @@ const ContactForm = () => {
               onSubmit={handleSubmit}
             >
               <h1 className="text-[#699c78] text-[26px] md:text-2xl md:text-center font-montserrat font-bold mb-6 md:mb-3 tracking-wide">
-                Book your PG
+                Book your
+                {payLink === "/pg-payment" ? (
+                  <span> PG</span>
+                ) : (
+                  <span> Hotel</span>
+                )}
               </h1>
               <div className="flex flex-col gap-1">
                 <input
@@ -362,7 +366,7 @@ const ContactForm = () => {
               </p>
               <LazyLoadImage
                 src={singleData?.imgSrc[2]}
-                className="px-5 rounded-md w-full h-fit object-cover"
+                className="px-5 rounded-md w-full h-fit object-cover md:mb-5"
               />
             </div>
           </div>

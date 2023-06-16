@@ -28,10 +28,12 @@ const FlightCover = (props) => {
             </div>
             <div className="w-full">
               <div className="flex justify-between">
-                <div className="self-end">
-                  {date[0].startDate.toDateString()}
+                <div className="text-start">
+                  <p className="font-semibold">{props.flightName}</p>
+                  <p>{date[0].startDate.toDateString()}</p>
                 </div>
-                <div className="ms:block hidden">
+                <div className="ms:block hidden text-end">
+                  <p className="font-semibold">₹ {props.adultPrice}</p>
                   <p>
                     {`${
                       travellerInfo.adult +

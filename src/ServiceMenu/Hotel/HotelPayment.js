@@ -7,7 +7,7 @@ import Navforwithout from "../../Navforwithout";
 const HotelPayment = () => {
   const location = useLocation();
   const { state } = location;
-  const { singleData, formValues } = state;
+  const { singleData, formValues, hotelUrl } = state;
   return (
     <>
       <Navforwithout />
@@ -24,8 +24,8 @@ const HotelPayment = () => {
             <MdKeyboardArrowRight />
           </span>
           <Link
-            to={"/hotel-details"}
-            state={{ id: singleData.link }}
+            to={hotelUrl?.details}
+            state={{ id: singleData?.link, hotelId: singleData?.id }}
             className="text-[#FF8682] ms:text-slate-100 ms:text-sm"
           >
             {singleData.title}

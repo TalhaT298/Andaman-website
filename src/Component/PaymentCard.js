@@ -16,7 +16,8 @@ const PaymentCard = ({ singleData, formValues }) => {
     (parseInt(singleData.price.replace(/,/g, ""), 10) *
       people *
       parseInt(staying) *
-      parseInt(room)) / 2;
+      parseInt(room)) /
+    2;
 
   console.log(singleData?.price);
   const handleSubmit = () => {

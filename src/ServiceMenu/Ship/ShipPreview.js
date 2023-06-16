@@ -6,7 +6,7 @@ import Footer from "../../Component/Footer/Footer";
 import flight from "../../Data/Flight-Section/flight";
 import Navforwithout from "../../Navforwithout";
 import { useShipDataContext } from "../../context/useShipDataContext";
-import flightFeature from "../../images/flightFeature.png";
+import flightFeature from "../../images/SVG/flightDetails.svg";
 import flightLogoMini from "../../images/flightLogoMini.png";
 import flightLogo from "../../images/flightlogo.png";
 import shipIcon from "../../images/image_source_for_shiptab/Groupboat.png";
