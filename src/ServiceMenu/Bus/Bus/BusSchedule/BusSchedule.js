@@ -12,10 +12,10 @@ const BusSchedule = () => {
     // console.log(params)
     let pathName = ''
     if (params?.name === 'Government-Bus') {
-        pathName = 'Government Inter-Island Seater Bus Schedule'
+        pathName = 'Government Inter-Island Bus Schedule'
     }
     else {
-        pathName = 'Private Inter-Island Seater Bus Schedule'
+        pathName = 'Private Inter-Island Bus Schedule'
     }
 
     // console.log(bus)
@@ -35,12 +35,13 @@ const BusSchedule = () => {
     return (
         <>
             <Navforwithout></Navforwithout>
-            <div className='w-full my-[85px] font-montserrat h-full'>
+            <div className='w-full font-montserrat h-full px-10 ms:bg-[#FF8682] ms:bg-opacity-70 ms:my-0 mt-20'>
 
-                <div className='w-full max-w-[1225px] h-full mx-auto'>
-                    <div className='w-full max-w-[433px] h-5 flex items-center mb-[51px] flex-wrap'>
-                        <p className='font-medium text-sm text-[#FF8682]'>
-                            <Link to={'/Bus'}>Bus</Link>
+                <div className='w-full max-w-[1225px] h-full mx-auto ms:pt-11'>
+                    <div className={`w-full max-w-[433px] h-5 flex items-center flex-wrap ${screenWidth < 388 ? 'mb-12' : 'mb-6'}`}>
+                        <p className='font-medium text-sm text-[#FF8682] ms:text-black'>
+                            {/* <Link to={'/Bus'}>Bus</Link> */}
+                            <a href="/Bus">Bus</a>
                         </p>
                         <HiOutlineChevronRight className='text-[#112211] mx-[14px]'></HiOutlineChevronRight>
                         {/* <br className={`${screenWidth < 434 ? "bg-red-600" : 'hidden'}`} /> */}
@@ -50,16 +51,16 @@ const BusSchedule = () => {
                     {
                         schedules?.map((location) => <div
                             key={location?.id}
-                            className='rounded-lg bg-[#FF8682] bg-opacity-60 w-full max-w-[1225px] h-[100px] mb-[50px] flex items-center justify-between'>
-                            <div className={`w-full max-w-[1181px] h-[70px] mx-auto gap-[49px] flex items-center justify-evenly ${screenWidth < 434 ? 'gap-2' : ''}`}>
-                                <p className={`w-full max-w-[251px] bg-[#FF8682] font-montserrat font-medium text-base h-[70px] rounded-lg flex items-center justify-center ${screenWidth < 567 ? 'text-[8px]' : ''}`}>
+                            className='rounded-lg bg-[#FF8682] bg-opacity-60 w-full max-w-[1225px] mb-[50px] flex items-center justify-between'>
+                            <div className={`w-full max-w-[1181px] mx-auto gap-4 flex items-center justify-evenly flex-wrap py-[15px] ${screenWidth < 434 ? 'gap-2' : ''}`}>
+                                <p className={`w-full max-w-[303px] bg-[#FF8682] font-montserrat font-medium h-[70px] rounded-lg flex items-center justify-center ${screenWidth < 567 ? 'text-sm' : 'text-base'}`}>Routes -{' '}
                                     {location?.From} - {location?.To}
                                 </p>
 
-                                <p className={`w-full max-w-[303px] bg-[#FF8682] font-montserrat font-medium text-base h-[70px] rounded-lg flex items-center justify-center ${screenWidth < 567 ? 'text-[8px]' : ''}`}>
+                                <p className={`w-full max-w-[303px] bg-[#FF8682] font-montserrat font-medium h-[70px] rounded-lg flex items-center justify-center ${screenWidth < 567 ? 'text-sm' : 'text-base'}`}>
                                     Depature Time -{location?.Departure}
                                 </p>
-                                <p className={`w-full max-w-[303px] bg-[#FF8682] font-montserrat font-medium text-base h-[70px] rounded-lg flex items-center justify-center ${screenWidth < 567 ? 'text-[8px]' : ''}`}>
+                                <p className={`w-full max-w-[303px] bg-[#FF8682] font-montserrat font-medium text-base h-[70px] rounded-lg flex items-center justify-center ${screenWidth < 567 ? 'text-sm' : ''}`}>
                                     Arrival Time -{location?.Departure}
                                 </p>
                             </div>

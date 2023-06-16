@@ -75,17 +75,22 @@ const BusBookingSeats = () => {
                     {/* bus info breadcumb starts here  */}
                     <div className='w-[405px] h-[17px] flex items-center justify-between mb-6 font-montserrat flex-wrap ms:hidden'>
                         <p className='font-medium text-sm text-[#FF8682]'>
-                            <Link to='/Bus'>Bus</Link>
+                            {/* <Link to='/Bus'>Bus</Link> */}
+                            <a href="/Bus">Bus</a>
                         </p>
                         <HiOutlineChevronRight className='text-[#112211] mx-[14px]'></HiOutlineChevronRight>
                         <p className='font-medium text-sm text-[#FF8682]'>
-                            <Link to={`/Bus`}>{bookingInfo?.busName}</Link>
+                            {/* <Link to={`/Bus`}>{bookingInfo?.busName}</Link> */}
+                            <a href='/Bus'>{bookingInfo?.busName}</a>
                         </p>
                         <HiOutlineChevronRight className='text-[#112211] mx-[14px]'></HiOutlineChevronRight>
                         <p className='font-medium text-sm text-[#FF8682] whitespace-nowrap'>
-                            <Link to={`/bus/details/${bookingInfo?.busId}`}>
+                            {/* <Link to={`/bus/details/${bookingInfo?.busId}`}>
                                 {bookingInfo?.busCompanyName}
-                            </Link>
+                            </Link> */}
+                            <a href={`/bus/details/${bookingInfo?.busId}`}>
+                                {bookingInfo?.busCompanyName}
+                            </a>
                         </p>
                         <HiOutlineChevronRight className='text-[#112211] mx-[14px]'></HiOutlineChevronRight>
                         <p className='font-medium text-sm text-[#000000] text-opacity-60'>Seats</p>
@@ -182,17 +187,22 @@ const BusBookingSeats = () => {
                     {/* mobile process navigation starts here  */}
                     <div className='w-full max-w-[405px] h-[17px] ms:flex items-center justify-between mb-5 font-montserrat flex-wrap hidden'>
                         <p className='font-medium text-sm text-[#FF8682]'>
-                            <Link to='/Bus'>Bus</Link>
+                            {/* <Link to='/Bus'>Bus</Link> */}
+                            <a href='/Bus'>Bus</a>
                         </p>
                         <HiOutlineChevronRight className='text-[#112211] mx-[14px]'></HiOutlineChevronRight>
                         <p className='font-medium text-sm text-[#FF8682]'>
-                            <Link to={`/Bus`}>{bookingInfo?.busName}</Link>
+                            {/* <Link to={`/Bus`}>{bookingInfo?.busName}</Link> */}
+                            <a href={`/Bus`}>{bookingInfo?.busName}</a>
                         </p>
                         <HiOutlineChevronRight className='text-[#112211] mx-[14px]'></HiOutlineChevronRight>
                         <p className='font-medium text-sm text-[#FF8682] whitespace-nowrap'>
-                            <Link to={`/bus/details/${bookingInfo?.busId}`}>
+                            {/* <Link to={`/bus/details/${bookingInfo?.busId}`}>
                                 {bookingInfo?.busCompanyName}
-                            </Link>
+                            </Link> */}
+                            <a href={`/bus/details/${bookingInfo?.busId}`}>
+                                {bookingInfo?.busCompanyName}
+                            </a>
                         </p>
                         <HiOutlineChevronRight className='text-[#112211] mx-[14px]'></HiOutlineChevronRight>
                         <p className='font-medium text-sm text-[#000000] text-opacity-60'>Seats</p>

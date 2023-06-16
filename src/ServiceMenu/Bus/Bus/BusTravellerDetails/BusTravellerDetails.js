@@ -8,7 +8,7 @@ import { format } from 'date-fns';
 import emailjs from '@emailjs/browser';
 
 const BusTravellerDetails = () => {
-
+    const [screenWidth, setScreenWidth] = useState(window.innerWidth);
     const [adultArr, setAdultArr] = useState([])
     const [childrenArr, setChildrenArr] = useState([])
     const [infantArr, setInfantArr] = useState([]);
@@ -21,6 +21,19 @@ const BusTravellerDetails = () => {
     // console.log(contactDetails)
     // console.log(adultArr)
     const { bookingInfo, searchResults, setSearchResults, adult, setAdult, children, setChildren, infant, setInfant } = useContext(BusContext)
+
+    useEffect(() => {
+        const handleResize = () => {
+            setScreenWidth(window.innerWidth);
+            // console.log(screenWidth);
+        };
+
+        window.addEventListener('resize', handleResize);
+
+        return () => {
+            window.removeEventListener('resize', handleResize);
+        };
+    }, [screenWidth]);
 
 
     useEffect(() => {
@@ -100,9 +113,11 @@ const BusTravellerDetails = () => {
 
     const adultsData = adultArr?.map((adult, index) => (
         <div key={index}>
-            <h1 className="font-bold mt-5 mb-3">Adult {index + 1}</h1>
+            <div className='flex items-center justify-between'>
+                <h1 className="font-bold mt-5 mb-3">Adult {index + 1}</h1>
 
-            <h1 className="font-bold mt-5 mb-3">seat {adultSeat[index]}</h1>
+                <h1 className="font-bold mt-5 mb-3">seat {adultSeat[index]}</h1>
+            </div>
             <div className="flex flex-col gap-3 text-sm">
                 <div>
                     <label htmlFor="title">Title</label>
@@ -444,8 +459,10 @@ const BusTravellerDetails = () => {
     //display Children start here
     const childrenData = childrenArr?.map((children, index) => (
         <div key={index}>
-            <h1 className="font-bold mt-5 mb-3">Children {index + 1}</h1>
-            <h1 className="font-bold mt-5 mb-3">seat {childrenSeat[index]}</h1>
+            <div className='flex items-center justify-between'>
+                <h1 className="font-bold mt-5 mb-3">Children {index + 1}</h1>
+                <h1 className="font-bold mt-5 mb-3">seat {childrenSeat[index]}</h1>
+            </div>
 
             <div className="flex flex-col gap-3 text-sm">
                 <div>
@@ -791,8 +808,10 @@ const BusTravellerDetails = () => {
     // console.log(childrenArr)
     const infantsData = infantArr?.map((infant, index) => (
         <div key={index}>
-            <h1 className="font-bold mt-5 mb-3">Infant {index + 1}</h1>
-            <h1 className="font-bold mt-5 mb-3">seat {infantSeat[index]}</h1>
+            <div className='flex items-center justify-center'>
+                <h1 className="font-bold mt-5 mb-3">Infant {index + 1}</h1>
+                <h1 className="font-bold mt-5 mb-3">seat {infantSeat[index]}</h1>
+            </div>
             <div className="flex flex-col gap-3 text-sm">
                 <div>
                     <label htmlFor="title">Title</label>
@@ -1130,6 +1149,9 @@ const BusTravellerDetails = () => {
     // contact details event handler
     console.log(bookingInfo)
     const navigate = useNavigate();
+    // changes
+    // route-porblair-baratang
+    // genre
 
     const adultEmailContent = adultArr?.map((adult, index) => {
         return `Title: ${adult?.title}
@@ -1338,33 +1360,48 @@ const BusTravellerDetails = () => {
             <Navforwithout />
             <div className="w-full max-w-[1232px] mx-auto mb-5 font-montserrat">
                 <div className='mt-20 ms:mt-0'>
-                    <div className='w-full max-w-[500px] h-[17px] flex items-center justify-center lg:justify-between mb-6 font-montserrat flex-wrap lg:hidden'>
+                    <div className={`w-full max-w-[500px] h-[17px] flex items-center justify-center lg:justify-between font-montserrat flex-wrap ${screenWidth < 477 ? 'mb-12' : 'mb-6'}`}>
                         <p className='font-medium text-sm text-[#FF8682]'>
-                            <Link to='/Bus'>
+                            {/* <Link to='/Bus'>
                                 Bus
-                            </Link></p>
+                            </Link></p> */}
+                            <a href='/Bus'>
+                                Bus
+                            </a>
+                        </p>
                         <HiOutlineChevronRight className='text-[#112211] mx-[14px]'></HiOutlineChevronRight>
                         <p className='font-medium text-sm text-[#FF8682]'>
-                            <Link to={'/Bus'}>
+                            {/* <Link to={'/Bus'}>
+                                    {bookingInfo?.busName}
+                                </Link> */}
+                            <a href={'/Bus'}>
                                 {bookingInfo?.busName}
-                            </Link>
+                            </a>
                         </p>
                         <HiOutlineChevronRight className='text-[#112211] mx-[14px]'></HiOutlineChevronRight>
 
                         <p className='font-medium text-sm whitespace-nowrap text-[#FF8682]'>
-                            <Link to={`/bus/details/${bookingInfo?.busId}`}>
+                            {/* <Link to={`/bus/details/${bookingInfo?.busId}`}>
+                                    {bookingInfo?.busCompanyName}
+                                </Link> */}
+                            <a href={`/bus/details/${bookingInfo?.busId}`}>
                                 {bookingInfo?.busCompanyName}
-                            </Link>
+                            </a>
                         </p>
                         <HiOutlineChevronRight className='text-[#112211] mx-[14px]'></HiOutlineChevronRight>
                         <p className='font-medium text-sm text-[#FF8682]'>
-                            <Link to={'/bus/booking/seats'}>
+                            {/* <Link to={'/bus/booking/seats'}>
+                                    Seats
+                                </Link> */}
+                            <a href={'/bus/booking/seats'}>
                                 Seats
-                            </Link>
+                            </a>
                         </p>
                         <HiOutlineChevronRight className='text-[#112211] mx-[14px]'></HiOutlineChevronRight>
-                        <p className='font-medium text-sm text-[#112211] text-opacity-70'>Details</p>
+                        <p className='font-medium text-sm text-[#112211] text-opacity-70 ms:mr-auto'>Details</p>
                     </div>
+                    {/* mobile process navigation bar*/}
+
                     <div className="mx-auto h-auto w-full max-w-[1232px] lg:w-10/12 flex gap-3 lg:flex-wrap justify-between mt-12 mb-8">
                         <div className="w-[50%] h-fit lg:w-full shadow rounded bg-white xl:w-[50%] px-8 py-8">
                             <h1 className="text-[#699c78] whitespace-nowrap lexs:text-[5.8vw] text-[26px] md:text-2xl font-[Montserrat] font-semibold ">

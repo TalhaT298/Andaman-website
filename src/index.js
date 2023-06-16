@@ -7,6 +7,7 @@ import { ShipDataProvider } from "./context/useShipDataContext";
 import "./index.css";
 import reportWebVitals from "./reportWebVitals";
 import UseBusDataContext from "./context/UseBusDataContext";
+import UseWaterContext from "./context/UseWaterContext";
 
 // import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
 
@@ -15,15 +16,17 @@ const queryClient = new QueryClient();
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <QueryClientProvider client={queryClient}>
-    <UseBusDataContext>
-      <DataProvider>
-        <ShipDataProvider>
-          <React.StrictMode>
-            <App />
-          </React.StrictMode>
-        </ShipDataProvider>
-      </DataProvider>
-    </UseBusDataContext>
+    <UseWaterContext>
+      <UseBusDataContext>
+        <DataProvider>
+          <ShipDataProvider>
+            <React.StrictMode>
+              <App />
+            </React.StrictMode>
+          </ShipDataProvider>
+        </DataProvider>
+      </UseBusDataContext>
+    </UseWaterContext>
   </QueryClientProvider>
 );
 

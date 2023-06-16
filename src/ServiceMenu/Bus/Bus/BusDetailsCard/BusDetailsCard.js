@@ -38,14 +38,19 @@ const BusDetailsCard = () => {
                 <div className='ms:bg-[#FF8682] ms:px-6 h-[330px] ms:block hidden pt-9'>
                     {/* mobile process bar navigation  */}
                     <div className='w-full max-w-[300px] h-4 ms:flex items-center justify-between mb-[22px] hidden'>
-                        <p className='font-medium text-sm text-black'>
-                            <Link to={'/Bus'}>Bus</Link>
+                        <p className='font-medium text-sm 
+                        text-black'>
+                            {/* <Link to={'/Bus'}>Bus</Link> */}
+                            <a href="/Bus">Bus</a>
                         </p>
                         <HiOutlineChevronRight className='text-[#112211] mx-[14px]'></HiOutlineChevronRight>
                         <p className='font-medium text-sm  whitespace-nowrap text-black'>
-                            <Link to={'/Bus'}>
+                            {/* <Link to={'/Bus'}>
                                 {bookingInfo?.busName}
-                            </Link>
+                            </Link> */}
+                            <a href='/Bus'>
+                                {bookingInfo?.busName}
+                            </a>
                         </p>
                         <HiOutlineChevronRight className='text-[#112211] mx-[14px]'></HiOutlineChevronRight>
                         <p className='font-medium text-sm text-[#112211] whitespace-nowrap'>{bookingInfo?.busCompanyName}</p>
@@ -182,13 +187,17 @@ const BusDetailsCard = () => {
                 {/* bus information breadcumb start here*/}
                 <div className='w-full max-w-[300px] h-4 flex items-center justify-between mb-[22px] sm:hidden'>
                     <p className='font-medium text-sm text-black'>
-                        <Link to={'/Bus'}>Bus</Link>
+                        {/* <Link to={'/Bus'}>Bus</Link> */}
+                        <a href='/Bus'>Bus</a>
                     </p>
                     <HiOutlineChevronRight className='text-[#112211] mx-[14px]'></HiOutlineChevronRight>
                     <p className='font-medium text-sm  whitespace-nowrap text-[#FF8682]'>
-                        <Link to={'/Bus'}>
+                        {/* <Link to={'/Bus'}>
                             {bookingInfo?.busName}
-                        </Link>
+                        </Link> */}
+                        <a href='/Bus'>
+                            {bookingInfo?.busName}
+                        </a>
                     </p>
                     <HiOutlineChevronRight className='text-[#112211] mx-[14px]'></HiOutlineChevronRight>
                     <p className='font-medium text-sm text-[#112211] whitespace-nowrap'>{bookingInfo?.busCompanyName}</p>

@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { HiOutlineChevronRight } from 'react-icons/hi2';
 import { FaBus, FaStopwatch, FaWifi } from 'react-icons/fa';
 import { IoFastFoodSharp } from 'react-icons/io5';
@@ -286,32 +286,45 @@ const BusPayment = () => {
             <div className="h-full w-auto" style={{ fontFamily: "Montserrat" }}>
                 <div className="ms:bg-[#FF8682]  ms:px-2 ms:h-[450px]">
                     {/* mobile  process navigation bar starts here  */}
-                    <div className='w-full max-w-[500px] h-[17px] ms:flex items-center justify-center lg:justify-between mb-6 font-montserrat flex-wrap hidden pt-11'>
+                    <div className='w-full max-w-[500px] h-[17px] ms:flex items-center justify-center lg:justify-between mb-10 font-montserrat flex-wrap hidden pt-11'>
                         <p className='font-medium text-sm text-white'>
-                            <Link to='/Bus'>
+                            {/* <Link to='/Bus'>
                                 Bus
-                            </Link></p>
+                            </Link> */}
+                            <a href='/Bus'>
+                                Bus
+                            </a>
+                        </p>
                         <HiOutlineChevronRight className='text-[#112211] mx-[14px]'></HiOutlineChevronRight>
                         <p className='font-medium text-sm text-white'>
-                            <Link to={'/Bus'}>
+                            {/* <Link to={'/Bus'}>
                                 {bookingInfo?.busName}
-                            </Link>
+                            </Link> */}
+                            <a href={'/Bus'}>
+                                {bookingInfo?.busName}
+                            </a>
                         </p>
                         <HiOutlineChevronRight className='text-[#112211] mx-[14px]'></HiOutlineChevronRight>
 
                         <p className='font-medium text-sm whitespace-nowrap text-white'>
-                            <Link to={`/bus/details/${bookingInfo?.busId}`}>
+                            {/* <Link to={`/bus/details/${bookingInfo?.busId}`}>
                                 {bookingInfo?.busCompanyName}
-                            </Link>
+                            </Link> */}
+                            <a href={`/bus/details/${bookingInfo?.busId}`}>
+                                {bookingInfo?.busCompanyName}
+                            </a>
                         </p>
                         <HiOutlineChevronRight className='text-[#112211] mx-[14px]'></HiOutlineChevronRight>
                         <p className='font-medium text-sm text-white'>
-                            <Link to={'/bus/booking/seats'}>
+                            {/* <Link to={'/bus/booking/seats'}>
                                 Seats
-                            </Link>
+                            </Link> */}
+                            <a href={'/bus/booking/seats'}>
+                                Seats
+                            </a>
                         </p>
                         <HiOutlineChevronRight className='text-[#112211] mx-[14px]'></HiOutlineChevronRight>
-                        <p className='font-medium text-sm text-[#112211] text-opacity-70'>Details</p>
+                        <p className='font-medium text-sm text-[#112211] text-opacity-70 sxs:mr-auto'>Details</p>
                     </div>
 
 
@@ -608,6 +621,7 @@ const BusPayment = () => {
                                     </div>
                                     <button
                                         // onClick={handleSubmit}
+                                        onClick={handleShowAlert}
                                         className="w-full bg-[#FF8682] rounded py-4 mt-3 text-white text-md"
                                     >
                                         Confirm and Pay
