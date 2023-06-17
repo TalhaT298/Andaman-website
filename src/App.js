@@ -13,10 +13,10 @@ import TravellerDetailsShip from "./ServiceMenu/Ship/TravellersDetailsShip.js";
 // import BusSchedule from "./ServiceMenu/Bus/BusSchedule.js";
 // anik comment
 // anik import
-import BusSchedule from "./ServiceMenu/Bus/Bus/BusSchedule/BusSchedule.js";
-import BusDetailsCard from "./ServiceMenu/Bus/Bus/BusDetailsCard/BusDetailsCard.js";
 import BusBookingSeats from "./ServiceMenu/Bus/Bus/BusBookingSeats/BusBookingSeats.js";
+import BusDetailsCard from "./ServiceMenu/Bus/Bus/BusDetailsCard/BusDetailsCard.js";
 import BusPayment from "./ServiceMenu/Bus/Bus/BusPayment/BusPaymet.js";
+import BusSchedule from "./ServiceMenu/Bus/Bus/BusSchedule/BusSchedule.js";
 import BusTravellerDetails from "./ServiceMenu/Bus/Bus/BusTravellerDetails/BusTravellerDetails.js";
 
 // anik import
@@ -99,6 +99,9 @@ const Chaisuttabar = lazy(() =>
 const Rooftop = lazy(() => import("./ServiceMenu/Dining/hotel-pages/Rooftop"));
 const Cardamom = lazy(() =>
   import("./ServiceMenu/Dining/hotel-pages/Cardamom")
+);
+const TravelPackageDetails = lazy(() =>
+  import("./ServiceMenu/TravelPackage/TravelPackageDetails.js")
 );
 
 export default function App() {
@@ -236,6 +239,13 @@ export default function App() {
               element={<BusPayment></BusPayment>}
             ></Route>
             {/* anik routes */}
+
+            {/* ---package routes */}
+            <Route
+              path="/package-details"
+              element={<TravelPackageDetails />}
+            ></Route>
+
             <Route path="*" element={<Nav />} />
           </Routes>
         </Suspense>
