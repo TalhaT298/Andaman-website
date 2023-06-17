@@ -72,7 +72,7 @@ const FlightPreview = () => {
           </div>
           <div className="ms:hidden flex lg:flex-col lg:gap-3 justify-between mt-6">
             <div className="">
-              <h2 className="text-2xl font-bold">Basic Economy Feature</h2>
+              <h2 className="text-2xl font-bold">{passengerClass} Luxuries</h2>
               <img src={flightFeature} alt="" />
             </div>
             <div className="">

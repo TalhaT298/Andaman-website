@@ -80,7 +80,7 @@ const ReviewBookingFlight = () => {
       <div className=" flex flex-wrap items-center gap-5 ">
         <img src={flightLogo} alt="flightLogo" className="w-24 h-24" />
         <div>
-          <p className="font-[500] text-black/75">{passengerClass}</p>
+          <p className="font-[500] text-black/75">{passengerClass} Class</p>
           <p className="font-semibold text-lg">{flightDataState.flightName}</p>
         </div>
       </div>
@@ -211,7 +211,7 @@ const ReviewBookingFlight = () => {
                 <div className="mt-10 ms:mt-5 ms:hidden block bg-[#FFFFFF] py-8 px-6 shadow-[0px_4px_16px_rgba(17,34,17,0.05)] rounded-xl">
                   <div className="flex justify-between">
                     <h5 className="text-xl text-[#112211]">
-                      Return {endingDate[0].endDate.toDateString()}
+                      Trip -- {endingDate[0].endDate.toDateString()}
                     </h5>
                     <h5 className="text-xl text-[#112211]">
                       {flightDataState.flightDuration}
