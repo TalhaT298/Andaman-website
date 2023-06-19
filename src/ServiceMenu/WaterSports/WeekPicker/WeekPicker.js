@@ -62,13 +62,14 @@ const WeekPicker = () => {
 
 
             return (
+
                 <div
                     key={dateNumber}
                     onClick={() => handleSelectDate(format(date, 'MMMM'), dateNumber, dayName)}
-                    className={`font-popins flex items-center justify-center flex-col cursor-pointer ${isSelected ? 'bg-red-300 rounded w-16' : ''}`}
+                    className={`font-popins flex items-center justify-center flex-col cursor-pointer ${isSelected ? 'bg-red-300 rounded w-16 py-2' : ''}`}
                 >
-                    <p className="text-xl font-medium">{dayName}</p>
-                    <p className="text-xl font-medium">{dateNumber}</p>
+                    <p className="text-sm font-medium">{dayName}</p>
+                    <p className="text-sm font-medium">{dateNumber}</p>
                 </div>
             );
         });
@@ -147,8 +148,8 @@ const WeekPicker = () => {
                     className={`font-popins flex items-center justify-center flex-col cursor-pointer ${isCurrentDate && isCurrentMonth ? 'bg-red-300 px-4 py-4 text-white rounded' : ''
                         } `}
                 >
-                    <p className="text-xl font-medium">{dayName}</p>
-                    <p className="text-xl font-medium">{dateNumber}</p>
+                    <p className="text-sm font-medium">{dayName}</p>
+                    <p className="text-sm font-medium">{dateNumber}</p>
                 </div>
             );
         }
@@ -161,6 +162,8 @@ const WeekPicker = () => {
         setShowCalender(!showCalender);
     };
 
+    const month = currentMonth.toLocaleString('default', { month: 'long' })
+    const year = currentMonth.getFullYear();
     return (
         <div className='text-center mb-5'>
             <div className='flex items-center justify-between w-full max-w-2xl mb-4'>
@@ -169,15 +172,25 @@ const WeekPicker = () => {
                     onClick={handlePreviousWeek}>
                     <FaChevronLeft></FaChevronLeft>
                 </button>
-                <div className={`${showCalender ? 'grid grid-cols-7 gap-4' : ''}`}>
+                <>
                     {
                         showCalender
                             ?
-                            renderDates()
+                            <div className='flex flex-col'>
+                                <div className='flex items-center justify-between px-4 mb-5 font-popins'>
+                                    <p className='text-sm font-medium'>{month}</p>
+                                    <p className='text-sm font-medium'>{year}</p>
+                                </div>
+                                <div className='grid grid-cols-7 gap-5'>
+                                    {
+                                        renderDates()
+                                    }
+                                </div>
+                            </div>
                             :
                             renderWeekdays()
                     }
-                </div>
+                </>
                 <button
                     className='text-2xl font-extrabold text-[#FF8682]'
                     onClick={handleNextWeek}>

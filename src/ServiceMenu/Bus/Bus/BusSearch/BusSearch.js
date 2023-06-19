@@ -658,7 +658,7 @@ const Search = ({ bus: category }) => {
             <div className='mt-[61px] w-full max-w-[1220px] mx-auto'>
                 <div className='flex items-center justify-between mb-[21px]'>
                     {/* show bus found result title  */}
-                    <p className='font-montserrat font-semibold text-sm text-black-200'>showing {searchResults?.length || 0} of <span className='text-[#FF8682] font-montserrat text-sm'>{filterBus?.length || 0} Bus</span></p>
+                    {/* <p className='font-montserrat font-semibold text-sm text-black-200'>showing {searchResults?.length || 0} of <span className='text-[#FF8682] font-montserrat text-sm'>{filterBus?.length || 0} Bus</span></p> */}
                     <>
                         {/* <p className='flex items-center justify-center font-montserrat text-sm font-normal'>
                         <FiFilter className='text-sm mr-3'></FiFilter>
@@ -676,11 +676,11 @@ const Search = ({ bus: category }) => {
                         travellers={travellers}
                     ></BusSearchResult>)
                 }
-                <div className='mt-[50px] mb-20 flex items-center justify-center mx-auto'>
+                {/* <div className='mt-[50px] mb-20 flex items-center justify-center mx-auto'>
                     <button
 
                         className='w-full bg-[#27273F] font-montserrat font-semibold text-sm h-12 rounded text-[#FFFFFF] max-w-[840px] block'>Show More Results</button>
-                </div>
+                </div> */}
             </div>
             {/* details card ends here  */}
         </>

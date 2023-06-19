@@ -1,15 +1,21 @@
 import React, { useContext, useState } from 'react';
-import boat from '../images/Banana-Boat-Rides 1.png'
-import mount from '../images/mount-harriet-1 1.png'
-import { MdKeyboardArrowRight } from 'react-icons/md';
+// import boat from '../images/Banana-Boat-Rides 1.png'
+// import mount from '../images/mount-harriet-1 1.png'
+import { MdKeyboardArrowLeft, MdKeyboardArrowRight, MdKeyboardArrowUp } from 'react-icons/md';
 import { useNavigate } from 'react-router-dom';
 import { WaterContext } from '../../../context/UseWaterContext';
+import elements from '../../../Data/ActivityData'
+import { duration } from '@mui/material';
 const WaterSportCarousel = () => {
     const [currentIndex, setCurrentIndex] = useState(0)
     const { setWaterBookingInfo } = useContext(WaterContext);
-    const images = [boat, mount, boat, mount]
+    // const images = [boat, mount, boat, mount]
     // const title = ['Port Blair', 'North Island', 'Havock Island', 'Neil Island']
-    const title = ['Mount Manipur', 'Banana Boat Rides', 'Elephent Beach', 'Mount Manipur']
+    // const title = ['Mount Manipur', 'Banana Boat Rides', 'Elephent Beach', 'Mount Manipur']
+    const images = elements?.map(link => link.imageLink)
+    const titles = elements?.map(name => name.name)
+    const duration = elements?.map(location => location.duration)
+    // console.log(images)
 
     const goToPrevious = () => {
         setCurrentIndex((prevIndex) =>
@@ -35,8 +41,10 @@ const WaterSportCarousel = () => {
     // console.log(currentIndex)
     const navigate = useNavigate();
     const handleBookTicket = (index) => {
-        const location = title[index]
-        setWaterBookingInfo({ location })
+        const location = titles[index]
+        const image = images[index]
+        const location2 = duration[index]
+        setWaterBookingInfo({ location, image, location2 })
         navigate(`/water/tickets`)
     }
     return (
@@ -45,23 +53,24 @@ const WaterSportCarousel = () => {
                 <img src={images[currentIndex]} alt="" />
                 <div className='ml-6'>
                     {
-                        title.map((_, i) => <p className={`w-3 h-3 rounded-full mb-4 ${i === currentIndex ? "bg-[#FF8682]" : 'bg-[#EAEAEA]'}`}></p>)
+                        titles.map((_, i) => <p className={`w-3 h-3 rounded-full mb-4 ${i === currentIndex ? "bg-[#FF8682]" : 'bg-[#EAEAEA]'}`}></p>)
                     }
                 </div>
             </div>
             <div className='flex items-end justify-end absolute w-full inset-0 -bottom-10'>
                 <div className='flex items-center justify-center'>
                     <button
-                        className={`px-6 py-4 bg-[#3E66DF] text-sm text-white font-semibold flex items-center justify-between ${currentIndex === 3 ? 'block' : 'hidden'}`}
+                        className={`px-6 py-4 bg-[#3E66DF] text-sm text-white font-semibold flex items-center justify-between ${currentIndex === 6 ? 'block' : 'hidden'}`}
                         onClick={goToStart}
-                    >Go To Top
-                        <MdKeyboardArrowRight className='ml-9 text-lg'></MdKeyboardArrowRight>
+                    ><MdKeyboardArrowUp className='mr-9 text-lg'></MdKeyboardArrowUp>
+                        Start Over
                     </button>
                     <button
-                        className={`px-6 py-4 bg-[#3E66DF] text-sm text-white font-semibold flex items-center justify-between ml-1 ${currentIndex === 3 ? 'hidden' : 'block'}`}
+                        className={`px-6 py-4 bg-[#3E66DF] text-sm text-white font-semibold flex items-center justify-between ml-1 ${currentIndex === 6 ? 'hidden' : 'block'}`}
                         onClick={goToPrevious}
-                    >Previous
-                        <MdKeyboardArrowRight className='ml-9 text-lg'></MdKeyboardArrowRight>
+                    >
+                        <MdKeyboardArrowLeft className='mr-9 text-lg'></MdKeyboardArrowLeft>
+                        Previous
                     </button>
                     <button
                         className='px-6 py-4 bg-[#3E66DF] text-sm text-white font-semibold ml-1 flex items-center justify-between'
@@ -73,7 +82,7 @@ const WaterSportCarousel = () => {
                 </div>
                 <div className='bg-black font-montserrat px-8 py-7 w-full max-w-xl'>
                     <div className='flex items-center justify-between w-full'>
-                        <h4 className='font-bold text-2xl text-white'>{title[currentIndex]}</h4>
+                        <h4 className='font-bold text-2xl text-white'>{titles[currentIndex]}</h4>
                         <div className='flex items-center justify-center'>
                             <p className='rounded border border-[#FF8682] p-2 text-white mr-2'>4.2</p>
                             <p className='font-montserrat font-medium text-white

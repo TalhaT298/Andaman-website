@@ -13,6 +13,7 @@ import { AiOutlineLeftCircle } from 'react-icons/ai';
 import { TbDotsCircleHorizontal } from 'react-icons/tb';
 
 const BusBookingSeats = () => {
+    const [screenWidth, setScreenWidth] = useState(window.innerWidth);
     const [selectedSeat, setSelectedSeat] = useState([]);
     const [refresh, setRefresh] = useState(false);
     const { bookingInfo, setBookingInfo, adult, children, infant } = useContext(BusContext)
@@ -66,12 +67,25 @@ const BusBookingSeats = () => {
         setBookingInfo({ ...bookingInfo, selectedSeat, updatedPrice })
     }, [refresh])
 
+    useEffect(() => {
+        const handleResize = () => {
+            setScreenWidth(window.innerWidth);
+            // console.log(screenWidth);
+        };
+
+        window.addEventListener('resize', handleResize);
+
+        return () => {
+            window.removeEventListener('resize', handleResize);
+        };
+    }, [screenWidth]);
+
     return (
         <div>
             <Navforwithout></Navforwithout>
-            <div className='w-full max-w-[1244px] h-auto mt-20 mx-auto flex items-center justify-between mb-11 xl:gap-6 sxl:gap-6 ml:flex-col ms:mt-0'>
+            <div className={`w-full max-w-[1244px] h-auto mt-20 mx-auto flex items-center justify-between mb-11 gap-6 xl:gap-6 sxl:gap-6 ms:mt-0 px-6 ms:px-0 ${screenWidth < 1038 ? 'flex-col' : ''}`}>
 
-                <div className='w-full max-w-[792px]'>
+                <div className={`w-full`}>
                     {/* bus info breadcumb starts here  */}
                     <div className='w-[405px] h-[17px] flex items-center justify-between mb-6 font-montserrat flex-wrap ms:hidden'>
                         <p className='font-medium text-sm text-[#FF8682]'>
@@ -97,7 +111,7 @@ const BusBookingSeats = () => {
                     </div>
                     {/* bus info breadcumb finish here  */}
                     {/* bus detail card starts here  */}
-                    <div className='w-full max-w-[792px] bg-[#FFFFFF] h-auto rounded-xl px-6 pt-8 pb-9 mb-[25px] ms:hidden' style={{
+                    <div className='w-full bg-[#FFFFFF] h-auto rounded-xl px-6 pt-8 pb-9 mb-[25px] ms:hidden' style={{
                         boxShadow: '0px 4px 16px rgba(17, 34, 17, 0.05)'
                     }}>
                         <div className='font-montserrat flex items-center justify-between mx-auto mb-[29px]'>
@@ -111,7 +125,7 @@ const BusBookingSeats = () => {
                             <p className='font-montserrat font-medium text-[#000000] text-opacity-75 text-xl'>{bookingInfo?.busDuration}</p>
                         </div>
                         {/* bus feature details  */}
-                        <div className='flex justify-between mx-auto sxl:mb-5 lg:flex-col'>
+                        <div className='flex justify-between mx-auto sxl:mb-5 sm:flex-col sm:items-center sm:justify-center'>
                             <div className='w-full max-w-[262px] h-[86px] flex items-center justify-center rounded-lg border-[0.5px] border-[#FF8682] gap-6 px-8 py-4 mb-4'>
                                 <img className='w-16 h-11' src={bookingInfo?.busLogo} alt="" />
                                 <div>
@@ -120,7 +134,7 @@ const BusBookingSeats = () => {
                                 </div>
                             </div>
                             {/* icon  */}
-                            <div className='flex items-center justify-between w-full max-w-[312px] h-12'>
+                            <div className={`flex items-center justify-between w-full max-w-[312px] h-12 ${screenWidth < 1080 ? 'ml-5' : 'ml-0'} sm:ml-0 sm:my-5`}>
                                 <FaBus className='text-xl text-[#000000]'></FaBus>
                                 <p className='h-12 border border-[#D7E2EE] mx-[27px]'></p>
                                 <FaWifi className='text-xl text-[#000000]'></FaWifi>
@@ -135,7 +149,7 @@ const BusBookingSeats = () => {
                         <div className='flex items-center justify-center mx-auto'>
                             <div className='flex items-center justify-between w-[240px] h-7'>
 
-                                <p className='font-montserrat font-semibold text-[#000000] text-2xl'>
+                                <p className='font-montserrat font-semibold text-[#000000] text-2xl sm:text-lg'>
                                     {bookingInfo?.departureTime}
                                 </p>
                                 <p className='font-montserrat text-base font-medium text-opacity-60 text-[#000000]'>
@@ -146,7 +160,7 @@ const BusBookingSeats = () => {
                                 <img src={bus} alt="" />
                             </div>
                             <div className='flex items-center justify-between w-[240px] h-7'>
-                                <p className='font-montserrat text-black-200 font-semibold text-2xl mr-5 whitespace-nowrap'>
+                                <p className='font-montserrat text-black font-semibold text-2xl mr-5 whitespace-nowrap sm:text-lg'>
                                     {bookingInfo?.arrivalTime}
                                 </p>
                                 <p className='font-montserrat text-base font-medium text-[#000000] text-opacity-60 whitespace-nowrap'>
@@ -156,7 +170,7 @@ const BusBookingSeats = () => {
                         </div>
                         {/* bus details card ends here  */}
                     </div>
-                    <div className='w-full max-w-[790px] bg-[#FF8682] bg-opacity-60 h-[135px] rounded-lg px-4 font-montserrat mb-[25px] ms:hidden'>
+                    <div className='w-full bg-[#FF8682] bg-opacity-60 h-[135px] rounded-lg px-4 font-montserrat mb-[25px] ms:hidden'>
                         <p className='font-bold text-2xl text-[#112211] font-montserrat pt-4 mb-4 leading-7'>Emirates Airlines Policies</p>
                         <div className='flex flex-col items-center justify-start'>
                             <div className='flex items-center w-full mb-4 leading-5'>
@@ -175,7 +189,7 @@ const BusBookingSeats = () => {
                     </div>
                     <button
                         onClick={handleConfirmBooking}
-                        className='w-full bg-[#27273F] font-montserrat font-semibold text-sm h-12 rounded text-[#FFFFFF] max-w-[786px]
+                        className='w-full bg-[#27273F] font-montserrat font-semibold text-sm py-4 rounded text-[#FFFFFF]
                         block ms:hidden ml:hidden
                         '>Checkout
                     </button>

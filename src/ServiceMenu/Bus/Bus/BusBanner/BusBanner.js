@@ -51,7 +51,7 @@ const BusBanner = () => {
   ];
   return (
     <div className="ms:my-0 w-full relative mb-20">
-      <h3 className={`font-montserrat text-2xl text-center font-bold mb-5 ${show ? 'block' : 'hidden'}`}>
+      <h3 className={`font-montserrat text-4xl mt-6 text-center font-bold mb-5 ${show ? 'block' : 'hidden'}`}>
         Inter Island Bus Service
       </h3>
       <div
@@ -68,16 +68,7 @@ const BusBanner = () => {
             >
               {bus?.title} Schedule
             </button>
-            <>
-              {/* <Link className='w-full max-w-[300px] text-xl font-montserrat text-[#112211] bg-red-500 h-12' to={`/bus/schedules/${bus?.schedule}`}>
-                            {bus?.title} Schedule</Link> */}
-              {/* <p className='text-center mb-5 text-xl text-[#112211] font-montserrat'>
-                            Check The Schedule Of {bus?.title}
-                            <Link className=' font-montserrat text-xl underline text-blue-600 ml-2' to={`/bus/schedules/${bus?.schedule}`}>
-                                Click Here</Link>
-                        </p> */}
 
-            </>
 
             <img className="w-full max-w-[604px] h-[550px]" src={govt} alt="" />
             <div className="w-full max-w-[604px] h-[280px] absolute top-[280px] rounded-bl-lg rounded-br-lg custom">
@@ -108,12 +99,12 @@ const BusBanner = () => {
         ))}
       </div>
       <div className={`${show ? "block" : "hidden"}`}>
-        <div className={`w-full max-w-[1232px] sxl:flex items-center justify-between mx-auto gap-6 md:flex-col ${screenWidth > 1141 ? 'hidden' : 'block'}`}>
+        <div className={`w-full max-w-[1232px] sxl:flex items-center justify-between mx-auto text-center gap-6 md:flex-col ${screenWidth > 1141 ? 'hidden' : 'block'}`}>
           {/* button  */}
           {
             buses?.map((bus) => <button
               onClick={() => handleNaviateSchedule(bus?.schedule)}
-              className={`text-xl w-44 sm:text-xs font-montserrat text-zinc-100 bg-[#FF8782] h-10 rounded-md ${screenWidth > 767 ? 'hidden' : 'block'}`}
+              className={`text-xl w-44 sm:text-xs md:text-sm font-montserrat text-zinc-100 bg-[#FF8782] h-12 mx-auto rounded-md px-2 ${screenWidth > 767 ? 'hidden' : 'block'}`}
             >
               {bus?.title} Schedule
             </button>)
@@ -126,7 +117,7 @@ const BusBanner = () => {
             >
               <button
                 onClick={() => handleNaviateSchedule(bus?.schedule)}
-                className={`text-xl sm:text-xs font-montserrat text-zinc-100 bg-[#FF8782] h-12 ml-5 rounded-md mb-5 ${screenWidth < 768 ? 'hidden' : 'block'}`}
+                className={`text-xl sm:text-xs md:text-sm font-montserrat text-zinc-100 bg-[#FF8782] h-12 mx-auto rounded-md mb-5 px-2 ${screenWidth < 768 ? 'hidden' : 'block'}`}
               >
                 {bus?.title} Schedule
               </button>
@@ -167,3 +158,13 @@ const BusBanner = () => {
 };
 
 export default BusBanner;
+<>
+  {/* <Link className='w-full max-w-[300px] text-xl font-montserrat text-[#112211] bg-red-500 h-12' to={`/bus/schedules/${bus?.schedule}`}>
+                            {bus?.title} Schedule</Link> */}
+  {/* <p className='text-center mb-5 text-xl text-[#112211] font-montserrat'>
+                            Check The Schedule Of {bus?.title}
+                            <Link className=' font-montserrat text-xl underline text-blue-600 ml-2' to={`/bus/schedules/${bus?.schedule}`}>
+                                Click Here</Link>
+                        </p> */}
+
+</>

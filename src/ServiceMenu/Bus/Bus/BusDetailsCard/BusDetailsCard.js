@@ -7,14 +7,14 @@ import { MdAirlineSeatReclineExtra } from 'react-icons/md';
 import { useContext } from 'react';
 import bus from '../../images/bus.png';
 import { format } from 'date-fns';
-import { Link, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { HiOutlineChevronRight } from 'react-icons/hi2';
 import { BusContext } from '../../../../context/UseBusDataContext';
 import Navforwithout from '../../../../Navforwithout';
 import Footer from '../../../../Component/Footer/Footer';
 import bookingBus from '../../images/unsplash_jMvF2FQcihM.png'
-import { AiOutlineLeftCircle } from 'react-icons/ai';
-import { TbDotsCircleHorizontal } from 'react-icons/tb';
+// import { AiOutlineLeftCircle } from 'react-icons/ai';
+// import { TbDotsCircleHorizontal } from 'react-icons/tb';
 const BusDetailsCard = () => {
 
     const { bookingInfo, setBookingInfo } = useContext(BusContext)
@@ -33,7 +33,7 @@ const BusDetailsCard = () => {
     return (
         <>
             <Navforwithout></Navforwithout>
-            <div className='w-full max-w-[1232px] mx-auto font-montserrat my-20 ms:my-0'>
+            <div className='w-full max-w-[1232px] mx-auto font-montserrat my-20 ms:my-0 px-6 ms:px-0'>
 
                 <div className='ms:bg-[#FF8682] ms:px-6 h-[330px] ms:block hidden pt-9'>
                     {/* mobile process bar navigation  */}
@@ -235,9 +235,9 @@ const BusDetailsCard = () => {
                         onClick={() => handleConfirmBooking()}
                         className='w-[150px] h-12 rounded font-montserrat text-sm text-[#112211] bg-[#FF8682] font-semibold'>Book Now</button>
                 </div>
-                <div className='mb-[49px] w-full max-w-[1232px] bg-[#FF8682] bg-opacity-60 h-[101px] rounded-lg p-4 ms:hidden'>
-                    <p className='font-bold text-2xl text-[#112211] mb-4 ml:mb-0'>Basic Economy Feauture</p>
-                    <div className='flex items-center ml:flex-col ml:justify-start ml:items-start'>
+                <div className='mb-[49px] w-full max-w-[1232px] bg-[#FF8682] bg-opacity-60 rounded-lg p-4 ms:hidden'>
+                    <p className='font-bold text-2xl text-[#112211] mb-4'>Basic Economy Feauture</p>
+                    <div className='flex items-center lg:flex-col lg:justify-start lg:items-start'>
                         <div className='flex items-center w-full max-w-[570px]'>
                             <FaStopwatch className='text-xl text-[#112211] mr-[19px]'></FaStopwatch>
                             <p className='font-medium text-base text-[#112211] text-opacity-75'>
@@ -269,7 +269,7 @@ const BusDetailsCard = () => {
                                 <p className='font-montserrat font-medium text-[#112211] text-opacity-60 text-sm leading-4 sm:text-[7px] sm:leading-[7px]'>{bookingInfo?.busName}</p>
                             </div>
                         </div>
-                        <div className='flex items-center justify-between h-12 '>
+                        <div className='flex items-center justify-between h-12 md:ml-5'>
                             <FaBus className='text-xl text-[#112211]'></FaBus>
                             <p className='h-12 border border-[#D7E2EE] mx-[27px]'></p>
                             <FaWifi className='text-xl text-[#112211]'></FaWifi>

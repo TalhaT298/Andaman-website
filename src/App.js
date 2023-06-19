@@ -19,6 +19,7 @@ import BusBookingSeats from "./ServiceMenu/Bus/Bus/BusBookingSeats/BusBookingSea
 import BusPayment from "./ServiceMenu/Bus/Bus/BusPayment/BusPaymet.js";
 import BusTravellerDetails from "./ServiceMenu/Bus/Bus/BusTravellerDetails/BusTravellerDetails.js";
 import WaterBookingTickets from "./ServiceMenu/WaterSports/WaterBookingTickets/WaterBookingTickets.js";
+import WaterSportsPayment from "./ServiceMenu/WaterSports/WaterSportsPayment/WaterSportsPayment.js";
 
 // anik import
 
@@ -240,6 +241,9 @@ export default function App() {
             {/* anik water routes  */}
             <Route path="/water/tickets"
               element={<WaterBookingTickets></WaterBookingTickets>}
+            ></Route>
+            <Route path="/water/payment"
+              element={<WaterSportsPayment></WaterSportsPayment>}
             ></Route>
             {/* anik water routes  */}
             <Route path="*" element={<Nav />} />
