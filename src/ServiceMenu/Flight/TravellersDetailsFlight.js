@@ -44,6 +44,7 @@ const TravellersDetailsFlight = () => {
     setInfantDetails,
     contactDetails,
     setContactDetails,
+    passengerClass,
     // setFlightDataState,
     flightDataState,
   } = useDataContext();
@@ -1214,11 +1215,11 @@ const TravellersDetailsFlight = () => {
         <div className="flex gap-2">
           <h1>Flight: </h1>
           <h1 className="font-bold">
-            {flightDataState.flightName}(
+            {flightDataState.flightName} 
             <span className="italic font-normal">
-              {flightDataState.travelRoute} Class
+              {""} ({flightDataState.travelRoute}) {passengerClass} Class
             </span>
-            )
+            
           </h1>
         </div>
 

@@ -43,6 +43,8 @@ module.exports = {
 
       lexs: { max: "440px" },
       // => @media (max-width: 440px) { ... }
+      exs: { max: "358px" },
+      // => @media (max-width: 440px) { ... }
     },
 
     top: {

@@ -1,7 +1,5 @@
 import React from "react";
 import { BsFlagFill } from "react-icons/bs";
-import { ImLocation2 } from "react-icons/im";
-import { IoIosStar } from "react-icons/io";
 import { PhotoProvider, PhotoView } from "react-photo-view";
 import "react-photo-view/dist/react-photo-view.css";
 import { useNavigate } from "react-router-dom";
@@ -19,6 +17,7 @@ import user2 from "../images/user2.png";
 import user3 from "../images/user3.png";
 import user4 from "../images/user4.png";
 import BookButton from "./BookButton";
+import TitleLocation from "./TitleLocation";
 const CardCompo = ({
   singleData,
   searchState,
@@ -37,46 +36,7 @@ const CardCompo = ({
   return (
     <>
       {/* -----------------Title & Price--------------- */}
-      <div className="flex justify-between items-center">
-        <div className="flex md:flex-col md:items-start items-center">
-          <h1 className="text-2xl lexs:text-sm sm:text-xl font-bold">
-            {singleData?.title}{" "}
-          </h1>
-          <span className="md:ml-0 ml-4 flex items-center">
-            {[...Array(5)].map((_, i) => (
-              <IoIosStar
-                key={i}
-                className="inline  fill-[#FF8682] ms:fill-white"
-              />
-            ))}
-            <span className="text-xs font-semibold ml-1">5 Star Hotel</span>
-          </span>
-        </div>
-        <div className="text-[#27273F] sm:hidden sm:text-xl text-[32px] font-[900]">
-          ₹{singleData?.price}
-          <sub className="text-md">/night</sub>
-        </div>
-      </div>
-      {/*----------------- Location------------------- */}
-      <div className="flex items-center gap-1">
-        <ImLocation2 />
-        <p className="ms:text-sm text-justify">{singleData?.location}</p>
-      </div>
-      {/* ---------------Sub Review------------ */}
-      <div className="flex justify-between items-center">
-        <div className="">
-          <div className="flex items-center gap-1">
-            <div className="px-2 ms:border-none ms:font-medium rounded-md border">
-              {singleData?.rating}
-            </div>
-            <p className="text-sm ms:font-medium">
-              <span className="font-bold ms:font-medium">Very Good</span> 371
-              reviews
-            </p>
-          </div>
-        </div>
-        <div>{/* <BookButton Click={handleClick}>Book Now</BookButton> */}</div>
-      </div>
+      <TitleLocation singleData={singleData} />
       {/*------------------ Room Images---------------- */}
       <PhotoProvider>
         <div className=" grid grid-cols-2 gap-2  rounded-xl ms:mt-5 mt-8 overflow-hidden">
