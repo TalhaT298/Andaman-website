@@ -2,7 +2,6 @@ import {
   Button,
   Paper,
   Step,
-  StepButton,
   StepContent,
   StepLabel,
   Stepper,
@@ -14,7 +13,7 @@ import { LazyLoadImage } from "react-lazy-load-image-component";
 const PackageStepper = (props) => {
   //Stepper
   const [activeStep, setActiveStep] = useState(0);
-  const [activeStepFooter, setActiveStepFooter] = useState(4);
+
   //getting no of days
   let packageLength = 0;
   for (let key in props) {
@@ -32,9 +31,6 @@ const PackageStepper = (props) => {
     setActiveStep(0);
   };
 
-  const handleActiveFooter = (step) => {
-    setActiveStepFooter(step);
-  };
   return (
     <div>
       {" "}
@@ -48,14 +44,14 @@ const PackageStepper = (props) => {
           <StepContent>
             <div className="py-8 px-9 ml-10 h-80 relative bg-[#050505]">
               <div className="flex">
-                <div className="text-white text-2xl w-[30vw]">
-                  <h1 className="text-[40px] flex items-center mb-7 text-[#FF8682]">
-                    <span>{props.fullDescription1.split(":")[0]} </span>
+                <div className="text-white text-lg w-[30vw]">
+                  <h1 className="text-[24px] flex items-center mb-7 text-[#FF8682]">
+                    <span>DAY 1 </span>
                     <HiArrowLongRight />
                     <span>
                       {" "}
                       <Button
-                        size="large"
+                        size="small"
                         variant="contained"
                         color="secondary"
                         onClick={nextHandler}
@@ -73,20 +69,6 @@ const PackageStepper = (props) => {
                 />
               </div>
             </div>
-            {/* <Button
-        disabled={activeStep === 0}
-        onClick={backHandler}
-        style={{ marginRight: "5px" }}
-      >
-        Back
-      </Button>
-      <Button
-        variant="contained"
-        color="primary"
-        onClick={nextHandler}
-      >
-        Next
-      </Button> */}
           </StepContent>
         </Step>
 
@@ -95,12 +77,12 @@ const PackageStepper = (props) => {
           <StepContent>
             <div className="py-8 px-9 ml-10 h-80 relative bg-[#050505]">
               <div className="flex">
-                <div className="text-white text-2xl w-[30vw]">
-                  <h1 className="text-[40px] flex items-center mb-7 text-[#FF8682]">
+                <div className="text-white text-lg w-[30vw]">
+                  <h1 className="text-[24px] flex items-center mb-7 text-[#FF8682]">
                     <span>
                       {" "}
                       <Button
-                        size="large"
+                        size="small"
                         variant="contained"
                         color="secondary"
                         onClick={backHandler}
@@ -110,12 +92,12 @@ const PackageStepper = (props) => {
                     </span>
                     <HiArrowLongLeft />
 
-                    <span>{props.fullDescription2.split(":")[0]} </span>
+                    <span>DAY 2</span>
                     <HiArrowLongRight />
                     <span>
                       {" "}
                       <Button
-                        size="large"
+                        size="small"
                         variant="contained"
                         color="secondary"
                         onClick={nextHandler}
@@ -141,12 +123,12 @@ const PackageStepper = (props) => {
           <StepContent>
             <div className="py-8 px-9 ml-10 h-80 relative bg-[#050505]">
               <div className="flex">
-                <div className="text-white text-2xl w-[30vw]">
-                  <h1 className="text-[40px] flex items-center mb-7 text-[#FF8682]">
+                <div className="text-white text-lg w-[30vw]">
+                  <h1 className="text-[24px] flex items-center mb-7 text-[#FF8682]">
                     <span>
                       {" "}
                       <Button
-                        size="large"
+                        size="small"
                         variant="contained"
                         color="secondary"
                         onClick={backHandler}
@@ -156,12 +138,12 @@ const PackageStepper = (props) => {
                     </span>
                     <HiArrowLongLeft />
 
-                    <span>{props.fullDescription3.split(":")[0]} </span>
+                    <span>DAY 3</span>
                     <HiArrowLongRight />
                     <span>
                       {" "}
                       <Button
-                        size="large"
+                        size="small"
                         variant="contained"
                         color="secondary"
                         onClick={nextHandler}
@@ -187,12 +169,12 @@ const PackageStepper = (props) => {
           <StepContent>
             <div className="py-8 px-9 ml-10 h-80 relative bg-[#050505]">
               <div className="flex">
-                <div className="text-white text-2xl w-[30vw]">
-                  <h1 className="text-[40px] flex items-center mb-7 text-[#FF8682]">
+                <div className="text-white text-lg w-[30vw]">
+                  <h1 className="text-[24px] flex items-center mb-7 text-[#FF8682]">
                     <span>
                       {" "}
                       <Button
-                        size="large"
+                        size="small"
                         variant="contained"
                         color="secondary"
                         onClick={backHandler}
@@ -202,12 +184,12 @@ const PackageStepper = (props) => {
                     </span>
                     <HiArrowLongLeft />
 
-                    <span>{props.fullDescription4.split(":")[0]} </span>
+                    <span>DAY 4</span>
                     <HiArrowLongRight />
                     <span>
                       {" "}
                       <Button
-                        size="large"
+                        size="small"
                         variant="contained"
                         color="secondary"
                         onClick={nextHandler}
@@ -234,12 +216,12 @@ const PackageStepper = (props) => {
             <StepContent>
               <div className="py-8 px-9 ml-10 h-80 relative bg-[#050505]">
                 <div className="flex">
-                  <div className="text-white text-2xl w-[30vw]">
-                    <h1 className="text-[40px] flex items-center mb-7 text-[#FF8682]">
+                  <div className="text-white text-lg w-[30vw]">
+                    <h1 className="text-[24px] flex items-center mb-7 text-[#FF8682]">
                       <span>
                         {" "}
                         <Button
-                          size="large"
+                          size="small"
                           variant="contained"
                           color="secondary"
                           onClick={backHandler}
@@ -249,12 +231,12 @@ const PackageStepper = (props) => {
                       </span>
                       <HiArrowLongLeft />
 
-                      <span>{props.fullDescription5.split(":")[0]} </span>
+                      <span>DAY 5</span>
                       <HiArrowLongRight />
                       <span>
                         {" "}
                         <Button
-                          size="large"
+                          size="small"
                           variant="contained"
                           color="secondary"
                           onClick={nextHandler}
@@ -286,12 +268,12 @@ const PackageStepper = (props) => {
             <StepContent>
               <div className="py-8 px-9 ml-10 h-80 relative bg-[#050505]">
                 <div className="flex">
-                  <div className="text-white text-2xl w-[30vw]">
-                    <h1 className="text-[40px] flex items-center mb-7 text-[#FF8682]">
+                  <div className="text-white text-lg w-[30vw]">
+                    <h1 className="text-[24px] flex items-center mb-7 text-[#FF8682]">
                       <span>
                         {" "}
                         <Button
-                          size="large"
+                          size="small"
                           variant="contained"
                           color="secondary"
                           onClick={backHandler}
@@ -301,12 +283,12 @@ const PackageStepper = (props) => {
                       </span>
                       <HiArrowLongLeft />
 
-                      <span>{props.fullDescription6.split(":")[0]} </span>
+                      <span>DAY 6</span>
                       <HiArrowLongRight />
                       <span>
                         {" "}
                         <Button
-                          size="large"
+                          size="small"
                           variant="contained"
                           color="secondary"
                           onClick={nextHandler}
@@ -338,12 +320,12 @@ const PackageStepper = (props) => {
             <StepContent>
               <div className="py-8 px-9 ml-10 h-80 relative bg-[#050505]">
                 <div className="flex">
-                  <div className="text-white text-2xl w-[30vw]">
-                    <h1 className="text-[40px] flex items-center mb-7 text-[#FF8682]">
+                  <div className="text-white text-lg w-[30vw]">
+                    <h1 className="text-[24px] flex items-center mb-7 text-[#FF8682]">
                       <span>
                         {" "}
                         <Button
-                          size="large"
+                          size="small"
                           variant="contained"
                           color="secondary"
                           onClick={backHandler}
@@ -353,12 +335,12 @@ const PackageStepper = (props) => {
                       </span>
                       <HiArrowLongLeft />
 
-                      <span>{props.fullDescription7.split(":")[0]} </span>
+                      <span>DAY 7</span>
                       <HiArrowLongRight />
                       <span>
                         {" "}
                         <Button
-                          size="large"
+                          size="small"
                           variant="contained"
                           color="secondary"
                           onClick={nextHandler}
@@ -390,12 +372,12 @@ const PackageStepper = (props) => {
             <StepContent>
               <div className="py-8 px-9 ml-10 h-80 relative bg-[#050505]">
                 <div className="flex">
-                  <div className="text-white text-2xl w-[30vw]">
-                    <h1 className="text-[40px] flex items-center mb-7 text-[#FF8682]">
+                  <div className="text-white text-lg w-[30vw]">
+                    <h1 className="text-[24px] flex items-center mb-7 text-[#FF8682]">
                       <span>
                         {" "}
                         <Button
-                          size="large"
+                          size="small"
                           variant="contained"
                           color="secondary"
                           onClick={backHandler}
@@ -405,12 +387,12 @@ const PackageStepper = (props) => {
                       </span>
                       <HiArrowLongLeft />
 
-                      <span>{props.fullDescription8.split(":")[0]} </span>
+                      <span>DAY 8</span>
                       <HiArrowLongRight />
                       <span>
                         {" "}
                         <Button
-                          size="large"
+                          size="small"
                           variant="contained"
                           color="secondary"
                           onClick={nextHandler}
@@ -442,12 +424,12 @@ const PackageStepper = (props) => {
             <StepContent>
               <div className="py-8 px-9 ml-10 h-80 relative bg-[#050505]">
                 <div className="flex">
-                  <div className="text-white text-2xl w-[30vw]">
-                    <h1 className="text-[40px] flex items-center mb-7 text-[#FF8682]">
+                  <div className="text-white text-lg w-[30vw]">
+                    <h1 className="text-[24px] flex items-center mb-7 text-[#FF8682]">
                       <span>
                         {" "}
                         <Button
-                          size="large"
+                          size="small"
                           variant="contained"
                           color="secondary"
                           onClick={backHandler}
@@ -457,12 +439,12 @@ const PackageStepper = (props) => {
                       </span>
                       <HiArrowLongLeft />
 
-                      <span>{props.fullDescription6.split(":")[0]} </span>
+                      <span>DAY 9</span>
                       <HiArrowLongRight />
                       <span>
                         {" "}
                         <Button
-                          size="large"
+                          size="small"
                           variant="contained"
                           color="secondary"
                           onClick={nextHandler}
@@ -516,16 +498,16 @@ const PackageStepper = (props) => {
 
         {props.fullDescription11 ? (
           <Step>
-            <StepLabel>DAY 6</StepLabel>
+            <StepLabel>DAY 11</StepLabel>
             <StepContent>
               <div className="py-8 px-9 ml-10 h-80 relative bg-[#050505]">
                 <div className="flex">
-                  <div className="text-white text-2xl w-[30vw]">
-                    <h1 className="text-[40px] flex items-center mb-7 text-[#FF8682]">
+                  <div className="text-white text-lg w-[30vw]">
+                    <h1 className="text-[24px] flex items-center mb-7 text-[#FF8682]">
                       <span>
                         {" "}
                         <Button
-                          size="large"
+                          size="small"
                           variant="contained"
                           color="secondary"
                           onClick={backHandler}
@@ -540,7 +522,7 @@ const PackageStepper = (props) => {
                       <span>
                         {" "}
                         <Button
-                          size="large"
+                          size="small"
                           variant="contained"
                           color="secondary"
                           onClick={nextHandler}
@@ -586,65 +568,6 @@ const PackageStepper = (props) => {
           </Button>
         </Paper>
       )}
-      <Stepper
-        nonLinear
-        orientation="vertical"
-        activeStep={activeStepFooter}
-        style={{ marginTop: "20px", backgroundColor: "inherit" }}
-      >
-        <Step>
-          <StepButton onClick={() => handleActiveFooter(0)}>
-            INCLUSIVES
-          </StepButton>
-          <StepContent>
-            <li>Accommodation as per the class chosen</li>
-            <li>Breakfast for 5 occasions during the stay</li>
-            <li>Meet and Greet services</li>
-            <li>
-              Exclusive Air – conditioned Car for sight seeing and arrival and
-              departure transfers
-            </li>
-            <li>
-              Entry tickets / Entry permits / Boat tickets / Ferry tickets
-              wherever required
-            </li>
-            <li>Parking Charges</li>
-          </StepContent>
-        </Step>
-
-        <Step>
-          <StepButton onClick={() => handleActiveFooter(1)}>
-            EXCLUSIVES
-          </StepButton>
-          <StepContent>
-            <li>Charges for early check-in & late check-out</li>
-            <li>Tips and porter charges</li>
-            <li>Lunch and Dinner</li>
-            <li>Any items or services not specified in the cost</li>
-            <li>Any Travel Insurance Premium</li>
-            <li>
-              {" "}
-              Any additional expenses incurred due to any technical fault
-            </li>
-            <li>Expenses of personal nature such as drinks & late check-out</li>
-          </StepContent>
-        </Step>
-
-        <Step>
-          <StepButton onClick={() => handleActiveFooter(2)}>
-            CANCELLATION
-          </StepButton>
-          <StepContent>
-            <li>Before 31 days of arrival – 95% will be refunded</li>
-            <li>Between 16 – 30 days of arrival – 50% will be refunded</li>
-            <li>Between 8 – 15 days – 25% will be refunded</li>
-            <li>Less than 7 days of arrival – No refund</li>
-            <li>
-              No refund for the bookings made for 15 December to 15 January
-            </li>
-          </StepContent>
-        </Step>
-      </Stepper>
     </div>
   );
 };

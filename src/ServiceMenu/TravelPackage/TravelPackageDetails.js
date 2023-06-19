@@ -10,14 +10,22 @@ import UsersReview from "../../Component/UsersReview";
 import Navforwithout from "../../Navforwithout";
 import { WaterContext } from "../../context/UseWaterContext";
 import WeekPicker from "../WaterSports/WeekPicker/WeekPicker";
+import PackageFooterStepper from "./PackageFooterStepper";
 import PackageStepper from "./PackageStepper";
 
 const TravelPackageDetails = () => {
   const location = useLocation();
   const { state } = location;
+  console.log(
+    "🚀 ~ file: TravelPackageDetails.js:19 ~ TravelPackageDetails ~ state:",
+    state
+  );
   const { props } = state;
   const { waterBookingInfo } = useContext(WaterContext);
-
+  const [bookingDetails, setBookingDetails] = useState({
+    name: "",
+    phone: "",
+  });
   const [totalTicket, setTotalTicket] = useState(1);
   const handleIncreaseTicket = () => {
     setTotalTicket(totalTicket + 1);
@@ -28,6 +36,12 @@ const TravelPackageDetails = () => {
     } else {
       setTotalTicket(totalTicket - 1);
     }
+  };
+  const handleUserInfo = (e) => {
+    let userInfo = { ...bookingDetails };
+    userInfo[e.target.name] = e.target.value;
+    console.log(userInfo);
+    setBookingDetails(userInfo);
   };
   const navigate = useNavigate();
   const handleClick = () => {
@@ -69,20 +83,20 @@ const TravelPackageDetails = () => {
           <PackageStepper {...props} />
         </div>
         {/*------------------------- date ----------------------*/}
-        <div className="flex items-center justify-between">
+        <div className="flex items-center  justify-between">
           <div className="w-full">
             <WeekPicker />
           </div>
           {/* ticket part starts here */}
           <div
-            className="flex items-center flex-col justify-between mb-[18px] font-popins py-6 px-11 rounded-xl w-full max-w-lg"
+            className="flex items-center flex-col justify-between mb-[18px] font-popins py-6 px-11 rounded-xl w-full max-w-lg bg-white"
             style={{
               boxShadow: "0px 4px 16px 0px #1122110D",
             }}
           >
             <div className="flex items-center justify-between w-full mb-4">
               <p className="font-popins font-semibold text-2xl text-[#262630]">
-                Tickets
+                No. Of People
               </p>
               <div className="flex items-center justify-between gap-3">
                 {/* increase ticket  */}
@@ -95,6 +109,7 @@ const TravelPackageDetails = () => {
                 <p className="p-3 border border-[#FF8682] rounded flex items-center justify-center font-montserrat text-xs font-medium mx-3">
                   {totalTicket}
                 </p>
+
                 {/* decrease ticket  */}
                 <button
                   onClick={() => handleDecreaseTicket()}
@@ -104,7 +119,32 @@ const TravelPackageDetails = () => {
                 </button>
               </div>
             </div>
-
+            <div className="w-full flex justify-between flex-col mb-4">
+              <label className="font-bold text-base" htmlFor="Name">
+                Name
+              </label>
+              <input
+                onChange={handleUserInfo}
+                className="border-gray-300 border w-full py-2 placeholder:pl-2 pl-2 rounded"
+                type="text"
+                name="name"
+                id="name"
+                placeholder="Provide Your Name Here"
+              />
+            </div>
+            <div className="w-full flex justify-between flex-col mb-4">
+              <label className="font-bold text-base" htmlFor="Contact">
+                Contact
+              </label>
+              <input
+                onChange={handleUserInfo}
+                className="border-gray-300 border w-full py-2 placeholder:pl-2 pl-2 rounded"
+                type="number"
+                name="contact"
+                id="contact"
+                placeholder="Provide Your Contact Number"
+              />
+            </div>
             <button
               onClick={handleClick}
               className="bg-[#27273F] text-white rounded font-medium text-base px-36 py-4"
@@ -113,6 +153,8 @@ const TravelPackageDetails = () => {
             </button>
           </div>
         </div>
+        {/* packageFooter */}
+        <PackageFooterStepper />
         {/* Facilities */}
         <Facilities />
         {/* User Review */}
