@@ -10,7 +10,11 @@ import pgIcon from "../../images/pglogo.png";
 const PackagePayment = () => {
   const location = useLocation();
   const { state } = location;
-  const { props, totalTicket } = state;
+  const { props, totalTicket, bookingDetails } = state;
+  console.log(
+    "🚀 ~ file: PackagePayment.js:14 ~ PackagePayment ~ props:",
+    props
+  );
   const price = 5000;
   const baseFare = 5000 * totalTicket;
   const stayingDay = parseInt(props?.duration.match(/\d+/)[0]) + 1;
@@ -160,11 +164,11 @@ const PackagePayment = () => {
                 <img
                   src={props?.imageLink1}
                   alt="flightLogo"
-                  className="w-24 h-24 rounded object-cover"
+                  className="w-32 h-24 rounded-xl object-cover"
                 />
                 <div>
-                  {/* <p className="font-[500] text-black/75">{props?.name}</p> */}
-                  <p className="font-semibold text-lg">{props?.location}</p>
+                  <p className="font-[500] text-black/75">{props?.name}</p>
+                  <p className="font-semibold text-lg">{props?.duration}</p>
                 </div>
               </div>
               <hr className="my-5" />
@@ -181,6 +185,14 @@ const PackagePayment = () => {
                 <div className="flex justify-between">
                   <p className="font-[500] text-md">No. Of Ticket</p>
                   <p className="font-[600] text-md">{totalTicket}</p>
+                </div>
+                <div className="flex justify-between">
+                  <p className="font-[500] text-md">Name</p>
+                  <p className="font-[600] text-md">{bookingDetails.name}</p>
+                </div>
+                <div className="flex justify-between">
+                  <p className="font-[500] text-md">Phone Number</p>
+                  <p className="font-[600] text-md">{bookingDetails.contact}</p>
                 </div>
               </div>
               <hr className="my-5" />
