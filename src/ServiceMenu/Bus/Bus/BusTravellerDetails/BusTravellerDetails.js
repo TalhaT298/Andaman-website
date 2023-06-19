@@ -1353,163 +1353,165 @@ const BusTravellerDetails = () => {
             alert("Please fill all the details!");
         }
     };
+    // const conditionalPadding = screenWidth < 1300 && screenWidth > 1025 ? 'px-6' : 'px-0' || screenWidth < 1024 ? 'px-0' : '';
+    const conditionalPadding = screenWidth < 1300 ? 'px-6' : 'px-0';
 
 
     return (
         <>
             <Navforwithout />
-            <div className="w-full max-w-[1232px] mx-auto mb-5 font-montserrat">
-                <div className='mt-20 ms:mt-0'>
-                    <div className={`w-full max-w-[500px] h-[17px] flex items-center justify-center lg:justify-between font-montserrat flex-wrap ${screenWidth < 477 ? 'mb-12' : 'mb-6'}`}>
-                        <p className='font-medium text-sm text-[#FF8682]'>
-                            {/* <Link to='/Bus'>
+            <div className="mb-5 mt-20 ms:mt-0 font-montserrat max-w-[1232px] w-full mx-auto">
+                {/* mobile process navigation bar*/}
+                <div className={`w-full max-w-[500px] h-[17px] flex items-center lg:justify-between font-montserrat flex-wrap ${screenWidth < 477 ? 'mb-12' : 'mb-6'} ${conditionalPadding}`}>
+                    <p className='font-medium text-sm text-[#FF8682]'>
+                        {/* <Link to='/Bus'>
                                 Bus
                             </Link></p> */}
-                            <a href='/Bus'>
-                                Bus
-                            </a>
-                        </p>
-                        <HiOutlineChevronRight className='text-[#112211] mx-[14px]'></HiOutlineChevronRight>
-                        <p className='font-medium text-sm text-[#FF8682]'>
-                            {/* <Link to={'/Bus'}>
+                        <a href='/Bus'>
+                            Bus
+                        </a>
+                    </p>
+                    <HiOutlineChevronRight className='text-[#112211] mx-[14px]'></HiOutlineChevronRight>
+                    <p className='font-medium text-sm text-[#FF8682]'>
+                        {/* <Link to={'/Bus'}>
                                     {bookingInfo?.busName}
                                 </Link> */}
-                            <a href={'/Bus'}>
-                                {bookingInfo?.busName}
-                            </a>
-                        </p>
-                        <HiOutlineChevronRight className='text-[#112211] mx-[14px]'></HiOutlineChevronRight>
+                        <a href={'/Bus'}>
+                            {bookingInfo?.busName}
+                        </a>
+                    </p>
+                    <HiOutlineChevronRight className='text-[#112211] mx-[14px]'></HiOutlineChevronRight>
 
-                        <p className='font-medium text-sm whitespace-nowrap text-[#FF8682]'>
-                            {/* <Link to={`/bus/details/${bookingInfo?.busId}`}>
+                    <p className='font-medium text-sm whitespace-nowrap text-[#FF8682]'>
+                        {/* <Link to={`/bus/details/${bookingInfo?.busId}`}>
                                     {bookingInfo?.busCompanyName}
                                 </Link> */}
-                            <a href={`/bus/details/${bookingInfo?.busId}`}>
-                                {bookingInfo?.busCompanyName}
-                            </a>
-                        </p>
-                        <HiOutlineChevronRight className='text-[#112211] mx-[14px]'></HiOutlineChevronRight>
-                        <p className='font-medium text-sm text-[#FF8682]'>
-                            {/* <Link to={'/bus/booking/seats'}>
+                        <a href={`/bus/details/${bookingInfo?.busId}`}>
+                            {bookingInfo?.busCompanyName}
+                        </a>
+                    </p>
+                    <HiOutlineChevronRight className='text-[#112211] mx-[14px]'></HiOutlineChevronRight>
+                    <p className='font-medium text-sm text-[#FF8682]'>
+                        {/* <Link to={'/bus/booking/seats'}>
                                     Seats
                                 </Link> */}
-                            <a href={'/bus/booking/seats'}>
-                                Seats
-                            </a>
-                        </p>
-                        <HiOutlineChevronRight className='text-[#112211] mx-[14px]'></HiOutlineChevronRight>
-                        <p className='font-medium text-sm text-[#112211] text-opacity-70 ms:mr-auto'>Details</p>
+                        <a href={'/bus/booking/seats'}>
+                            Seats
+                        </a>
+                    </p>
+                    <HiOutlineChevronRight className='text-[#112211] mx-[14px]'></HiOutlineChevronRight>
+                    <p className='font-medium text-sm text-[#112211] text-opacity-70 ms:mr-auto'>Details</p>
+                </div>
+                <div className={`h-auto w-full max-w-[1232px] flex gap-3 lg:flex-wrap justify-between mt-12 mb-8 mx-auto ${conditionalPadding}`}>
+
+                    <div className="w-[50%] h-[502px] lg:w-full shadow rounded bg-white xl:w-[50%] px-8 py-8">
+                        <h1 className="text-[#699c78] whitespace-nowrap lexs:text-[5.8vw] text-[26px] md:text-2xl font-[Montserrat] font-semibold ">
+                            Add Traveller(s) Details
+                        </h1>
+
+                        {/* Displaying children infants and adults data */}
+                        {adultsData}
+                        {childrenData}
+                        {infantsData}
                     </div>
-                    {/* mobile process navigation bar*/}
 
-                    <div className="mx-auto h-auto w-full max-w-[1232px] lg:w-10/12 flex gap-3 lg:flex-wrap justify-between mt-12 mb-8">
-                        <div className="w-[50%] h-fit lg:w-full shadow rounded bg-white xl:w-[50%] px-8 py-8">
-                            <h1 className="text-[#699c78] whitespace-nowrap lexs:text-[5.8vw] text-[26px] md:text-2xl font-[Montserrat] font-semibold ">
-                                Add Traveller(s) Details
-                            </h1>
-
-                            {/* Displaying children infants and adults data */}
-                            {adultsData}
-                            {childrenData}
-                            {infantsData}
+                    <form
+                        className="w-[50%] h-[502px] lg:w-full shadow rounded bg-white overflow-hidden p-8 "
+                        onSubmit={handleSubmit}
+                    >
+                        <h1 className="text-[#699c78] whitespace-nowrap lexs:text-[5.8vw] text-[26px] md:text-2xl font-[Montserrat] font-bold mb-6 md:mb-3 tracking-wide">
+                            Add Contact Details
+                        </h1>
+                        <div className="flex flex-col gap-1">
+                            <input
+                                type="text"
+                                id="name"
+                                name="name"
+                                value={contactDetails?.name}
+                                onChange={handleContactChange}
+                                placeholder="Full Name"
+                                className="h-[40px] outline-none p-4 rounded-md border border-gray-300 focus:border-2 focus:border-slate-400"
+                            // required
+                            />
+                        </div>
+                        <div className="flex flex-col gap-1 mt-5">
+                            <input
+                                type="email"
+                                id="email"
+                                name="email"
+                                value={contactDetails?.email}
+                                onChange={handleContactChange}
+                                placeholder="Email"
+                                className="h-[40px] outline-none p-4 rounded-md border border-gray-300 focus:border-2 focus:border-slate-400"
+                            // required
+                            />
+                        </div>
+                        <div className="flex flex-col gap-1 mt-5">
+                            <input
+                                type="number"
+                                id="phone"
+                                name="phone"
+                                value={contactDetails?.phone}
+                                onChange={handleContactChange}
+                                placeholder="Mobile Number"
+                                className="h-[45px] outline-none p-4 rounded-md border border-gray-300 focus:border-2 focus:border-slate-400"
+                            // required
+                            />
+                        </div>
+                        <div className="flex flex-col gap-1 mt-5">
+                            <input
+                                type="number"
+                                id="alt_phone"
+                                name="altPhone"
+                                value={contactDetails?.altPhone}
+                                onChange={handleContactChange}
+                                placeholder="Alternate Mobile Number"
+                                className="h-[45px] outline-none p-4 rounded-md border border-gray-300 focus:border-2 focus:border-slate-400"
+                            />
+                            <div className="ml-1 mt-5">
+                                <input type="checkbox" id="check"
+                                    // required 
+                                    className="mr-2" />
+                                <label htmlFor="check">
+                                    Agree with
+                                    <span className="text-[#549b69]">
+                                        {" "}
+                                        terms and conditions
+                                    </span>{" "}
+                                    and the
+                                    <span className="text-[#549b69]">
+                                        {" "}
+                                        cancellation policy.
+                                    </span>
+                                </label>
+                            </div>
                         </div>
 
-                        <form
-                            className="w-[50%] h-[502px] lg:w-full shadow rounded bg-white overflow-hidden p-8 "
-                            onSubmit={handleSubmit}
-                        >
-                            <h1 className="text-[#699c78] whitespace-nowrap lexs:text-[5.8vw] text-[26px] md:text-2xl font-[Montserrat] font-bold mb-6 md:mb-3 tracking-wide">
-                                Add Contact Details
-                            </h1>
-                            <div className="flex flex-col gap-1">
-                                <input
-                                    type="text"
-                                    id="name"
-                                    name="name"
-                                    value={contactDetails?.name}
-                                    onChange={handleContactChange}
-                                    placeholder="Full Name"
-                                    className="h-[40px] outline-none p-4 rounded-md border border-gray-300 focus:border-2 focus:border-slate-400"
-                                // required
-                                />
-                            </div>
-                            <div className="flex flex-col gap-1 mt-5">
-                                <input
-                                    type="email"
-                                    id="email"
-                                    name="email"
-                                    value={contactDetails?.email}
-                                    onChange={handleContactChange}
-                                    placeholder="Email"
-                                    className="h-[40px] outline-none p-4 rounded-md border border-gray-300 focus:border-2 focus:border-slate-400"
-                                // required
-                                />
-                            </div>
-                            <div className="flex flex-col gap-1 mt-5">
-                                <input
-                                    type="number"
-                                    id="phone"
-                                    name="phone"
-                                    value={contactDetails?.phone}
-                                    onChange={handleContactChange}
-                                    placeholder="Mobile Number"
-                                    className="h-[45px] outline-none p-4 rounded-md border border-gray-300 focus:border-2 focus:border-slate-400"
-                                // required
-                                />
-                            </div>
-                            <div className="flex flex-col gap-1 mt-5">
-                                <input
-                                    type="number"
-                                    id="alt_phone"
-                                    name="altPhone"
-                                    value={contactDetails?.altPhone}
-                                    onChange={handleContactChange}
-                                    placeholder="Alternate Mobile Number"
-                                    className="h-[45px] outline-none p-4 rounded-md border border-gray-300 focus:border-2 focus:border-slate-400"
-                                />
-                                <div className="ml-1 mt-5">
-                                    <input type="checkbox" id="check"
-                                        // required 
-                                        className="mr-2" />
-                                    <label htmlFor="check">
-                                        Agree with
-                                        <span className="text-[#549b69]">
-                                            {" "}
-                                            terms and conditions
-                                        </span>{" "}
-                                        and the
-                                        <span className="text-[#549b69]">
-                                            {" "}
-                                            cancellation policy.
-                                        </span>
-                                    </label>
-                                </div>
-                            </div>
-
-                            <button
-                                type="submit"
-                                className="bg-[#408c57] shadow-2xl hover:bg-[#51795d]
+                        <button
+                            type="submit"
+                            className="bg-[#408c57] shadow-2xl hover:bg-[#51795d]
                   text-white text-[21px] md:text-[16px] tracking-wider font-[Montserrat] font-semibold rounded-full
                   p-2 w-full mt-8"
-                            >
-                                {/* {status} */}
-                                Proceed
-                            </button>
-                        </form>
+                        >
+                            {/* {status} */}
+                            Proceed
+                        </button>
+                    </form>
 
-                        <div className="w-[50%] h-[502px] shadow rounded bg-white lg:w-full  p-8 mb-96 ">
-                            <h1 className="whitespace-nowrap lexs:text-[5.8vw] text-[26px] text-[#699c78] md:text-2xl font-[Montserrat] font-semibold">
-                                Trip Summary
-                            </h1>
-                            {tripData.length === 0 ? (
-                                <h1>Please select seats to proceed with booking.</h1>
-                            ) : (
-                                tripData
-                            )}
+                    <div className="w-[50%] h-[502px] shadow rounded bg-white lg:w-full p-8 mb-96 ">
+                        <h1 className="whitespace-nowrap lexs:text-[5.8vw] text-[26px] text-[#699c78] md:text-2xl font-[Montserrat] font-semibold">
+                            Trip Summary
+                        </h1>
+                        {tripData.length === 0 ? (
+                            <h1>Please select seats to proceed with booking.</h1>
+                        ) : (
+                            tripData
+                        )}
 
-                        </div>
                     </div>
                 </div>
+                {/* <div className='mt-20 ms:mt-0'>
+                </div> */}
             </div>
             <Footer />
         </>

@@ -334,9 +334,10 @@ const BusPayment = () => {
                         <TbDotsCircleHorizontal className='text-2xl'></TbDotsCircleHorizontal>
                     </div> */}
                     <div className="w-[90%] mx-auto ms:mt-0 ms:pt-10 mt-12 mb-8">
+                        {/* desktop process navigaton  */}
                         <div className="ms:hidden flex items-center mt-5 gap-2 z-50">
 
-                            <div className='w-full max-w-[500px] h-[17px] flex items-center justify-center lg:justify-between mb-6 font-montserrat flex-wrap'>
+                            <div className='w-full max-w-[500px] h-[17px] flex items-center mb-6 font-montserrat flex-wrap'>
                                 <p className='font-medium text-sm text-[#FF8682]'>
                                     <Link to='/Bus'>
                                         Bus
@@ -377,7 +378,7 @@ const BusPayment = () => {
                                             {bookingInfo?.busDuration}
                                         </h5>
                                     </div>
-                                    <div className="flex justify-between md:gap-5 md:flex-col mt-5">
+                                    <div className="flex justify-between md:gap-5 md:flex-col mt-5 items-center">
                                         <div className="flex items-center md:w-56 w-auto justify-center bg-[#FFFFFF] gap-5  border-[0.5px] border-[0.5px_solid_#8DD3BB] rounded-lg px-8 py-4 ">
                                             <img
                                                 src={flightLogo}
@@ -392,7 +393,7 @@ const BusPayment = () => {
                                                 </p>
                                             </div>
                                         </div>
-                                        <div className="">
+                                        <div className="my-5">
                                             {" "}
                                             <img src={feature} alt="" />
                                         </div>
