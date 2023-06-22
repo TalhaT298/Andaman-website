@@ -209,8 +209,8 @@ const WaterBookingTickets = () => {
                                 >
                                     <option value="">Select</option>
                                     <option value="Port Blair">Port Blair</option>
-                                    <option value="North Island">North Island</option>
-                                    <option value="Havock Island">Havock Island</option>
+                                    <option value="North Island">North Bay</option>
+                                    <option value="Havock Island">Havelock Island</option>
                                     <option value="Neil Island">Neil Island</option>
                                 </select>
                             </div>

@@ -93,15 +93,11 @@ const WaterSportsPayment = () => {
                                             <sub className='text-gray-400'>per person</sub>
                                         </h5>
                                     </div>
-                                    <div className='border-[0.5px] border-[#FF8682] flex items-center justify-start rounded-lg font-montserrat'>
-                                        <div className='py-4 pl-8 pr-6'>
-                                            <img src={hotel} alt="" />
-                                        </div>
+                                    <div className='flex items-start justify-start rounded-lg font-montserrat'>
+
                                         <div>
-                                            <p className='text-2xl text-black font-semibold'>{waterBookingInfo?.bookingDetails.location}</p>
-                                            <p className='font-medium flex items-center'>
-                                                <ImLocation2 className='text-sm text-[#112211] mr-1'></ImLocation2>
-                                                {waterBookingInfo?.location}</p>
+                                            <p className='text-md text-black font-medium flex items-center'><ImLocation2 className='text-sm text-[#112211] mr-1'></ImLocation2>{waterBookingInfo?.bookingDetails.location}</p>
+
                                         </div>
                                     </div>
                                     {/* <div className="flex justify-between md:gap-5 md:flex-col mt-5 items-center">
