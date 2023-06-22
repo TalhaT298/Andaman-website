@@ -42,10 +42,10 @@ const datas = [
     imageLink:
       'https://res.cloudinary.com/thrillophilia/image/upload/c_fill,f_auto,fl_progressive.strip_profile,g_auto,h_600,q_auto,w_auto/v1/filestore/cuivelcj8jr9ax2mhdjh2sspsksf_1537009421_Elephant_Island_Andaman.jpg',
 
-    name: 'Elephant Beach',
+    name: 'Elephanta Beach',
     location: 'Havelock, South Andaman',
     duration: 'Duration ~ 1h 30mis',
-    videolink: '',
+    videolink: 'https://www.youtube.com/watch?v=7HnSWOo0qgQ',
     fullDescription: `The Elephanta Beach trek is a popular and scenic trek that takes visitors to the summit of Elephanta beach in the Andaman and Nicobar Islands, India. The trek offers visitors the opportunity to experience the natural beauty of the islands, discover the rich biodiversity of the region and witness the breath-taking views of the sea.
 
     The trek starts from the Elephanta beach and takes visitors through dense tropical forests, mangroves and rocky terrain. The trail is well-maintained and marked, making it easy for visitors to navigate. Along the way, visitors will have the opportunity to see a wide variety of flora and fauna, including a variety of bird species, monkeys and wild pigs. The forest surrounding Elephanta beach is also home to a wide variety of endemic species. The trek itself is not a very challenging one, but the trail is quite rocky so comfortable shoes are recommended.
@@ -64,7 +64,7 @@ const datas = [
     name: 'Limestone Caves',
     location: 'Baratang, Middle Andaman',
     duration: 'Duration ~ 2h - 3h',
-    videolink: '',
+    videolink: 'https://www.youtube.com/watch?v=WzG09jSqRDc',
     fullDescription: `The Limestone Cave trek is a unique and exhilarating experience situated in the Andaman and Nicobar Islands, India. The trek takes visitors to explore the limestone caves, a natural wonder that offers a glimpse into the ancient past of the islands. The trek is suitable for people of all ages and fitness levels, making it a great activity for families and groups of friends.
 
     The trek starts from the entrance of the limestone caves and takes visitors through a network of underground caves. The trail is well-maintained and marked, making it easy for visitors to navigate. Along the way, visitors will have the opportunity to see a variety of natural formations such as stalactites and stalagmites. The limestone caves are also home to a variety of bats and cave-dwelling animals.
@@ -83,7 +83,7 @@ const datas = [
     name: 'Alfred Caves',
     location: 'Diglipur, North Andaman',
     duration: 'Duration ~ (1h/2h)-30mis',
-    videolink: '',
+    videolink: 'https://www.youtube.com/watch?v=O7XzdnY6O-E',
     fullDescription: `The Alfred Caves trek is a unique and exciting adventure located in the Andaman and Nicobar Islands, India. This trek offers visitors the opportunity to explore the Alfred Caves, which are a geological wonder that date back millions of years. The caves are formed by the erosion of limestone rock and offer a glimpse into the ancient history of the islands. The trek is suitable for people of all ages and fitness levels, making it a great activity for families and groups of friends.
 
     The trek starts at the entrance of the Alfred caves and takes visitors through a network of underground caves. The trail is well-maintained and marked, making it easy for visitors to navigate. Along the way, visitors will have the opportunity to see a variety of natural formations such as stalactites and stalagmites, and may even spot some cave-dwelling animals such as bats.
@@ -102,7 +102,7 @@ const datas = [
     name: 'Saddle Peak',
     location: 'Diglipur, North Andaman',
     duration: 'Duration ~ > 3h 00mis',
-    videolink: '',
+    videolink: 'https://www.youtube.com/watch?v=yo0-f7qX57c',
     fullDescription: `The Saddle Peak trek is a popular and challenging trek located in the Andaman and Nicobar Islands, India. This trek takes visitors to the summit of Saddle Peak, the highest peak in the islands standing at 732 meters. The trek offers a challenging hike through dense tropical forests and steep inclines, but the breathtaking views from the summit make it worth the effort. The trek is suitable for experienced hikers and offers a great opportunity to connect with nature and test your endurance. The trek starts from the base of the mountain and takes around 4-5 hours to reach the summit. Along the way, visitors can spot a wide variety of flora and fauna, including a variety of bird species, monkeys, and wild pigs.The Saddle Peak trek is a must-do activity for anyone visiting the Andaman and Nicobar Islands. The trek offers a challenging hike through dense tropical forests and steep inclines, but the breathtaking views from the summit make it worth the effort. The summit offers panoramic views of the surrounding islands and the sea, and visitors can witness the sunrise or sunset from the top. The trek also offers an opportunity to learn about the history of the islands and the role of the peak in the region.
 
     The trek can be enjoyed by experienced hikers, as it can be quite challenging due to the steep inclines and rocky terrain. It's recommended to be well prepared for the trek with appropriate gear and clothing, and also make sure to carry enough water and snacks. The trek starts from the base of the mountain and takes around 4-5 hours to reach the summit. Along the way, visitors can spot a wide variety of flora and fauna, including a variety of bird species, monkeys, and wild pigs.
