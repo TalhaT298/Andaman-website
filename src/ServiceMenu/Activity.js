@@ -60,6 +60,7 @@
 import React from 'react';
 // import datas from '../Data/ActivityData';
 // import ActivityCover from './Activity/ActivityCover';
+import elements from '../Data/ActivityData'
 import WaterSportCarousel from './WaterSports/WaterSportCarousel/WaterSportCarousel';
 
 const Activity = () => {
@@ -71,9 +72,9 @@ const Activity = () => {
     // <div className='flex flex-wrap items-center m-auto p-auto font-normal text-lg font-Nunito_Sans'>
     //   {activityData}
     // </div>
-    <div>
-      <WaterSportCarousel></WaterSportCarousel>
-    </div>
+    <>
+      <WaterSportCarousel elements={elements}></WaterSportCarousel>
+    </>
   );
 };
 

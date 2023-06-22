@@ -8,6 +8,7 @@ const datas = [
     duration: 'Corbyn’s Cove Beach, Port Blair',
     description: 'Port Blair – 3 Nights , Havelock – 2 Nights ',
     videoLink: 'https://www.youtube.com/watch?v=r-mEBgSMaT4',
+    iframeLink: 'https://www.youtube.com/embed/r-mEBgSMaT4',
     fullDescription: `The Seakart adventure in Corbyn Cove, Port Blair is a thrilling and exciting experience for visitors to the Andaman and Nicobar Islands, India. The Seakart is a high-speed watercraft that allows visitors to explore the beautiful waters of the Bay of Bengal in a unique and exciting way.
 
     The Seakart adventure starts at Corbyn Cove, which is a popular beach destination located in Port Blair. Visitors are provided with all the necessary safety equipment and a brief training session before they set off on the adventure. The Seakart is easy to operate and can reach speeds of up to 40 km/h, providing a thrilling ride through the waves.
@@ -26,6 +27,7 @@ const datas = [
     // Deleted Rajiv Gandhi Water Sports Complex from above
     description: 'Port Blair – 3 Nights , Havelock – 2 Nights ',
     videoLink: 'https://www.youtube.com/watch?v=AYthTe-r92Q',
+    iframeLink: 'https://www.youtube.com/embed/AYthTe-r92Q',
     fullDescription: `The Banana Boat ride in Havelock, Port Blair is a fun and exciting experience for visitors to the Andaman and Nicobar Islands, India. The Banana Boat is an inflatable watercraft that is shaped like a banana and can hold up to 10 people. Visitors can experience the thrill of riding on the waves while being pulled by a speedboat.
 
     The Banana Boat ride starts at Havelock, which is a popular beach destination located in Port Blair. Visitors are provided with all the necessary safety equipment before they set off on the ride. The ride is usually around 15 minutes long, with the boat going at high speeds and making sharp turns, providing an exciting and exhilarating experience.
@@ -43,6 +45,7 @@ const datas = [
     duration: 'Elephant Beach and Jollybouy',
     description: 'Port Blair – 3 Nights , Havelock – 2 Nights ',
     videoLink: 'https://www.youtube.com/watch?v=vFRFkGTNJOM',
+    iframeLink: 'https://www.youtube.com/embed/vFRFkGTNJOM',
     fullDescription: `Snorkeling in Elephanta beach, Havelock is a popular and exciting activity for visitors to the Andaman and Nicobar Islands, India. The beach is known for its crystal-clear waters and diverse marine life, making it an ideal spot for snorkeling.
 
     The snorkeling experience at Elephanta beach starts with a brief training session on the beach, where visitors are provided with all the necessary equipment such as a snorkel, fins, and a life jacket. The beach offers a wide variety of marine life including tropical fish, corals, and various species of sea turtles.
@@ -59,6 +62,7 @@ const datas = [
     duration: 'Elephant Beach and Chidiyatapu',
     description: 'Port Blair – 3 Nights , Havelock – 2 Nights ',
     videoLink: 'https://www.youtube.com/watch?v=iwQLzzrP2Kw',
+    iframeLink: 'https://www.youtube.com/embed/iwQLzzrP2Kw',
     fullDescription: `Scuba diving in Elephanta and Chidiya Tapu beaches, Andaman and Nicobar Islands, India is an unforgettable experience for visitors. Both Elephanta and Chidiya Tapu beaches offer some of the best scuba diving spots in the islands, with clear waters, diverse marine life, and beautiful coral reefs.
 
     The scuba diving experience starts with a brief training session on the beach, where visitors are provided with all the necessary equipment such as a dive suit, tanks, and regulators. Both Elephanta and Chidiya Tapu beaches offer a wide variety of marine life including tropical fish, corals, and various species of sea turtles.
@@ -76,6 +80,7 @@ const datas = [
     duration: 'South Point, Port Blair',
     description: 'Port Blair – 3 Nights , Havelock – 2 Nights ',
     videoLink: 'https://www.youtube.com/watch?v=pkVU6auKEpU',
+    iframeLink: 'https://www.youtube.com/embed/pkVU6auKEpU',
     fullDescription: `Parasailing at South Point in Port Blair, Andaman and Nicobar Islands, India is an exciting and thrilling experience for visitors. The activity offers visitors the opportunity to soar high above the beautiful Bay of Bengal while being pulled by a speedboat.
 
     The parasailing experience at South Point in Port Blair starts at the beach, where visitors are provided with all the necessary safety equipment and a brief training session. Once ready, visitors are strapped into a harness and attached to a parasail, which is then pulled by a speedboat. The experience typically lasts for around 15-20 minutes, during which time visitors can enjoy the beautiful views of the surrounding islands, the beach, and the Bay of Bengal.
@@ -93,6 +98,7 @@ const datas = [
     duration: 'Havelock Island',
     description: 'Port Blair – 3 Nights , Havelock – 2 Nights ',
     videoLink: 'https://www.youtube.com/watch?v=BtLDHgOlD7s',
+    iframeLink: '<iframe width="560" height="315" src="https://www.youtube.com/embed/BtLDHgOlD7s" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>',
     fullDescription: `Kayaking in Havelock Island, Andaman and Nicobar Islands, India is a peaceful and scenic experience for visitors. The activity offers visitors the opportunity to explore the beautiful waters of the Bay of Bengal in a unique and serene way.
 
     The kayaking experience in Havelock Island starts at a nearby kayaking center, where visitors are provided with all the necessary equipment, such as kayaks and life jackets. The experienced guides provide a brief training session before the start of the tour.
@@ -112,6 +118,7 @@ const datas = [
     duration: 'Rajiv Gandhi Water Sports Complex',
     description: 'Port Blair – 3 Nights , Havelock – 2 Nights ',
     videoLink: 'https://www.youtube.com/watch?v=-qVBAngJ9mk',
+    iframeLink: '<iframe width="560" height="315" src="https://www.youtube.com/embed/-qVBAngJ9mk" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>',
     fullDescription: `Jet skiing in the Andaman Islands, India is a thrilling and exciting experience for visitors. The activity offers visitors the opportunity to explore the beautiful waters of the Bay of Bengal in a unique and exhilarating way.
 
     The jet skiing experience in the Andaman Islands starts at a nearby jet skiing center, where visitors are provided with all the necessary equipment, such as jet skis and life jackets. The experienced guides provide a brief training session before the start of the tour.

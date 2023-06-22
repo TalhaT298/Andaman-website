@@ -95,7 +95,9 @@ const BusBookingSeats = () => {
                         <HiOutlineChevronRight className='text-[#112211] mx-[14px]'></HiOutlineChevronRight>
                         <p className='font-medium text-sm text-[#FF8682]'>
                             {/* <Link to={`/Bus`}>{bookingInfo?.busName}</Link> */}
-                            <a href='/Bus'>{bookingInfo?.busName}</a>
+                            <a href='/Bus'>
+                                {bookingInfo?.busName === 'Government Bus' ? 'Govt. Bus' : bookingInfo?.busName}
+                            </a>
                         </p>
                         <HiOutlineChevronRight className='text-[#112211] mx-[14px]'></HiOutlineChevronRight>
                         <p className='font-medium text-sm text-[#FF8682] whitespace-nowrap'>
@@ -207,7 +209,9 @@ const BusBookingSeats = () => {
                         <HiOutlineChevronRight className='text-[#112211] mx-[14px]'></HiOutlineChevronRight>
                         <p className='font-medium text-sm text-[#FF8682]'>
                             {/* <Link to={`/Bus`}>{bookingInfo?.busName}</Link> */}
-                            <a href={`/Bus`}>{bookingInfo?.busName}</a>
+                            <a href={`/Bus`}>
+                                {bookingInfo?.busName === 'Government Bus' ? 'Govt. Bus' : bookingInfo?.busName}
+                            </a>
                         </p>
                         <HiOutlineChevronRight className='text-[#112211] mx-[14px]'></HiOutlineChevronRight>
                         <p className='font-medium text-sm text-[#FF8682] whitespace-nowrap'>
@@ -279,8 +283,7 @@ const BusBookingSeats = () => {
                     </div>
                     <button
                         onClick={handleConfirmBooking}
-                        className='px-14 bg-[#27273F] font-montserrat font-semibold text-sm h-[34px] rounded text-[#FFFFFF] mx-auto ml:block xxl:hidden
-                        '>Checkout
+                        className={`px-14 bg-[#27273F] font-montserrat font-semibold text-sm h-[34px] rounded text-[#FFFFFF] mx-auto ml:block hidden ${screenWidth > 1500 && 'hidden'}`}>Checkout
                     </button>
                 </div>
 

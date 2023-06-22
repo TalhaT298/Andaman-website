@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import Navforwithout from '../../../Navforwithout';
 import { HiOutlineChevronRight } from 'react-icons/hi';
 import { WaterContext } from '../../../context/UseWaterContext';
@@ -10,8 +10,22 @@ import hotel from '../images/hotelname.png'
 import { ImLocation2 } from 'react-icons/im';
 
 const WaterSportsPayment = () => {
+    const [screenWidth, setScreenWidth] = useState(window.innerWidth);
+
+    useEffect(() => {
+        const handleResize = () => {
+            setScreenWidth(window.innerWidth);
+        };
+
+        window.addEventListener('resize', handleResize);
+
+        return () => {
+            window.removeEventListener('resize', handleResize);
+        };
+    }, [screenWidth]);
     const { waterBookingInfo } = useContext(WaterContext);
     console.log(waterBookingInfo)
+    const { bookingDetails } = waterBookingInfo || {};
     return (
         <>
             <Navforwithout />
@@ -29,7 +43,7 @@ const WaterSportsPayment = () => {
                         <p className='font-medium text-sm text-white'>
 
                             <a href={'/water/tickets'}>
-                                {waterBookingInfo?.location}
+                                {waterBookingInfo?.activity}
                             </a>
                         </p>
                         <HiOutlineChevronRight className='text-[#112211] mx-[14px]'></HiOutlineChevronRight>
@@ -40,7 +54,7 @@ const WaterSportsPayment = () => {
 
                     </div>
 
-                    <div className="w-[90%] mx-auto ms:mt-0 ms:pt-10 mt-12 mb-8">
+                    <div className="w-[90%] mx-auto ms:mt-0 ms:pt-9 mt-12 mb-8">
                         {/* desktop process navigaton  */}
                         <div className="ms:hidden flex items-center mt-5 gap-2 z-50">
 
@@ -54,7 +68,7 @@ const WaterSportsPayment = () => {
                                 <HiOutlineChevronRight className='text-[#112211] mx-[14px]'></HiOutlineChevronRight>
                                 <p className='font-medium text-sm text-[#FF8682]'>
                                     <a href={'/Water/tickets'}>
-                                        {waterBookingInfo?.location}
+                                        {waterBookingInfo?.activity}
                                     </a>
                                 </p>
                                 <HiOutlineChevronRight className='text-[#112211] mx-[14px]'></HiOutlineChevronRight>
@@ -71,7 +85,7 @@ const WaterSportsPayment = () => {
                                     <div className="flex justify-between font-montserrat mb-[30px]">
                                         <h5 className="text-2xl text-[#112211] font-bold">
 
-                                            {waterBookingInfo?.location}
+                                            {waterBookingInfo?.activity}
                                         </h5>
                                         <h5 className="text-2xl font-bold text-[#112211]">
 
@@ -84,10 +98,10 @@ const WaterSportsPayment = () => {
                                             <img src={hotel} alt="" />
                                         </div>
                                         <div>
-                                            <p className='text-2xl text-black font-semibold'>{waterBookingInfo?.place}</p>
+                                            <p className='text-2xl text-black font-semibold'>{waterBookingInfo?.bookingDetails.location}</p>
                                             <p className='font-medium flex items-center'>
                                                 <ImLocation2 className='text-sm text-[#112211] mr-1'></ImLocation2>
-                                                {waterBookingInfo?.location2}</p>
+                                                {waterBookingInfo?.location}</p>
                                         </div>
                                     </div>
                                     {/* <div className="flex justify-between md:gap-5 md:flex-col mt-5 items-center">
@@ -99,7 +113,7 @@ const WaterSportsPayment = () => {
                                             />
                                             <div className="">
                                                 <h2 className="font-semibold text-2xl">Emirates</h2>
-                                                <p className="text-[#112211] opacity-[0.6] font-[500]">
+                                                <p className="text-[#112211] opacity-[0.6] font-medium">
                                                     {flightDataState.flightName}
                                                     {bookingInfo?.busName}
                                                 </p>
@@ -150,7 +164,7 @@ const WaterSportsPayment = () => {
                                         </div>
                                     </div> */}
                                 </div>
-                                <div className="ms:flex flex-row hidden bg-white rounded-xl  inset-x-0  w-auto py-8 h-auto shadow-[0px_4px_16px_rgba(17,34,17,0.05)] ">
+                                <div className={`flex flex-row  bg-white rounded-xl  inset-x-0  w-auto py-8 h-auto shadow-[0px_4px_16px_rgba(17,34,17,0.05)] ${screenWidth > 1 && 'hidden'}`}>
                                     <div className="text-[#112211] flex items-center md:gap-5 gap-16  mx-auto py-auto md:px-8 px-10 text-center  w-full xs:flex-col xs:py-2 xs:gap-y-3">
                                         <div className="w-full">
                                             <div className="flex lexs:flex-col justify-between items-center md:gap-5">
@@ -163,7 +177,7 @@ const WaterSportsPayment = () => {
                                                     {/* <img src={flightLogo} alt="" /> */}
                                                     <div className="">
                                                         <h2 className="font-semibold text-2xl">Emirates</h2>
-                                                        <p className="text-[#112211] opacity-[0.6] font-[500]">
+                                                        <p className="text-[#112211] opacity-[0.6] font-medium">
                                                             {/* {flightDataState.flightName} */}
                                                             {/* {
                                                                 bookingInfo?.busCompanyName
@@ -171,7 +185,7 @@ const WaterSportsPayment = () => {
                                                         </p>
                                                     </div>
                                                 </div>
-                                                <div className="text-xl whitespace-nowrap text-blue-500 font-bold">
+                                                <div className="text-xl whitespace-nowrap text-bluefont-mediumfont-bold">
                                                     {/* ₹ {netTotal}{" "} */}
                                                     {/* ₹{totalPrice} */}
                                                 </div>
@@ -229,7 +243,7 @@ const WaterSportsPayment = () => {
                                     alt="Fight-log"
                                     className="ms:block hidden mt-10 w-full"
                                 /> */}
-                                <div className='font-montserrat'>
+                                <div className='font-montserrat ms:hidden'>
                                     <p className="text-xl font-bold text-[#17183B] my-4">
                                         Payment Method
                                     </p>
@@ -256,7 +270,7 @@ const WaterSportsPayment = () => {
                                             <p className='text-[#FF8682] text-opacity-50'>Remove</p>
                                         </div>
                                         <div className="flex items-center my-8">
-                                            <MdAdd className="mr-6 text-cyan-500 text-xl" />
+                                            <MdAdd className="mr-6 text-cyanfont-mediumtext-xl" />
                                             <p>Add Payment method</p>
                                         </div>
                                     </div>
@@ -264,27 +278,25 @@ const WaterSportsPayment = () => {
                             </div>
 
                             <div className="w-[50%] lg:w-full lg:mt-0 mt-10 lg:pl-0 pl-8">
-                                {/* <h1 className="text-[26px] text-[#699c78] md:text-2xl  font-semibold">
-                  Trip Summary
-                </h1> */}
+                                {/* <h1 className="text-[26px] text-[#699c78] md:text-2xl  font-semibold">Trip Summary</h1> */}
                                 {/* {tripData.length === 0 ? (
                                     <h1>Please select seats to proceed with booking.</h1>
                                 ) : (
                                     tripData
                                 )} */}
-                                <div className="p-4 lg:w-full  bg-white" >
+                                <div className="p-4 lg:w-full  bg-white ms:rounded-xl">
                                     {" "}
                                     <div className="flex gap-3 items-center">
                                         {/* <img src={flightLogo} alt="flightLogo" className="w-24 h-24" /> */}
                                         <img className='w-full max-w-[130px] rounded-[10px]' src={waterBookingInfo?.image} alt="" />
                                         <div className='font-montserrat'>
-                                            <p className="font-[500] text-black/75">
+                                            <p className="font-medium text-black/75">
                                                 Package
                                             </p>
                                             <p className="font-semibold text-xl text-[#000000]">
                                                 {/* {flightDataState.flightName} */}
                                                 {/* {bookingInfo.busCompanyName} */}
-                                                {waterBookingInfo?.place}
+                                                {waterBookingInfo?.activity}
                                             </p>
                                             <div className='flex items-center justify-center'>
                                                 <p className='border border-[#FF8682] rounded p-2 font-montserrat text-xs font-medium mr-2'>4.2</p>
@@ -298,10 +310,43 @@ const WaterSportsPayment = () => {
                                     </p>
                                     <hr className="my-5" />
                                     <div className="flex flex-col gap-4">
+                                        <h1 className="font-bold">Booking Details</h1>
+                                        <div className="flex justify-between">
+                                            <p className="font-medium text-md">Name</p>
+                                            <p className="font-semibold text-md">
+                                                {/* {user_name} */}
+                                                {bookingDetails?.name}
+                                            </p>
+                                        </div>
+                                        <div className="flex justify-between">
+                                            <p className="font-medium text-md">Contact</p>
+                                            <p className="font-semibold text-md">
+                                                {/* {user_people} */}
+                                                {bookingDetails?.phone}
+                                            </p>
+                                        </div>
+                                        <div className="flex justify-between">
+                                            <p className="font-medium text-md">Location</p>
+                                            <p className="font-semibold text-md">
+                                                {/* {room} */}
+                                                {bookingDetails?.location}
+                                            </p>
+                                        </div>
+                                        <div className="flex justify-between">
+                                            <p className="font-medium text-md">No. Of Tickets</p>
+                                            <p className="font-semibold text-md">
+                                                {/* {staying} */}
+                                                {waterBookingInfo?.totalTicket}
+                                            </p>
+                                        </div>
+                                    </div>
+
+                                    <hr className="my-5" />
+                                    <div className="flex flex-col gap-4">
                                         <h1 className="font-bold">Price Details</h1>
                                         <div className="flex justify-between">
-                                            <p className="font-[500] text-md">Base Fare</p>
-                                            <p className="font-[600] text-md">₹
+                                            <p className="font-medium text-md">Base Fare</p>
+                                            <p className="font-semibold text-md">₹
 
                                                 {/* {totalFare} */}
                                                 {/* {totalPrice} */}
@@ -309,30 +354,30 @@ const WaterSportsPayment = () => {
                                             </p>
                                         </div>
                                         <div className="flex justify-between">
-                                            <p className="font-[500] text-md">Discount</p>
-                                            <p className="font-[600] text-md">₹
+                                            <p className="font-medium text-md">Discount</p>
+                                            <p className="font-semibold text-md">₹
 
 
                                                 {/* {discount} */}
                                             </p>
                                         </div>
                                         <div className="flex justify-between">
-                                            <p className="font-[500] text-md">Taxes</p>
-                                            <p className="font-[600] text-md">₹
+                                            <p className="font-medium text-md">Taxes</p>
+                                            <p className="font-semibold text-md">₹
                                                 {/* {taxes} */}
                                             </p>
                                         </div>
                                         <div className="flex justify-between">
-                                            <p className="font-[500] text-md">Service Fee</p>
-                                            <p className="font-[600] text-md">₹
+                                            <p className="font-medium text-md">Service Fee</p>
+                                            <p className="font-semibold text-md">₹
                                                 {/* {fee} */}
                                             </p>
                                         </div>
                                     </div>
                                     <hr className="my-4" />
                                     <div className="flex justify-between">
-                                        <p className="font-[500] text-md">Total</p>
-                                        <p className="font-[600] text-md">₹
+                                        <p className="font-medium text-md">Total</p>
+                                        <p className="font-semibold text-md">₹
                                             {/* {totalPrice} */}
                                             {/* {netTotal} */}
                                         </p>
@@ -344,6 +389,38 @@ const WaterSportsPayment = () => {
                                     >
                                         Confirm and Pay
                                     </button>
+                                </div>
+                            </div>
+                            <div className='font-montserrat hidden ms:block'>
+                                <p className="text-xl font-bold text-[#17183B] my-4">
+                                    Payment Method
+                                </p>
+                                <div>
+                                    <div className="flex justify-between border border-[#17183B] border-opacity-20 rounded-sm p-4">
+                                        <div className="flex flex-wrap">
+                                            <input type="radio" className="default:ring-2 ..." />
+                                            <img src={visa} alt="" className="mx-3" />
+                                            <p className="lexs:mr-2 mr-10">.....6754</p>
+                                            <p>Expires 06/2021</p>
+                                        </div>
+                                        <p className='text-[#FF8682] text-opacity-50'>Remove</p>
+                                    </div>
+                                    <div className="flex justify-between border border-[#17183B] border-opacity-20 rounded-sm p-4">
+                                        <div className="flex flex-wrap">
+                                            <input type="radio" className="default:ring-2 ..." />
+                                            <img
+                                                // src={master} 
+                                                src={visa}
+                                                alt="" className="mx-3" />
+                                            <p className="lexs:mr-2 mr-10">.....5643</p>
+                                            <p>Expires 11/2025</p>
+                                        </div>
+                                        <p className='text-[#FF8682] text-opacity-50'>Remove</p>
+                                    </div>
+                                    <div className="flex items-center my-8">
+                                        <MdAdd className="mr-6 text-cyanfont-mediumtext-xl" />
+                                        <p>Add Payment method</p>
+                                    </div>
                                 </div>
                             </div>
                         </div>

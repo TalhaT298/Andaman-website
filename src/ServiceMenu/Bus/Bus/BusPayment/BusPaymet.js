@@ -15,7 +15,8 @@ import { TbDotsCircleHorizontal } from 'react-icons/tb';
 import { IoIosAirplane } from 'react-icons/io';
 import { RiDoorLockFill } from 'react-icons/ri';
 
-import feature from "../../images/flightFeature.png";
+// import feature from "../../images/flightFeature.png";
+import busFeature from "../../images/Frame 143.png";
 import flightLogo from "../../images/flightLogoMini.png"
 import busicon from '../../images/Vector.png'
 import featureShadow from '../../images/Frame 143.png'
@@ -301,7 +302,7 @@ const BusPayment = () => {
                                 {bookingInfo?.busName}
                             </Link> */}
                             <a href={'/Bus'}>
-                                {bookingInfo?.busName}
+                                {bookingInfo?.busName === 'Government Bus' ? 'Govt. Bus' : bookingInfo?.busName}
                             </a>
                         </p>
                         <HiOutlineChevronRight className='text-[#112211] mx-[14px]'></HiOutlineChevronRight>
@@ -339,27 +340,27 @@ const BusPayment = () => {
 
                             <div className='w-full max-w-[500px] h-[17px] flex items-center mb-6 font-montserrat flex-wrap'>
                                 <p className='font-medium text-sm text-[#FF8682]'>
-                                    <Link to='/Bus'>
+                                    <a href='/Bus'>
                                         Bus
-                                    </Link></p>
+                                    </a></p>
                                 <HiOutlineChevronRight className='text-[#112211] mx-[14px]'></HiOutlineChevronRight>
                                 <p className='font-medium text-sm text-[#FF8682]'>
-                                    <Link to={'/Bus'}>
-                                        {bookingInfo?.busName}
-                                    </Link>
+                                    <a href={'/Bus'}>
+                                        {bookingInfo?.busName === 'Government Bus' ? 'Govt. Bus' : bookingInfo?.busName}
+                                    </a>
                                 </p>
                                 <HiOutlineChevronRight className='text-[#112211] mx-[14px]'></HiOutlineChevronRight>
 
                                 <p className='font-medium text-sm whitespace-nowrap text-[#FF8682]'>
-                                    <Link to={`/bus/details/${bookingInfo?.busId}`}>
+                                    <a href={`/bus/details/${bookingInfo?.busId}`}>
                                         {bookingInfo?.busCompanyName}
-                                    </Link>
+                                    </a>
                                 </p>
                                 <HiOutlineChevronRight className='text-[#112211] mx-[14px]'></HiOutlineChevronRight>
                                 <p className='font-medium text-sm text-[#FF8682]'>
-                                    <Link to={'/bus/booking/seats'}>
+                                    <a href={'/bus/booking/seats'}>
                                         Seats
-                                    </Link>
+                                    </a>
                                 </p>
                                 <HiOutlineChevronRight className='text-[#112211] mx-[14px]'></HiOutlineChevronRight>
                                 <p className='font-medium text-sm text-[#112211] text-opacity-70'>Details</p>
@@ -395,7 +396,7 @@ const BusPayment = () => {
                                         </div>
                                         <div className="my-5">
                                             {" "}
-                                            <img src={feature} alt="" />
+                                            <img src={busFeature} alt="bus feature" />
                                         </div>
                                     </div>
                                     <div className="flex justify-between items-center lg:w-[70vw] w-[52vw] mx-auto mt-5">

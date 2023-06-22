@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { HiOutlineChevronRight } from 'react-icons/hi';
-import { Link, useParams } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import { data as schedules } from '../../Data/Schedule';
 import Navforwithout from '../../../../Navforwithout';
 import Footer from '../../../../Component/Footer/Footer';
@@ -12,7 +12,7 @@ const BusSchedule = () => {
     // console.log(params)
     let pathName = ''
     if (params?.name === 'Government-Bus') {
-        pathName = 'Government Inter-Island Bus Schedule'
+        pathName = 'Govt. Inter-Island Bus Schedule'
     }
     else {
         pathName = 'Private Inter-Island Bus Schedule'

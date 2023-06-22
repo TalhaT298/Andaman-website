@@ -1362,7 +1362,7 @@ const BusTravellerDetails = () => {
             <Navforwithout />
             <div className="mb-5 mt-20 ms:mt-0 font-montserrat max-w-[1232px] w-full mx-auto">
                 {/* mobile process navigation bar*/}
-                <div className={`w-full max-w-[500px] h-[17px] flex items-center lg:justify-between font-montserrat flex-wrap ${screenWidth < 477 ? 'mb-12' : 'mb-6'} ${conditionalPadding}`}>
+                <div className={`w-full max-w-[500px] h-[17px] flex items-center lg:justify-between font-montserrat flex-wrap ms:my-5 ${screenWidth < 477 ? 'mb-12' : 'mb-6'} ${conditionalPadding}`}>
                     <p className='font-medium text-sm text-[#FF8682]'>
                         {/* <Link to='/Bus'>
                                 Bus
@@ -1377,7 +1377,7 @@ const BusTravellerDetails = () => {
                                     {bookingInfo?.busName}
                                 </Link> */}
                         <a href={'/Bus'}>
-                            {bookingInfo?.busName}
+                            {bookingInfo?.busName === 'Government Bus' ? 'Govt. Bus' : bookingInfo?.busName}
                         </a>
                     </p>
                     <HiOutlineChevronRight className='text-[#112211] mx-[14px]'></HiOutlineChevronRight>

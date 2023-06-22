@@ -66,7 +66,7 @@ const BusBanner = () => {
               onClick={() => handleNaviateSchedule(bus?.schedule)}
               className="w-full max-w-[300px] text-xl font-montserrat bg-[#FF8782] h-12 ml-5 rounded-md mb-5 text-white"
             >
-              {bus?.title} Schedule
+              {bus?.title === 'Government Bus' ? 'Govt. Bus' : bus.title} Schedule
             </button>
 
 
@@ -104,9 +104,11 @@ const BusBanner = () => {
           {
             buses?.map((bus) => <button
               onClick={() => handleNaviateSchedule(bus?.schedule)}
-              className={`text-xl w-44 sm:text-xs md:text-sm font-montserrat text-zinc-100 bg-[#FF8782] h-12 mx-auto rounded-md px-2 ${screenWidth > 767 ? 'hidden' : 'block'}`}
+              className={`text-xl w-full font-montserrat text-zinc-100 bg-[#FF8782] h-12 mx-auto rounded-md px-2 ${screenWidth > 767 ? 'hidden' : 'block'}
+              ${screenWidth < 767 ? 'max-w-[604px]' : ''}
+              `}
             >
-              {bus?.title} Schedule
+              {bus?.title === 'Government Bus' ? 'Govt. Bus' : bus.title} Schedule
             </button>)
           }
 
@@ -117,9 +119,9 @@ const BusBanner = () => {
             >
               <button
                 onClick={() => handleNaviateSchedule(bus?.schedule)}
-                className={`text-xl sm:text-xs md:text-sm font-montserrat text-zinc-100 bg-[#FF8782] h-12 mx-auto rounded-md mb-5 px-2 ${screenWidth < 768 ? 'hidden' : 'block'}`}
+                className={`text-xl font-montserrat text-zinc-100 bg-[#FF8782] h-12 mx-auto rounded-md mb-5 px-2 ${screenWidth < 768 ? 'hidden' : 'block'}`}
               >
-                {bus?.title} Schedule
+                {bus?.title === 'Government Bus' ? 'Govt. Bus' : bus.title} Schedule
               </button>
 
 

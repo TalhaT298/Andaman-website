@@ -49,7 +49,7 @@ const BusDetailsCard = () => {
                                 {bookingInfo?.busName}
                             </Link> */}
                             <a href='/Bus'>
-                                {bookingInfo?.busName}
+                                {bookingInfo?.busName === 'Government Bus' ? 'Govt. Bus' : bookingInfo?.busName}
                             </a>
                         </p>
                         <HiOutlineChevronRight className='text-[#112211] mx-[14px]'></HiOutlineChevronRight>
@@ -196,7 +196,7 @@ const BusDetailsCard = () => {
                             {bookingInfo?.busName}
                         </Link> */}
                         <a href='/Bus'>
-                            {bookingInfo?.busName}
+                            {bookingInfo?.busName === 'Government Bus' ? 'Govt. Bus' : bookingInfo?.busName}
                         </a>
                     </p>
                     <HiOutlineChevronRight className='text-[#112211] mx-[14px]'></HiOutlineChevronRight>
