@@ -16,10 +16,6 @@ import PackageStepper from "./PackageStepper";
 const TravelPackageDetails = () => {
   const location = useLocation();
   const { state } = location;
-  console.log(
-    "🚀 ~ file: TravelPackageDetails.js:19 ~ TravelPackageDetails ~ state:",
-    state
-  );
   const { props } = state;
   const { waterBookingInfo } = useContext(WaterContext);
   const [bookingDetails, setBookingDetails] = useState({
@@ -46,13 +42,13 @@ const TravelPackageDetails = () => {
   const navigate = useNavigate();
   const handleClick = () => {
     navigate("/package-payment", {
-      state: { props, totalTicket, waterBookingInfo },
+      state: { props, totalTicket, waterBookingInfo, bookingDetails },
     });
   };
   return (
     <>
       <Navforwithout />
-      <section className="lg:px-10 sm:px-5 px-[104px] ms:h-96 xs:h-[360px] sxs:h-[340px] ms:bg-[#FF8682] sm:py-5 py-[60px] text-[#112211] font-montserrat">
+      <section className="sxl:px-5 sm:px-5 px-[104px] ms:h-96 xs:h-[360px] sxs:h-[340px] ms:bg-[#FF8682] sm:py-5 py-[60px] text-[#112211] font-montserrat">
         {/* -------------------Navigation---------------- */}
         <div className=" flex items-center ms:mb-3 mb-[30px] gap-2">
           <a href={"/Package"} className="text-[#FF8682] ms:text-slate-100">
@@ -68,7 +64,7 @@ const TravelPackageDetails = () => {
         {/*------------------ Room Images---------------- */}
         <PhotoCompo singleData={props} />
         {/* ----------steps ------------*/}
-        <div className="flex flex-col w-auto h-auto font-Nunito_Sans  my-10">
+        <div className="flex flex-col w-full h-auto font-montserrat  my-10">
           <div className="mx-auto">
             <span className="text-3xl font-semibold text-slate-900">
               Package Details
@@ -83,8 +79,8 @@ const TravelPackageDetails = () => {
           <PackageStepper {...props} />
         </div>
         {/*------------------------- date ----------------------*/}
-        <div className="flex items-center  justify-between">
-          <div className="w-full">
+        <div className="flex items-center gap-3 ml:justify-center lg:flex-col justify-between">
+          <div className="w-full ml:grid justify-center">
             <WeekPicker />
           </div>
           {/* ticket part starts here */}
@@ -95,7 +91,7 @@ const TravelPackageDetails = () => {
             }}
           >
             <div className="flex items-center justify-between w-full mb-4">
-              <p className="font-popins font-semibold text-2xl text-[#262630]">
+              <p className="font-popins font-semibold text-2xl ms:text-lg  text-[#262630]">
                 No. Of People
               </p>
               <div className="flex items-center justify-between gap-3">
@@ -120,7 +116,10 @@ const TravelPackageDetails = () => {
               </div>
             </div>
             <div className="w-full flex justify-between flex-col mb-4">
-              <label className="font-bold text-base" htmlFor="Name">
+              <label
+                className="font-bold ms:font-semibold text-base"
+                htmlFor="Name"
+              >
                 Name
               </label>
               <input
@@ -133,7 +132,10 @@ const TravelPackageDetails = () => {
               />
             </div>
             <div className="w-full flex justify-between flex-col mb-4">
-              <label className="font-bold text-base" htmlFor="Contact">
+              <label
+                className="font-bold ms:font-semibold text-base"
+                htmlFor="Contact"
+              >
                 Contact
               </label>
               <input
@@ -147,7 +149,7 @@ const TravelPackageDetails = () => {
             </div>
             <button
               onClick={handleClick}
-              className="bg-[#27273F] text-white rounded font-medium text-base px-36 py-4"
+              className="bg-[#27273F] text-white rounded font-medium text-base w-full py-4"
             >
               Confirm Booking
             </button>

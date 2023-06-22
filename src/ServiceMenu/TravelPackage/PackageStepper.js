@@ -40,12 +40,14 @@ const PackageStepper = (props) => {
         style={{ backgroundColor: "inherit" }}
       >
         <Step>
-          <StepLabel>DAY 1</StepLabel>
+          <StepLabel onClick={() => setActiveStep(0)}>
+            <span className="text-lg airbnbml:text-xl font-bold">DAY 1</span>
+          </StepLabel>
           <StepContent>
-            <div className="py-8 px-9 ml-10 h-80 relative bg-[#050505]">
+            <div className="py-8 ms:py-3 ms:px-4 px-9 ml-10 h-80 airbnbml:h-auto relative bg-[#050505]">
               <div className="flex">
-                <div className="text-white text-lg w-[30vw]">
-                  <h1 className="text-[24px] flex items-center mb-7 text-[#FF8682]">
+                <div className=" text-white text-lg airbnbml:w-full w-[30vw]">
+                  <h1 className="airbnbml:hidden airbnbml:hidden text-[24px] flex items-center mb-7 text-[#FF8682]">
                     <span>DAY 1 </span>
                     <HiArrowLongRight />
                     <span>
@@ -63,7 +65,7 @@ const PackageStepper = (props) => {
                   <p>{props.fullDescription1.split(":").slice(1).join(":")} </p>
                 </div>
                 <LazyLoadImage
-                  className="h-96 w-[40%] airbnbml:w-2/3 airbnbml:mx-auto  sm:w-auto brightness-150 absolute object-cover right-[59px] bottom-0"
+                  className="h-96 w-[40%] airbnbml:w-2/3 airbnbml:mx-auto  sm:w-auto brightness-150 absolute object-cover right-[59px] bottom-0 airbnbml:hidden"
                   src={props.imageLink1 ? props.imageLink1 : "-"}
                   alt="."
                 />
@@ -73,12 +75,14 @@ const PackageStepper = (props) => {
         </Step>
 
         <Step>
-          <StepLabel>DAY 2</StepLabel>
+          <StepLabel onClick={() => setActiveStep(1)}>
+            <span className="text-lg airbnbml:text-xl font-bold">DAY 2</span>{" "}
+          </StepLabel>
           <StepContent>
-            <div className="py-8 px-9 ml-10 h-80 relative bg-[#050505]">
+            <div className="ms:py-3 ms:px-4 py-8 px-9 ml-10 h-80 airbnbml:h-auto relative bg-[#050505]">
               <div className="flex">
-                <div className="text-white text-lg w-[30vw]">
-                  <h1 className="text-[24px] flex items-center mb-7 text-[#FF8682]">
+                <div className="text-white text-lg airbnbml:w-full w-[30vw]">
+                  <h1 className="airbnbml:hidden text-[24px] flex items-center mb-7 text-[#FF8682]">
                     <span>
                       {" "}
                       <Button
@@ -109,7 +113,7 @@ const PackageStepper = (props) => {
                   <p>{props.fullDescription2.split(":").slice(1).join(":")} </p>
                 </div>
                 <LazyLoadImage
-                  className="h-96 w-[40%] airbnbml:w-2/3 airbnbml:mx-auto  sm:w-auto  absolute object-cover right-[59px] bottom-0"
+                  className="h-96 w-[40%] airbnbml:w-2/3 airbnbml:mx-auto  sm:w-auto  absolute object-cover right-[59px] bottom-0 airbnbml:hidden"
                   src={props.imageLink2 ? props.imageLink2 : "-"}
                   alt="."
                 />
@@ -119,12 +123,14 @@ const PackageStepper = (props) => {
         </Step>
 
         <Step>
-          <StepLabel>DAY 3</StepLabel>
+          <StepLabel onClick={() => setActiveStep(2)}>
+            <span className="text-lg airbnbml:text-xl font-bold">DAY 3</span>{" "}
+          </StepLabel>
           <StepContent>
-            <div className="py-8 px-9 ml-10 h-80 relative bg-[#050505]">
+            <div className="py-8 px-9 ml-10 h-80 relative bg-[#050505] airbnbml:h-auto ms:py-3 ms:px-4">
               <div className="flex">
-                <div className="text-white text-lg w-[30vw]">
-                  <h1 className="text-[24px] flex items-center mb-7 text-[#FF8682]">
+                <div className="text-white text-lg w-[30vw] airbnbml:w-full">
+                  <h1 className="airbnbml:hidden text-[24px] flex items-center mb-7 text-[#FF8682]">
                     <span>
                       {" "}
                       <Button
@@ -155,7 +161,7 @@ const PackageStepper = (props) => {
                   <p>{props.fullDescription3.split(":").slice(1).join(":")} </p>
                 </div>
                 <LazyLoadImage
-                  className="h-96 w-[40%] airbnbml:w-2/3 airbnbml:mx-auto  sm:w-auto  absolute object-cover right-[59px] bottom-0"
+                  className="h-96 w-[40%] airbnbml:w-2/3 airbnbml:mx-auto  sm:w-auto  absolute object-cover right-[59px] bottom-0 airbnbml:hidden"
                   src={props.imageLink3 ? props.imageLink3 : "-"}
                   alt="."
                 />
@@ -165,12 +171,14 @@ const PackageStepper = (props) => {
         </Step>
 
         <Step>
-          <StepLabel>DAY 4</StepLabel>
+          <StepLabel onClick={() => setActiveStep(3)}>
+            <span className="text-lg airbnbml:text-xl font-bold">DAY 4</span>{" "}
+          </StepLabel>
           <StepContent>
-            <div className="py-8 px-9 ml-10 h-80 relative bg-[#050505]">
+            <div className="py-8 px-9 ml-10 h-80 relative bg-[#050505] airbnbml:h-auto ms:py-3 ms:px-4">
               <div className="flex">
-                <div className="text-white text-lg w-[30vw]">
-                  <h1 className="text-[24px] flex items-center mb-7 text-[#FF8682]">
+                <div className="text-white text-lg w-[30vw] airbnbml:w-full">
+                  <h1 className="airbnbml:hidden text-[24px] flex items-center mb-7 text-[#FF8682]">
                     <span>
                       {" "}
                       <Button
@@ -201,7 +209,7 @@ const PackageStepper = (props) => {
                   <p>{props.fullDescription4.split(":").slice(1).join(":")} </p>
                 </div>
                 <LazyLoadImage
-                  className="h-96 w-[40%] airbnbml:w-2/3 airbnbml:mx-auto  sm:w-auto  absolute object-cover right-[59px] bottom-0"
+                  className="h-96 w-[40%] airbnbml:w-2/3 airbnbml:mx-auto  sm:w-auto  absolute object-cover right-[59px] bottom-0 airbnbml:hidden"
                   src={props.imageLink4 ? props.imageLink4 : "-"}
                   alt="."
                 />
@@ -212,12 +220,14 @@ const PackageStepper = (props) => {
 
         {props.fullDescription5 ? (
           <Step>
-            <StepLabel>DAY 5</StepLabel>
+            <StepLabel onClick={() => setActiveStep(4)}>
+              <span className="text-lg airbnbml:text-xl font-bold">DAY 5</span>{" "}
+            </StepLabel>
             <StepContent>
-              <div className="py-8 px-9 ml-10 h-80 relative bg-[#050505]">
+              <div className="py-8 px-9 ml-10 h-80 relative bg-[#050505] airbnbml:h-auto ms:py-3 ms:px-4">
                 <div className="flex">
-                  <div className="text-white text-lg w-[30vw]">
-                    <h1 className="text-[24px] flex items-center mb-7 text-[#FF8682]">
+                  <div className="text-white text-lg w-[30vw] airbnbml:w-full">
+                    <h1 className="airbnbml:hidden text-[24px] flex items-center mb-7 text-[#FF8682]">
                       <span>
                         {" "}
                         <Button
@@ -250,7 +260,7 @@ const PackageStepper = (props) => {
                     </p>
                   </div>
                   <LazyLoadImage
-                    className="h-96 w-[40%] airbnbml:w-2/3 airbnbml:mx-auto  sm:w-auto  absolute object-cover right-[59px] bottom-0"
+                    className="h-96 w-[40%] airbnbml:w-2/3 airbnbml:mx-auto  sm:w-auto  absolute object-cover right-[59px] bottom-0 airbnbml:hidden"
                     src={props.imageLink5 ? props.imageLink5 : "-"}
                     alt="."
                   />
@@ -264,12 +274,14 @@ const PackageStepper = (props) => {
 
         {props.fullDescription6 ? (
           <Step>
-            <StepLabel>DAY 6</StepLabel>
+            <StepLabel onClick={() => setActiveStep(5)}>
+              <span className="text-lg airbnbml:text-xl font-bold">DAY 6</span>{" "}
+            </StepLabel>
             <StepContent>
-              <div className="py-8 px-9 ml-10 h-80 relative bg-[#050505]">
+              <div className="py-8 px-9 ml-10 h-80 relative bg-[#050505] airbnbml:h-auto ms:py-3 ms:px-4">
                 <div className="flex">
-                  <div className="text-white text-lg w-[30vw]">
-                    <h1 className="text-[24px] flex items-center mb-7 text-[#FF8682]">
+                  <div className="text-white text-lg w-[30vw] airbnbml:w-full">
+                    <h1 className="airbnbml:hidden text-[24px] flex items-center mb-7 text-[#FF8682]">
                       <span>
                         {" "}
                         <Button
@@ -302,7 +314,7 @@ const PackageStepper = (props) => {
                     </p>
                   </div>
                   <LazyLoadImage
-                    className="h-96 w-[40%] airbnbml:w-2/3 airbnbml:mx-auto  sm:w-auto  absolute object-cover right-[59px] bottom-0"
+                    className="h-96 w-[40%] airbnbml:w-2/3 airbnbml:mx-auto  sm:w-auto  absolute object-cover right-[59px] bottom-0 airbnbml:hidden"
                     src={props.imageLink6 ? props.imageLink6 : "-"}
                     alt="."
                   />
@@ -316,12 +328,14 @@ const PackageStepper = (props) => {
 
         {props.fullDescription7 ? (
           <Step>
-            <StepLabel>DAY 7</StepLabel>
+            <StepLabel onClick={() => setActiveStep(6)}>
+              <span className="text-lg airbnbml:text-xl font-bold">DAY 7</span>{" "}
+            </StepLabel>
             <StepContent>
-              <div className="py-8 px-9 ml-10 h-80 relative bg-[#050505]">
+              <div className="py-8 px-9 ml-10 h-80 relative bg-[#050505] airbnbml:h-auto ms:py-3 ms:px-4">
                 <div className="flex">
-                  <div className="text-white text-lg w-[30vw]">
-                    <h1 className="text-[24px] flex items-center mb-7 text-[#FF8682]">
+                  <div className="text-white text-lg w-[30vw] airbnbml:w-full">
+                    <h1 className="airbnbml:hidden text-[24px] flex items-center mb-7 text-[#FF8682]">
                       <span>
                         {" "}
                         <Button
@@ -354,7 +368,7 @@ const PackageStepper = (props) => {
                     </p>
                   </div>
                   <LazyLoadImage
-                    className="h-96 w-[40%] airbnbml:w-2/3 airbnbml:mx-auto  sm:w-auto  absolute object-cover right-[59px] bottom-0"
+                    className="h-96 w-[40%] airbnbml:w-2/3 airbnbml:mx-auto  sm:w-auto  absolute object-cover right-[59px] bottom-0 airbnbml:hidden"
                     src={props.imageLink7 ? props.imageLink7 : "-"}
                     alt="."
                   />
@@ -368,12 +382,14 @@ const PackageStepper = (props) => {
 
         {props.fullDescription8 ? (
           <Step>
-            <StepLabel>DAY 8</StepLabel>
+            <StepLabel onClick={() => setActiveStep(7)}>
+              <span className="text-lg airbnbml:text-xl font-bold">DAY 8</span>{" "}
+            </StepLabel>
             <StepContent>
-              <div className="py-8 px-9 ml-10 h-80 relative bg-[#050505]">
+              <div className="py-8 px-9 ml-10 h-80 relative bg-[#050505] airbnbml:h-auto ms:py-3 ms:px-4">
                 <div className="flex">
-                  <div className="text-white text-lg w-[30vw]">
-                    <h1 className="text-[24px] flex items-center mb-7 text-[#FF8682]">
+                  <div className="text-white text-lg w-[30vw] airbnbml:w-full">
+                    <h1 className="airbnbml:hidden text-[24px] flex items-center mb-7 text-[#FF8682]">
                       <span>
                         {" "}
                         <Button
@@ -406,7 +422,7 @@ const PackageStepper = (props) => {
                     </p>
                   </div>
                   <LazyLoadImage
-                    className="h-96 w-[40%] airbnbml:w-2/3 airbnbml:mx-auto  sm:w-auto  absolute object-cover right-[59px] bottom-0"
+                    className="h-96 w-[40%] airbnbml:w-2/3 airbnbml:mx-auto  sm:w-auto  absolute object-cover right-[59px] bottom-0 airbnbml:hidden"
                     src={props.imageLink8 ? props.imageLink8 : "-"}
                     alt="."
                   />
@@ -420,12 +436,14 @@ const PackageStepper = (props) => {
 
         {props.fullDescription9 ? (
           <Step>
-            <StepLabel>DAY 9</StepLabel>
+            <StepLabel onClick={() => setActiveStep(8)}>
+              <span className="text-lg airbnbml:text-xl font-bold">DAY 9</span>{" "}
+            </StepLabel>
             <StepContent>
-              <div className="py-8 px-9 ml-10 h-80 relative bg-[#050505]">
+              <div className="py-8 px-9 ml-10 h-80 relative bg-[#050505] airbnbml:h-auto ms:py-3 ms:px-4">
                 <div className="flex">
-                  <div className="text-white text-lg w-[30vw]">
-                    <h1 className="text-[24px] flex items-center mb-7 text-[#FF8682]">
+                  <div className="text-white text-lg w-[30vw] airbnbml:w-full">
+                    <h1 className="airbnbml:hidden text-[24px] flex items-center mb-7 text-[#FF8682]">
                       <span>
                         {" "}
                         <Button
@@ -458,7 +476,7 @@ const PackageStepper = (props) => {
                     </p>
                   </div>
                   <LazyLoadImage
-                    className="h-96 w-[40%] airbnbml:w-2/3 airbnbml:mx-auto  sm:w-auto  absolute object-cover right-[59px] bottom-0"
+                    className="h-96 w-[40%] airbnbml:w-2/3 airbnbml:mx-auto  sm:w-auto  absolute object-cover right-[59px] bottom-0 airbnbml:hidden"
                     src={props.imageLink9 ? props.imageLink9 : "-"}
                     alt="."
                   />
@@ -472,7 +490,9 @@ const PackageStepper = (props) => {
 
         {props.fullDescription10 ? (
           <Step>
-            <StepLabel>DAY 10</StepLabel>
+            <StepLabel onClick={() => setActiveStep(9)}>
+              <span className="text-lg airbnbml:text-xl font-bold">DAY 10</span>{" "}
+            </StepLabel>
             <StepContent>
               <div className="py-3">
                 <span className="text-slate-700 text-base">
@@ -498,12 +518,14 @@ const PackageStepper = (props) => {
 
         {props.fullDescription11 ? (
           <Step>
-            <StepLabel>DAY 11</StepLabel>
+            <StepLabel onClick={() => setActiveStep(10)}>
+              <span className="text-lg airbnbml:text-xl font-bold">DAY 11</span>{" "}
+            </StepLabel>
             <StepContent>
-              <div className="py-8 px-9 ml-10 h-80 relative bg-[#050505]">
+              <div className="py-8 px-9 ml-10 h-80 relative bg-[#050505] airbnbml:h-auto ms:py-3 ms:px-4">
                 <div className="flex">
-                  <div className="text-white text-lg w-[30vw]">
-                    <h1 className="text-[24px] flex items-center mb-7 text-[#FF8682]">
+                  <div className="text-white text-lg w-[30vw] airbnbml:w-full">
+                    <h1 className="airbnbml:hidden text-[24px] flex items-center mb-7 text-[#FF8682]">
                       <span>
                         {" "}
                         <Button
@@ -536,7 +558,7 @@ const PackageStepper = (props) => {
                     </p>
                   </div>
                   <LazyLoadImage
-                    className="h-96 w-[40%] airbnbml:w-2/3 airbnbml:mx-auto  sm:w-auto  absolute object-cover right-[59px] bottom-0"
+                    className="h-96 w-[40%] airbnbml:w-2/3 airbnbml:mx-auto  sm:w-auto  absolute object-cover right-[59px] bottom-0 airbnbml:hidden"
                     src={props.imageLink10 ? props.imageLink10 : "-"}
                     alt="."
                   />
