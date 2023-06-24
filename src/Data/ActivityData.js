@@ -2,7 +2,7 @@ const datas = [
   {
     id: 1,
     imageLink:
-      'https://lh3.googleusercontent.com/p/AF1QipPLXcuAg6P1ZVGQ8f2woCDX_UT1PAY-EV5r91S1=w296-h202-n-k-rw-no-v1',
+      'https://www.seawatersports.com/img/newimage/activies/slide/seakart-adventure-in-andaman-price.jpg',
 
     name: 'Seakart Adventure',
     duration: 'Corbyn’s Cove Beach, Port Blair',

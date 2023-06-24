@@ -105,7 +105,7 @@ const BusBanner = () => {
             buses?.map((bus) => <button
               onClick={() => handleNaviateSchedule(bus?.schedule)}
               className={`text-xl w-full font-montserrat text-zinc-100 bg-[#FF8782] h-12 mx-auto rounded-md px-2 ${screenWidth > 767 ? 'hidden' : 'block'}
-              ${screenWidth < 767 ? 'max-w-[604px]' : ''}
+              ${screenWidth < 768 ? 'max-w-[404px]' : ''}
               `}
             >
               {bus?.title === 'Government Bus' ? 'Govt. Bus' : bus.title} Schedule

@@ -23,7 +23,7 @@ const WaterSportActivity = () => {
             <iframe
                 src={iframeLink}
                 title="Embedded Content"
-                className={`rounded-xl ${screenWidth < 1224 ? 'w-full h-96' : 'w-10/12 h-72'}`}
+                className={`rounded-xl ${screenWidth < 1224 ? 'w-[75%] h-96 mx-auto' : 'w-10/12 h-72'}`}
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                 allowFullScreen
             ></iframe>

@@ -6,11 +6,16 @@ import { WaterContext } from '../../../context/UseWaterContext';
 import { MdAdd } from 'react-icons/md';
 import Footer from '../../../Component/Footer/Footer';
 import visa from '../../Bus/images/visa.png'
-import hotel from '../images/hotelname.png'
+// import hotel from '../images/hotelname.png'
 import { ImLocation2 } from 'react-icons/im';
+
 
 const WaterSportsPayment = () => {
     const [screenWidth, setScreenWidth] = useState(window.innerWidth);
+
+    const { waterBookingInfo, places } = useContext(WaterContext);
+    // console.log(waterBookingInfo)
+    const { bookingDetails } = waterBookingInfo || {};
 
     useEffect(() => {
         const handleResize = () => {
@@ -23,9 +28,8 @@ const WaterSportsPayment = () => {
             window.removeEventListener('resize', handleResize);
         };
     }, [screenWidth]);
-    const { waterBookingInfo } = useContext(WaterContext);
-    console.log(waterBookingInfo)
-    const { bookingDetails } = waterBookingInfo || {};
+    // const places = elements.find(place => place.name === waterBookingInfo.activity)
+    console.log(places)
     return (
         <>
             <Navforwithout />
@@ -35,8 +39,8 @@ const WaterSportsPayment = () => {
                     <div className='w-full max-w-[500px] h-[17px] ms:flex items-center justify-center lg:justify-between mb-10 font-montserrat flex-wrap hidden pt-11'>
                         <p className='font-medium text-sm text-white'>
 
-                            <a href='/Water-Sports'>
-                                Water-Sports
+                            <a href={`${places ? '/Water-Sports' : '/Trekking'}`}>
+                                {places ? 'Water-Sports' : 'Trekking'}
                             </a>
                         </p>
                         <HiOutlineChevronRight className='text-[#112211] mx-[14px]'></HiOutlineChevronRight>
@@ -59,11 +63,11 @@ const WaterSportsPayment = () => {
                         <div className="ms:hidden flex items-center mt-5 gap-2 z-50">
 
                             <div className='w-full max-w-[500px] h-[17px] flex items-center mb-6 font-montserrat flex-wrap'>
-                                <p className='font-medium text-sm text-[#FF8682]'>
-                                    <a href='/Water-Sports'>
-                                        Water-Sports
-                                    </a>
+                                <p className='font-medium text-sm text-red-400'>
 
+                                    <a href={places ? '/Water-Sports' : '/Trekking'}>
+                                        {places ? 'Water-Sports' : 'Trekking'}
+                                    </a>
                                 </p>
                                 <HiOutlineChevronRight className='text-[#112211] mx-[14px]'></HiOutlineChevronRight>
                                 <p className='font-medium text-sm text-[#FF8682]'>

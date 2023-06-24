@@ -283,7 +283,7 @@ const BusBookingSeats = () => {
                     </div>
                     <button
                         onClick={handleConfirmBooking}
-                        className={`px-14 bg-[#27273F] font-montserrat font-semibold text-sm h-[34px] rounded text-[#FFFFFF] mx-auto ml:block hidden ${screenWidth > 1500 && 'hidden'}`}>Checkout
+                        className={`w-[70%] bg-[#27273F] font-montserrat font-semibold text-sm h-10 rounded text-[#FFFFFF] mx-auto ml:block hidden ${screenWidth > 1500 && 'hidden'}`}>Checkout
                     </button>
                 </div>
 

@@ -4,7 +4,7 @@ import React, { useContext, useEffect, useState } from 'react';
 import { MdKeyboardArrowLeft, MdKeyboardArrowRight, MdKeyboardArrowUp } from 'react-icons/md';
 import { useNavigate } from 'react-router-dom';
 import { WaterContext } from '../../../context/UseWaterContext';
-// import elements from '../../../Data/ActivityData'
+
 
 const WaterSportCarousel = ({ elements }) => {
     const [currentIndex, setCurrentIndex] = useState(0)
@@ -67,11 +67,11 @@ const WaterSportCarousel = ({ elements }) => {
     }
     return (
         <>
-            <div className='my-28 font-montserrat relative px-16 ms:px-0 ms:my-0 z-50'>
+            <div className='mt-5 mb-32 font-montserrat relative px-16 ms:px-0 ms:my-0 z-50'>
 
                 {/* image and carousel indiacator start here */}
                 <div className='flex items-center ms:hidden'>
-                    <img src={images[currentIndex]} alt="" />
+                    <img className='w-full max-w-xl h-96' src={images[currentIndex]} alt="" />
                     <div className='ml-6'>
                         {
                             titles.map((_, i) => <p className={`w-3 h-3 rounded-full mb-4 ${i === currentIndex ? "bg-[#FF8682]" : 'bg-[#EAEAEA]'}`}></p>)
@@ -153,7 +153,7 @@ const WaterSportCarousel = ({ elements }) => {
                     </div>
                 </div>
                 {/* mobile responsive cards start here */}
-                <div className="absolute left-[-4vw] right-[-4vw] h-[340px] z-[-1] ms:bg-[#FF8682] pl-4 pr-3 pt-8 hidden ms:block">
+                <div className="absolute left-[-4vw] right-[-4vw] z-[-1] ms:bg-[#FF8682] pl-4 pr-3 pt-8 hidden ms:block">
                     <div className='hidden ms:block'>
                         {
                             elements.map((ms, index) => <div

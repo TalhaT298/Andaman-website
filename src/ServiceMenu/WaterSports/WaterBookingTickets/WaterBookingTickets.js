@@ -2,7 +2,7 @@ import React, { useContext, useEffect, useState } from 'react';
 import { WaterContext } from '../../../context/UseWaterContext';
 import { HiMinus, HiOutlineChevronRight, HiOutlinePlus } from 'react-icons/hi';
 import Navforwithout from '../../../Navforwithout';
-import banner from '../images/Banana-Boat-Rides-full.png'
+// import banner from '../images/Banana-Boat-Rides-full.png'
 import { FaStopwatch } from 'react-icons/fa';
 import WeekPicker from '../WeekPicker/WeekPicker';
 import emailjs from '@emailjs/browser';
@@ -17,13 +17,12 @@ const WaterBookingTickets = () => {
         phone: ''
     })
     const [screenWidth, setScreenWidth] = useState(window.innerWidth);
-    const { waterBookingInfo, setWaterBookingInfo } = useContext(WaterContext);
+    const { waterBookingInfo, setWaterBookingInfo, places } = useContext(WaterContext);
     console.log(waterBookingInfo);
 
     useEffect(() => {
         const handleResize = () => {
             setScreenWidth(window.innerWidth);
-            // console.log(screenWidth);
         };
 
         window.addEventListener('resize', handleResize);
@@ -36,6 +35,7 @@ const WaterBookingTickets = () => {
     const { fullDate } = waterBookingInfo;
 
     const date = new Date().toDateString();
+    // console.log(date)
 
     const handleIncreaseTicket = () => {
         setTotalTicket(totalTicket + 1)
@@ -49,16 +49,21 @@ const WaterBookingTickets = () => {
         }
     }
 
+    const selectedDate = fullDate
+        ? `${fullDate?.month} ${fullDate?.date} ${fullDate?.year}`
+        : new Date().toDateString();
+
     const tripdetails = [{
         'Location': bookingDetails?.location,
         'Tickets': totalTicket,
-        'Date': waterBookingInfo?.month + ' ' + waterBookingInfo?.date
+        'Date': selectedDate
     }].map((detail) => {
         return `Location:${detail?.Location}
         Tickets:${detail?.Tickets}
         Date:${detail?.Date}
         `
     })
+    console.log(tripdetails)
     const contactEmailContent = [bookingDetails]?.map(contact => {
         return `Name: ${contact?.name}
         phone: ${contact?.phone}`;
@@ -106,14 +111,14 @@ const WaterBookingTickets = () => {
                 <div className='w-full max-w-[300px] h-4 flex items-center justify-between mb-[22px]'>
                     <p className='font-medium text-sm text-black'>
                         {/* <Link to={'/Bus'}>Bus</Link> */}
-                        <a href='/Water-Sports'>Water-sports</a>
+                        <a href={`${places ? '/Water-Sports' : '/Trekking'}`}>{places ? 'Water-sports' : 'Trekking'}</a>
                     </p>
                     <HiOutlineChevronRight className='text-[#112211] mx-[14px]'></HiOutlineChevronRight>
                     <p className='font-medium text-sm  whitespace-nowrap text-[#FF8682]'>
                         {/* <Link to={'/Bus'}>
                             {bookingInfo?.busName}
                         </Link> */}
-                        <a href='/Bus'>
+                        <a href='/water/tickets'>
                             {waterBookingInfo?.activity}
                         </a>
                     </p>
@@ -132,8 +137,8 @@ const WaterBookingTickets = () => {
                 </div>
 
                 {/* image section starts here */}
-                <div className='my-[49px] ms:my-5 ms:w-full'>
-                    <img src={banner} alt="banner" />
+                <div className='my-[49px] ms:my-5 w-full'>
+                    <img className='w-full rounded-[10px] h-96 object-cover' src={waterBookingInfo?.image} alt="location banner picturee" />
                 </div>
                 {/* image section finish here  */}
 
@@ -165,7 +170,7 @@ const WaterBookingTickets = () => {
                     </div>
                     {/* ticket part starts here */}
                     <div
-                        onSubmit={handleBookTickets}
+                        // onSubmit={handleBookTickets}
                         className={`flex items-center flex-col justify-between mb-[18px] font-popins py-6 px-11 rounded-xl w-full max-w-lg`} style={{
                             boxShadow: '0px 4px 16px 0px #1122110D'
                         }}>
