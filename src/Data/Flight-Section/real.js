@@ -1540,6 +1540,148 @@ const flight = [
         }
     },
 
+    {
+        flightID: 56,
+        flightDate: '03-08-2023',
+        flightGateway: 'Terminal 1',
+        flightLogo: 'https://res.cloudinary.com/dmqgkr30q/image/upload/v1689782096/spicejetlogo_vrndyy.png',
+        flightName: 'SpiceJet',
+        flightNo: 'SG- 609',
+        travelRoute: 'MAA-IXZ',
+        currentDestination: 'Chennai',
+        flightInterval: 'non-stop', // 1 stoppages // 2 stoppages
+        nextDestination: 'Port Blair',
+        departureTime: '8:40',
+        arrivalTime: '10:55',
+        flightDuration: '02h 15m',
+        flightLocation: "",
+        adultPrice: 6675,
+        fare: 5800,
+        tax: 875,
+        discount: 560,
+        childrenPrice: 3000, // this is just dummy price
+        infantPrice: 2000, // this is just dummy price
+        refund: 'Refundable',
+        meals: 'NM',
+        baggage: {
+            handBag: '7kg',
+            checkIn: '15kg',
+        }
+    },
+
+    {
+        flightID: 57,
+        flightDate: '03-08-2023',
+        flightGateway: 'Terminal 1',
+        flightLogo: 'https://res.cloudinary.com/dmqgkr30q/image/upload/v1689786758/IndiGo_Airlines_logo.svg_dayuu4.png',
+        flightName: 'Indigo',
+        flightNo: '6E - 6213',
+        travelRoute: 'MAA-IXZ',
+        currentDestination: 'Chennai',
+        flightInterval: 'non-stop', // 1 stoppages // 2 stoppages
+        nextDestination: 'Port Blair',
+        departureTime: '04:55',
+        arrivalTime: '07:10',
+        flightDuration: '02h 10m',
+        flightLocation: "North landing Guide road. No:8, Chennai 34437",
+        adultPrice: 8196,
+        fare: 7247,
+        tax: 949,
+        childrenPrice: 3000, // this is just dummy price
+        infantPrice: 2000, // this is just dummy price
+        refund: 'Partially Refundable',
+        meals: 'NM',
+        baggage: {
+            handBag: '7kg',
+            checkIn: '15kg',
+        }
+    },
+
+    {
+        flightID: 58,
+        flightDate: '03-08-2023',
+        flightGateway: 'Terminal 1',
+        flightLogo: 'https://res.cloudinary.com/dmqgkr30q/image/upload/v1689786758/IndiGo_Airlines_logo.svg_dayuu4.png',
+        flightName: 'Indigo',
+        flightNo: '6E - 548',
+        travelRoute: 'MAA-IXZ',
+        currentDestination: 'Chennai',
+        flightInterval: 'non-stop', // 1 stoppages // 2 stoppages
+        nextDestination: 'Port Blair',
+        departureTime: '11:00',
+        arrivalTime: '13:10',
+        flightDuration: '02h 10m',
+        flightLocation: "North landing Guide road. No:8, Chennai 34437",
+        adultPrice: 9242,
+        fare: 8247,
+        tax: 995,
+        childrenPrice: 3000, // this is just dummy price
+        infantPrice: 2000, // this is just dummy price
+        refund: 'Partially Refundable',
+        meals: 'NM',
+        baggage: {
+            handBag: '7kg',
+            checkIn: '15kg',
+        }
+    },
+
+    {
+        flightID: 59,
+        flightDate: '03-08-2023',
+        flightGateway: 'Terminal 1',
+        flightLogo: 'https://res.cloudinary.com/dmqgkr30q/image/upload/v1689782882/AI_dnchrb.png',
+        flightName: 'Air India',
+        flightNo: 'AI- 549',
+        travelRoute: 'IXZ-MAA',
+        currentDestination: 'Port Blair',
+        flightInterval: 'non-stop', // 1 stoppages // 2 stoppages
+        nextDestination: 'Chennai',
+        departureTime: '05:05',
+        arrivalTime: '07:20',
+        flightDuration: '02h 15m',
+        flightLocation: "",
+        adultPrice: 9722,
+        fare: 8742,
+        tax: 980,
+        childrenPrice: 3000, // this is just dummy price
+        infantPrice: 2000, // this is just dummy price
+        refund: 'Non Refundable',
+        meals: 'Free Meals',
+        baggage: {
+            handBag: '8kg',
+            checkIn: '20kg',
+        }
+    },
+
+    {
+        flightID: 60,
+        flightDate: '03-08-2023',
+        flightGateway: 'Terminal 1',
+        flightLogo: 'https://res.cloudinary.com/dmqgkr30q/image/upload/v1689786758/IndiGo_Airlines_logo.svg_dayuu4.png',
+        flightName: 'Indigo',
+        flightNo: ['6E-6411', '6E-2788'],
+        travelRoute: ['MAA-CCU', 'CCU-IXZ'],
+        currentDestination: ['Chennai', 'Kolkata'],
+        flightInterval: '1 stop CCU', // 1 stoppages // 2 stoppages
+        flightIntervalTime: '07h 25m',
+        nextDestination: ['Kolkata', 'Port Blair'],
+        departureTime: ['19:55', '05:50'],
+        arrivalTime: ['22:25', '08:10'],
+        flightDuration: ['02h 30m', '02h 20m'],
+        flightLocation: "",
+        adultPrice: 10555,
+        fare: 9448,
+        tax: 1107,
+        childrenPrice: 3000, // this is just dummy price
+        infantPrice: 2000, // this is just dummy price
+        refund: 'Partially Refundable',
+        meals: 'NM',
+        baggage: {
+            handBag: '7kg',
+            checkIn: '15kg',
+        }
+    },
+
 ];
 
 export default flight;
