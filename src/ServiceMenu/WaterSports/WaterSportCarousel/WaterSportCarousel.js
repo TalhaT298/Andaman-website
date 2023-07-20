@@ -25,6 +25,15 @@ const WaterSportCarousel = ({ elements }) => {
         };
     }, [screenWidth]);
 
+    // const store = elements?.map((element) => ({
+    //     imgSrc: element?.imageLink,
+    //     title: element?.name,
+    //     duration: element.duration,
+    //     videoSrc: element.iframeLink,
+    //     description: element.fullDescription
+    // }))
+    // console.log(store)
+
     const images = elements?.map(link => link?.imageLink)
     const titles = elements?.map(name => name?.name)
     const duration = elements?.map(location => location?.duration)

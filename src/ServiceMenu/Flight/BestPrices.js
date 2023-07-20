@@ -26,7 +26,7 @@ const BestPrices = () => {
           <>
             <Link
               to={"/FlightPreview"}
-              className="py-3 flex-col  mx-auto my-auto "
+              className="py-3 flex-col mx-auto my-auto "
             >
               {/* flight ? <div>{JSON.stringify(flight)}</div> : <div>Loading...</div> */}
               <div className="flex-row bg-white rounded-xl w-auto py-8 h-auto shadow-[0px_4px_16px_rgba(17,34,17,0.05)] transition:origin-center hover:ease-in-out hover:scale-105 transition:duration-1000 transition-transform">
@@ -49,11 +49,10 @@ const BestPrices = () => {
                       <div className="ms:block hidden">
                         <p className="font-semibold">₹ {props.adultPrice}</p>
                         <p>
-                          {`${
-                            travellerInfo.adult +
+                          {`${travellerInfo.adult +
                             travellerInfo.children +
                             travellerInfo.infant
-                          }`}{" "}
+                            }`}{" "}
                           Seat
                         </p>
                       </div>

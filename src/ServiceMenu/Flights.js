@@ -1,5 +1,6 @@
 import React, { lazy } from 'react';
 import flight from '../Data/Flight-Section/flight';
+// import flight from '../Data/Flight-Section/real';
 
 import { useDataContext } from '../context/useDataContext';
 import FlightSearch from './Flight/FlightSearch';
@@ -12,7 +13,7 @@ const Flights = () => {
   //Filter feature
   // const [currentDestinationFilter, setCurrentDestinationFilter] = useState('');
   // const [nextDestinationFilter, setNextDestinationFilter] = useState('');
-const {currentDestinationFilter, setCurrentDestinationFilter,nextDestinationFilter, setNextDestinationFilter,flightSearch}=useDataContext();
+  const { currentDestinationFilter, setCurrentDestinationFilter, nextDestinationFilter, setNextDestinationFilter, flightSearch } = useDataContext();
 
   const flightData = flight
     .filter((airplane) =>
@@ -25,14 +26,14 @@ const {currentDestinationFilter, setCurrentDestinationFilter,nextDestinationFilt
     )
     .map((airplane, index) => {
       return (<> {flightSearch &&
-      <FlightCover key={airplane.flightID} {...airplane} />}
+        <FlightCover key={airplane.flightID} {...airplane} />}
       </>
       );
     });
 
   return (
-    <div className="pt-10 h-full w-full relative" style={{fontFamily:"Montserrat"}}>
-      
+    <div className="pt-10 h-full w-full relative" style={{ fontFamily: "Montserrat" }}>
+
       {/* <div className="flex">
         <div className="flex-col mx-auto mt-5 mb-10 space-y-5">
           <p className="lg:text-2xl text-3xl font-Nunito_Sans font-semibold text-slate-400">
@@ -64,11 +65,11 @@ const {currentDestinationFilter, setCurrentDestinationFilter,nextDestinationFilt
             </center>
           ) : (
             flightData
-          )):( <center>
+          )) : (<center>
             <h1 className="my-20 text-3xl font bold">Search your destination</h1>
           </center>)
         }
-     
+
       </div>
       <BestPrices />
     </div>

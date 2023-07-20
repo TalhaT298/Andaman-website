@@ -3,12 +3,13 @@ import { IoIosAirplane } from "react-icons/io";
 import { Link } from "react-router-dom";
 import { useDataContext } from "../../context/useDataContext";
 import flightIcon from "../../images/flightIcon.png";
-import flightLogo from "../../images/flightlogo.png";
+// import flightLogo from "../../images/flightlogo.png";
 
 // Always remember, the data we fetch from firebase is in objects, so, we will have to convert it into an array of objects that's why we have used
 // here Object.values in flightsData
 
 const FlightCover = (props) => {
+  const { flightLogo } = props;
   const { startingDate: date, travellerInfo, setCoverData } = useDataContext();
 
   useEffect(() => {
@@ -17,13 +18,13 @@ const FlightCover = (props) => {
 
   return (
     <div key={props.flightID}>
-      <Link to={"/FlightPreview"} className="py-3 flex-col  mx-auto my-auto ">
+      <Link to={"/FlightPreview"} className="py-3 flex-col mx-auto my-auto ">
         {/* flight ? <div>{JSON.stringify(flight)}</div> : <div>Loading...</div> */}
         <div className="flex-row bg-white rounded-xl w-auto py-8 h-auto shadow-[0px_4px_16px_rgba(17,34,17,0.05)] transition:origin-center hover:ease-in-out hover:scale-105 transition:duration-1000 transition-transform">
           <div className="text-[#112211] flex items-center md:gap-5 gap-16  mx-auto py-auto md:px-8 px-10 text-center  w-full xs:flex-col xs:py-2 xs:gap-y-3">
             <div className="ms:hidden">
               <img src={flightLogo} alt="flight-logo" className="w-20 h-14" />{" "}
-              <h4 className="text-lg font-semibold">Emirates</h4>{" "}
+              {/* <h4 className="text-lg font-semibold">Emirates</h4>{" "} */}
               <p className="text-[#112211] text-sm">{props.flightName}</p>
             </div>
             <div className="w-full">
@@ -35,11 +36,10 @@ const FlightCover = (props) => {
                 <div className="ms:block hidden text-end">
                   <p className="font-semibold">₹ {props.adultPrice}</p>
                   <p>
-                    {`${
-                      travellerInfo.adult +
+                    {`${travellerInfo.adult +
                       travellerInfo.children +
                       travellerInfo.infant
-                    }`}{" "}
+                      }`}{" "}
                     Seat
                   </p>
                 </div>
