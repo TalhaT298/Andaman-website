@@ -1068,8 +1068,8 @@ const flight = [
         flightInterval: '1 stop CCU', // 1 stoppages // 2 stoppages
         flightIntervalTime: '07h 25m',
         nextDestination: ['Kolkata', 'Port Blair'],
-        departureTime: ['19:55', '22.25'],
-        arrivalTime: ['05.50', '08:10'],
+        departureTime: ['19:55', '05.50'],
+        arrivalTime: ['22.25', '08:10'],
         flightDuration: ['02h 30m', '02h 20m'],
         flightLocation: "",
         adultPrice: 6936,
@@ -1324,8 +1324,8 @@ const flight = [
         flightInterval: '1 stop CCU', // 1 stoppages // 2 stoppages
         flightIntervalTime: '07h 25m',
         nextDestination: ['Kolkata', 'Port Blair'],
-        departureTime: ['05:10', '07.40'],
-        arrivalTime: ['09.15', '11.25'],
+        departureTime: ['05:10', '09.15'],
+        arrivalTime: ['07.40', '11.25'],
         flightDuration: ['02h 30m', '02h 10m'],
         flightLocation: "",
         adultPrice: 10555,
@@ -1352,8 +1352,8 @@ const flight = [
         flightInterval: '1 stop CCU', // 1 stoppages // 2 stoppages
         flightIntervalTime: '07h 25m',
         nextDestination: ['Kolkata', 'Port Blair'],
-        departureTime: ['19:55', '22:25'],
-        arrivalTime: ['05:50', '08:10'],
+        departureTime: ['19:55', '05:50'],
+        arrivalTime: ['22:25', '08:10'],
         flightDuration: ['02h 30m', '02h 10m'],
         flightLocation: "",
         adultPrice: 10559,
@@ -1429,7 +1429,7 @@ const flight = [
 
     {
         flightID: 52,
-        flightDate: '01-08-2023',
+        flightDate: '02-08-2023',
         flightGateway: 'Terminal 1',
         flightLogo: 'https://res.cloudinary.com/dmqgkr30q/image/upload/v1689786758/IndiGo_Airlines_logo.svg_dayuu4.png',
         flightName: 'Indigo',
@@ -1445,6 +1445,91 @@ const flight = [
         adultPrice: 6936,
         fare: 6047,
         tax: 889,
+        childrenPrice: 3000, // this is just dummy price
+        infantPrice: 2000, // this is just dummy price
+        refund: 'Partially Refundable',
+        meals: 'NM',
+        baggage: {
+            handBag: '7kg',
+            checkIn: '15kg',
+        }
+    },
+
+    {
+        flightID: 53,
+        flightDate: '02-08-2023',
+        flightGateway: 'Terminal 1',
+        flightLogo: 'https://res.cloudinary.com/dmqgkr30q/image/upload/v1689786758/IndiGo_Airlines_logo.svg_dayuu4.png',
+        flightName: 'Indigo',
+        flightNo: '6E - 548',
+        travelRoute: 'MAA-IXZ',
+        currentDestination: 'Chennai',
+        flightInterval: 'non-stop', // 1 stoppages // 2 stoppages
+        nextDestination: 'Port Blair',
+        departureTime: '11:00',
+        arrivalTime: '13:10',
+        flightDuration: '02h 10m',
+        flightLocation: "North landing Guide road. No:8, Chennai 34437",
+        adultPrice: 7562,
+        fare: 6647,
+        tax: 915,
+        childrenPrice: 3000, // this is just dummy price
+        infantPrice: 2000, // this is just dummy price
+        refund: 'Partially Refundable',
+        meals: 'NM',
+        baggage: {
+            handBag: '7kg',
+            checkIn: '15kg',
+        }
+    },
+
+    {
+        flightID: 54,
+        flightDate: '02-08-2023',
+        flightGateway: 'Terminal 1',
+        flightLogo: 'https://res.cloudinary.com/dmqgkr30q/image/upload/v1689786758/IndiGo_Airlines_logo.svg_dayuu4.png',
+        flightName: 'Indigo',
+        flightNo: ['6E-6411', '6E-2788'],
+        travelRoute: ['MAA-CCU', 'CCU-IXZ'],
+        currentDestination: ['Chennai', 'Kolkata'],
+        flightInterval: '1 stop CCU', // 1 stoppages // 2 stoppages
+        flightIntervalTime: '07h 25m',
+        nextDestination: ['Kolkata', 'Port Blair'],
+        departureTime: ['19:55', '05:50'],
+        arrivalTime: ['22:25', '08:10'],
+        flightDuration: ['02h 30m', '02h 20m'],
+        flightLocation: "",
+        adultPrice: 10559,
+        fare: 9448,
+        tax: 1111,
+        childrenPrice: 3000, // this is just dummy price
+        infantPrice: 2000, // this is just dummy price
+        refund: 'Partially Refundable',
+        meals: 'NM',
+        baggage: {
+            handBag: '7kg',
+            checkIn: '15kg',
+        }
+    },
+    {
+        flightID: 55,
+        flightDate: '02-08-2023',
+        flightGateway: 'Terminal 1',
+        flightLogo: 'https://res.cloudinary.com/dmqgkr30q/image/upload/v1689782882/AI_dnchrb.png',
+        flightName: 'Air India',
+        flightNo: ['Ai-786', 'Ai-787'],
+        travelRoute: ['MAA-CCU', 'CCU-IXZ'],
+        currentDestination: ['Chennai', 'Kolkata'],
+        flightInterval: '1 stop CCU', // 1 stoppages // 2 stoppages
+        flightIntervalTime: '18h 55m',
+        nextDestination: ['Kolkata', 'Port Blair'],
+        departureTime: ['08.10', '05:35'],
+        arrivalTime: ['10.40', '08:00'],
+        flightDuration: ['02h 30m', '02h 25m'],
+        flightLocation: "",
+        adultPrice: 10917,
+        fare: 9721,
+        tax: 1196,
         childrenPrice: 3000, // this is just dummy price
         infantPrice: 2000, // this is just dummy price
         refund: 'Partially Refundable',
