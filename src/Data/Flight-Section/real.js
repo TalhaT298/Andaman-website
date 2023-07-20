@@ -28,33 +28,33 @@ const flight = [
             checkIn: '15kg',
         }
     },
-    // {
-    //     flightID: 2,
-    //     flightDate: '27-07-2023',
-    //     flightGateway: 'Terminal 1',
-    //     flightLogo: 'https://res.cloudinary.com/dmqgkr30q/image/upload/v1689782882/AI_dnchrb.png',
-    //     flightName: 'Air India',
-    //     flightNo: 'AI- 550',
-    //     travelRoute: 'IXZ-MAA',
-    //     currentDestination: 'Port Blair',
-    //     flightInterval: 'non-stop', // 1 stoppages // 2 stoppages
-    //     nextDestination: 'Chennai',
-    //     departureTime: '08:05',
-    //     arrivalTime: '10:20',
-    //     flightDuration: '02h 15m',
-    //     flightLocation: "North landing Guide road. No:8, Chennai 34437",
-    //     adultPrice: 7325,
-    //     fare: 6000,
-    //     tax: 1325,
-    //     childrenPrice: 3000, // this is just dummy price
-    //     infantPrice: 2000, // this is just dummy price
-    //     refund: 'Non Refundable',
-    //     meals: 'Free Meals',
-    //     baggage: {
-    //         handBag: '8kg',
-    //         checkIn: '20kg',
-    //     }
-    // },
+    {
+        flightID: 2,
+        flightDate: '27-07-2023',
+        flightGateway: 'Terminal 1',
+        flightLogo: 'https://res.cloudinary.com/dmqgkr30q/image/upload/v1689782882/AI_dnchrb.png',
+        flightName: 'Air India',
+        flightNo: 'AI- 550',
+        travelRoute: 'IXZ-MAA',
+        currentDestination: 'Port Blair',
+        flightInterval: 'non-stop', // 1 stoppages // 2 stoppages
+        nextDestination: 'Chennai',
+        departureTime: '08:05',
+        arrivalTime: '10:20',
+        flightDuration: '02h 15m',
+        flightLocation: "North landing Guide road. No:8, Chennai 34437",
+        adultPrice: 7325,
+        fare: 6000,
+        tax: 1325,
+        childrenPrice: 3000, // this is just dummy price
+        infantPrice: 2000, // this is just dummy price
+        refund: 'Non Refundable',
+        meals: 'Free Meals',
+        baggage: {
+            handBag: '8kg',
+            checkIn: '20kg',
+        }
+    },
     // {
     //     flightID: 3,
     //     flightDate: '27-07-2023',
