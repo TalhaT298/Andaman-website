@@ -109,33 +109,33 @@ const flight = [
             checkIn: '20kg',
         }
     },
-    // {
-    //     flightID: 5,
-    //     flightDate: '28-07-2023',
-    //     flightGateway: 'Terminal 1',
-    //     flightLogo: 'https://res.cloudinary.com/dmqgkr30q/image/upload/v1689786758/IndiGo_Airlines_logo.svg_dayuu4.png',
-    //     flightName: 'Indigo',
-    //     flightNo: '6E - 312',
-    //     travelRoute: 'IXZ-MAA',
-    //     currentDestination: 'Port Blair',
-    //     flightInterval: 'non-stop', // 1 stoppages // 2 stoppages
-    //     nextDestination: 'Chennai',
-    //     departureTime: '07:40',
-    //     arrivalTime: '09:35',
-    //     flightDuration: '01h 55m',
-    //     flightLocation: "North landing Guide road. No:8, Chennai 34437",
-    //     adultPrice: 8963,
-    //     fare: 7550,
-    //     tax: 1413,
-    //     childrenPrice: 3000, // this is just dummy price
-    //     infantPrice: 2000, // this is just dummy price
-    //     refund: 'Partially Refundable',
-    //     meals: 'NM',
-    //     baggage: {
-    //         handBag: '7kg',
-    //         checkIn: '15kg',
-    //     }
-    // },
+    {
+        flightID: 5,
+        flightDate: '28-07-2023',
+        flightGateway: 'Terminal 1',
+        flightLogo: 'https://res.cloudinary.com/dmqgkr30q/image/upload/v1689786758/IndiGo_Airlines_logo.svg_dayuu4.png',
+        flightName: 'Indigo',
+        flightNo: '6E - 312',
+        travelRoute: 'IXZ-MAA',
+        currentDestination: 'Port Blair',
+        flightInterval: 'non-stop', // 1 stoppages // 2 stoppages
+        nextDestination: 'Chennai',
+        departureTime: '07:40',
+        arrivalTime: '09:35',
+        flightDuration: '01h 55m',
+        flightLocation: "North landing Guide road. No:8, Chennai 34437",
+        adultPrice: 8963,
+        fare: 7550,
+        tax: 1413,
+        childrenPrice: 3000, // this is just dummy price
+        infantPrice: 2000, // this is just dummy price
+        refund: 'Partially Refundable',
+        meals: 'NM',
+        baggage: {
+            handBag: '7kg',
+            checkIn: '15kg',
+        }
+    },
     // {
     //     flightID: 6,
     //     flightDate: '29-07-2023',
