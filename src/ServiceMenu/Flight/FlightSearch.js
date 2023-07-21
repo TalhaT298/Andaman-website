@@ -10,7 +10,9 @@ const Options = lazy(() => import("./Options"));
 const FlightSearch = (props) => {
   // const [origin, setOrigin] = useState("Port Blair");
   // const [destination, setDestination] = useState("Chennai");
-  const { twoWay, setTwoWay, setStartingDate, setFlightSearch } =
+  const { twoWay, setTwoWay,
+    // setStartingDate,
+    setFlightSearch } =
     useDataContext();
   const [departDate, setDepartDate] = useState("Chennai");
   const [returnDate, setReturnDate] = useState("Port Blair");
@@ -20,6 +22,7 @@ const FlightSearch = (props) => {
       key: "selection",
     },
   ]);
+  // console.log(startingDateState)
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -36,9 +39,8 @@ const FlightSearch = (props) => {
           onClick={() => {
             setTwoWay(false);
           }}
-          className={`${
-            !twoWay && "ms:text-slate-800 text-slate-800 font-[500] bg-white"
-          } font-lg text-slate-400 ms:text-slate-100 font-mono border-2 ms:rounded-3xl px-4 py-2 hover:bg-white  hover:text-slate-800 cursor-pointer`}
+          className={`${!twoWay && "ms:text-slate-800 text-slate-800 font-[500] bg-white"
+            } font-lg text-slate-400 ms:text-slate-100 font-mono border-2 ms:rounded-3xl px-4 py-2 hover:bg-white  hover:text-slate-800 cursor-pointer`}
         >
           One Way
         </span>
@@ -46,9 +48,8 @@ const FlightSearch = (props) => {
           onClick={() => {
             setTwoWay(true);
           }}
-          className={`${
-            twoWay && "text-slate-800 ms:text-slate-800 font-[500] bg-white"
-          } font-lg text-slate-400 ms:text-slate-100 font-mono border-2 ms:rounded-3xl px-4 py-2 hover:bg-white  hover:text-slate-800 cursor-pointer`}
+          className={`${twoWay && "text-slate-800 ms:text-slate-800 font-[500] bg-white"
+            } font-lg text-slate-400 ms:text-slate-100 font-mono border-2 ms:rounded-3xl px-4 py-2 hover:bg-white  hover:text-slate-800 cursor-pointer`}
         >
           Two Way
         </span>

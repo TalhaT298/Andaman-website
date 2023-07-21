@@ -32,6 +32,7 @@ export const DataProvider = ({ children }) => {
     },
   ]);
 
+  // console.log(startingDate)
   // Return State
 
   const [endingDate, setEndingDate] = useState([

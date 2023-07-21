@@ -9,6 +9,7 @@ import flightIcon from "../../images/flightIcon.png";
 // here Object.values in flightsData
 
 const FlightCover = (props) => {
+  console.log(props)
   const { flightLogo } = props;
   const { startingDate: date, travellerInfo, setCoverData } = useDataContext();
 

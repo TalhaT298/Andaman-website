@@ -1,11 +1,12 @@
 import React, { lazy } from 'react';
-import flight from '../Data/Flight-Section/flight';
-// import flight from '../Data/Flight-Section/real';
+// import flight from '../Data/Flight-Section/flight';
+import flight from '../Data/Flight-Section/real';
 
 import { useDataContext } from '../context/useDataContext';
 import FlightSearch from './Flight/FlightSearch';
 // const FlightCover = lazy(() => import('./Flight/FlightCover'));
 import FlightCover from './Flight/FlightCover';
+import { format, parse } from 'date-fns';
 
 const BestPrices = lazy(() => import('./Flight/BestPrices'));
 
@@ -13,7 +14,15 @@ const Flights = () => {
   //Filter feature
   // const [currentDestinationFilter, setCurrentDestinationFilter] = useState('');
   // const [nextDestinationFilter, setNextDestinationFilter] = useState('');
-  const { currentDestinationFilter, setCurrentDestinationFilter, nextDestinationFilter, setNextDestinationFilter, flightSearch } = useDataContext();
+  const { currentDestinationFilter, setCurrentDestinationFilter, nextDestinationFilter, setNextDestinationFilter, flightSearch, startingDate } = useDataContext();
+
+  // console.log(startingDate[0].startDate.toDateString())
+
+  const parseDate = parse(startingDate[0].startDate.toDateString(), 'EEE MMM dd yyyy', new Date());
+  // console.log(parseDate)
+  const formatedDate = format(parseDate, 'dd-MM-yyyy')
+  // console.log(formatedDate)
+
 
   const flightData = flight
     .filter((airplane) =>
@@ -24,6 +33,7 @@ const Flights = () => {
       nextDestinationFilter === '' ||
       airplane.nextDestination === nextDestinationFilter
     )
+    .filter((airplane) => airplane.flightDate === formatedDate)
     .map((airplane, index) => {
       return (<> {flightSearch &&
         <FlightCover key={airplane.flightID} {...airplane} />}
@@ -31,6 +41,7 @@ const Flights = () => {
       );
     });
 
+  console.log(flightData)
   return (
     <div className="pt-10 h-full w-full relative" style={{ fontFamily: "Montserrat" }}>
 
