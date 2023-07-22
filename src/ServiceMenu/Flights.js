@@ -19,19 +19,17 @@ const Flights = () => {
   // console.log(startingDate[0].startDate.toDateString())
 
   const parseDate = parse(startingDate[0].startDate.toDateString(), 'EEE MMM dd yyyy', new Date());
-  // console.log(parseDate)
   const formatedDate = format(parseDate, 'dd-MM-yyyy')
-  // console.log(formatedDate)
-
 
   const flightData = flight
     .filter((airplane) =>
       currentDestinationFilter === '' ||
-      airplane.currentDestination === currentDestinationFilter
+      airplane.currentDestination[0]?.toLowerCase() === currentDestinationFilter?.toLowerCase()
     )
     .filter((airplane) =>
       nextDestinationFilter === '' ||
-      airplane.nextDestination === nextDestinationFilter
+        airplane.nextDestination?.length > 1 ?
+        airplane.nextDestination[1]?.toLowerCase() : airplane.nextDestination[0]?.toLowerCase() === nextDestinationFilter?.toLowerCase()
     )
     .filter((airplane) => airplane.flightDate === formatedDate)
     .map((airplane, index) => {
@@ -41,7 +39,7 @@ const Flights = () => {
       );
     });
 
-  console.log(flightData)
+  // console.log(flightData)
   return (
     <div className="pt-10 h-full w-full relative" style={{ fontFamily: "Montserrat" }}>
 

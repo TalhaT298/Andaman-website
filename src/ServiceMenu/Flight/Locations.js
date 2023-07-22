@@ -14,6 +14,7 @@ const Locations = ({
   // //search feature
   // setSearchOriginTerm(origin)
   // setSearchDestTerm(destination)
+  console.log(departDate, returnDate)
   const [isVisible, setIsVisible] = useState(false);
   const [isVisible2, setIsVisible2] = useState(false);
   const [isReverse, setIsReverse] = useState(false);
@@ -24,9 +25,11 @@ const Locations = ({
     new Set(flight.map((airplane) => airplane.nextDestination))
   );
 
+  // console.log(currentDestinationOptions)
+
   return (
     <>
-      <div className=" relative">
+      <div className="relative">
         <div className="hidden sxl:flex justify-center items-center place-content-center border border-slate-700 rounded-full w-12 h-12 pl-3 absolute top-16 right-10 z-10 bg-white">
           <img
             className="max-w-none mr-3"
@@ -36,9 +39,8 @@ const Locations = ({
           />
         </div>
         <div
-          className={`${
-            isReverse && "transform sxl:translate-y-20"
-          } transition-transform duration-300 ease-linear h-auto sxl:w-full w-48  flex flex-col gap-y-3 mx-auto px-auto py-2 airbnbml:items-center airbnbml:border-b-transparent`}
+          className={`${isReverse && "transform sxl:translate-y-20"
+            } transition-transform duration-300 ease-linear h-auto sxl:w-full w-48  flex flex-col gap-y-3 mx-auto px-auto py-2 airbnbml:items-center airbnbml:border-b-transparent`}
         >
           <fieldset
             className="flex items-center space-x-2 cursor-pointer border w-full p-2 bottom-1"
@@ -58,7 +60,7 @@ const Locations = ({
               // key={destination}
               className=" bg-white w-56 col-span-1 rounded absolute top-20 left-0 z-10 
               py-3 text-start px-5  space-y-2 border-solid border-2"
-              // onClick={() => setNextDestinationFilter(destination)}
+            // onClick={() => setNextDestinationFilter(destination)}
             >
               {currentDestinationOptions.map((destination) => (
                 <button
@@ -75,9 +77,8 @@ const Locations = ({
         </div>
       </div>
       <div
-        className={`${
-          isReverse && "transform sxl:-translate-y-20"
-        } transition-transform duration-300 ease-linear h-auto w-full flex flex-col gap-y-3 relative mx-auto px-auto py-2 airbnbml:items-center airbnbml:border-b-transparent`}
+        className={`${isReverse && "transform sxl:-translate-y-20"
+          } transition-transform duration-300 ease-linear h-auto w-full flex flex-col gap-y-3 relative mx-auto px-auto py-2 airbnbml:items-center airbnbml:border-b-transparent`}
       >
         <fieldset
           className="flex items-center space-x-2 cursor-pointer border w-full p-2 bottom-1"
@@ -94,7 +95,7 @@ const Locations = ({
             // key={destination}
             className=" bg-white w-56 col-span-1 rounded absolute top-20 left-0 z-10 
               py-3 px-5  space-y-2 border-solid  border-2"
-            // onClick={() => setNextDestinationFilter(destination)}
+          // onClick={() => setNextDestinationFilter(destination)}
           >
             {nextDestinationOptions.map((destination) => (
               <button

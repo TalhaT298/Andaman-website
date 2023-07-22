@@ -4,50 +4,58 @@ import { MdKeyboardArrowRight, MdLocationPin } from "react-icons/md";
 import { RiDoorLockFill } from "react-icons/ri";
 import { Link } from "react-router-dom";
 import Footer from "../../Component/Footer/Footer";
-import flight from "../../Data/Flight-Section/flight";
+// import flight from "../../Data/Flight-Section/flight";
 import Navforwithout from "../../Navforwithout";
 import { useDataContext } from "../../context/useDataContext";
 import flightFeature from "../../images/SVG/flightDetails.svg";
 import flightIcon from "../../images/flightIcon.png";
-import flightLogoMini from "../../images/flightLogoMini.png";
-import flightLogo from "../../images/flightlogo.png";
+// import flightLogoMini from "../../images/flightLogoMini.png";
+// import flightLogo from "../../images/flightlogo.png";
 
 const FlightPreview = () => {
   const {
-    currentDestinationFilter,
-    nextDestinationFilter,
+    // currentDestinationFilter,
+    // nextDestinationFilter,
     endingDate,
     passengerClass,
     setPassengerClass,
-    setFlightDataState,
-    flightDataState,
-    travellerInfo,
-    startingDate: date,
-  } = useDataContext();
+    // setFlightDataState,
+    // flightDataState,
+    // travellerInfo,
+    // startingDate: date,
+    coverData
 
-  const flightData = flight.find(
-    (airplane) => airplane.currentDestination === currentDestinationFilter
-  );
-  const totalAdultFare = travellerInfo.adult * flightDataState.adultPrice;
-  const totalInfantFare = travellerInfo.infant * flightDataState.infantPrice;
-  const totalChildrenFare =
-    travellerInfo.children * flightDataState.childrenPrice;
-  const totalFare = totalAdultFare + totalInfantFare + totalChildrenFare;
-  const discount = 200;
-  const taxes = totalFare * (3 / 100);
-  const fee = 400;
-  const netTotal = totalFare + discount + taxes + fee;
-  useEffect(() => {
-    setFlightDataState(flightData);
-  }, [flightData, setFlightDataState]);
+  } = useDataContext();
+  console.log(coverData)
+  const { startingDate } = coverData || {};
+
+  // const flightData = flight.find(
+  //   (airplane) => airplane.currentDestination === currentDestinationFilter
+  // );
+  // const totalAdultFare = travellerInfo.adult * flightDataState.adultPrice;
+  // const totalInfantFare = travellerInfo.infant * flightDataState.infantPrice;
+  // const totalChildrenFare =
+  //   travellerInfo.children * flightDataState.childrenPrice;
+  // const totalFare = totalAdultFare + totalInfantFare + totalChildrenFare;
+  // const discount = 200;
+  // const taxes = totalFare * (3 / 100);
+  // const fee = 400;
+  // const netTotal = totalFare + discount + taxes + fee;
+  // useEffect(() => {
+  //   setFlightDataState(flightData);
+  // }, [flightData, setFlightDataState]);
 
   const handleInput = (e) => {
     setPassengerClass(e.target.value);
   };
+
+
+
+
   return (
     <div style={{ fontFamily: "Montserrat" }}>
       <Navforwithout />
-      <div className="ms:mx-0 ms:mt-0  lg:mx-6   mx-20 mt-10 ms:mb-5 mb-16">
+      <div className="ms:mx-0 ms:mt-0 lg:mx-6 mx-20 mt-10 ms:mb-5 mb-16">
         {/* <div className="absolute -top-10 left-[-4vw] right-[-4vw] h-[340px] z-[-1] ms:bg-[#FF8682]" /> */}
         <div className="ms:bg-[#FF8682] ms:pt-10 lexs:px-2 ms:px-6 ms:h-[240px]">
           <div className=" flex items-center mt-5 gap-2 z-50">
@@ -57,17 +65,22 @@ const FlightPreview = () => {
             <span>
               <MdKeyboardArrowRight />
             </span>
-            <span>{flightDataState.flightName}</span>
+            {/* <span>{flightDataState.flightName}</span> */}
+            <span>{coverData?.flightName}</span>
           </div>
           <div className="text-2xl font-bold ms:pb-1 pb-4">
-            <span>{flightDataState.flightName}</span>
+            {/* <span>{flightDataState.flightName}</span> */}
+            <span>{coverData?.flightName}</span>
           </div>
           <div className="flex gap-1 items-center z-50">
             <span>
               <MdLocationPin />
             </span>
-            <span className="sxs:text-xs">
+            {/* <span className="sxs:text-xs">
               {flightDataState.flightLocation}
+            </span> */}
+            <span className="sxs:text-xs">
+              {coverData?.flightLocation}
             </span>
           </div>
           <div className="ms:hidden flex lg:flex-col lg:gap-3 justify-between mt-6">
@@ -133,7 +146,8 @@ const FlightPreview = () => {
         </div>
         <div className="ms:mx-2">
           <div className="lexs:mt-52 ms:mt-36 mt-10 bg-[rgba(255,134,130,0.6)] rounded-lg p-6">
-            <h2 className="text-2xl font-bold">Emirates Airlines Policies</h2>
+            {/* <h2 className="text-2xl font-bold">Emirates Airlines Policies</h2> */}
+            <h2 className="text-2xl font-bold">{coverData?.flightName} Airlines Policies</h2>
             <div className="flex lg:flex-col lg:gap-5 gap-20 mt-3">
               <div className="flex items-center gap-1">
                 <RiDoorLockFill className="w-8 h-8" />
@@ -149,22 +163,31 @@ const FlightPreview = () => {
               </div>
             </div>
           </div>
+
+          {/* desktop ticket details start here*/}
           <div className="mt-10 ms:mt-5 ms:hidden block bg-[#FFFFFF] py-8 px-6 shadow-[0px_4px_16px_rgba(17,34,17,0.05)] rounded-xl">
             <div className="flex justify-between">
-              <h5 className="text-xl text-[#112211]">
+              {/* <h5 className="text-xl text-[#112211]">
                 Return {endingDate[0].endDate.toDateString()}
-              </h5>
+              </h5> */}
               <h5 className="text-xl text-[#112211]">
-                {flightDataState.flightDuration}
+                Start On {startingDate ? startingDate[0]?.startDate?.toDateString() : ''}</h5>
+              <h5 className="text-xl text-[#112211]">
+                {/* {flightDataState.flightDuration} */}
+                {coverData?.flightDuration && coverData?.flightDuration[0]}
               </h5>
             </div>
             <div className="flex justify-between md:gap-5 md:flex-col mt-5">
               <div className="flex items-center md:w-56 w-auto justify-center bg-[#FFFFFF] gap-5  border-[0.5px] border-[0.5px_solid_#8DD3BB] rounded-lg px-8 py-4 ">
-                <img src={flightLogoMini} alt="flightLogoMini" className="" />
+                <img
+                  // src={flightLogoMini}
+                  src={coverData?.flightLogo}
+
+                  alt="flightLogoMini" className="w-full max-w-[64px] h-11" />
                 <div className="">
-                  <h2 className="font-semibold text-2xl">Emirates</h2>
+                  <h2 className="font-semibold text-2xl">{coverData?.flightName}</h2>
                   <p className="text-[#112211] opacity-[0.6] font-[500]">
-                    {flightDataState.flightName}
+                    {/* {flightDataState.flightName} */}
                   </p>
                 </div>
               </div>
@@ -177,10 +200,12 @@ const FlightPreview = () => {
               <div className="">
                 <div>
                   <span className="font-bold">
-                    {flightDataState.departureTime}
+                    {/* {flightDataState.departureTime} */}
+                    {coverData?.departureTime && coverData?.departureTime[0]}
                   </span>
 
-                  <span className="ml-2">{currentDestinationFilter}</span>
+                  {/* <span className="ml-2">{currentDestinationFilter}</span> */}
+                  <span className="ml-2">{coverData?.currentDestination && coverData?.currentDestination[0]}</span>
                 </div>
               </div>
               <div className="flex gap-2">
@@ -194,30 +219,36 @@ const FlightPreview = () => {
                 </span>
               </div>
               <div>
-                <span className="font-bold">{flightDataState.arrivalTime}</span>
-                <span className="ml-2">{nextDestinationFilter}</span>
+                {/* <span className="font-bold">{flightDataState.arrivalTime}</span> */}
+                <span className="font-bold">{coverData?.arrivalTime && coverData?.arrivalTime?.length > 1 ? coverData?.arrivalTime[1] : coverData?.arrivalTime[0]}</span>
+                {/* <span className="ml-2">{nextDestinationFilter}</span> */}
+                <span className="ml-2">{coverData?.nextDestination && coverData?.nextDestination > 1 ? coverData?.nextDestination[1] : coverData?.nextDestination[0]}</span>
               </div>
             </div>
           </div>
+          {/* desktop ticket details finish here  */}
+          {/* mobile ticket details start here  */}
           <div className="ms:flex flex-row hidden bg-white rounded-xl absolute top-[12rem] mx-3 inset-x-0  w-auto py-8 h-auto shadow-[0px_4px_16px_rgba(17,34,17,0.05)]">
             <div className="text-[#112211] flex items-center md:gap-5 gap-16  mx-auto py-auto md:px-8 px-10 text-center  w-full xs:flex-col xs:py-2 xs:gap-y-3">
               <div className="w-full">
                 <div className="flex lexs:flex-col justify-between items-center md:gap-5">
                   <div className="flex items-center md:w-56 w-auto justify-center bg-[#FFFFFF] gap-5  border-[0.5px] border-[0.5px_solid_#8DD3BB] rounded-lg px-8 py-4 ">
                     <img
-                      src={flightLogoMini}
-                      alt="flightLogoMini"
-                      className=""
+                      // src={flightLogoMini}
+                      src={coverData?.flightLogo}
+                      alt="flightLogoMinix"
+                      className="w-full max-w-[64px] h-16"
                     />
                     <div className="">
-                      <h2 className="font-semibold text-2xl">Emirates</h2>
+                      <h2 className="font-semibold text-2xl">{coverData?.flightName}</h2>
                       <p className="text-[#112211] opacity-[0.6] font-[500]">
-                        {flightDataState.flightName}
+                        {/* {flightDataState.flightName} */}
+                        {coverData?.flightName}
                       </p>
                     </div>
                   </div>
                   <div className="text-xl whitespace-nowrap text-blue-500 font-bold">
-                    ₹ {netTotal}{" "}
+                    {/* ₹ {netTotal}{" "} */}
                   </div>
                 </div>
                 {/* <hr className="ms:block hidden my-3" /> */}
@@ -225,7 +256,8 @@ const FlightPreview = () => {
                   <div className="ms:block hidden text-start">
                     <div>
                       <span className="text-[3.72vw]">
-                        {flightData.currentDestination}
+                        {/* {flightData.currentDestination} */}
+                        {coverData?.currentDestination && coverData?.currentDestination[0]}
                       </span>
                     </div>
                   </div>
@@ -238,28 +270,39 @@ const FlightPreview = () => {
                   </div>
                   <div className="ms:block hidden">
                     <span className="text-[3.72vw] whitespace-nowrap">
-                      {flightData.nextDestination}
+                      {/* {flightData.nextDestination} */}
+                      {coverData?.nextDestination && coverData?.nextDestination[1]}
                     </span>
                   </div>
                 </div>
                 <div className="ms:flex justify-between items-center mt-3 hidden">
                   <div className="font-bold text-[#BDBDC2]">
-                    {flightData.departureTime}
+                    {/* {flightData.departureTime} */}
+                    {coverData?.departureTime && coverData?.departureTime[0]}
                   </div>
-                  <div className="font-bold">{flightData.flightDuration}</div>
+                  <div className="font-bold">
+                    {/* {flightData.flightDuration} */}
+                    {coverData?.flightDuration?.length > 1 ? coverData.flightIntervalTime : coverData.flightDuration && coverData?.flightDuration[0]}
+                  </div>
                   <div className="font-bold text-[#BDBDC2]">
-                    {flightData.arrivalTime}
+                    {/* {flightData.arrivalTime} */}
+                    {coverData.arrivalTime && coverData.arrivalTime[1]}
                   </div>
                 </div>
               </div>
             </div>
           </div>
+          {/* mobile ticket details finis here  */}
           <div className="mt-10 bg-[#FFFFFF] py-8 px-6 shadow-[0px_4px_16px_rgba(17,34,17,0.05)] rounded-xl flex flex-wrap lg:gap-5 justify-between">
             <div className=" flex justify-start md:w-full md:justify-between items-center gap-3">
-              <img src={flightLogo} alt="flightLogo" className="w-24 h-24" />
+              <img
+                // src={flightLogo} 
+                src={coverData?.flightLogo}
+                alt="flightLogo" className="w-24 h-24" />
               <div>
                 <p>{passengerClass}</p>
-                <p>{flightDataState.flightName}</p>
+                {/* <p>{flightDataState.flightName}</p> */}
+                <p>{coverData?.flightName}</p>
               </div>
             </div>
             <div className="lg:flex justify-between md:w-full items-center flex-col">
@@ -269,8 +312,11 @@ const FlightPreview = () => {
                   <h5 className="text-xl font-[500] text-[#000000]">
                     {endingDate[0].endDate.toDateString()}
                   </h5>
-                  <h5 className="text-xl font-[500] text-[#000000]">
+                  {/* <h5 className="text-xl font-[500] text-[#000000]">
                     {flightDataState.flightDuration}
+                  </h5> */}
+                  <h5 className="text-xl font-[500] text-[#000000]">
+                    {coverData.flightDuration && coverData.flightDuration[0]}
                   </h5>
                 </div>
                 <h6 className="text-lg font-[700] text-[#112211]">
@@ -281,7 +327,8 @@ const FlightPreview = () => {
                     Base Fare
                   </h5>
                   <h5 className="text-xl font-[700] text-[#425D97]">
-                    ₹ {flightDataState.adultPrice}
+                    {/* ₹ {flightDataState.adultPrice} */}
+                    ₹ {coverData?.adultPrice}
                   </h5>
                 </div>
                 <Link to={"/ReviewFlight"}>

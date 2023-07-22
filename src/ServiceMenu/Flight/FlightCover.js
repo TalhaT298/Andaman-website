@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+// import { useEffect } from "react";
 import { IoIosAirplane } from "react-icons/io";
 import { Link } from "react-router-dom";
 import { useDataContext } from "../../context/useDataContext";
@@ -9,13 +9,16 @@ import flightIcon from "../../images/flightIcon.png";
 // here Object.values in flightsData
 
 const FlightCover = (props) => {
-  console.log(props)
   const { flightLogo } = props;
-  const { startingDate: date, travellerInfo, setCoverData } = useDataContext();
+  const { startingDate, travellerInfo, setCoverData } = useDataContext();
 
-  useEffect(() => {
-    setCoverData({ ...props });
-  }, []);
+  // useEffect(() => {
+  //   setCoverData({ ...props, startingDate });
+  // }, []);
+
+  const handleFlightDetail = () => {
+    setCoverData({ ...props, startingDate })
+  }
 
   return (
     <div key={props.flightID}>
@@ -32,7 +35,7 @@ const FlightCover = (props) => {
               <div className="flex justify-between">
                 <div className="text-start">
                   <p className="font-semibold">{props.flightName}</p>
-                  <p>{date[0].startDate.toDateString()}</p>
+                  <p>{startingDate[0].startDate.toDateString()}</p>
                 </div>
                 <div className="ms:block hidden text-end">
                   <p className="font-semibold">₹ {props.adultPrice}</p>
@@ -51,7 +54,7 @@ const FlightCover = (props) => {
                       ₹ {props.adultPrice}
                     </span>{" "}
                   </p>
-                  <p>{props.flightDuration} </p>
+                  <p>{props.flightDuration?.length > 1 ? props.flightIntervalTime : props.flightDuration[0]} </p>
                 </div>
               </div>
               <hr className="ms:block hidden my-3" />
@@ -65,12 +68,12 @@ const FlightCover = (props) => {
                 </div>
                 <div className="ms:hidden">
                   <div>
-                    <span className="font-bold">{props.departureTime}</span>
+                    <span className="font-bold">{props.departureTime[0]}</span>
 
-                    <span className="ml-2">{props.currentDestination}</span>
+                    <span className="ml-2">{props.currentDestination[0]}</span>
                   </div>
                 </div>
-                <div className="flex gap-2 ms:hidden">
+                <div className="flex flex-col gap-2 ms:hidden">
                   <span>
                     {" "}
                     <img
@@ -78,6 +81,9 @@ const FlightCover = (props) => {
                       className="w-full md:h-8 h-12"
                       alt="flightIcon"
                     />{" "}
+                  </span>
+                  <span className={`text-sm ${props.flightInterval === 'Direct' ? 'text-[#0c838a]' : 'text-red-300'}`}>
+                    {props?.flightInterval}
                   </span>
                 </div>
                 <div className="ms:flex hidden items-center text-[#FF8682]">
@@ -89,18 +95,18 @@ const FlightCover = (props) => {
                 </div>
                 <div className="ms:block hidden">
                   {/* <span className="font-bold">{props.arrivalTime}</span> */}
-                  <span className="text-[3.72vw]">{props.nextDestination}</span>
+                  {/* <span className="text-[3.72vw]">{props.nextDestination[0]}</span> */}
                 </div>
                 <div className="ms:hidden">
-                  <span className="font-bold">{props.arrivalTime}</span>
-                  <span className="ml-2">{props.nextDestination}</span>
+                  <span className="font-bold">{props.arrivalTime[0]}</span>
+                  <span className="ml-2">{props.nextDestination.length > 1 ? props.nextDestination[1] : props.nextDestination[0]}</span>
                 </div>
               </div>
               <div className="ms:flex justify-between items-center mt-3 hidden">
                 <div className="font-bold text-[#BDBDC2]">
                   {props.departureTime}
                 </div>
-                <div className="font-bold">{props.flightDuration}</div>
+                {/* <div className="font-bold">{props.flightDuration[0]}</div> */}
                 <div className="font-bold text-[#BDBDC2]">
                   {props.arrivalTime}
                 </div>
@@ -109,7 +115,9 @@ const FlightCover = (props) => {
                 to={"/FlightPreview"}
                 className="ms:hidden flex justify-end mt-3"
               >
-                <button className="bg-[#FF8682] font-semibold rounded p-[8px_16px]">
+                <button
+                  onClick={() => handleFlightDetail(props)}
+                  className="bg-[#FF8682] font-semibold rounded p-[8px_16px]">
                   Book Now
                 </button>
               </Link>

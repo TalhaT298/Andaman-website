@@ -69,6 +69,8 @@ export const DataProvider = ({ children }) => {
     altPhone: "",
   });
 
+  console.log(coverData)
+
   const state = {
     travellerInfo,
     setTravellerInfo,
