@@ -36,7 +36,7 @@ const FlightCover = (props) => {
                   <p>{startingDate[0].startDate.toDateString()}</p>
                 </div>
                 <div className="ms:block hidden text-end">
-                  <p className="font-semibold">₹ {props.totalPrice}</p>
+                  <p className="font-semibold">₹ {totalPrice}</p>
                   <p>
                     {`${travellerInfo.adult +
                       travellerInfo.children +
