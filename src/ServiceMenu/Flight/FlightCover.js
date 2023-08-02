@@ -16,6 +16,8 @@ const FlightCover = (props) => {
     setCoverData({ ...props, startingDate, travellerInfo, passengerClass })
   }
 
+  const totalPrice = props.adultPrice + 1000;
+
   return (
     <div key={props.flightID}>
       <Link onClick={handleFlightDetail} to={"/FlightPreview"} className="py-3 flex-col mx-auto my-auto">
@@ -34,7 +36,7 @@ const FlightCover = (props) => {
                   <p>{startingDate[0].startDate.toDateString()}</p>
                 </div>
                 <div className="ms:block hidden text-end">
-                  <p className="font-semibold">₹ {props.adultPrice}</p>
+                  <p className="font-semibold">₹ {props.totalPrice}</p>
                   <p>
                     {`${travellerInfo.adult +
                       travellerInfo.children +
@@ -47,7 +49,7 @@ const FlightCover = (props) => {
                   <p>
                     Starting from{" "}
                     <span className="block text-right text-[#425D97] text-xl font-bold">
-                      ₹ {props?.adultPrice}
+                      ₹ {totalPrice}
                     </span>{" "}
                   </p>
                   {/* <p>{props.flightDuration?.length > 1 ? props.flightIntervalTime : props.flightDuration[0]} </p> */}
