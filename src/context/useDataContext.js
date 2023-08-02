@@ -24,7 +24,6 @@ export const DataProvider = ({ children }) => {
   });
 
   // Depart State
-
   const [startingDate, setStartingDate] = useState([
     {
       startDate: new Date(),
@@ -34,7 +33,6 @@ export const DataProvider = ({ children }) => {
 
   // console.log(startingDate)
   // Return State
-
   const [endingDate, setEndingDate] = useState([
     {
       endDate: new Date(),
@@ -56,10 +54,7 @@ export const DataProvider = ({ children }) => {
   // TripSummary
   const [flightDataState, setFlightDataState] = useState({});
   const [coverData, setCoverData] = useState({});
-
   const [adultDetails, setAdultDetails] = useState([]);
-  console.log(adultDetails);
-
   const [childrenDetails, setChildrenDetails] = useState([]);
   const [infantDetails, setInfantDetails] = useState([]);
   const [contactDetails, setContactDetails] = useState({
@@ -69,7 +64,10 @@ export const DataProvider = ({ children }) => {
     altPhone: "",
   });
 
-  console.log(coverData)
+  // console.log('=>', adultDetails, '=>', childrenDetails, '=>', infantDetails, '=>', contactDetails)
+
+  // state used
+  // console.log('=>69', travellerInfo, passengerClass)
 
   const state = {
     travellerInfo,
@@ -101,10 +99,8 @@ export const DataProvider = ({ children }) => {
     setContactDetails,
     passengerClass,
     setPassengerClass,
-
     flightSearch,
     setFlightSearch,
-
     coverData,
     setCoverData,
   };

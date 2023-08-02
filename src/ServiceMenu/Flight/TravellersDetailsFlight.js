@@ -4,7 +4,8 @@ import { Link, useNavigate } from "react-router-dom";
 import Footer from "../../Component/Footer/Footer";
 import Navforwithout from "../../Navforwithout";
 import { useDataContext } from "../../context/useDataContext";
-// import { useLocation, useNavigate } from 'react-router-dom';
+import { UseContactContent, UseEmailContent } from "../../Component/Hooks/UseEmailContent";
+import emailjs from '@emailjs/browser';
 
 const TravellersDetailsFlight = () => {
   const navigate = useNavigate();
@@ -31,11 +32,11 @@ const TravellersDetailsFlight = () => {
 
   const {
     travellerInfo,
-    currentDestinationFilter,
-    startingDate,
-    nextDestinationFilter,
-    twoWay,
-    endingDate,
+    // currentDestinationFilter,
+    // startingDate,
+    // nextDestinationFilter,
+    // twoWay,
+    // endingDate,
     adultDetails,
     setAdultDetails,
     childrenDetails,
@@ -46,25 +47,26 @@ const TravellersDetailsFlight = () => {
     setContactDetails,
     passengerClass,
     // setFlightDataState,
-    flightDataState,
+    coverData,
+    // flightDataState,
   } = useDataContext();
   // console.log(
   //   "🚀 ~ file: TravellersDetailsFlight.js:50 ~ TravellersDetailsFlight ~ adultDetails:",
   //   adultDetails
   // );
 
-  const totalAdultFare = travellerInfo.adult * flightDataState.adultPrice;
-  const totalInfantFare = travellerInfo.infant * flightDataState.infantPrice;
-  const totalChildrenFare =
-    travellerInfo.children * flightDataState.childrenPrice;
-  const totalFare = totalAdultFare + totalInfantFare + totalChildrenFare;
-  let totalTripFare = totalFare;
-  const discount = 200;
-  const taxes = totalFare * (3 / 100);
-  const fee = 400;
-  const netTotal = totalFare + discount + taxes + fee;
-  let num = 1;
-  if (twoWay) num = 2;
+  // const totalAdultFare = travellerInfo.adult * flightDataState.adultPrice;
+  // const totalInfantFare = travellerInfo.infant * flightDataState.infantPrice;
+  // const totalChildrenFare =
+  //   travellerInfo.children * flightDataState.childrenPrice;
+  // const totalFare = totalAdultFare + totalInfantFare + totalChildrenFare;
+  // let totalTripFare = totalFare;
+  // const discount = 200;
+  // const taxes = totalFare * (3 / 100);
+  // const fee = 400;
+  // const netTotal = totalFare + discount + taxes + fee;
+  // let num = 1;
+  // if (twoWay) num = 2;
 
   // const flightData = flight.find(
   //   (airplane) => airplane.currentDestination === currentDestinationFilter
@@ -144,7 +146,7 @@ const TravellersDetailsFlight = () => {
   };
 
   //display adults
-  const adultsData = adultDetails.map((adult, index) => (
+  const adultsData = adultDetails?.map((adult, index) => (
     <div key={index}>
       <h1 className="font-bold mt-5 mb-3">Adult {index + 1}</h1>
 
@@ -486,7 +488,7 @@ const TravellersDetailsFlight = () => {
     </div>
   ));
   //display Children
-  const childrenData = childrenDetails.map((children, index) => (
+  const childrenData = childrenDetails?.map((children, index) => (
     <div key={index}>
       <h1 className="font-bold mt-5 mb-3">Children {index + 1}</h1>
 
@@ -828,7 +830,7 @@ const TravellersDetailsFlight = () => {
     </div>
   ));
   //display infants
-  const infantsData = infantDetails.map((infant, index) => (
+  const infantsData = infantDetails?.map((infant, index) => (
     <div key={index}>
       <h1 className="font-bold mt-5 mb-3">Infant {index + 1}</h1>
 
@@ -1179,82 +1181,208 @@ const TravellersDetailsFlight = () => {
     setContactDetails(object);
   };
 
-  const tripData = [...Array(num)].reverse().map((_, index) => (
+  // const tripData = [...Array(num)].reverse().map((_, index) => (
+  //   <div key={index}>
+  //     {" "}
+  //     <div className="flex gap-3 mt-4 mb-2 text-[15px]">
+  //       <h1 className="border-b border-black font-bold">Trip-:{index + 1}</h1>
+  //       <h1 className="font-bold">
+  //         {index === 1 ? currentDestinationFilter : nextDestinationFilter} -&gt;{" "}
+  //         {index === 1 ? nextDestinationFilter : currentDestinationFilter}
+  //       </h1>
+  //     </div>
+  //     <div className="flex flex-col gap-1 text-sm ml-1">
+  //       <div className="flex gap-2">
+  //         <h1>Date: </h1>
+  //         <h1 className="font-bold">
+  //           {index === 1
+  //             ? endingDate[0].endDate.toDateString()
+  //             : startingDate[0].startDate.toDateString()}
+  //         </h1>
+  //       </div>
+
+  //       <div className="flex gap-2">
+  //         <h1>Time: </h1>
+  //         <h1 className="font-bold">
+  //           {index === 1
+  //             ? flightDataState.departureTime
+  //             : flightDataState.arrivalTime}{" "}
+  //           to{" "}
+  //           {index === 1
+  //             ? flightDataState.arrivalTime
+  //             : flightDataState.departureTime}
+  //         </h1>
+  //       </div>
+
+  //       <div className="flex gap-2">
+  //         <h1>Flight: </h1>
+  //         <h1 className="font-bold">
+  //           {flightDataState.flightName}
+  //           <span className="italic font-normal">
+  //             {""} ({flightDataState.travelRoute}) {passengerClass} Class
+  //           </span>
+
+  //         </h1>
+  //       </div>
+
+  //       <hr className="my-5" />
+  //       <div className="flex flex-col gap-4">
+  //         <h1 className="font-bold">Price Details</h1>
+  //         <div className="flex justify-between">
+  //           <p className="font-[500] text-md">Base Fare</p>
+  //           <p className="font-[600] text-md">₹ {totalFare}</p>
+  //         </div>
+  //         <div className="flex justify-between">
+  //           <p className="font-[500] text-md">Discount</p>
+  //           <p className="font-[600] text-md">₹ {discount}</p>
+  //         </div>
+  //         <div className="flex justify-between">
+  //           <p className="font-[500] text-md">Taxes</p>
+  //           <p className="font-[600] text-md">₹ {taxes}</p>
+  //         </div>
+  //         <div className="flex justify-between">
+  //           <p className="font-[500] text-md">Service Fee</p>
+  //           <p className="font-[600] text-md">₹ {fee}</p>
+  //         </div>
+  //       </div>
+  //       <hr className="mt-4 mb-8" />
+  //       <div className="flex justify-between">
+  //         <p className="font-[500] text-md">Total</p>
+  //         <p className="font-[600] text-md">₹ {netTotal}</p>
+  //       </div>
+  //     </div>
+  //   </div>
+  // ));
+
+  const priceData = coverData?.mappedArr?.slice(0, 1).map((flight, index) => (
+    <>
+      <div className="flex flex-col gap-4">
+        <h1 className="font-bold">Price Details</h1>
+        <div className="flex justify-between">
+          <p className="font-[500] text-md">Base Fare</p>
+          <p className="font-[600] text-md">₹ {flight?.fare}</p>
+        </div>
+        <div className="flex justify-between">
+          <p className="font-[500] text-md">Fee</p>
+          <p className="font-[600] text-md">₹ {flight?.fee}</p>
+        </div>
+
+        <div className="flex justify-between">
+          <p className="font-[500] text-md">Taxes</p>
+          <p className="font-[600] text-md">₹ {flight?.tax}</p>
+        </div>
+        <div className="flex justify-between">
+          <p className="font-[500] text-md">Convenience Fee</p>
+          <p className="font-[600] text-md">₹ {flight?.convenience}</p>
+        </div>
+        <div className="flex justify-between">
+          <p className="font-[500] text-md">Discount</p>
+          <p className="font-[600] text-md">₹ {flight?.discount}</p>
+        </div>
+      </div>
+      <hr className="mt-4 mb-8" />
+      <div className="flex justify-between">
+        <p className="font-[500] text-md">Total</p>
+        <p className="font-[600] text-md">₹ {flight?.fare + flight?.tax + flight?.convenience + flight?.fee - flight?.discount}</p>
+      </div>
+    </>
+  ))
+
+  // console.log(coverData)
+
+  const tripData = coverData?.mappedArr?.map((flight, index) => (
     <div key={index}>
       {" "}
       <div className="flex gap-3 mt-4 mb-2 text-[15px]">
-        <h1 className="border-b border-black font-bold">Trip-:{index + 1}</h1>
+        <h1 className="border-b border-black font-bold">Trip: {index + 1}</h1>
+
         <h1 className="font-bold">
-          {index === 1 ? currentDestinationFilter : nextDestinationFilter} -&gt;{" "}
-          {index === 1 ? nextDestinationFilter : currentDestinationFilter}
+          {flight?.currentDestination} ------{'> '}{flight?.nextDestination}
         </h1>
       </div>
       <div className="flex flex-col gap-1 text-sm ml-1">
         <div className="flex gap-2">
           <h1>Date: </h1>
           <h1 className="font-bold">
-            {index === 1
-              ? endingDate[0].endDate.toDateString()
-              : startingDate[0].startDate.toDateString()}
+            {flight?.flightDate[index]}
           </h1>
         </div>
 
         <div className="flex gap-2">
           <h1>Time: </h1>
           <h1 className="font-bold">
-            {index === 1
-              ? flightDataState.departureTime
-              : flightDataState.arrivalTime}{" "}
+            {flight?.departureTime}{" "}
             to{" "}
-            {index === 1
-              ? flightDataState.arrivalTime
-              : flightDataState.departureTime}
+            {flight?.arrivalTime}
           </h1>
         </div>
 
-        <div className="flex gap-2">
-          <h1>Flight: </h1>
-          <h1 className="font-bold">
-            {flightDataState.flightName} 
-            <span className="italic font-normal">
-              {""} ({flightDataState.travelRoute}) {passengerClass} Class
-            </span>
-            
+        <div className="flex gap-2 flex-col">
+          <h1>Flight: <span className="font-bold">{flight?.flightName}</span></h1>
+          <h1>
+            Travel Route: <span className="font-bold">{flight?.travelRoute}</span>
+          </h1>
+          <h1>
+            Class: <span className="font-bold">{passengerClass}</span>
+          </h1>
+          <h1>
+            Terminal: <span className="font-bold">{flight.flightGateway}</span>
           </h1>
         </div>
 
         <hr className="my-5" />
-        <div className="flex flex-col gap-4">
-          <h1 className="font-bold">Price Details</h1>
-          <div className="flex justify-between">
-            <p className="font-[500] text-md">Base Fare</p>
-            <p className="font-[600] text-md">₹ {totalFare}</p>
-          </div>
-          <div className="flex justify-between">
-            <p className="font-[500] text-md">Discount</p>
-            <p className="font-[600] text-md">₹ {discount}</p>
-          </div>
-          <div className="flex justify-between">
-            <p className="font-[500] text-md">Taxes</p>
-            <p className="font-[600] text-md">₹ {taxes}</p>
-          </div>
-          <div className="flex justify-between">
-            <p className="font-[500] text-md">Service Fee</p>
-            <p className="font-[600] text-md">₹ {fee}</p>
-          </div>
-        </div>
-        <hr className="mt-4 mb-8" />
-        <div className="flex justify-between">
-          <p className="font-[500] text-md">Total</p>
-          <p className="font-[600] text-md">₹ {netTotal}</p>
-        </div>
       </div>
     </div>
   ));
+
+  const adultEmailContent = UseEmailContent(adultDetails, null)
+  const childrenEmailContent = UseEmailContent(childrenDetails, null)
+  const infantEmailContent = UseEmailContent(infantDetails, null)
+  const contactEmailContent = UseContactContent([contactDetails])
+
+  const tripdetails = coverData.mappedArr?.map((trip, index) => {
+    return `flightDate: ${trip.flightDate[index]}
+  flightGateway: ${trip.flightGateway}
+  flightName: ${trip.flightName}
+  flightNo: ${trip.flightNo}
+  travelRoute: ${trip.travelRoute}
+  currentDestination: ${trip.currentDestination}
+  flightInterval: ${trip.flightInterval}
+  nextDestination: ${trip.nextDestination}
+  departureTime: ${trip.departureTime}
+  arrivalTime: ${trip.arrivalTime}
+  flightDuration: ${trip.flightDuration}
+  flightLocationFrom: ${trip.flightLocationFrom}
+  flightLocationTo: ${trip.flightLocationTo}
+  adultPrice: ${trip.adultPrice}
+  fare: ${trip.fare}
+  tax: ${trip.tax}`;
+  }).join('\n\n')
+
+  const adultContent = adultEmailContent ? `${adultEmailContent}\n\n` : '';
+  const childrenContent = childrenEmailContent ? `${childrenEmailContent}\n\n` : '';
+  const infantContent = infantEmailContent ? `${infantEmailContent}\n\n` : '';
+
+  const detailEmail = {
+    from_name: contactDetails?.name,
+    from_email: contactDetails?.email,
+    message: `${adultContent}${childrenContent}${infantContent}${contactEmailContent}\n\n${tripdetails}`
+  }
+
+  // const mappedArr = [{
+  //   adultPrice: 9919, arrivalTime: ['21:05', '01.15', '08:10'], baggage: { handBag: '7 kgs', checkIn: '15 kgs' }, childrenPrice: 3000, convenience: 400, currentDestination: ['Chennai', 'Mumbai', 'Kolkata'], departureTime: ['19:15', '22.40', '05:50'], fare: 8378, flightDate: ['02-08-2023', '02-08-2023', '03-08-2023'], flightDuration: ['01h 50m', '2h 35m', '02h 20m'], flightGateway: "Terminal 1", flightID: 69, flightInterval: "2 stop BOM,CCU", flightIntervalTime: ['01h 35m', '4h 35m'], flightLocationFrom: ['Chennai International Airport, India', 'Chhatrapati Shivaji International Airport, India', 'Netaji Subhash Chandra Bose International Airport, India'], flightLocationTo: ['Chhatrapati Shivaji International Airport, India', 'Netaji Subhash Chandra Bose International Airport, India', 'Veer Savarkar International Airport, India'], flightLogo: "https://res.cloudinary.com/dmqgkr30q/image/upload/v1689786758/IndiGo_Airlines_logo.svg_dayuu4.png",
+  //   flightName: "Indigo", flightNo: ['6E-5278', '6E-5287', '6E-2788'], infantPrice: 2000, meals: "Not Mentioned",
+  //   nextDestination: ['Mumbai', 'Kolkata', 'Port Blair'], parsedDate: ['Wed Aug 02 2023', 'Wed Aug 02 2023', 'Thu Aug 03 2023'], passengerClass: "ECONOMY", refund: "Partially Refundable", tax: 1541, totalFlightDuration: ['12h 55m'], travelRoute: ['MAA', 'BOM', 'BOM', 'CCU', 'CCU', 'IXZ'], travellerInfo: { adult: 1, children: 0, infant: 0, traveller: 0 }
+  // },
+  // {
+  //   adultPrice: 9919, arrivalTime: ['21:05', '01.15', '08:10'], baggage: { handBag: '7 kgs', checkIn: '15 kgs' }, childrenPrice: 3000, convenience: 400, currentDestination: ['Chennai', 'Mumbai', 'Kolkata'], departureTime: ['19:15', '22.40', '05:50'], fare: 8378, flightDate: ['02-08-2023', '02-08-2023', '03-08-2023'], flightDuration: ['01h 50m', '2h 35m', '02h 20m'], flightGateway: "Terminal 1", flightID: 69, flightInterval: "2 stop BOM,CCU", flightIntervalTime: ['01h 35m', '4h 35m'], flightLocationFrom: ['Chennai International Airport, India', 'Chhatrapati Shivaji International Airport, India', 'Netaji Subhash Chandra Bose International Airport, India'], flightLocationTo: ['Chhatrapati Shivaji International Airport, India', 'Netaji Subhash Chandra Bose International Airport, India', 'Veer Savarkar International Airport, India'], flightLogo: "https://res.cloudinary.com/dmqgkr30q/image/upload/v1689786758/IndiGo_Airlines_logo.svg_dayuu4.png",
+  //   flightName: "Indigo", flightNo: ['6E-5278', '6E-5287', '6E-2788'], infantPrice: 2000, meals: "Not Mentioned",
+  //   nextDestination: ['Mumbai', 'Kolkata', 'Port Blair'], parsedDate: ['Wed Aug 02 2023', 'Wed Aug 02 2023', 'Thu Aug 03 2023'], passengerClass: "ECONOMY", refund: "Partially Refundable", tax: 1541, totalFlightDuration: ['12h 55m'], travelRoute: ['MAA', 'BOM', 'BOM', 'CCU', 'CCU', 'IXZ'], travellerInfo: { adult: 1, children: 0, infant: 0, traveller: 0 }
+  // }]
+
   //handle submit
   const handleSubmit = (e) => {
     e.preventDefault();
-
     // check empty fields
     let checkEmptyField = false;
 
@@ -1276,6 +1404,16 @@ const TravellersDetailsFlight = () => {
     }
 
     if (!checkEmptyField) {
+      emailjs.send(
+        'service_qq74o06',
+        'template_u18e64r',
+        detailEmail,
+        'fGjyaVSDV4-ihWS2s')
+        .then((result) => {
+          console.log(result.text);
+        }, (error) => {
+          console.log(error.text);
+        });
       navigate("/FlightPayment");
     } else {
       alert("Please fill all the details!");
@@ -1298,7 +1436,7 @@ const TravellersDetailsFlight = () => {
               to={"/FlightPreview"}
               className="ms:text-slate-100 text-[#FF8682] "
             >
-              {flightDataState.flightName}
+              {coverData?.flightName}
             </Link>
             <span>
               <MdKeyboardArrowRight />
@@ -1403,12 +1541,19 @@ const TravellersDetailsFlight = () => {
               <h1 className="whitespace-nowrap lexs:text-[5.8vw] text-[26px] text-[#699c78] md:text-2xl font-[Montserrat] font-semibold">
                 Trip Summary
               </h1>
-              {tripData.length === 0 ? (
+              {
+                tripData
+              }
+              {
+                priceData
+              }
+              {/* {tripData.length === 0 ? (
                 <h1>Please select seats to proceed with booking.</h1>
               ) : (
                 tripData
-              )}
-              {/* <div className="flex gap-3 mt-4 mb-2 text-[15px]">
+              )} */}
+              <>
+                {/* <div className="flex gap-3 mt-4 mb-2 text-[15px]">
                 <h1 className="border-b border-black font-bold">Trip-:1</h1>
                 <h1 className="font-bold">
                   {currentDestinationFilter} -&gt; {nextDestinationFilter}
@@ -1473,7 +1618,7 @@ const TravellersDetailsFlight = () => {
                 </div>
               </div> */}
 
-              {/* <div className="flex gap-3 mt-4 mb-2 text-[15px]">
+                {/* <div className="flex gap-3 mt-4 mb-2 text-[15px]">
                 <h1 className="border-b border-black font-bold">
                   Trip-{index + 1}:
                 </h1>
@@ -1483,7 +1628,7 @@ const TravellersDetailsFlight = () => {
                 </h1>
               </div> */}
 
-              {/* <div className="flex flex-col gap-1 text-sm ml-1">
+                {/* <div className="flex flex-col gap-1 text-sm ml-1">
                 <div className="flex gap-2">
                   <h1>Date: </h1>
                   <h1 className="font-bold">
@@ -1533,6 +1678,7 @@ const TravellersDetailsFlight = () => {
                   </h1>
                 </div>
               </div> */}
+              </>
             </div>
           </div>
         </div>

@@ -11,7 +11,7 @@ const UseBusDataContext = ({ children: Main }) => {
     const [infant, setInfant] = useState(0)
     // const [twoWay, setTwoWay] = useState()
     // console.log(searchResults)
-    console.log(bookingInfo)
+    // console.log(bookingInfo)
 
     const busInfo = {
         searchResults,

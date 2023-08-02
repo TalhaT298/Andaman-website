@@ -22,7 +22,6 @@ const FlightSearch = (props) => {
       key: "selection",
     },
   ]);
-  // console.log(startingDateState)
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -33,8 +32,9 @@ const FlightSearch = (props) => {
 
   return (
     <div className="flex flex-col h-full w-full lg:py-0 relative py-6 z-50">
-      <div className="absolute -top-10 left-[-4vw] right-[-4vw] h-[340px] z-[-1] ms:bg-[#FF8682]" />
-      <div className="flex gap-6 mx-auto">
+      <div className="absolute -top-10 left-[-4vw] right-[-4vw] h-[340px] z-[-1] ms:bg-[#FF8682] ms:block hidden" />
+      <>
+        {/* <div className="flex gap-6 mx-auto">
         <span
           onClick={() => {
             setTwoWay(false);
@@ -53,10 +53,11 @@ const FlightSearch = (props) => {
         >
           Two Way
         </span>
-        {/* <span className='font-medium border-solid border-2 px-1 py-1 hover:bg-rose-500 rounded-md hover:border-none'>
+        <span className='font-medium border-solid border-2 px-1 py-1 hover:bg-rose-500 rounded-md hover:border-none'>
           Multi-City
-        </span> */}
-      </div>
+        </span>
+      </div> */}
+      </>
       <div>
         <form onSubmit={handleSubmit}>
           <div className="font-medium text-slate-800 flex h-auto w-full bg-white z-50 px-4 my-4 py-4 mx-auto ms:rounded-md flex-row sxl:flex-col shadow-[0px_4px_16px_rgba(17,34,17,0.05)]">

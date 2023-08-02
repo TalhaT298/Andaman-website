@@ -9,7 +9,7 @@ import flightLogo from "../../images/flightlogo.png";
 const BestPricesCover = lazy(() => import("./BestPricesCover"));
 
 const bestPrices = bestprices.map((bestprice, index) => {
-  return <BestPricesCover {...bestprice} />;
+  return <BestPricesCover {...bestprice} index={index} />;
 });
 
 const BestPrices = () => {
@@ -23,7 +23,7 @@ const BestPrices = () => {
         </center>
         {/* flight ? <div>{JSON.stringify(flight)}</div> : <div>Loading...</div> */}
         {bestprices.map((props, index) => (
-          <>
+          <React.Fragment key={index}>
             <Link
               to={"/FlightPreview"}
               className="py-3 flex-col mx-auto my-auto "
@@ -136,7 +136,7 @@ const BestPrices = () => {
               </div>
             </Link>
             <br />
-          </>
+          </React.Fragment>
         ))}
       </div>
     </>

@@ -10,26 +10,22 @@ import flightIcon from "../../images/flightIcon.png";
 
 const FlightCover = (props) => {
   const { flightLogo } = props;
-  const { startingDate, travellerInfo, setCoverData } = useDataContext();
-
-  // useEffect(() => {
-  //   setCoverData({ ...props, startingDate });
-  // }, []);
+  const { startingDate, travellerInfo, setCoverData, passengerClass } = useDataContext();
 
   const handleFlightDetail = () => {
-    setCoverData({ ...props, startingDate })
+    setCoverData({ ...props, startingDate, travellerInfo, passengerClass })
   }
 
   return (
     <div key={props.flightID}>
-      <Link to={"/FlightPreview"} className="py-3 flex-col mx-auto my-auto ">
+      <Link onClick={handleFlightDetail} to={"/FlightPreview"} className="py-3 flex-col mx-auto my-auto">
         {/* flight ? <div>{JSON.stringify(flight)}</div> : <div>Loading...</div> */}
         <div className="flex-row bg-white rounded-xl w-auto py-8 h-auto shadow-[0px_4px_16px_rgba(17,34,17,0.05)] transition:origin-center hover:ease-in-out hover:scale-105 transition:duration-1000 transition-transform">
           <div className="text-[#112211] flex items-center md:gap-5 gap-16  mx-auto py-auto md:px-8 px-10 text-center  w-full xs:flex-col xs:py-2 xs:gap-y-3">
             <div className="ms:hidden">
-              <img src={flightLogo} alt="flight-logo" className="w-20 h-14" />{" "}
+              <img src={flightLogo} alt="flight-logo" className="w-20 h-14 mb-4" />{" "}
               {/* <h4 className="text-lg font-semibold">Emirates</h4>{" "} */}
-              <p className="text-[#112211] text-sm">{props.flightName}</p>
+              <p className="text-[#112211] text-sm">{props.flightNo[0]}</p>
             </div>
             <div className="w-full">
               <div className="flex justify-between">
@@ -51,18 +47,19 @@ const FlightCover = (props) => {
                   <p>
                     Starting from{" "}
                     <span className="block text-right text-[#425D97] text-xl font-bold">
-                      ₹ {props.adultPrice}
+                      ₹ {props?.adultPrice}
                     </span>{" "}
                   </p>
-                  <p>{props.flightDuration?.length > 1 ? props.flightIntervalTime : props.flightDuration[0]} </p>
+                  {/* <p>{props.flightDuration?.length > 1 ? props.flightIntervalTime : props.flightDuration[0]} </p> */}
+                  <p>{props.totalFlightDuration}</p>
                 </div>
               </div>
               <hr className="ms:block hidden my-3" />
-              <div className="flex justify-between items-center ">
+              <div className="flex justify-between items-center">
                 <div className="ms:block hidden text-start">
                   <div>
                     <span className="text-[3.72vw]">
-                      {props.currentDestination}
+                      {props.currentDestination[0]}
                     </span>
                   </div>
                 </div>
@@ -95,7 +92,7 @@ const FlightCover = (props) => {
                 </div>
                 <div className="ms:block hidden">
                   {/* <span className="font-bold">{props.arrivalTime}</span> */}
-                  {/* <span className="text-[3.72vw]">{props.nextDestination[0]}</span> */}
+                  <span className="text-[3.72vw]">{props.nextDestination.length > 1 ? props.nextDestination[1] : props.nextDestination[0]}</span>
                 </div>
                 <div className="ms:hidden">
                   <span className="font-bold">{props.arrivalTime[0]}</span>
@@ -104,11 +101,11 @@ const FlightCover = (props) => {
               </div>
               <div className="ms:flex justify-between items-center mt-3 hidden">
                 <div className="font-bold text-[#BDBDC2]">
-                  {props.departureTime}
+                  {props.departureTime[0]}
                 </div>
-                {/* <div className="font-bold">{props.flightDuration[0]}</div> */}
+                <div className="font-bold">{props.totalFlightDuration[0]}</div>
                 <div className="font-bold text-[#BDBDC2]">
-                  {props.arrivalTime}
+                  {props.arrivalTime[0]}
                 </div>
               </div>
               <Link
