@@ -579,7 +579,8 @@ const FlightPreview = () => {
                 </h6>
                 <div className="flex justify-between md:w-full w-96">
                   <h5 className="text-xl font-[500] text-[#112211]">
-                    Base Fare
+                    {/* Base Fare */}
+                    Total Fare
                   </h5>
                   <h5 className="text-xl font-[700] text-[#425D97]">
                     {/* ₹ {flightDataState.adultPrice} */}

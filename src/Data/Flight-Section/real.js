@@ -16,7 +16,7 @@ const flight = [
         flightDuration: ['02h 05m'],
         flightLocationFrom: ["Veer Savarkar International Airport, India"],
         flightLocationTo: ["Chennai International Airport, India"],
-        adultPrice: 7133,
+        adultPrice: 7133,//base price
         fare: 4951,
         tax: 1332,
         discount: 550,

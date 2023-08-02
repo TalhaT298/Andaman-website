@@ -1254,18 +1254,19 @@ const TravellersDetailsFlight = () => {
   //   </div>
   // ));
 
+  const fee = 1000;
   const priceData = coverData?.mappedArr?.slice(0, 1).map((flight, index) => (
     <>
       <div className="flex flex-col gap-4">
         <h1 className="font-bold">Price Details</h1>
         <div className="flex justify-between">
           <p className="font-[500] text-md">Base Fare</p>
-          <p className="font-[600] text-md">₹ {flight?.fare}</p>
+          <p className="font-[600] text-md">₹ {flight?.fare + fee}</p>
         </div>
-        <div className="flex justify-between">
+        {/* <div className="flex justify-between">
           <p className="font-[500] text-md">Fee</p>
           <p className="font-[600] text-md">₹ {flight?.fee}</p>
-        </div>
+        </div> */}
 
         <div className="flex justify-between">
           <p className="font-[500] text-md">Taxes</p>
@@ -1283,7 +1284,7 @@ const TravellersDetailsFlight = () => {
       <hr className="mt-4 mb-8" />
       <div className="flex justify-between">
         <p className="font-[500] text-md">Total</p>
-        <p className="font-[600] text-md">₹ {flight?.fare + flight?.tax + flight?.convenience + flight?.fee - flight?.discount}</p>
+        <p className="font-[600] text-md">₹ {flight?.fare + flight?.tax + flight?.convenience + fee - flight?.discount}</p>
       </div>
     </>
   ))
@@ -1319,6 +1320,7 @@ const TravellersDetailsFlight = () => {
 
         <div className="flex gap-2 flex-col">
           <h1>Flight: <span className="font-bold">{flight?.flightName}</span></h1>
+          <h1>Flight No: <span className="font-bold">{flight?.flightNo}</span></h1>
           <h1>
             Travel Route: <span className="font-bold">{flight?.travelRoute}</span>
           </h1>
@@ -1340,23 +1342,27 @@ const TravellersDetailsFlight = () => {
   const infantEmailContent = UseEmailContent(infantDetails, null)
   const contactEmailContent = UseContactContent([contactDetails])
 
+  // console.log(coverData.mappedArr)
+
   const tripdetails = coverData.mappedArr?.map((trip, index) => {
-    return `flightDate: ${trip.flightDate[index]}
-  flightGateway: ${trip.flightGateway}
-  flightName: ${trip.flightName}
-  flightNo: ${trip.flightNo}
-  travelRoute: ${trip.travelRoute}
-  currentDestination: ${trip.currentDestination}
-  flightInterval: ${trip.flightInterval}
-  nextDestination: ${trip.nextDestination}
-  departureTime: ${trip.departureTime}
-  arrivalTime: ${trip.arrivalTime}
-  flightDuration: ${trip.flightDuration}
-  flightLocationFrom: ${trip.flightLocationFrom}
-  flightLocationTo: ${trip.flightLocationTo}
-  adultPrice: ${trip.adultPrice}
-  fare: ${trip.fare}
-  tax: ${trip.tax}`;
+    return `flightDate: ${trip?.flightDate[index]}
+  flightGateway: ${trip?.flightGateway}
+  flightName: ${trip?.flightName}
+  flightNo: ${trip?.flightNo}
+  travelRoute: ${trip?.travelRoute}
+  currentDestination: ${trip?.currentDestination}
+  flightInterval: ${trip?.flightInterval}
+  nextDestination: ${trip?.nextDestination}
+  departureTime: ${trip?.departureTime}
+  arrivalTime: ${trip?.arrivalTime}
+  flightDuration: ${trip?.flightDuration}
+  flightLocationFrom: ${trip?.flightLocationFrom}
+  flightLocationTo: ${trip?.flightLocationTo}
+  fare: ${trip?.fare + 1000}
+  tax: ${trip?.tax}
+  discount:${trip?.discount}
+  convenience:${trip?.convenience}
+  total:${trip?.fare + 1000 + trip?.tax + trip?.convenience - trip?.discount}`;
   }).join('\n\n')
 
   const adultContent = adultEmailContent ? `${adultEmailContent}\n\n` : '';

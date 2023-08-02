@@ -90,20 +90,20 @@ const ReviewBookingFlight = () => {
         </div>
       </div>
       <hr className="my-5" />
-      <p>
+      {/* <p>
         Your booking is protected by <b>golobe</b>
-      </p>
-      <hr className="my-5" />
+      </p> */}
+      {/* <hr className="my-5" /> */}
       <div className="flex flex-col gap-4">
         <h1 className="font-bold">Price Details</h1>
         <div className="flex justify-between">
           <p className="font-[500] text-md">Base Fare</p>
-          <p className="font-[600] text-md">₹ {flight?.fare}</p>
+          <p className="font-[600] text-md">₹ {flight?.fare + 1000}</p>
         </div>
-        <div className="flex justify-between">
+        {/* <div className="flex justify-between">
           <p className="font-[500] text-md">Fee</p>
           <p className="font-[600] text-md">₹ {flight?.fee}</p>
-        </div>
+        </div> */}
         <div className="flex justify-between">
           <p className="font-[500] text-md">Discount</p>
           <p className="font-[600] text-md">₹ {flight?.discount}</p>

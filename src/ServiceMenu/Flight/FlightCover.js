@@ -16,7 +16,9 @@ const FlightCover = (props) => {
     setCoverData({ ...props, startingDate, travellerInfo, passengerClass })
   }
 
-  const totalPrice = props.adultPrice + 1000;
+  console.log(props)
+  // const totalPrice = props.adultPrice + 1000;
+  const totalPrice = props?.fare + props?.tax + props?.convenience + 1000 - props?.discount;
 
   return (
     <div key={props.flightID}>
@@ -25,7 +27,8 @@ const FlightCover = (props) => {
         <div className="flex-row bg-white rounded-xl w-auto py-8 h-auto shadow-[0px_4px_16px_rgba(17,34,17,0.05)] transition:origin-center hover:ease-in-out hover:scale-105 transition:duration-1000 transition-transform">
           <div className="text-[#112211] flex items-center md:gap-5 gap-16  mx-auto py-auto md:px-8 px-10 text-center  w-full xs:flex-col xs:py-2 xs:gap-y-3">
             <div className="ms:hidden">
-              <img src={flightLogo} alt="flight-logo" className="w-20 h-14 mb-4" />{" "}
+              {/* todo image */}
+              <img src={flightLogo} alt="flight-logo" className="w-28 h-14 mb-4" />{" "}
               {/* <h4 className="text-lg font-semibold">Emirates</h4>{" "} */}
               <p className="text-[#112211] text-sm">{props.flightNo[0]}</p>
             </div>
