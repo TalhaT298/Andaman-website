@@ -8,10 +8,6 @@ import Navforwithout from "../../Navforwithout";
 import { useDataContext } from "../../context/useDataContext";
 import flightFeature from "../../images/flightFeature.png";
 import flightIcon from "../../images/flightIcon.png";
-// import flight from "../../Data/Flight-Section/flight";
-// import flightLogoMini from "../../images/flightLogoMini.png";
-// import flightMobile from "../../images/flightMobile.png";
-// import flightLogo from "../../images/flightlogo.png";
 import master from "../../images/image_source_for_shiptab/mastercard.png";
 import visa from "../../images/image_source_for_shiptab/visa.png";
 import { GiSchoolBag } from "react-icons/gi";
@@ -83,7 +79,7 @@ const ReviewBookingFlight = () => {
     <div className="p-4 lg:w-full  bg-white" key={index}>
       {" "}
       <div className=" flex flex-wrap items-center gap-5 ">
-        <img src={flight?.flightLogo} alt="flightLogo" className="w-24 h-24 ms:w-28 ms:h-20" />
+        <img src={flight?.flightLogo} alt="flightLogo" className="w-24 ms:w-28" />
         <div>
           <p className="font-[500] text-black/75">{flight?.passengerClass} Class</p>
           <p className="font-semibold text-lg">{flight?.flightName}</p>
@@ -154,14 +150,8 @@ const ReviewBookingFlight = () => {
             <img
               src={flight?.flightLogo}
               alt="flightLogoMini"
-              className="w-16 h-11"
+              className="w-16"
             />
-            <div>
-              {/* <h2 className="font-semibold text-2xl">{flight?.flightNo}</h2> */}
-              <p className="text-[#112211] opacity-[0.6] font-[500]">
-                {flight?.flightName}
-              </p>
-            </div>
           </div>
           <div className="">
             {" "}
@@ -227,10 +217,10 @@ const ReviewBookingFlight = () => {
                 <img
                   src={flight.flightLogo}
                   alt="flightLogoMinimobile"
-                  className="w-10 h-10 ms:w-10 ms:h-7"
+                  className="w-12 ms:w-12"
                 />
                 <div className="">
-                  <h2 className="font-semibold text-2xl">{flight.flightNo}</h2>
+                  <h2 className="font-semibold text-xl">{flight.flightNo}</h2>
                   <p className="text-[#112211] opacity-[0.6] font-[500]">
                     {flight?.flightName}
                   </p>
