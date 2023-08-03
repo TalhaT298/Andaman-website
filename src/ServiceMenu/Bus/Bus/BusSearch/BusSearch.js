@@ -28,7 +28,7 @@ import mail from "../../../../images/image_source_for_shiptab/mail_arrow.png";
 
 const Search = ({ bus: category }) => {
     // const [buses] = UseHook()
-    console.log(category)
+    // console.log(category)
     const filterBus = bus?.filter((bus) => bus?.category === category)
 
     const { searchResults, setSearchResults, adult, setAdult, children, setChildren, infant, setInfant } = useContext(BusContext)
@@ -70,7 +70,7 @@ const Search = ({ bus: category }) => {
     ]);
 
     // Return State
-    console.log(travellerInfo)
+    // console.log(travellerInfo)
     const [endingDate, setEndingDate] = useState([
         {
             endDate: new Date(),
@@ -132,7 +132,7 @@ const Search = ({ bus: category }) => {
         adult, children, infant
     }
     // console.log(travellers)
-    console.log(travellerInfo)
+    // console.log(travellerInfo)
 
     const currentDestinationOptions = Array.from(
         new Set(bus.map((busInfo) => busInfo.currentDestination))

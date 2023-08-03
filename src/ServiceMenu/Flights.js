@@ -11,12 +11,143 @@ import { format, parse } from 'date-fns';
 const BestPrices = lazy(() => import('./Flight/BestPrices'));
 
 const Flights = () => {
+  // const flight = [
+  //   {
+  //     flightID: 64,
+  //     flightDate: ['29-07-2023', '29-07-2023'],
+  //     flightGateway: 'Terminal 1',
+  //     flightLogo: 'https://res.cloudinary.com/dmqgkr30q/image/upload/v1689786758/IndiGo_Airlines_logo.svg_dayuu4.png',
+  //     flightName: 'Indigo',
+  //     flightNo: ['6E-987', '6E-345'],
+  //     travelRoute: ['MAA', 'CCU', 'IXZ'],
+  //     currentDestination: ['Chennai', 'Kolkata'],
+  //     flightInterval: '1 stop CCU', // 1 stoppages // 2 stoppages
+  //     flightIntervalTime: ['01h 35m'],
+  //     nextDestination: ['Kolkata', 'Port Blair'],
+  //     departureTime: ['05.10', '09.15'],
+  //     arrivalTime: ['07:40', '11.25'],
+  //     flightDuration: ['02h 30m', '02h 10m'],
+  //     flightLocationFrom: ["Chennai International Airport, India", "Netaji Subhash Chandra Bose International Airport, India"],
+  //     flightLocationTo: ["Netaji Subhash Chandra Bose International Airport, India", "Veer Savarkar International Airport, India"],
+  //     adultPrice: 9559,
+  //     fare: 8448,
+  //     tax: 1111,
+  //     discount: 0,
+  //     childrenPrice: 3000, // this is just dummy price
+  //     infantPrice: 2000, // this is just dummy price
+  //     convenience: 400,
+  //     totalFlightDuration: ['6h 15m'],
+  //     refund: 'Partially Refundable',
+  //     meals: 'Not Mentioned',
+  //     baggage: {
+  //       handBag: '7 kgs',
+  //       checkIn: '15 kgs',
+  //     }
+  //   },
+
+  //   {
+  //     flightID: 65,
+  //     flightDate: ['29-07-2023', '30-07-2023'],
+  //     flightGateway: 'Terminal 1',
+  //     flightLogo: 'https://res.cloudinary.com/dmqgkr30q/image/upload/v1689786758/IndiGo_Airlines_logo.svg_dayuu4.png',
+  //     flightName: 'Indigo',
+  //     flightNo: ['6E-6411', '6E-2788'],
+  //     travelRoute: ['MAA', 'CCU', 'IXZ'],
+  //     currentDestination: ['Chennai', 'Kolkata'],
+  //     flightInterval: '1 stop CCU', // 1 stoppages // 2 stoppages
+  //     flightIntervalTime: ['07h 25m'],
+  //     nextDestination: ['Kolkata', 'Port Blair'],
+  //     departureTime: ['19:55', '05:50'],
+  //     arrivalTime: ['22:25', '08:10'],
+  //     flightDuration: ['02h 30m', '02h 20m'],
+  //     flightLocationFrom: ["Chennai International Airport, India", "Netaji Subhash Chandra Bose International Airport, India"],
+  //     flightLocationTo: ["Netaji Subhash Chandra Bose International Airport, India", "Veer Savarkar International Airport, India"],
+  //     adultPrice: 9559,
+  //     fare: 8448,
+  //     tax: 1111,
+  //     discount: 0,
+  //     childrenPrice: 3000, // this is just dummy price
+  //     infantPrice: 2000, // this is just dummy price
+  //     convenience: 400,
+  //     totalFlightDuration: ['12h 15m'],
+  //     refund: 'Partially Refundable',
+  //     meals: 'Not Mentioned',
+  //     baggage: {
+  //       handBag: '7 kgs',
+  //       checkIn: '15 kgs',
+  //     }
+  //   },
+
+  //   {
+  //     flightID: 66,
+  //     flightDate: ['29-07-2023', '29-07-2023', '30-07-2023'],
+  //     flightGateway: 'Terminal 1',
+  //     flightLogo: 'https://res.cloudinary.com/dmqgkr30q/image/upload/v1689786758/IndiGo_Airlines_logo.svg_dayuu4.png',
+  //     flightName: 'Indigo',
+  //     flightNo: ['6E-5278', '6E-5287', '6E-2788'],
+  //     travelRoute: ['MAA', 'BOM', 'CCU', 'IXZ'],
+  //     currentDestination: ['Chennai', 'Mumbai', 'Kolkata'],
+  //     flightInterval: '2 stop BOM,CCU', // 1 stoppages // 2 stoppages
+  //     flightIntervalTime: ['01h 35m', '4h 35m'],
+  //     nextDestination: ['Mumbai', 'Kolkata', 'Port Blair'],
+  //     departureTime: ['19:15', '22.40', '05:50'],
+  //     arrivalTime: ['21:05', '01.15', '08:10'],
+  //     flightDuration: ['01h 50m', '2h 35m', '02h 20m'],
+  //     flightLocationFrom: ["Chennai International Airport, India", "Chhatrapati Shivaji International Airport, India", "Netaji Subhash Chandra Bose International Airport, India"],
+  //     flightLocationTo: ["Chhatrapati Shivaji International Airport, India", "Netaji Subhash Chandra Bose International Airport, India", "Veer Savarkar International Airport, India"],
+  //     adultPrice: 9874,
+  //     fare: 8333,
+  //     tax: 1541,
+  //     discount: 0,
+  //     childrenPrice: 3000, // this is just dummy price
+  //     infantPrice: 2000, // this is just dummy price
+  //     convenience: 400,
+  //     totalFlightDuration: ['12h 55m'],
+  //     refund: 'Partially Refundable',
+  //     meals: 'Not Mentioned',
+  //     baggage: {
+  //       handBag: '7 kgs',
+  //       checkIn: '15 kgs',
+  //     }
+  //   },
+
+  //   {
+  //     flightID: 35,
+  //     flightDate: ['30-07-2023'],
+  //     flightGateway: 'Terminal 1',
+  //     flightLogo: 'https://res.cloudinary.com/dmqgkr30q/image/upload/v1689782096/spicejetlogo_vrndyy.png',
+  //     flightName: 'SpiceJet',
+  //     flightNo: ['SG- 609'],
+  //     travelRoute: ['MAA', 'IXZ'],
+  //     currentDestination: ['Chennai'],
+  //     flightInterval: 'Direct', // 1 stoppages // 2 stoppages
+  //     nextDestination: ['Port Blair'],
+  //     departureTime: ['08:40'],
+  //     arrivalTime: ['10:55'],
+  //     flightDuration: ['02h 15m'],
+  //     flightLocationFrom: ["Chennai International Airport, India"],
+  //     flightLocationTo: ["Veer Savarkar International Airport, India"],
+  //     adultPrice: 6675,
+  //     fare: 5800,
+  //     tax: 875,
+  //     discount: 560,
+  //     childrenPrice: 3000, // this is just dummy price
+  //     infantPrice: 2000, // this is just dummy price
+  //     convenience: 400,
+  //     totalFlightDuration: ['02h 15m'],
+  //     refund: 'Refundable',
+  //     meals: 'Not Mentioned',
+  //     baggage: {
+  //       handBag: '7 kgs',
+  //       checkIn: '15 kgs',
+  //     }
+  //   },
+  // ]
+
   //Filter feature
   // const [currentDestinationFilter, setCurrentDestinationFilter] = useState('');
   // const [nextDestinationFilter, setNextDestinationFilter] = useState('');
   const { currentDestinationFilter, setCurrentDestinationFilter, nextDestinationFilter, setNextDestinationFilter, flightSearch, startingDate } = useDataContext();
-
-  // console.log(startingDate[0].startDate.toDateString())
 
   const parseDate = parse(startingDate[0].startDate.toDateString(), 'EEE MMM dd yyyy', new Date());
   const formatedDate = format(parseDate, 'dd-MM-yyyy')
@@ -29,17 +160,20 @@ const Flights = () => {
     .filter((airplane) =>
       nextDestinationFilter === '' ||
         airplane.nextDestination?.length > 1 ?
-        airplane.nextDestination[1]?.toLowerCase() : airplane.nextDestination[0]?.toLowerCase() === nextDestinationFilter?.toLowerCase()
+        airplane.nextDestination[0]?.toLowerCase() : airplane.nextDestination[0]?.toLowerCase() === nextDestinationFilter?.toLowerCase()
     )
-    .filter((airplane) => airplane.flightDate === formatedDate)
+    .filter((airplane) => airplane.flightDate[0] === formatedDate)
     .map((airplane, index) => {
-      return (<> {flightSearch &&
-        <FlightCover key={airplane.flightID} {...airplane} />}
-      </>
+      return (
+        <>
+          {
+            flightSearch &&
+            <FlightCover key={airplane.flightID} {...airplane} />
+          }
+        </>
       );
     });
 
-  // console.log(flightData)
   return (
     <div className="pt-10 h-full w-full relative" style={{ fontFamily: "Montserrat" }}>
 

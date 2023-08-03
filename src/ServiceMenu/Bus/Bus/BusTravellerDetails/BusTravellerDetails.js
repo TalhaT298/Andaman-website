@@ -6,6 +6,7 @@ import Footer from '../../../../Component/Footer/Footer';
 import Navforwithout from '../../../../Navforwithout';
 import { format } from 'date-fns';
 import emailjs from '@emailjs/browser';
+import { UseEmailContent, UseContactContent } from '../../../../Component/Hooks/UseEmailContent';
 
 const BusTravellerDetails = () => {
     const [screenWidth, setScreenWidth] = useState(window.innerWidth);
@@ -18,8 +19,6 @@ const BusTravellerDetails = () => {
         phone: "",
         altPhone: "",
     });
-    // console.log(contactDetails)
-    // console.log(adultArr)
     const { bookingInfo, searchResults, setSearchResults, adult, setAdult, children, setChildren, infant, setInfant } = useContext(BusContext)
 
     useEffect(() => {
@@ -34,7 +33,6 @@ const BusTravellerDetails = () => {
             window.removeEventListener('resize', handleResize);
         };
     }, [screenWidth]);
-
 
     useEffect(() => {
         const tempAdultDetails = [];
@@ -97,25 +95,17 @@ const BusTravellerDetails = () => {
         setInfantArr(data);
     };
 
-    // console.log(adult)
     const copyAdultSeat = [...bookingInfo?.selectedSeat]
-    // console.log(copyAdultSeat, '88')
     const adultSeat = copyAdultSeat?.slice(0, `${bookingInfo?.travellerInfo?.adult}`)
-    // console.log(adultSeat, '91')
-    // console.log(bookingInfo?.selectedSeat)
     const restSeat = copyAdultSeat.filter((seat) => !adultSeat.includes(seat))
-    // console.log(restSeat, '94')
     const childrenSeat = restSeat?.slice(0, `${bookingInfo?.travellerInfo?.children}`)
-    // console.log(childrenSeat, '96')
     const infantSeat = restSeat.filter((seat) => !childrenSeat.includes(seat))
-    // console.log(infantSeat)
     // display adults starts here
 
     const adultsData = adultArr?.map((adult, index) => (
         <div key={index}>
             <div className='flex items-center justify-between'>
                 <h1 className="font-bold mt-5 mb-3">Adult {index + 1}</h1>
-
                 <h1 className="font-bold mt-5 mb-3">seat {adultSeat[index]}</h1>
             </div>
             <div className="flex flex-col gap-3 text-sm">
@@ -136,7 +126,6 @@ const BusTravellerDetails = () => {
                         <option value="Mrs">Mrs</option>
                     </select>
                 </div>
-
                 <div>
                     <label htmlFor="name">Full Name</label>
                     <input
@@ -149,7 +138,6 @@ const BusTravellerDetails = () => {
                         required
                     />
                 </div>
-
                 <div>
                     <label htmlFor="age">Age</label>
                     <input
@@ -162,7 +150,6 @@ const BusTravellerDetails = () => {
                         required
                     />
                 </div>
-
                 <div>
                     <label htmlFor="gender">Gender</label>
                     <select
@@ -181,7 +168,6 @@ const BusTravellerDetails = () => {
                         <option value="Other">Other</option>
                     </select>
                 </div>
-
                 <div>
                     <label htmlFor="country">Nationality</label>
                     <select
@@ -463,7 +449,6 @@ const BusTravellerDetails = () => {
                 <h1 className="font-bold mt-5 mb-3">Children {index + 1}</h1>
                 <h1 className="font-bold mt-5 mb-3">seat {childrenSeat[index]}</h1>
             </div>
-
             <div className="flex flex-col gap-3 text-sm">
                 <div>
                     <label htmlFor="title">Title</label>
@@ -482,7 +467,6 @@ const BusTravellerDetails = () => {
                         <option value="Mrs">Mrs</option>
                     </select>
                 </div>
-
                 <div>
                     <label htmlFor="name">Full Name</label>
                     <input
@@ -495,7 +479,6 @@ const BusTravellerDetails = () => {
                         required
                     />
                 </div>
-
                 <div>
                     <label htmlFor="age">Age</label>
                     <input
@@ -508,7 +491,6 @@ const BusTravellerDetails = () => {
                         required
                     />
                 </div>
-
                 <div>
                     <label htmlFor="gender">Gender</label>
                     <select
@@ -803,12 +785,9 @@ const BusTravellerDetails = () => {
     ));
     // display children ends here 
     // display infant starts here 
-    // console.log(infantArr)
-    // console.log(adultArr)
-    // console.log(childrenArr)
     const infantsData = infantArr?.map((infant, index) => (
         <div key={index}>
-            <div className='flex items-center justify-center'>
+            <div className='flex items-center justify-between'>
                 <h1 className="font-bold mt-5 mb-3">Infant {index + 1}</h1>
                 <h1 className="font-bold mt-5 mb-3">seat {infantSeat[index]}</h1>
             </div>
@@ -1147,49 +1126,49 @@ const BusTravellerDetails = () => {
     ));
     // display infant ends here
     // contact details event handler
-    console.log(bookingInfo)
     const navigate = useNavigate();
-    // changes
-    // route-porblair-baratang
-    // genre
 
-    const adultEmailContent = adultArr?.map((adult, index) => {
-        return `Title: ${adult?.title}
-      Name: ${adult?.name}
-      Gender: ${adult?.gender}
-      Age: ${adult?.age}
-      Nationality: ${adult?.nationality}
-      Seat: ${adultSeat[index]}`
-    }).join('\n\n');
-    const childrenEmailContent = childrenArr?.map((children, index) => {
-        return `Title: ${children?.title}
-      Name: ${children?.name}
-      Gender: ${children?.gender}
-      Age: ${children?.age}
-      Nationality: ${children?.nationality}
-      Seat: ${childrenSeat[index]}
-      `;
-    }).join('\n\n');
-    const infantEmailContent = infantArr?.map((infant, index) => {
-        return ` Title: ${infant?.title}
-        Name: ${infant?.name}
-        Gender: ${infant?.gender}
-        Age: ${infant?.age}
-        Nationality: ${infant?.nationality}
-        Seat: ${infantSeat[index]}
-        `;
-    }).join('\n\n');
+    const adultEmailContent = UseEmailContent(adultArr, adultSeat)
+    const childrenEmailContent = UseEmailContent(childrenArr, childrenSeat)
+    const infantEmailContent = UseEmailContent(infantArr, infantSeat)
 
-    const contactEmailContent = [contactDetails]?.map(contact => {
-        return ` Name: ${contact?.name}
-        email: ${contact?.email}
-        phone: ${contact?.phone}
-        alternative-phone: ${contact?.altPhone}`;
-    }).join('\n\n');
+    // const adultEmailContent = adultArr?.map((adult, index) => {
+    //     return `Title: ${adult?.title}
+    //   Name: ${adult?.name}
+    //   Gender: ${adult?.gender}
+    //   Age: ${adult?.age}
+    //   Nationality: ${adult?.nationality}
+    //   Seat: ${adultSeat[index]}`
+    // }).join('\n\n');
+    // const childrenEmailContent = childrenArr?.map((children, index) => {
+    //     return `Title: ${children?.title}
+    //   Name: ${children?.name}
+    //   Gender: ${children?.gender}
+    //   Age: ${children?.age}
+    //   Nationality: ${children?.nationality}
+    //   Seat: ${childrenSeat[index]}
+    //   `;
+    // }).join('\n\n');
+    // const infantEmailContent = infantArr?.map((infant, index) => {
+    //     return ` Title: ${infant?.title}
+    //     Name: ${infant?.name}
+    //     Gender: ${infant?.gender}
+    //     Age: ${infant?.age}
+    //     Nationality: ${infant?.nationality}
+    //     Seat: ${infantSeat[index]}
+    //     `;
+    // }).join('\n\n');
+
+    // const contactEmailContent = [contactDetails]?.map(contact => {
+    //     return ` Name: ${contact?.name}
+    //     email: ${contact?.email}
+    //     phone: ${contact?.phone}
+    //     alternative-phone: ${contact?.altPhone}`;
+    // }).join('\n\n');
+
+    const contactEmailContent = UseContactContent([contactDetails])
 
 
-
-    console.log(bookingInfo)
     const totalAdultFare = bookingInfo?.travellerInfo?.adult * bookingInfo?.adultPrice;
     const totalInfantFare = bookingInfo?.travellerInfo?.infant * bookingInfo?.infantPrice;
     const totalChildrenFare = bookingInfo?.travellerInfo?.children * bookingInfo?.childrenPrice;
@@ -1206,7 +1185,6 @@ const BusTravellerDetails = () => {
     // if (twoWay) {
     //     num = 2;
     // }
-    // console.log(bookingInfo)
 
     const tripdetails = [{ 'currentDestination': bookingInfo?.currentDestination, 'nextDestination': bookingInfo.nextDestination, 'date': date, 'departureTime': bookingInfo?.departureTime, 'arrivalTime': bookingInfo?.arrivalTime, 'busCompanyName': bookingInfo?.busCompanyName, 'routeNameFrom': bookingInfo?.routeNameFrom, 'fareTotal': totalFare, 'discountPrice': discount, 'tax': taxes, 'fees': fee, 'total': netTotal }].map((trip) => {
         return `
@@ -1219,7 +1197,7 @@ const BusTravellerDetails = () => {
         RouteNameFrom:${trip.routeNameFrom}
         TotalFare:${trip.fareTotal}
         DiscountPrice:${trip.discountPrice}
-        Tax:${trip.tax}
+        Tax:${trip.tax.toFixed(2)}
         Total:${trip.total}`;
 
     }).join('\n\n')
@@ -1287,7 +1265,7 @@ const BusTravellerDetails = () => {
                         <p className="font-[600] text-md">₹ {taxes.toFixed(2)}</p>
                     </div>
                     <div className="flex justify-between">
-                        <p className="font-[500] text-md">Service Fee</p>
+                        <p className="font-[500] text-md">Convenience Fee</p>
                         <p className="font-[600] text-md">₹ {fee}</p>
                     </div>
                 </div>
@@ -1309,9 +1287,7 @@ const BusTravellerDetails = () => {
 
     const handleContactChange = (e) => {
         let object = { ...contactDetails };
-        // console.log(object)
         object[e.target.name] = e.target.value;
-        // console.log(object[e.target.name])
         setContactDetails(object);
     };
     const handleSubmit = (e) => {
@@ -1404,7 +1380,7 @@ const BusTravellerDetails = () => {
                 </div>
                 <div className={`h-auto w-full max-w-[1232px] flex gap-3 lg:flex-wrap justify-between mt-12 mb-8 mx-auto ${conditionalPadding}`}>
 
-                    <div className="w-[50%] h-[502px] lg:w-full shadow rounded bg-white xl:w-[50%] px-8 py-8">
+                    <div className="w-[50%] h-fit lg:w-full shadow rounded bg-white xl:w-[50%] px-8 py-8">
                         <h1 className="text-[#699c78] whitespace-nowrap lexs:text-[5.8vw] text-[26px] md:text-2xl font-[Montserrat] font-semibold ">
                             Add Traveller(s) Details
                         </h1>

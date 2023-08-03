@@ -38,10 +38,11 @@ const FlightCover = (props) => {
   //     unsubscribe();
   //   };
   // }, []);
+  console.log(props)
 
   return (
     <>
-      <div className="py-3 flex-col w-5/6 mx-auto my-auto ">
+      <div key={props?.index} className="py-3 flex-col w-5/6 mx-auto my-auto ">
         {/* flight ? <div>{JSON.stringify(flight)}</div> : <div>Loading...</div> */}
         <div
           onClick={() => {
