@@ -28,7 +28,7 @@ const FlightCover = (props) => {
           <div className="text-[#112211] flex items-center md:gap-5 gap-16  mx-auto py-auto md:px-8 px-10 text-center  w-full xs:flex-col xs:py-2 xs:gap-y-3">
             <div className="ms:hidden">
               {/* todo image */}
-              <img src={flightLogo} alt="flight-logo" className="w-28 h-14 mb-4" />{" "}
+              <img src={flightLogo} alt="flight-logo" className="w-28 mb-4" />{" "}
               {/* <h4 className="text-lg font-semibold">Emirates</h4>{" "} */}
               <p className="text-[#112211] text-sm">{props.flightNo[0]}</p>
             </div>
