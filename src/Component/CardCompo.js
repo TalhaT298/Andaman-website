@@ -212,10 +212,13 @@ const CardCompo = ({
               <BsFlagFill className="fill-[#4c584c]" />
             </div>
             <p className="text-justify ms:text-sm">
-              Lorem ipsum dolor sit amet consectetur, adipisicing elit. Cum,
-              enim harum ipsa labore voluptatem sit laborum voluptatibus,
-              reiciendis dignissimos reprehenderit provident exercitationem fuga
-              omnis architecto iure eaque modi.
+              The Urban Retreat offers contemporary elegance and all the modern
+              conveniences. The rooms are stylishly designed with modern
+              amenities and comfortable furnishings. The rooftop pool and bar
+              provide a trendy place to unwind after a day exploring the city.
+              Located in the heart of the city, this hotel is ideal for
+              travelers who want to be close to urban attractions while enjoying
+              a comfortable stay.
             </p>
           </article>
         </div>
@@ -229,16 +232,18 @@ const CardCompo = ({
           <article>
             <div className="flex justify-between w-auto">
               <div>
-                <span className="font-semibold">5.0 Amazing |</span>{" "}
+                <span className="font-semibold">5.0 Outstanding |</span>{" "}
                 <span>Cristofer Ekstrom Bothman</span>
               </div>
               <BsFlagFill className="fill-[#4c584c]" />
             </div>
             <p className="ms:text-sm text-justify">
-              Lorem ipsum dolor sit amet consectetur, adipisicing elit. Cum,
-              enim harum ipsa labore voluptatem sit laborum voluptatibus,
-              reiciendis dignissimos reprehenderit provident exercitationem fuga
-              omnis architecto iure eaque modi.
+              The Cozy Corner Inn offers great value for money. Though not
+              lavish, the rooms are clean, comfortable, and well-maintained. The
+              friendly staff adds to the overall positive experience. Located
+              conveniently near public transport, this hotel is a smart choice
+              for travelers on a budget who don't want to compromise on
+              cleanliness and basic amenities.
             </p>
           </article>
         </div>
@@ -252,16 +257,18 @@ const CardCompo = ({
           <article>
             <div className="flex justify-between w-auto">
               <div>
-                <span className="font-semibold">5.0 Amazing |</span>{" "}
+                <span className="font-semibold">5.0 Stunning |</span>{" "}
                 <span>Kaiya Lubin</span>
               </div>
               <BsFlagFill className="fill-[#4c584c]" />
             </div>
             <p className="ms:text-sm text-justify">
-              Lorem ipsum dolor sit amet consectetur, adipisicing elit. Cum,
-              enim harum ipsa labore voluptatem sit laborum voluptatibus,
-              reiciendis dignissimos reprehenderit provident exercitationem fuga
-              omnis architecto iure eaque modi.
+              The Vintage Inn exudes old-world charm with its quaint decor and
+              personalized service. The rooms are cozy and tastefully decorated,
+              creating a homely ambiance. The hotel's location is ideal, nestled
+              amidst picturesque streets and close to local attractions. The
+              warm and friendly staff make you feel like a cherished guest,
+              making this a charming choice for a relaxing getaway.
             </p>
           </article>
         </div>
@@ -281,10 +288,12 @@ const CardCompo = ({
               <BsFlagFill className="fill-[#4c584c]" />
             </div>
             <p className="ms:text-sm text-justify">
-              Lorem ipsum dolor sit amet consectetur, adipisicing elit. Cum,
-              enim harum ipsa labore voluptatem sit laborum voluptatibus,
-              reiciendis dignissimos reprehenderit provident exercitationem fuga
-              omnis architecto iure eaque modi.
+              The Seaside Resort offers the ultimate beach vacation. Wake up to
+              the sound of crashing waves and enjoy stunning ocean views from
+              your room. The resort's private beach area allows for a relaxing
+              day by the sea, and the beachside bar serves refreshing cocktails.
+              Whether you're sunbathing on the sandy shores or exploring nearby
+              water sports, this hotel is a seaside paradise
             </p>
           </article>
         </div>

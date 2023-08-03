@@ -64,7 +64,7 @@ export const list = [
     ],
     link: "SingleHotel/1",
     price: "20000",
-    location: "15-20 May",
+    location: "Govind Nagar",
     title: "Green Imperial Resort",
   },
   {
@@ -77,7 +77,7 @@ export const list = [
     ],
     link: "/SingleHotel/2",
     price: "30000",
-    location: "25-20 May",
+    location: "Beach No 7, Havelock,",
     title: "TSG Blue Resort",
   },
   {
@@ -90,7 +90,7 @@ export const list = [
     ],
     link: "/SingleHotel/3",
     price: "45000",
-    location: "10-20 Oct",
+    location: "Havelock Island ",
     title: "Symphony Beach Resort",
   },
   {
@@ -103,7 +103,7 @@ export const list = [
     ],
     link: "/SingleHotel/4",
     price: "20000",
-    location: "15-20 May",
+    location: "Bhathu basti,Port Blair",
     title: "Coral Reef Hotel",
   },
   {
@@ -115,8 +115,8 @@ export const list = [
       "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/15/9c/2a/cc/andaman-castle.jpg?w=1200&h=-1&s=1",
     ],
     link: "/SingleHotel/5",
-    price: "20000",
-    location: "15-20 May",
+    price: "40000",
+    location: "Chandini Chowk,Port Blair",
     title: "Andaman Castle",
   },
   {
@@ -128,8 +128,8 @@ export const list = [
       "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/18/96/af/b4/rainforest-resort.jpg?w=1200&h=-1&s=1",
     ],
     link: "/SingleHotel/6",
-    price: "20000",
-    location: "15-20 May",
+    price: "30600",
+    location: "Gunawata,Rajasthan",
     title: "Rainforest Hotel",
   },
   {
@@ -141,8 +141,8 @@ export const list = [
       "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/23/f1/c2/5d/lemon-tree-hotel-port.jpg?w=1200&h=-1&s=1",
     ],
     link: "/SingleHotel/7",
-    price: "20000",
-    location: "15-20 May",
+    price: "30000",
+    location: "Gunawata, Rajasthan",
     title: "Lemon Tree",
   },
   {
@@ -154,8 +154,8 @@ export const list = [
       "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/1d/87/88/e0/the-bed-sit-out.jpg?w=1200&h=-1&s=1",
     ],
     link: "/SingleHotel/8",
-    price: "20,000",
-    location: "15-20 May",
+    price: "20,200",
+    location: "The Govind Nagar",
     title: "The Kingdom",
   },
   {
@@ -168,7 +168,7 @@ export const list = [
     ],
     link: "/SingleHotel/9",
     price: "20000",
-    location: "15-20 May",
+    location: "Beach No 5 Kalapathar Road",
     title: "Aroma Resort",
   },
   {
@@ -180,8 +180,8 @@ export const list = [
       "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/12/61/51/34/restaurant-outside-view.jpg?w=1200&h=-1&s=1",
     ],
     link: "/SingleHotel/10",
-    price: "20000",
-    location: "15-20 May",
+    price: "30500",
+    location: "SH 5 Vijayanagar Beach",
     title: "Dolphin Resort",
   },
   {
@@ -193,12 +193,12 @@ export const list = [
       "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/27/a6/6e/ed/caption.jpg?w=1100&h=-1&s=1",
     ],
     link: "SingleHotel/11",
-    price: "20000",
-    location: "15-20 May",
+    price: "20500",
+    location: "Gunawata, Rajasthan",
     title: "Matsya,",
   },
   {
-    rating: "4",
+    rating: "4.5",
     imgSrc: [
       "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/1c/f3/3a/ee/sea-shell-samssara.jpg?w=1200&h=-1&s=1",
       "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/1c/f3/3b/05/sea-shell-samssara.jpg?w=1200&h=-1&s=1",
@@ -206,8 +206,8 @@ export const list = [
       "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/16/65/69/09/sea-shell-samssara.jpg?w=1100&h=-1&s=1",
     ],
     link: "/SingleHotel/12",
-    price: "20000",
-    location: "15-20 May",
+    price: "30000",
+    location: "akshmanpur Village",
     title: "Sea Samssara",
   },
 ];
