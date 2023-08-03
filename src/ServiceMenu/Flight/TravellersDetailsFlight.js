@@ -1459,11 +1459,13 @@ const TravellersDetailsFlight = () => {
               {adultsData}
               {childrenData}
               {infantsData}
+              {/* <p className="h-8"></p>
+              <p className="h-9"></p>
+              <p className="h-9"></p> */}
             </div>
 
             <form
-              className="w-[50%] lg:w-full h-fit shadow rounded bg-white overflow-hidden 
-                    p-8 "
+              className="w-[50%] lg:w-full h-fit shadow rounded bg-white overflow-hidden p-8"
               onSubmit={handleSubmit}
             >
               <h1 className="text-[#699c78] whitespace-nowrap lexs:text-[5.8vw] text-[26px] md:text-2xl font-[Montserrat] font-bold mb-6 md:mb-3 tracking-wide">
@@ -1543,7 +1545,7 @@ const TravellersDetailsFlight = () => {
               </button>
             </form>
 
-            <div className="w-[50%] h-fit shadow rounded bg-white lg:w-full  p-8 ">
+            <div className="w-[50%] h-fit shadow rounded bg-white lg:w-full p-8">
               <h1 className="whitespace-nowrap lexs:text-[5.8vw] text-[26px] text-[#699c78] md:text-2xl font-[Montserrat] font-semibold">
                 Trip Summary
               </h1>

@@ -198,7 +198,7 @@ const FlightPreview = () => {
             <span>
               <MdKeyboardArrowRight />
             </span>
-            <span>{coverData?.flightName} | {coverData?.flightNo}</span>
+            <span>{coverData?.flightName}</span>
           </div>
           <div className="text-xl font-bold mt-3">
             <span>{coverData?.flightName} | {coverData?.flightNo}</span>
