@@ -1,73 +1,51 @@
 # Live Link
-<https://andaman-website.vercel.app/>
+<https://andaman-website.vercel.app/> </br>
 ![My Image](https://i.ibb.co/VTsTNtC/localhost-3000.png)
-# Getting Started with Create React App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+# andamanapp
 
-In the project directory, you can run:
+**andamanapp** is a React-based application that integrates various modern libraries and tools to provide a rich and dynamic user experience.
 
-### `yarn start `
+## Key Dependencies
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- **React & React DOM**: Core libraries for building and rendering the user interface.
+- **React Router DOM**: Manages routing within the application.
+- **Material-UI (MUI) & CoreUI**: Provides pre-styled UI components for consistent and responsive design.
+- **Font Awesome & Heroicons**: Libraries for enhancing visual elements with icons.
+- **Axios**: Promise-based HTTP client for making API requests.
+- **Framer Motion**: Advanced animation library for React.
+- **PrimeReact & MDBReact**: Additional UI component libraries to extend design and functionality.
+- **React Bootstrap & Bootstrap**: Styling and layout enhancement libraries.
+- **Tanstack React Query**: Efficient server state management and data fetching.
+- **Swiper & React Multi-Carousel**: Tools for creating responsive carousels and sliders.
+- **React Google Maps API & Google Autocomplete**: Integration with Google Maps and Places services.
+- **Firebase**: Firebase services integration.
+- **EmailJS**: Enables email-sending capabilities from the frontend.
+- **TailwindCSS**: Utility-first CSS framework for custom designs.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Development Dependencies
 
-### `yarn test`
+- **TailwindCSS & PostCSS**: For styling with custom utilities and autoprefixing.
+- **Date-fns**: Library for date manipulation in JavaScript.
+- **Google Maps React**: Additional library for Google Maps integration.
+- **Autoprefixer**: Adds vendor prefixes to CSS rules.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Scripts
 
-### `yarn build`
+- `start`: Runs the application in development mode.
+- `build`: Builds the application for production.
+- `test`: Executes the test suite.
+- `eject`: Ejects the app from `react-scripts` to gain full control over the configuration.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Browser Compatibility
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+The application is optimized for modern browsers, with separate configurations for development and production environments.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Installation
 
-### `yarn eject`
+To get started with **andamanapp**, clone the repository and run the following commands:
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `yarn build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+```bash
+npm install
+npm start
